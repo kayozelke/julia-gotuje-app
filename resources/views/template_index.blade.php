@@ -50,7 +50,6 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 
 	<link rel="stylesheet" href="{{ URL::asset('css/css.css'); }} ">
-	<!-- {{ HTML::style('css/css.css'); }} -->
 
 
 	<!-- Modernizr JS -->
