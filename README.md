@@ -1,4 +1,3 @@
-
 # JuliaGotuje.pl
 
 The project of culinary blog based on Laravel framework.
