@@ -49,7 +49,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-	<link rel="stylesheet" href="{{ URL::asset('css/css.css'); }} ">
+	<link rel="stylesheet" href="{{ URL::asset('css/style.css'); }} ">
 
 
 	<!-- Modernizr JS -->
