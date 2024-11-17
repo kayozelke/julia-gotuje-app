@@ -7,6 +7,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    return '<h3>Hello world</h3>';
+Route::get('/test/{id}', function () {
+    return '<h3>Hello world, id is ' . $id . '</h3>';
+});
+
+
+Route::get('/greeting', function () {
+    return 'Hello World';
 });
