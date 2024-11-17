@@ -8,5 +8,5 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return '<h1>Hello</h1>';
+    return '<h2>Hello</h2>';
 });
