@@ -43,13 +43,13 @@
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
 	<!-- Animate -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="{{ resource_path('css/animate.css') }}">
 	<!-- Icomoon -->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="{{ resource_path('css/icomoon.css') }}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="{{ resource_path('css/bootstrap.css') }}">
 
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{ resource_path('css/style.css') }}"> 
 
 
 	<!-- Modernizr JS -->
