@@ -49,8 +49,8 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
-	{{ HTML::style('css/css.css'); }}
+	<link rel="stylesheet" href="{{ URL::asset('css/css.css'); }} ">
+	<!-- {{ HTML::style('css/css.css'); }} -->
 
 
 	<!-- Modernizr JS -->
