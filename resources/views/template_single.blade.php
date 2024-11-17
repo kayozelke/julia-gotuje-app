@@ -112,7 +112,7 @@
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 				</ul>
 				<div class="col-lg-12 col-md-12 text-center">
-					<h1 id="fh5co-logo"><a href="index.html">Magazine <sup>TM</sup></a></h1>
+					<h1 id="fh5co-logo"><a href="/template_index">Magazine <sup>TM</sup></a></h1>
 				</div>
 
 			</div>
@@ -129,8 +129,8 @@
 				<figure class="animate-box">
 					<img src="images/single_1.jpg" alt="Image" class="img-responsive">
 				</figure>
-				<span class="fh5co-meta animate-box"><a href="single.html">Travel</a></span>
-				<h2 class="fh5co-article-title animate-box"><a href="single.html">My First Time Traveling in Vietnam</a></h2>
+				<span class="fh5co-meta animate-box"><a href="/template_single">Travel</a></span>
+				<h2 class="fh5co-article-title animate-box"><a href="/template_single">My First Time Traveling in Vietnam</a></h2>
 				<span class="fh5co-meta fh5co-date animate-box">March 6th, 2016</span>
 				
 				<div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
