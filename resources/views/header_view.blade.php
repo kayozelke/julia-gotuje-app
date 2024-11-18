@@ -7,7 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Magazine &mdash; Free Fully Responsive HTML5 Bootstrap Template by FREEHTML5.co</title>
+	<title>JuliaGotuje - blog kulinarny ze smakiem</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -65,7 +65,10 @@
 		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
 		<div class="fh5co-bio">
 			<figure>
-				<img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<img 
+					src="https://preview.redd.it/whats-the-full-lore-and-background-about-the-issues-with-v0-w5e19f3gytpb1.png?width=640&crop=smart&auto=webp&s=4eb3a4f3d239cb17de38776c049520be6223e6f0"
+					alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<!-- <img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"> -->
 			</figure>
 			<h3 class="heading">O mnie</h3>
 			<h2>Emily Tran Le</h2>
@@ -112,7 +115,7 @@
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 				</ul>
 				<div class="col-lg-12 col-md-12 text-center">
-					<h1 id="fh5co-logo"><a href="/template_index">Magazine <sup>TM</sup></a></h1>
+					<h1 id="fh5co-logo"><a href="/template_index">JuliaGotuje<!--<sup>TM</sup>--></a></h1>
 				</div>
 
 			</div>
