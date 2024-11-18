@@ -17,8 +17,9 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/greeting', function () {
-    return 'Hello World';
+Route::get('/dev', function () {
+    echo view('header_view');
+    echo view('footer_view');
 });
 
 Route::get('/template_index', function () {

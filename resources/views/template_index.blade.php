@@ -98,6 +98,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- END #fh5co-offcanvas -->
 	<header id="fh5co-header">
 		
