@@ -19,6 +19,7 @@ Route::get('/test', function () {
 
 Route::get('/dev', function () {
     echo view('header_view');
+    echo view('home_page_view');
     echo view('footer_view');
 });
 
