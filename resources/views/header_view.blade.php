@@ -79,7 +79,7 @@
 
 		<div class="fh5co-menu">
 			<div class="fh5co-box">
-				<h3 class="heading">Categories</h3>
+				<h3 class="heading">Przegląd</h3>
 				<ul>
 					<li><a href="#">Travel</a></li>
 					<li><a href="#">Style</a></li>
@@ -89,10 +89,10 @@
 				</ul>
 			</div>
 			<div class="fh5co-box">
-				<h3 class="heading">Search</h3>
+				<h3 class="heading">Wyszukiwanie</h3>
 				<form action="#">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Type a keyword">
+						<input type="text" class="form-control" placeholder="Czego dziś szukasz?">
 					</div>
 				</form>
 			</div>
