@@ -10,7 +10,7 @@ Route::get('/', function () {
     echo view('header_view');
     echo view('home_page_view');
     echo view('footer_view');
-    return
+    return;
 });
 
 // Route::redirect('/', '/template_index');
