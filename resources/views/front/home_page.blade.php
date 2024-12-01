@@ -1,4 +1,4 @@
-@include('panel.auth.header')
+@include('front.header')
 
 	<div class="container-fluid">
 		<div class="row fh5co-post-entry">
@@ -145,4 +145,4 @@
 	</div>
 
 	
-@include('panel.auth.footer')
+@include('front.footer')
