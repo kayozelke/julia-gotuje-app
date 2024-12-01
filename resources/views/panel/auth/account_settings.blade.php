@@ -1,9 +1,11 @@
+
+@include('panel.auth.header')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
 
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-pills flex-column flex-md-row mb-3">
+            {{-- <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item">
                     <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Account</a>
                 </li>
@@ -15,13 +17,13 @@
                     <a class="nav-link" href="pages-account-settings-connections.html"><i
                             class="bx bx-link-alt me-1"></i> Connections</a>
                 </li>
-            </ul>
+            </ul> --}}
             <div class="card mb-4">
                 <h5 class="card-header">Profile Details</h5>
                 <!-- Account -->
                 <div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src="panel/assets/img/avatars/1.png" alt="user-avatar" class="d-block rounded" height="100"
+                        <img src="{{ asset('panel/assets/img/avatars/1.png') }}" alt="user-avatar" class="d-block rounded" height="100"
                             width="100" id="uploadedAvatar" />
                         <div class="button-wrapper">
                             <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
@@ -193,3 +195,4 @@
         </div>
     </div>
 </div>
+@include('panel.auth.footer')

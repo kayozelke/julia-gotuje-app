@@ -1,25 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
-########### FRONT ######################
+// ########### FRONT ######################
 
     Route::get('/welcome', function () {
         return view('welcome');
     });
 
     Route::get('/', function () {
-        echo view('front/header');
-        echo view('front/home_page');
-        echo view('front/footer');
-        return;
+        // echo view('front/header');
+        // echo view('front/home_page');
+        // echo view('front/footer');
+        return view('front/home_page');;
     });
 
     Route::get('/single_post_test', function () {
-        echo view('front/header');
-        echo view('front/single_post');
-        echo view('front/footer');
-        return;
+        // echo view('front/header');
+        // echo view('front/single_post');
+        // echo view('front/footer');
+        return view('front/single_post');;
     });
 
 
@@ -44,14 +45,22 @@ use Illuminate\Support\Facades\Route;
     //     return view('templates/template_single');
     // });
 
-################ PANEL ###################
+// ################ PANEL ###################
 
 Route::get('/admin_test', function () {
 
-    echo view('panel/auth/header');
-    // echo view('panel/auth/home_page');
+    // echo view('panel/auth/header');
+    // // echo view('panel/auth/home_page');
     // echo view('panel/auth/account_settings');
-    echo view('panel/auth/form_horizontal');
-    echo view('panel/auth/footer');
-    return;
+    // echo view('panel/auth/footer');
+    return view('panel/auth/account_settings');;
 });
+
+Route::get('/admin_home', function () {
+    return view('panel/auth/home_page');;
+});
+
+
+// ################ TEST #####################
+
+Route::get('/user/{id}', [UserController::class, 'show']);
