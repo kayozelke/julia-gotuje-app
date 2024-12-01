@@ -50,4 +50,9 @@ use Illuminate\Support\Facades\Route;
 
 ################ PANEL ###################
 
-
+Route::get('/admin_test', function () {
+    echo view('panel/header');
+    echo view('panel/home_page');
+    echo view('panel/footer');
+    return;
+});
