@@ -12,9 +12,22 @@ class UserController extends Controller
      */
     public function show(string $id): View
     {
-        return view('user.profile', [
-            // 'user' => User::findOrFail($id)
-        ]);
+        // return view('user.profile', [
+        //     // 'user' => User::findOrFail($id)
+        // ]);
+
+        echo view('panel/auth/header');
+
+        $variables = 42;
+
+        echo <<<EOT
+        This is some multiline text.
+        It can span multiple lines.
+        And include special characters like "quotes" and $variables.
+        EOT;
+
+        echo view('panel/auth/footer');
+        return;
     }
 }
 
