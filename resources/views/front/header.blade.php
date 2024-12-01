@@ -45,7 +45,7 @@
 	<!-- Animate -->
 	<link rel="stylesheet" href="front/css/animate.css">
 	<!-- Icomoon -->
-	<link rel="stylesheet" href="front/css/icomoon.css">
+	<link rel="stylesheet" href="common/css/icomoon.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="front/css/bootstrap.css">
 
