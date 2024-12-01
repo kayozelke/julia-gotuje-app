@@ -112,8 +112,8 @@
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 				</ul>
 				<div class="col-lg-12 col-md-12 text-center">
-					{{-- <h1 id="fh5co-logo"><a href="/template_index">Magazine <sup>TM</sup></a></h1> --}}
-					<h1 id="fh5co-logo"><a href="/template_index">JuliaGotuje.pl</a></h1>
+					{{-- <h1 id="fh5co-logo"><a href="/">Magazine <sup>TM</sup></a></h1> --}}
+					<h1 id="fh5co-logo"><a href="/">JuliaGotuje.pl</a></h1>
 				</div>
 
 			</div>
