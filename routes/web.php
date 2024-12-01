@@ -49,14 +49,14 @@ use App\Http\Controllers\UserController;
 
 Route::get('/admin_test', function () {
 
-    echo view('panel/auth/header');
-    // echo view('panel/auth/home_page');
-    echo view('panel/auth/account_settings');
-    echo view('panel/auth/footer');
-    return;
+    // echo view('panel/auth/header');
+    // // echo view('panel/auth/home_page');
+    // echo view('panel/auth/account_settings');
+    // echo view('panel/auth/footer');
+    return view('panel/auth/account_settings');;
 });
 
 
-// ################ TEST #####################endregion
+// ################ TEST #####################
 
 Route::get('/user/{id}', [UserController::class, 'show']);
