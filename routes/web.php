@@ -13,6 +13,14 @@ Route::get('/', function () {
     return;
 });
 
+Route::get('/single_post_test', function () {
+    echo view('front/header');
+    echo view('front/single_post');
+    echo view('front/footer');
+    return;
+});
+
+
 // Route::redirect('/', '/template_index');
 
 
@@ -30,10 +38,10 @@ Route::get('/test', function () {
 //     echo view('footer_view');
 // });
 
-Route::get('/template_index', function () {
-    return view('templates/template_index');
-});
+// Route::get('/template_index', function () {
+//     return view('templates/template_index');
+// });
 
-Route::get('/template_single', function () {
-    return view('templates/template_single');
-});
+// Route::get('/template_single', function () {
+//     return view('templates/template_single');
+// });
