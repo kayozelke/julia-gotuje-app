@@ -17,7 +17,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="panel/assets/"
+  data-assets-path="{{ asset('panel/assets/') }}"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -33,7 +33,7 @@
 
     <!-- Favicon -->
     {{-- <link rel="icon" type="image/x-icon" href="panel/assets/img/favicon/favicon.ico" /> --}}
-    <link rel="icon" type="image/x-icon" href="common/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('common/favicon.ico') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
