@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 // ########### FRONT ######################
 
@@ -64,3 +65,4 @@ Route::get('/admin_home', function () {
 // ################ TEST #####################
 
 Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index']);
