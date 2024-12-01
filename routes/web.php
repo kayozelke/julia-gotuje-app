@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
-########### FRONT ######################
+// ########### FRONT ######################
 
     Route::get('/welcome', function () {
         return view('welcome');
@@ -44,7 +45,7 @@ use Illuminate\Support\Facades\Route;
     //     return view('templates/template_single');
     // });
 
-################ PANEL ###################
+// ################ PANEL ###################
 
 Route::get('/admin_test', function () {
 
@@ -54,3 +55,8 @@ Route::get('/admin_test', function () {
     echo view('panel/auth/footer');
     return;
 });
+
+
+// ################ TEST #####################endregion
+
+Route::get('/user/{id}', [UserController::class, 'show']);
