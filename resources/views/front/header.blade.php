@@ -39,25 +39,25 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="common/favicon.ico">
+	<link rel="shortcut icon" href="{{ asset('common/favicon.ico') }}">
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
 	<!-- Animate -->
-	<link rel="stylesheet" href="front/css/animate.css">
+	<link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
 	<!-- Icomoon -->
-	<link rel="stylesheet" href="common/css/icomoon.css">
+	<link rel="stylesheet" href="{{ asset('common/css/icomoon.css') }}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="front/css/bootstrap.css">
+	<link rel="stylesheet" href="{{ asset('front/css/bootstrap.css') }}">
 
-	<link rel="stylesheet" href="front/css/style.css">
+	<link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 
 
 	<!-- Modernizr JS -->
-	<script src="front/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
+	<script src="{{ asset('front/js/modernizr-2.6.2.min.js') }}"></script>
+	{{-- <!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="front/js/respond.min.js"></script>
-	<![endif]-->
+	<script src="{{ asset('front/js/respond.min.js') }}"></script>
+	<![endif]--> --}}
 
 	</head>
 	<body>

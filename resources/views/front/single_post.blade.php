@@ -1,3 +1,5 @@
+@include('panel.auth.header')
+
 <a href="#" class="fh5co-post-prev"><span><i class="icon-chevron-left"></i> Prev</span></a>
 <a href="#" class="fh5co-post-next"><span>Next <i class="icon-chevron-right"></i></span></a>
 <!-- END #fh5co-header -->
@@ -174,3 +176,5 @@
         </article>
     </div>
 </div>
+
+@include('panel.auth.footer')

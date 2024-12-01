@@ -10,17 +10,17 @@ use App\Http\Controllers\UserController;
     });
 
     Route::get('/', function () {
-        echo view('front/header');
-        echo view('front/home_page');
-        echo view('front/footer');
-        return;
+        // echo view('front/header');
+        // echo view('front/home_page');
+        // echo view('front/footer');
+        return view('front/home_page');;
     });
 
     Route::get('/single_post_test', function () {
-        echo view('front/header');
-        echo view('front/single_post');
-        echo view('front/footer');
-        return;
+        // echo view('front/header');
+        // echo view('front/single_post');
+        // echo view('front/footer');
+        return view('front/single_post');;
     });
 
 
