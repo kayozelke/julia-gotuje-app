@@ -12,9 +12,10 @@ class UserController extends Controller
      */
     public function show(string $id) : View
     {
-        // return view('user.profile', [
-        //     // 'user' => User::findOrFail($id)
-        // ]);
+        return view('panel.auth.account_settings', [
+            // 'user' => User::findOrFail($id)
+            $var_test = "this text come from value of variable :)"
+        ]);
 
         return view('panel/auth/account_settings');;
     }
