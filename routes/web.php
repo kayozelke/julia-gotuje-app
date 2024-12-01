@@ -47,8 +47,14 @@ use Illuminate\Support\Facades\Route;
 ################ PANEL ###################
 
 Route::get('/admin_test', function () {
-    echo view('panel/header');
-    echo view('panel/home_page');
-    echo view('panel/footer');
+
+    
+    // new user()
+
+    user->create(kfmdkmdfkm)
+
+    echo view('panel/auth/header');
+    echo view('panel/auth/home_page');
+    echo view('panel/auth/footer');
     return;
 });
