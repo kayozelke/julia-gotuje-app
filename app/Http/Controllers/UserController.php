@@ -14,10 +14,10 @@ class UserController extends Controller
     {
         return view('panel.auth.account_settings', [
             // 'user' => User::findOrFail($id)
-            $var_test = "this text come from value of variable :)"
+            'var_test' => "this text come from value of variable :)",
         ]);
 
-        return view('panel/auth/account_settings');;
+        // return view('panel/auth/account_settings');
     }
 }
 
