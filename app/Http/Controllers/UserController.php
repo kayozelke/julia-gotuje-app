@@ -26,6 +26,8 @@ class UserController extends Controller
         // And include special characters like "quotes" and $variables.
         // EOT;
 
+        echo view('panel/auth/account_settings');
+
         echo view('panel/auth/footer');
         return;
     }
