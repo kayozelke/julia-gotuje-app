@@ -6,7 +6,7 @@
         <article
             class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
-                <img src="front/images/single_1.jpg" alt="Image" class="img-responsive">
+                <img src="common/images/single_1.jpg" alt="Image" class="img-responsive">
             </figure>
             <span class="fh5co-meta animate-box"><a href="/single_post_test">Travel</a></span>
             <h2 class="fh5co-article-title animate-box"><a href="/single_post_test">My First Time Traveling in
@@ -59,7 +59,7 @@
                 <div class="row rp-b">
                     <div class="col-lg-6 col-md-12 animate-box">
                         <figure>
-                            <img src="front/images/pic_1.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+                            <img src="common/images/pic_1.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
                                 class="img-responsive">
                             <figcaption>This is a sweet image caption. Far far away, behind the word mountains, far from
                                 the countries Vokalia and Consonantia</figcaption>
@@ -89,7 +89,7 @@
                 <div class="row rp-b">
                     <div class="col-lg-6 col-lg-push-6 col-md-12 col-md-push-0 animate-box">
                         <figure>
-                            <img src="front/images/pic_4.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+                            <img src="common/images/pic_4.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
                                 class="img-responsive">
                             <figcaption>This is a sweet image caption. Far far away, behind the word mountains, far from
                                 the countries Vokalia and Consonantia</figcaption>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-md-4 animate-box">
                         <figure>
-                            <img src="front/images/pic_5.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+                            <img src="common/images/pic_5.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
                                 class="img-responsive">
                             <figcaption>This is a sweet image caption. Far far away, behind the word mountains, far from
                                 the countries Vokalia and Consonantia</figcaption>
@@ -140,7 +140,7 @@
                     </div>
                     <div class="col-md-4 animate-box">
                         <figure>
-                            <img src="front/images/pic_6.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+                            <img src="common/images/pic_6.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
                                 class="img-responsive">
                             <figcaption>This is a sweet image caption. Far far away, behind the word mountains, far from
                                 the countries Vokalia and Consonantia</figcaption>
@@ -148,7 +148,7 @@
                     </div>
                     <div class="col-md-4 animate-box">
                         <figure>
-                            <img src="front/images/pic_7.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+                            <img src="common/images/pic_7.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
                                 class="img-responsive">
                             <figcaption>This is a sweet image caption. Far far away, behind the word mountains, far from
                                 the countries Vokalia and Consonantia</figcaption>

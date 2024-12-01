@@ -68,7 +68,7 @@
 				<img 
 					src="https://preview.redd.it/whats-the-full-lore-and-background-about-the-issues-with-v0-w5e19f3gytpb1.png?width=640&crop=smart&auto=webp&s=4eb3a4f3d239cb17de38776c049520be6223e6f0"
 					alt="Free HTML5 Bootstrap Template" class="img-responsive">
-				<!-- <img src="front/images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"> -->
+				<!-- <img src="common/images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"> -->
 			</figure>
 			<h3 class="heading">O mnie</h3>
 			<h2>Emily Tran Le</h2>
