@@ -15,7 +15,8 @@ class CategoryController extends Controller
 
         // Proste wyświetlenie wyników
         foreach ($categories as $category) {
-            echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
+            echo "$category";
+            // echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
         }
     }
 }
