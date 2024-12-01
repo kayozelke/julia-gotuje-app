@@ -18,13 +18,13 @@ class UserController extends Controller
 
         echo view('panel/auth/header');
 
-        $variables = 42;
+        // $variables = 42;
 
-        echo <<<EOT
-        This is some multiline text.
-        It can span multiple lines.
-        And include special characters like "quotes" and $variables.
-        EOT;
+        // echo <<<EOT
+        // This is some multiline text.
+        // It can span multiple lines.
+        // And include special characters like "quotes" and $variables.
+        // EOT;
 
         echo view('panel/auth/footer');
         return;
