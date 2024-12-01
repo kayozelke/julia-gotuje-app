@@ -21,7 +21,7 @@ Route::get('/id/{id}', function ($id) {
 });
 
 Route::get('/test', function () {
-    return view('test');
+    return view('panel/test');
 });
 
 // Route::get('/dev', function () {
