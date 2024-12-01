@@ -30,10 +30,6 @@ use Illuminate\Support\Facades\Route;
         return '<h3>Hello world, id is ' . $id . '</h3>';
     });
 
-    Route::get('/test', function () {
-        return view('panel/test');
-    });
-
     // Route::get('/dev', function () {
     //     echo view('header_view');
     //     echo view('home_page_view');
