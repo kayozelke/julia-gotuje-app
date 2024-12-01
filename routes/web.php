@@ -57,7 +57,7 @@ Route::get('/admin_test', function () {
 });
 
 Route::get('/admin_home', function () {
-    return view('panel/auth/home_page.blade');;
+    return view('panel/auth/home_page');;
 });
 
 
