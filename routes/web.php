@@ -48,11 +48,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/admin_test', function () {
 
-    
-    // new user()
-
-    user->create(kfmdkmdfkm)
-
     echo view('panel/auth/header');
     echo view('panel/auth/home_page');
     echo view('panel/auth/footer');
