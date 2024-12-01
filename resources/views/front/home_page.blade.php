@@ -1,4 +1,6 @@
-<div class="container-fluid">
+@include('front.header')
+
+	<div class="container-fluid">
 		<div class="row fh5co-post-entry">
 			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
 				<figure>
@@ -141,3 +143,5 @@
 			<div class="clearfix visible-xs-block"></div>
 		</div>
 	</div>
+	
+@include('front.footer')
