@@ -50,7 +50,8 @@ Route::get('/admin_test', function () {
 
     echo view('panel/auth/header');
     // echo view('panel/auth/home_page');
-    echo view('panel/auth/account_settings');
+    // echo view('panel/auth/account_settings');
+    echo view('panel/auth/form_horizontal');
     echo view('panel/auth/footer');
     return;
 });
