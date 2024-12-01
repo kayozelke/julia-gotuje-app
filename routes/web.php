@@ -7,9 +7,9 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', function () {
-    echo view('header_view');
-    echo view('home_page_view');
-    echo view('footer_view');
+    echo view('front/header');
+    echo view('front/home_page');
+    echo view('front/footer');
     return;
 });
 
@@ -31,9 +31,9 @@ Route::get('/test', function () {
 // });
 
 Route::get('/template_index', function () {
-    return view('template_index');
+    return view('templates/template_index');
 });
 
 Route::get('/template_single', function () {
-    return view('template_single');
+    return view('templates/template_single');
 });
