@@ -45,3 +45,7 @@ Route::get('/test', function () {
 // Route::get('/template_single', function () {
 //     return view('templates/template_single');
 // });
+
+Route::get('/kayoz_test', function () {
+    return view('welcome');
+});
