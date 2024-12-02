@@ -12,7 +12,7 @@ class AuthController extends Controller
         return view('panel/unauth/login');
     }
 
-    public function loginPost(){
+    public function loginPost(Request $request){
         echo "hello from controller - loginPost";
     }
 

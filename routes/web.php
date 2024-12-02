@@ -67,7 +67,7 @@ Route::get('/admin_home', function () {
 //     return view('panel/unauth/login');
 // });
 Route::get("/login", [AuthController::class, 'login']);
-Route::post("/login", [AuthController::class, 'loginPost']);
+Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
 
 Route::get("/register", function() {
     return view('panel/unauth/register');

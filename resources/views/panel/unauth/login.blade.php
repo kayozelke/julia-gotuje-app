@@ -70,7 +70,8 @@
                   {{-- <h4 class="mb-2">Welcome to Sneat! 👋</h4>
             <p class="mb-4">Please sign-in to your account and start the adventure</p> --}}
 
-                  <form id="formAuthentication" class="mb-3" action="/login" method="POST">
+                  <form id="formAuthentication" class="mb-3" action="{{route("login.post")}}" method="POST">
+                    @csrf
                       <div class="mb-3">
                           <label for="email" class="form-label">Email</label>
                           <input type="text" class="form-control" id="email" name="email"
@@ -83,6 +84,10 @@
                     <small>Forgot Password?</small>
                   </a> --}}
                           </div>
+                          @if ($errors->has('email'))
+                            <span class="text-danger">
+                            {{ $errors->first('email') }}</span>
+                          @endif
                           <div class="input-group input-group-merge">
                               <input type="password" id="password" class="form-control" name="password"
                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
