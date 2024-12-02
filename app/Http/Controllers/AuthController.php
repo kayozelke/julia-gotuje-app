@@ -8,12 +8,11 @@ class AuthController extends Controller
 {
     //
     public function login(){
-        echo "hello from controller - login";
+        // echo "hello from controller - login";
         return view('panel/unauth/login');
     }
 
-    public function register(){
-        echo "TODO - register";
-        // return view('panel/auth/register');
+    function index(){
+        return view('panel/auth/home_page');
     }
 }
