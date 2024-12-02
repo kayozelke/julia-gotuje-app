@@ -63,9 +63,7 @@ Route::get('/admin/home', function () {
     return view('panel.auth.home_page');
 })->middleware('auth');
 
-Route::get('/logout', function () {
-    // redirect(route("login"));
-})->middleware('auth');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::middleware("auth")->group(function () {
     // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
