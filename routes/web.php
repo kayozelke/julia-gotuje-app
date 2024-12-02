@@ -59,9 +59,9 @@ Route::get('/admin_test', function () {
     // return view('panel/auth/form_horizontal');
 });
 
-Route::get('/admin', function () {
-    return view('panel.auth.home_page');
-});
+// Route::get('/admin', function () {
+//     return view('panel.auth.home_page');
+// });
 
 Route::middleware("auth")->group(function () {
     Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
