@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 // use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class AuthController extends Controller
@@ -33,14 +34,23 @@ class AuthController extends Controller
         return view('panel/unauth/login', ['first_user' => false]);
     }
 
-
-    public function logout(Request $request)
+    public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
+    
         $request->session()->invalidate();
+    
         $request->session()->regenerateToken();
-        return redirect(route('/login'));
+    
+        return redirect('/login');
     }
+    // public function logout(Request $request)
+    // {
+    //     Auth::logout();
+    //     $request->session()->invalidate();
+    //     $request->session()->regenerateToken();
+    //     return redirect(route('/login'));
+    // }
 
     public function loginPost(Request $request){
         echo "hello from controller - loginPost";
