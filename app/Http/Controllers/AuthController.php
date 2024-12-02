@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Str;
+// use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class AuthController extends Controller
 {
@@ -13,7 +15,7 @@ class AuthController extends Controller
         // echo "hello from controller - login";
 
         if(User::count() == 0){
-            // echo "omg - first user";
+            $this->addFirstUser();
             return view('panel/unauth/login', ['first_user' => true]);
         } 
         
@@ -34,14 +36,14 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        // if(auth()->attempt($credentials)){
-        //     echo "dane są ok";
-        //     return;
-        // }else{
-        //     return redirect()->back()->withErrors([
-        //         'email' => 'Podany email lub hasło są nieprawidłowe'
-        //     ]);
-        // }
+        if(auth()->attempt($credentials)){
+            echo "dane są ok";
+            return;
+        }else{
+            return redirect()->back()->withErrors([
+                'email' => 'Podany email lub hasło są nieprawidłowe'
+            ]);
+        }
 
     }
 
@@ -73,4 +75,24 @@ class AuthController extends Controller
     function index(){
         return view('panel/auth/home_page');
     }
+
+    private function addFirstUser(){
+
+
+        // $password = Str::random(15);
+        $password = "CHANGETHISPASSWORD";
+
+        $user = new User();
+        $user->email = "system@example.com";
+        $user->first_name = "System";
+        $user->last_name = "Admin";
+        $user->password = Hash::make($password);
+
+        if($user->save()){
+            return true;
+        };
+
+        return false;
+    }
+
 }
