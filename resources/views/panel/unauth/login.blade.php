@@ -70,53 +70,68 @@
                     {{-- <h4 class="mb-2">Welcome to Sneat! 👋</h4>
             <p class="mb-4">Please sign-in to your account and start the adventure</p> --}}
 
-                    <form id="formAuthentication" class="mb-3" action="{{ route('login.post') }}" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email" name="email"
-                                placeholder="Wprowadź adres email" autofocus />
-                        </div>
-                        <div class="mb-3 form-password-toggle">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Hasło</label>
-                                {{-- <a href="auth-forgot-password-basic.html">
-                    <small>Forgot Password?</small>
-                  </a> --}}
-                            </div>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                            </div>
-                        </div>
-                        <div class="mb-3">
+                    @if ($first_user)
+                        <div class="mb3">
 
-                            <div class="d-grid gap-2">
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">
-                                        {{ $errors->first('email') }}</span>
-                                @endif
+                            <div class="alert alert-info">
+                                <p>Jesteś pierwszym użytkownikiem aplikacji. Dodaj nowego użytkownika aby móc się
+                                    zalogować.
+                                </p>
                             </div>
-                            <div class="d-grid gap-2">
-                                @if ($errors->has('password'))
-                                    <span class="text-danger">
-                                        {{ $errors->first('password') }}</span>
-                                @endif
+                            <div class="buy-now">
+                                <a href="#" target="_blank" class="btn btn-danger">Dodaj pierwszego
+                                    użytkownika!</a>
                             </div>
-
                         </div>
-                        {{-- <div class="mb-3">
+                    @else
+                        <form id="formAuthentication" class="mb-3" action="{{ route('login.post') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Wprowadź adres email" autofocus />
+                            </div>
+                            <div class="mb-3 form-password-toggle">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password">Hasło</label>
+                                    {{-- <a href="auth-forgot-password-basic.html">
+                                        <small>Forgot Password?</small>
+                                    </a> --}}
+                                </div>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+
+                                <div class="d-grid gap-2">
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">
+                                            {{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="d-grid gap-2">
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger">
+                                            {{ $errors->first('password') }}</span>
+                                    @endif
+                                </div>
+
+                            </div>
+                            {{-- <div class="mb-3">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="remember-me" />
                   <label class="form-check-label" for="remember-me"> Remember Me </label>
                 </div>
               </div> --}}
-                        <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">Zaloguj się</button>
-                        </div>
-                    </form>
+                            <div class="mb-3">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Zaloguj się</button>
+                            </div>
+                        </form>
+                    @endif
 
                     {{-- <p class="text-center">
               <span>New on our platform?</span>
@@ -132,19 +147,5 @@
 </div>
 
 
-
-@if($first_user)
-    <div class="buy-now">
-      <a
-        href="#"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Dodaj pierwszego użytkownika!</a
-      >
-    </div>
-    <div class="alert alert-info">
-        <p>Jesteś pierwszym użytkownikiem aplikacji. Dodaj nowego użytkownika aby móc się zalogować.</p>
-    </div>
-@endif
 
 @include('panel.unauth.footer')
