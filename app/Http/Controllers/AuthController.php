@@ -38,8 +38,9 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)){
-            echo "dane są ok";
-            return;
+            // echo "dane są ok";
+            // return;
+            return redirect()->intended(route("admin.home"));
         }else{
             return redirect()->back()->withErrors([
                 'email' => 'Podany email lub hasło są nieprawidłowe'

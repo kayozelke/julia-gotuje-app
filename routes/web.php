@@ -66,6 +66,10 @@ Route::get('/admin_home', function () {
 // Route::get("/login", function() {
 //     return view('panel/unauth/login');
 // });
+
+Route::middleware("auth")->group(function () {
+    Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
+});
 Route::get("/login", [AuthController::class, 'login'])->name("login");
 Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
 
