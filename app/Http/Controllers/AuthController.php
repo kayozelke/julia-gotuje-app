@@ -12,6 +12,10 @@ class AuthController extends Controller
         return view('panel/unauth/login');
     }
 
+    public function loginPost(){
+        echo "hello from controller - loginPost";
+    }
+
     function index(){
         return view('panel/auth/home_page');
     }
