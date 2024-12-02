@@ -23,6 +23,9 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'password',
+        'last_login_at',
+        'last_login_ip',
+        'is_active',
     ];
 
     /**
@@ -45,6 +48,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'last_login_at' => 'datetime',
+            'is_active' => 'boolean',
         ];
     }
 }
