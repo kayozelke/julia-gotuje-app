@@ -78,7 +78,7 @@
                                     zalogować.
                                 </p>
                             </div>
-                            <div class="buy-now">
+                            <div class="buy-now text-center">
                                 <a href="#" target="_blank" class="btn btn-danger">Dodaj pierwszego
                                     użytkownika!</a>
                             </div>
