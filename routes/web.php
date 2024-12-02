@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
@@ -60,6 +61,14 @@ Route::get('/admin_test', function () {
 
 Route::get('/admin_home', function () {
     return view('panel/auth/home_page');;
+});
+
+Route::get("/login", function() {
+    return view('panel/unauth/login');
+});
+
+Route::get("/register", function() {
+    return view('panel/unauth/register');
 });
 
 
