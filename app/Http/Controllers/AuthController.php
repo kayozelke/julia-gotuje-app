@@ -7,13 +7,14 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Str;
+use Illuminate\View\View;
 // use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class AuthController extends Controller
 {
 
 
-    function index(){
+    function index(): View {
         return view('panel/auth/home_page');
     }
     

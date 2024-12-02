@@ -60,18 +60,14 @@ Route::get('/admin_test', function () {
 });
 
 Route::get('/admin', function () {
-    return view('panel/auth/home_page');;
+    return view('panel.auth.home_page');
 });
 
-// Route::get("/login", function() {
-//     return view('panel/unauth/login');
-// });
 
 Route::middleware("auth")->group(function () {
-    return Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
-    
-    // Route::redirect('/', '/template_index');
+    Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
 });
+
 Route::get("/login", [AuthController::class, 'login'])->name("login");
 Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
 
