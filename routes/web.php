@@ -63,8 +63,7 @@ Route::get('/admin', function () {
     return view('panel.auth.home_page');
 });
 
-
-Route::middleware("auth")->group(function () {
+Route::middleware("auth.home")->group(function () {
     Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
 });
 
