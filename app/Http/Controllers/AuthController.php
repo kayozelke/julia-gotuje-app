@@ -33,6 +33,15 @@ class AuthController extends Controller
         return view('panel/unauth/login', ['first_user' => false]);
     }
 
+
+    public function logout(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
+    }
+
     public function loginPost(Request $request){
         echo "hello from controller - loginPost";
         $request->validate([

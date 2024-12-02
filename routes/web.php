@@ -63,6 +63,10 @@ Route::get('/admin', function () {
     return view('panel.auth.home_page');
 })->middleware('auth');
 
+Route::get('/logout', function () {
+    // redirect(route("login"));
+})->middleware('auth');
+
 Route::middleware("auth")->group(function () {
     // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
     return redirect("/admin");
@@ -71,9 +75,9 @@ Route::middleware("auth")->group(function () {
 Route::get("/login", [AuthController::class, 'login'])->name("login");
 Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
 
-Route::get("/register", function() {
-    return view('panel/unauth/register');
-});
+// Route::get("/register", function() {
+//     return view('panel/unauth/register');
+// });
 
 
 // ################ TEST #####################
