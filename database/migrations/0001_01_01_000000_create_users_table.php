@@ -17,11 +17,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('first_name', 45)->nullable();
+            $table->string('last_name', 45)->nullable();
             $table->timestamp('last_login_at')->nullable();
-            $table->timestamp('last_login_ip')->nullable();
-            $table->boolval('is_active')->false;
+            $table->string('last_login_ip', 15)->nullable();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
 
