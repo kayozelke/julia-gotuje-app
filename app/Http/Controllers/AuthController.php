@@ -14,9 +14,9 @@ class AuthController extends Controller
 {
 
 
-    function index(): View {
-        return view('panel/auth/home_page');
-    }
+    // function index(): View {
+    //     return view('panel/auth/home_page');
+    // }
     
     //
     public function login(){
