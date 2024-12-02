@@ -88,6 +88,10 @@
                             <span class="text-danger">
                             {{ $errors->first('email') }}</span>
                           @endif
+                          @if ($errors->has('password'))
+                            <span class="text-danger">
+                            {{ $errors->first('password') }}</span>
+                          @endif
                           <div class="input-group input-group-merge">
                               <input type="password" id="password" class="form-control" name="password"
                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"

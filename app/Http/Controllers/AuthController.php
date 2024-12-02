@@ -14,6 +14,10 @@ class AuthController extends Controller
 
     public function loginPost(Request $request){
         echo "hello from controller - loginPost";
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
     }
 
     function index(){
