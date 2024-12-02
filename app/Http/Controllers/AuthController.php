@@ -13,12 +13,12 @@ class AuthController extends Controller
         // echo "hello from controller - login";
 
         if(User::count() == 0){
-            echo "omg - first user";
+            // echo "omg - first user";
             return view('panel/unauth/login', ['first_user' => true]);
         } 
         
         
-        echo "There is already ". User::count()." user(s) at database.";
+        // echo "There is already ". User::count()." user(s) at database.";
 
         return view('panel/unauth/login', ['first_user' => false]);
     }

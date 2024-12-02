@@ -75,11 +75,11 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="text" class="form-control" id="email" name="email"
-                                placeholder="Enter your email" autofocus />
+                                placeholder="Wprowadź adres email" autofocus />
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label" for="password">Hasło</label>
                                 {{-- <a href="auth-forgot-password-basic.html">
                     <small>Forgot Password?</small>
                   </a> --}}
@@ -114,7 +114,7 @@
                 </div>
               </div> --}}
                         <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                            <button class="btn btn-primary d-grid w-100" type="submit">Zaloguj się</button>
                         </div>
                     </form>
 
@@ -130,4 +130,21 @@
         </div>
     </div>
 </div>
+
+
+
+@if($first_user)
+    <div class="buy-now">
+      <a
+        href="#"
+        target="_blank"
+        class="btn btn-danger btn-buy-now"
+        >Dodaj pierwszego użytkownika!</a
+      >
+    </div>
+    <div class="alert alert-info">
+        <p>Jesteś pierwszym użytkownikiem aplikacji. Dodaj nowego użytkownika aby móc się zalogować.</p>
+    </div>
+@endif
+
 @include('panel.unauth.footer')
