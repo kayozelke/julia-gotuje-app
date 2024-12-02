@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,20 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
+        $user = new User();
+
+        $credentials = $request->only('email', 'password');
+
+        if(auth()->attempt($credentials)){
+            echo "dane są ok";
+            return;
+        }else{
+            return redirect()->back()->withErrors([
+                'email' => 'Podany email lub hasło są nieprawidłowe'
+            ]);
+        }
+
     }
 
     function index(){
