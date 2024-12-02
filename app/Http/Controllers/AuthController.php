@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
+
+    function index(){
+        return view('panel/auth/home_page');
+    }
+    
     //
     public function login(){
         // echo "hello from controller - login";
@@ -49,6 +55,25 @@ class AuthController extends Controller
 
     }
 
+    private function addFirstUser(){
+
+
+        // $password = Str::random(15);
+        $password = "CHANGETHISPASSWORD";
+
+        $user = new User();
+        $user->email = "system@example.com";
+        $user->first_name = "System";
+        $user->last_name = "Admin";
+        $user->password = Hash::make($password);
+
+        if($user->save()){
+            return true;
+        };
+
+        return false;
+    }
+
     // // if register was there...
     // function registerPost(Request $request){
     //     $request->validate([
@@ -73,28 +98,4 @@ class AuthController extends Controller
     //     return redirect(route("register"))
     //         ->with("error", "Failed to create user account.");
     // }
-
-    function index(){
-        return view('panel/auth/home_page');
-    }
-
-    private function addFirstUser(){
-
-
-        // $password = Str::random(15);
-        $password = "CHANGETHISPASSWORD";
-
-        $user = new User();
-        $user->email = "system@example.com";
-        $user->first_name = "System";
-        $user->last_name = "Admin";
-        $user->password = Hash::make($password);
-
-        if($user->save()){
-            return true;
-        };
-
-        return false;
-    }
-
 }
