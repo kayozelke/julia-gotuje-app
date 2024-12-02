@@ -68,7 +68,7 @@ Route::get('/admin', function () {
 // });
 
 Route::middleware("auth")->group(function () {
-    Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
+    return Route::view("/admin", [AuthController::class, 'index'])->name("admin.home");
     
     // Route::redirect('/', '/template_index');
 });
