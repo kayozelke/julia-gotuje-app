@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Str;
 // use phpDocumentor\Reflection\PseudoTypes\True_;
 
@@ -36,7 +37,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if(auth()->attempt($credentials)){
+        if(Auth::attempt($credentials)){
             echo "dane są ok";
             return;
         }else{
