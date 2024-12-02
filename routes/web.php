@@ -63,9 +63,10 @@ Route::get('/admin_home', function () {
     return view('panel/auth/home_page');;
 });
 
-Route::get("/login", function() {
-    return view('panel/unauth/login');
-});
+// Route::get("/login", function() {
+//     return view('panel/unauth/login');
+// });
+Route::get("/login", [AuthController::class, 'login']);
 
 Route::get("/register", function() {
     return view('panel/unauth/register');

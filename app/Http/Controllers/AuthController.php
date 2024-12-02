@@ -8,6 +8,7 @@ class AuthController extends Controller
 {
     //
     public function login(){
+        echo "hello from controller - login";
         return view('panel/unauth/login');
     }
 
