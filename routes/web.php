@@ -59,7 +59,7 @@ Route::get('/admin_test', function () {
     // return view('panel/auth/form_horizontal');
 });
 
-Route::get('/admin', function () {
+Route::get('/admin/home', function () {
     return view('panel.auth.home_page');
 })->middleware('auth');
 
