@@ -84,13 +84,13 @@
     <!-- Borderless Table -->
     <div class="card mb-4">
         @if(count($categories) == 0)
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-info p-3" role="alert">
                 Brak danych
             </div>
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
             <div class="table-responsive text-nowrap">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-hover" id="myTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -276,4 +276,12 @@
     <!--/ Borderless Table -->        
 
 </div>
+
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            "order": [[ 4, "asc" ]]
+        });
+    } );
+</script>
 @include('panel.auth.footer')
