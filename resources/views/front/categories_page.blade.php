@@ -38,7 +38,7 @@
     <div class="card-body text-dark">
         {{-- <h5 class="card-title">Dark card title</h5> --}}
         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
-        <ul class="list-group list-group-flush">
+        {{-- <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex align-items-center">
                 <span class="badge badge-light mr-2">&#11088;</span>
                 Desery
@@ -51,7 +51,14 @@
                 <span class="badge badge-light mr-2">&#11088;</span>
                 Potrawy wigilijne
             </li>
-        </ul>
+        </ul> --}}
+
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+        </div>
     </div>
 </div>
 
