@@ -142,7 +142,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item {{ @if(request()->routeIs('admin.home')) active @endif }}">
               <a href="{{route('admin')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -254,6 +254,13 @@
             </li>
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            {{-- Categories --}}
+            <li class="menu-item {{ @if(request()->routeIs('admin.categories')) active @endif }}">
+              <a href="{{ route('admin.categories') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Kategorie</div>
+              </a>
+            </li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="cards-basic.html" class="menu-link">

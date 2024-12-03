@@ -74,6 +74,8 @@ Route::middleware("auth")->group(function () {
     return redirect("/admin");
 });
 
+Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories');
+
 Route::get("/login", [AuthController::class, 'login'])->name("login");
 Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
 
