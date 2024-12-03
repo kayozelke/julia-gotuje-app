@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     // Metoda do wyświetlania wszystkich kategorii
-    public function index()
+    public function index($param = null)
     {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
 
         // Znajdź kategorie bez rodzica (parent_id = NULL)
-        $categories = Category::whereNull('parent_id')->get();
+        if(isset($param)) {
+            $categories = Category::where('parent_id', $param)->get();
+        } else {
+            $categories = Category::whereNull('parent_id')->get();
+        }
 
 
         // Proste wyświetlenie wyników
