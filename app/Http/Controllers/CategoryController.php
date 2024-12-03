@@ -47,6 +47,8 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
+        // TODO - handle validation
+
         Category::create([
             'name' => $validated['name'],
             'parent_id' => $request->parent_category_id,
@@ -56,6 +58,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('admin.categories', $request->parent_category_id);
+        $this->printParentCategories($request->parent_category_id);
     }
 
 
@@ -82,6 +85,37 @@ class CategoryController extends Controller
         }
 
         return $parents;
+    }    /**
+     * Prints parent categories in a nested, user-friendly format.
+     *
+     * @param int $categoryId The ID of the category to start from.
+     * @return string The nested string representation of parent categories.
+     */
+    public function printParentCategories($categoryId): string
+    {
+        $parents = $this->findParentCategories($categoryId);
+        if (empty($parents)) {
+            return "No parent categories found.";
+        }
+
+        $output = "";
+        $this->printNestedCategories($parents, 0, $output);
+        return $output;
     }
+
+    private function printNestedCategories(array $categories, int $level, string &$output): void
+    {
+        foreach ($categories as $category) {
+            $indent = str_repeat("--", $level);
+            $output .= "$indent $category->name\n";
+            if ($category->parent_id !== null) {
+                $children = Category::where('parent_id', $category->id)->get();
+                if ($children->isNotEmpty()) {
+                    $this->printNestedCategories($children->toArray(), $level + 1, $output);
+                }
+            }
+        }
+    }
+
 
 }
