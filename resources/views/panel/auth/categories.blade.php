@@ -19,7 +19,12 @@
             <!-- Basic Breadcrumb -->
         </div>
         <div>
-            {{ print_r($parent_categories, true) }}
+            {{-- {{ print_r($parent_categories, true) }} --}}
+            <ul>
+                @foreach ($parent_categories as $category)
+                    <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li>
+                @endforeach
+            </ul>
         </div>
         <div class="card-body mb-1">
 
