@@ -1,4 +1,7 @@
 @include('panel.auth.header')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
 <div class="container-xxl flex-grow-1 container-p-y">
 
     <div class="card mb-4">
@@ -90,7 +93,7 @@
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
             <div class="table-responsive text-nowrap">
-                <table class="table table-borderless table-hover" id="myTable">
+                <table class="table table-borderless table-hover" id="categoriesTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -277,13 +280,21 @@
 
 </div>
 
+<!-- Import jQuery i DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 <script>
-    $(document).ready( function () {
-        $('#myTable').DataTable({
-            "order": [[ 4, "asc" ]]
+    $(document).ready(function() {
+        $('#categoriesTable').DataTable({
+            "paging": true,           // Włącz paginację
+            "ordering": true,         // Włącz sortowanie
+            "searching": true,        // Włącz wyszukiwanie
+            "order": [[ 0, "asc" ]]   // Domyślne sortowanie po kolumnie ID (kolumna 0)
         });
-    } );
+    });
 </script>
+
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="hhttps://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
