@@ -26,7 +26,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Borderless Table</h5>
         <div class="table-responsive text-nowrap">
-            <table class="table table-borderless">
+            <table class="table table-borderless table-hover">
                 <thead>
                     <tr>
                         <th>Project</th>
