@@ -18,6 +18,13 @@ use App\Http\Controllers\CategoryController;
         return view('front/home_page');;
     });
 
+    Route::get('/categories', function () {
+        // echo view('front/header');
+        // echo view('front/home_page');
+        // echo view('front/footer');
+        return view('front/categories_page');;
+    });
+
     Route::get('/single_post_test', function () {
         // echo view('front/header');
         // echo view('front/single_post');
