@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
         if ($category) {
             $parents[] = $category;
-            if ($category->parent_id) {
+            if ($category->parent_id !== null) {
                 $this->findParentCategories($category->parent_id, $parents);
             }
         }
