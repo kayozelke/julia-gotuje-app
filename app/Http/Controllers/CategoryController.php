@@ -46,8 +46,12 @@ class CategoryController extends Controller
      * @param array $parents An array to store the parent categories (passed by reference).
      * @return array An array of parent categories, including the initial category.
      */
-    private function findParentCategories(int $categoryId, array &$parents = []): array
+    private function findParentCategories($categoryId, array &$parents = []): array
     {
+        if ($categoryId === null) {
+            return $parents;
+        }
+
         $category = Category::find($categoryId);
 
         if ($category) {
