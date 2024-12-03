@@ -1,5 +1,5 @@
 @include('front.header')
-<div class="container-fluid">
+<div class="container-xl">
     <table class="table">
         <caption>List of users</caption>
         <thead>
