@@ -18,10 +18,10 @@
 
                     @if(count($parent_categories) == 0)
                         <li class="breadcrumb-item active">Wszystkie kategorie</li>
-                    {{-- @else
+                    @else
                         <li class="breadcrumb-item active">
                             <a href="{{ route('admin.categories', ['param' => 0]) }}">Wszystkie kategorie</a>
-                        </li> --}}
+                        </li>
                     @endif
 
 
