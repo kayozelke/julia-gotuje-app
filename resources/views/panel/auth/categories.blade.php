@@ -29,7 +29,7 @@
             <table class="table table-borderless table-hover">
                 <thead>
                     <tr>
-                        {{-- <th></th> --}}
+                        <th>ID</th>
                         <th>Nazwa</th>
                         <th>Utworzono</th>
                         <th>Zmodyfikowano</th>
@@ -41,7 +41,12 @@
                     
                     @foreach ($categories as $category)
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $category->name }}</strong></td>
+                        <td>{{ $category->id }}</td>
+                        <td>
+                            {{-- <i class="fab fa-angular fa-lg text-danger me-3"></i> --}}
+                            <a href="{{'admin.categories.$category->id'}}" class="href"><strong>{{ $category->name }}</strong></a>
+                            
+                        </td>
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
                         <td>Albert Cook</td>
