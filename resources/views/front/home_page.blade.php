@@ -1,3 +1,5 @@
+@include('front.header')
+
 <!-- hero -->
 <div class="hero">
 
@@ -601,3 +603,4 @@
     </div> <!-- end pagination -->
 
 </div> <!-- end bricks -->
+@include('front.footer')
