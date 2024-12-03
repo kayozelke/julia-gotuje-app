@@ -295,7 +295,8 @@
             "paging": false,           // Włącz paginację
             "ordering": true,         // Włącz sortowanie
             "searching": false,        // Włącz wyszukiwanie
-            "order": [[ 0, "asc" ]]   // Domyślne sortowanie po ID
+            "order": [[ 0, "asc" ]],   // Domyślne sortowanie po ID
+            "info": false  // Wyłącza informacje o paginacji
         });
     } );
 </script>
