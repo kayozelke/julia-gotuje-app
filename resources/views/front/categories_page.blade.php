@@ -40,14 +40,14 @@
         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <span class="badge badge-pill badge-light">&#11088;</span>
+                <span class="badge badge-light">&#11088;</span>
                 Desery
             </li>
             <li class="list-group-item">
-                <span class="badge badge-pill badge-light">&#11088;</span>
+                <span class="badge badge-light">&#11088;</span>
                 Dania wegetariańskie</li>
             <li class="list-group-item">
-                <span class="badge badge-pill badge-light">&#11088;</span>
+                <span class="badge badge-light">&#11088;</span>
                 Potrawy wigilijne</li>
         </ul>
     </div>
