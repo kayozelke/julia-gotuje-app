@@ -80,6 +80,15 @@
 
     {{-- DATATABLES TEST --}}
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
     
+    <script>
+      $(document).ready( function () {
+          $('#myTable').DataTable({
+              "order": [[ 1, "asc" ]]
+          });
+      } );
+    </script>
+
   </body>
 </html>

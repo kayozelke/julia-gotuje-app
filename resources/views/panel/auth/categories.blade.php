@@ -278,12 +278,5 @@
 </div>
 
 
-<script>
-    $(document).ready( function () {
-        $('#myTable').DataTable({
-            "order": [[ 1, "asc" ]]
-        });
-    } );
-</script>
 
 @include('panel.auth.footer')
