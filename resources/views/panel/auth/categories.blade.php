@@ -292,7 +292,10 @@
 <script>
     $(document).ready( function () {
         $('#myTable').DataTable({
-            "order": [[ 1, "asc" ]]
+            "paging": false,           // Włącz paginację
+            "ordering": true,         // Włącz sortowanie
+            "searching": false,        // Włącz wyszukiwanie
+            "order": [[ 0, "asc" ]]   // Domyślne sortowanie po ID
         });
     } );
 </script>
