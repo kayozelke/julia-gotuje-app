@@ -9,7 +9,7 @@
                 
                 <ol class="breadcrumb">
 
-                    @foreach ($parent_categories->reverse() as $category)
+                    @foreach (array_reverse($parent_categories) as $category)
                         {{-- <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li> --}}
                         <li class="breadcrumb-item">
                             <a href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
