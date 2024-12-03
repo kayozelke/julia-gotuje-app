@@ -29,8 +29,8 @@ use App\Http\Controllers\CategoryController;
     // Route::redirect('/', '/template_index');
 
 
-    Route::get('/id/{id}', function ($id) {
-        return '<h3>Hello world, id is ' . $id . '</h3>';
+    Route::get('/id/{id?}', function ($id = null) {
+        return '<h3>Hello world, id is ' . $id . '</h3>'; //id can be null
     });
 
     // Route::get('/dev', function () {
