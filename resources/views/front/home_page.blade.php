@@ -8,7 +8,7 @@
         <div class="swiper-wrapper">
             <article class="hero__slide swiper-slide">
                 <div class="hero__entry-image"
-                    style="background-image: url('images/thumbs/featured/featured-01_2000.jpg');"></div>
+                    style="background-image: url('{{ asset('front/images/thumbs/featured/featured-01_2000.jpg')}}');"></div>
                 <div class="hero__entry-text">
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
@@ -32,7 +32,7 @@
             </article>
             <article class="hero__slide swiper-slide">
                 <div class="hero__entry-image"
-                    style="background-image: url('images/thumbs/featured/featured-02_2000.jpg');"></div>
+                    style="background-image: url('{{ asset('front/images/thumbs/featured/featured-02_2000.jpg')}}');"></div>
                 <div class="hero__entry-text">
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
@@ -57,7 +57,7 @@
             </article>
             <article class="hero__slide swiper-slide">
                 <div class="hero__entry-image"
-                    style="background-image: url('images/thumbs/featured/featured-03_2000.jpg');"></div>
+                    style="background-image: url('{{ asset('front/images/thumbs/featured/featured-03_2000.jpg')}}');"></div>
                 <div class="hero__entry-text">
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
@@ -112,8 +112,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/statue-600.jpg"
-                            srcset="images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/statue-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/statue-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/statue-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -148,8 +148,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/beetle-600.jpg"
-                            srcset="images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/beetle-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/beetle-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/beetle-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -184,8 +184,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/grayscale-600.jpg"
-                            srcset="images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/grayscale-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/grayscale-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/grayscale-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -221,8 +221,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/woodcraft-600.jpg"
-                            srcset="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/woodcraft-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/woodcraft-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/woodcraft-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -258,8 +258,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/tulips-600.jpg"
-                            srcset="images/thumbs/masonry/tulips-600.jpg 1x, images/thumbs/masonry/tulips-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/tulips-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/tulips-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/tulips-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -298,8 +298,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/red-and-blue-600.jpg"
-                            srcset="images/thumbs/masonry/red-and-blue-600.jpg 1x, images/thumbs/masonry/red-and-blue-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/red-and-blue-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/red-and-blue-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/red-and-blue-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -336,8 +336,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/white-lamp-600.jpg"
-                            srcset="images/thumbs/masonry/white-lamp-600.jpg 1x, images/thumbs/masonry/white-lamp-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/white-lamp-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/white-lamp-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/white-lamp-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -374,8 +374,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/books-600.jpg"
-                            srcset="images/thumbs/masonry/books-600.jpg 1x, images/thumbs/masonry/books-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/books-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/books-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/books-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -412,8 +412,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/lamp-600.jpg"
-                            srcset="images/thumbs/masonry/lamp-600.jpg 1x, images/thumbs/masonry/lamp-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/lamp-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/lamp-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/lamp-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -450,8 +450,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/clock-600.jpg"
-                            srcset="images/thumbs/masonry/clock-600.jpg 1x, images/thumbs/masonry/clock-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/clock-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/clock-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/clock-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -490,8 +490,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/phone-and-keyboard-600.jpg"
-                            srcset="images/thumbs/masonry/phone-and-keyboard-600.jpg 1x, images/thumbs/masonry/phone-and-keyboard-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/phone-and-keyboard-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/phone-and-keyboard-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/phone-and-keyboard-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -527,8 +527,8 @@
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/wheel-600.jpg"
-                            srcset="images/thumbs/masonry/wheel-600.jpg 1x, images/thumbs/masonry/wheel-1200.jpg 2x"
+                        <img src="{{ asset('front/images/thumbs/masonry/wheel-600.jpg')}}"
+                            srcset="{{ asset('front/images/thumbs/masonry/wheel-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/wheel-1200.jpg')}} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->

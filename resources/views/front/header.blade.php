@@ -7,7 +7,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spurgeon</title>
+    <title>JuliaGotuje</title>
 
     <script>
         document.documentElement.classList.remove('no-js');
@@ -55,7 +55,7 @@
 
             <div class="s-header__branding">
                 <p class="site-title">
-                    <a href="index.html" rel="home">Spurgeon.</a>
+                    <a href="#" rel="home">Spurgeon.</a>
                 </p>
             </div>
 
@@ -66,29 +66,29 @@
                     <h3 class="s-header__nav-heading">Navigate to</h3>
     
                     <ul class="s-header__nav">
-                        <li class="current-menu-item"><a href="index.html" title="">Home</a></li>
+                        <li class="current-menu-item"><a href="#" title="">Home</a></li>
                         <li class="has-children">
                             <a href="#0" title="" class="">Categories</a>
                             <ul class="sub-menu">
-                                <li><a href="category.html">Design</a></li>
-                                <li><a href="category.html">Lifestyle</a></li>
-                                <li><a href="category.html">Inspiration</a></li>
-                                <li><a href="category.html">Work</a></li>
-                                <li><a href="category.html">Health</a></li>
-                                <li><a href="category.html">Photography</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Lifestyle</a></li>
+                                <li><a href="#">Inspiration</a></li>
+                                <li><a href="#">Work</a></li>
+                                <li><a href="#">Health</a></li>
+                                <li><a href="#">Photography</a></li>
                             </ul>
                         </li>
                         <li class="has-children">
                             <a href="#0" title="" class="">Blog</a>
                             <ul class="sub-menu">
-                                <li><a href="single-standard.html">Standard Post</a></li>
-                                <li><a href="single-video.html">Video Post</a></li>
-                                <li><a href="single-audio.html">Audio Post</a></li>
+                                <li><a href="#">Standard Post</a></li>
+                                <li><a href="#">Video Post</a></li>
+                                <li><a href="#">Audio Post</a></li>
                             </ul>
                         </li>
-                        <li><a href="styles.html" title="">Styles</a></li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <li><a href="contact.html" title="">Contact</a></li>
+                        <li><a href="#" title="">Styles</a></li>
+                        <li><a href="#" title="">About</a></li>
+                        <li><a href="#" title="">Contact</a></li>
                     </ul> <!-- end s-header__nav -->
 
                 </nav> <!-- end s-header__nav-wrap -->
