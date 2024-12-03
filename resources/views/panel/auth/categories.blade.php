@@ -1,4 +1,9 @@
+
+{{-- DATATABLES - TEST ONLY --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+
 @include('panel.auth.header')
+
 <div class="container-xxl flex-grow-1 container-p-y">
 
     <div class="card mb-4">
@@ -280,3 +285,14 @@
 
 
 @include('panel.auth.footer')
+
+
+{{-- DATATABLES TEST --}}
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            "order": [[ 1, "asc" ]]
+        });
+    } );
+</script>
