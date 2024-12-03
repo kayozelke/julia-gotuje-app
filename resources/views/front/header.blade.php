@@ -16,8 +16,8 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{ asset('css/vendor.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
 
     <!-- favicons
     ================================================== -->
