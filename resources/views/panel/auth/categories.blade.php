@@ -29,20 +29,29 @@
             <table class="table table-borderless table-hover">
                 <thead>
                     <tr>
-                        {{-- <th>Akcje</th> --}}
-                        <th></th>
+                        <th>ID</th>
                         <th>Nazwa</th>
                         <th>Utworzono</th>
                         <th>Zmodyfikowano</th>
                         <th>Zmodyfikowano przez</th>
+                        <th>Akcje</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                     @foreach ($categories as $category)
                     <tr>
+                        <td>{{ $category->id }}</td>
                         <td>
-                            <div class="dropdown">
+                            {{-- <i class="fab fa-angular fa-lg text-danger me-3"></i> --}}
+                            <a href="{{'admin.categories.$category->id'}}" class="href"><strong>{{ $category->name }}</strong></a>
+                            
+                        </td>
+                        <td>{{ $category->created_at }}</td>
+                        <td>{{ $category->updated_at }}</td>
+                        <td>Albert Cook</td>
+                        <td>
+                            <div class="dropdown position-static">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                     data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
@@ -55,10 +64,6 @@
                                 </div>
                             </div>
                         </td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $category->name }}</strong></td>
-                        <td>{{ $category->created_at }}</td>
-                        <td>{{ $category->updated_at }}</td>
-                        <td>Albert Cook</td>
                         {{-- <td>
                             <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
