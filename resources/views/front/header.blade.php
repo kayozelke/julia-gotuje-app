@@ -55,7 +55,7 @@
 
             <div class="s-header__branding">
                 <p class="site-title">
-                    <a href="#" rel="home">Spurgeon.</a>
+                    <a href="#" rel="home">JuliaGotuje</a>
                 </p>
             </div>
 
