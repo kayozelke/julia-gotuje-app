@@ -94,4 +94,4 @@ Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post")
 // ################ TEST #####################
 
 Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/categories', [CategoryController::class, 'index']);
+// Route::get('/categories', [CategoryController::class, 'index']);
