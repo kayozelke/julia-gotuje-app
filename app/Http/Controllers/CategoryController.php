@@ -47,6 +47,8 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
+        // TODO - handle validation
+
         Category::create([
             'name' => $validated['name'],
             'parent_id' => $request->parent_category_id,

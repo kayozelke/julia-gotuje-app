@@ -18,6 +18,7 @@
             </nav>
             <!-- Basic Breadcrumb -->
         </div>
+        <div>{{$parent_categories}}</div>
         <div class="card-body mb-1">
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
