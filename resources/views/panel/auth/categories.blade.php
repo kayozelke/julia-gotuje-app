@@ -42,7 +42,7 @@
                     @foreach ($categories as $category)
                     <tr>
                         <td>
-                            <div class="dropdown">
+                            <div class="dropdown position-static">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                     data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
