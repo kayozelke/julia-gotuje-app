@@ -59,9 +59,13 @@ Route::get('/admin_test', function () {
     // return view('panel/auth/form_horizontal');
 });
 
+Route::get('/admin', function () {
+    return redirect(route('admin.home'));
+})->name("admin");
+
 Route::get('/admin/home', function () {
     return view('panel.auth.home_page');
-})->middleware('auth');
+})->middleware('auth')->name('admin.home');
 
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
