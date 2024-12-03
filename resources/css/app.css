@@ -1,35 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.versus{
-    position: absolute;
-    background: #f7f8f9;
-    border-radius: 100%;
-    border: 1px solid #9361D4;
-    color: #A788D1;
-    font-size: 1.25em;
-    height: 78px;
-    left: 50%;
-    margin-left: -39px;
-    padding-top: 22px;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 78px;
-    z-index: 4;
- }
-.divided {
-    position: relative;
-    background: #f7f8f9;
-}
-.divided::after {
-    background: linear-gradient(#f0f7fd 0, #813FD9 50%, #f0f7fd 100%);
-    width: 1px;
-    top: 100px;
-    bottom: 100px;
-    left: 50%;
-    height: auto;
-    right: auto;
-    position: absolute;
-}
