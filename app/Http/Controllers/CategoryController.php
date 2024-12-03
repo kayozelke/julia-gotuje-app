@@ -18,5 +18,7 @@ class CategoryController extends Controller
             echo "$category <br>";
             // echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
         }
+
+        return view('panel.auth.categories');
     }
 }
