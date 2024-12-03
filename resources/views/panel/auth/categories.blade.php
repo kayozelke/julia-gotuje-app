@@ -43,9 +43,9 @@
                     <tr>
                         <td>{{ $category->id }}</td>
                         <td>
-                            {{-- <i class="fab fa-angular fa-lg text-danger me-3"></i> --}}
-                            <a href="{{'admin.categories.$category->id'}}" class="href"><strong>{{ $category->name }}</strong></a>
-                            
+                            <a href="{{ route('admin.categories', ['param' => $category->id]) }}" class="href">
+                                <strong>{{ $category->name }}</strong>
+                            </a>    
                         </td>
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
