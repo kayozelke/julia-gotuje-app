@@ -34,8 +34,7 @@ class AuthController extends Controller
         return view('panel/unauth/login', ['first_user' => false]);
     }
 
-    public function logout(Request $request): RedirectResponse
-    {
+    public function logout(Request $request): RedirectResponse {
         Auth::logout();
     
         $request->session()->invalidate();
