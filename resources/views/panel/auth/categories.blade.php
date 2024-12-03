@@ -1,7 +1,5 @@
 @include('panel.auth.header')
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
 <div class="container-xxl flex-grow-1 container-p-y">
 
     <div class="card mb-4">
@@ -280,24 +278,14 @@
 
 </div>
 
-<!-- Import jQuery i DataTables JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 
-<script>
-    $(document).ready(function() {
-        $('#categoriesTable').DataTable({
-            "paging": true,           // Włącz paginację
-            "ordering": true,         // Włącz sortowanie
-            "searching": true,        // Włącz wyszukiwanie
-            "order": [[ 0, "asc" ]]   // Domyślne sortowanie po kolumnie ID (kolumna 0)
-        });
-    });
-</script>
-
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="hhttps://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+<script>
+let table = new DataTable('#categoriesTable', {
+    // options
+    ordering: true
+});
+</script>
 
 @include('panel.auth.footer')
