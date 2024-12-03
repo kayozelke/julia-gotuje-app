@@ -89,7 +89,7 @@
     <!-- Borderless Table -->
     <div class="card mb-4">
         @if(count($categories) == 0)
-            <div class="alert alert-info p-3" role="alert">
+            <div class="alert alert-info m-3 text-center" role="alert">
                 Brak danych
             </div>
         @else
