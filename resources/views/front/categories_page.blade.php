@@ -34,13 +34,13 @@
 </div> --}}
 
 <div class="card border-dark mb-3" style="max-width: 75%; margin: 0 auto;">
-    <div class="card-header">Wasze ulubione kategorie przepisów</div>
+    {{-- <div class="card-header">Wasze ulubione kategorie przepisów</div> --}}
     <div class="card-body text-dark">
         {{-- <h5 class="card-title">Dark card title</h5> --}}
         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
         <div class="container-lg">
             <table class="table">
-                {{-- <caption>Wasze ulubione kategorie przepisów</caption> --}}
+                <caption>Wasze ulubione kategorie przepisów</caption>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
