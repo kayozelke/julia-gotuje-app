@@ -16,7 +16,7 @@
                         </li>
                     @endforeach
 
-                    @if($parent_categories->isEmpty())
+                    @if(count($parent_categories) == 0)
                         <li class="breadcrumb-item active">Wszystkie kategorie</li>
                     {{-- @else
                         <li class="breadcrumb-item active">
