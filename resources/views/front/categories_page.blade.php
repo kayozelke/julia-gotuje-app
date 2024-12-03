@@ -33,11 +33,17 @@
     </table>
 </div> --}}
 
+<div class="card border-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
 <div class="card border-light mb-3" style="max-width: 75%; margin: 0 auto;">
     <div class="card-header">Wasze ulubione kategorie przepisów</div>
     <div class="card-body">
-        {{-- <h5 class="card-title">Light card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
         <div class="list-group list-group-flush">
             <a href="#" class="list-group-item list-group-item-action">Desery</a>
             <a href="#" class="list-group-item list-group-item-action">Dania wegetariańskie</a>
