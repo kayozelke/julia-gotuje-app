@@ -41,7 +41,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function addPost(Request $request, int $param)
+    public function addPost(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -49,13 +49,13 @@ class CategoryController extends Controller
 
         Category::create([
             'name' => $validated['name'],
-            'parent_id' => $param,
+            'parent_id' => $request->parent_category_id,
             'created_at' => now(),
             'updated_at' => now(),
             'updated_by' => Auth::id(),
         ]);
 
-        return redirect()->route('admin.categories', $param);
+        return redirect()->route('admin.categories', $request->parent_category_id);
     }
 
 
