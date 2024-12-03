@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -34,8 +35,53 @@ class CategoryController extends Controller
         }
 
         return view('panel.auth.categories', [
+            'current_category_id' => $param,
             'categories' => $categories,
-            // 'no_children_categories' => $no_children_categories,
+            'parent_categories' => $this->findParentCategories($param),
         ]);
     }
+
+    public function addPost(Request $request, int $param)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Category::create([
+            'name' => $validated['name'],
+            'parent_id' => $param,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'updated_by' => Auth::id(),
+        ]);
+
+        return redirect()->route('admin.categories', $param);
+    }
+
+
+    /**
+     * Recursively finds all parent categories for a given category ID.
+     *
+     * @param int $categoryId The ID of the category to find parents for.
+     * @param array $parents An array to store the parent categories (passed by reference).
+     * @return array An array of parent categories, including the initial category.
+     */
+    private function findParentCategories($categoryId, array &$parents = []): array
+    {
+        if ($categoryId === null) {
+            return $parents;
+        }
+
+        $category = Category::find($categoryId);
+
+        if ($category) {
+            $parents[] = $category;
+            if ($category->parent_id !== null) {
+                $this->findParentCategories($category->parent_id, $parents);
+            }
+        }
+
+        return $parents;
+    }
+
 }
