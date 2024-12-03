@@ -33,33 +33,26 @@
     </table>
 </div> --}}
 
-<div class="card border-dark mb-3" style="max-width: 75%; margin: 0 auto;">
+<div class="card border-light mb-3" style="max-width: 75%; margin: 0 auto;">
     <div class="card-header">Wasze ulubione kategorie przepisów</div>
-    <div class="card-body text-dark">
-        {{-- <h5 class="card-title">Dark card title</h5> --}}
-        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
-        {{-- <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex align-items-center">
-                <span class="badge badge-light mr-2">&#11088;</span>
-                Desery
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <span class="badge badge-light mr-2">&#11088;</span>
-                Dania wegetariańskie
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <span class="badge badge-light mr-2">&#11088;</span>
-                Potrawy wigilijne
-            </li>
-        </ul> --}}
-
+    <div class="card-body">
+        {{-- <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
         <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+            <a href="#" class="list-group-item list-group-item-action">Desery</a>
+            <a href="#" class="list-group-item list-group-item-action">Dania wegetariańskie</a>
+            <a href="#" class="list-group-item list-group-item-action">Dania wigilijne</a>
+            <a href="#" class="list-group-item list-group-item-action">Zupy</a>
+            <a href="#" class="list-group-item list-group-item-action">Pierogi</a>
         </div>
     </div>
 </div>
+
+{{-- <div class="card border-dark mb-3" style="max-width: 75%; margin: 0 auto;">
+    <div class="card-header">Wasze ulubione kategorie przepisów</div>
+    <div class="card-body text-dark">
+
+    </div>
+</div> --}}
 
 @include('front.footer')
