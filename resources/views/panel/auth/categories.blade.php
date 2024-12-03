@@ -6,26 +6,44 @@
         <div class="card-body mb-1">
             <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
+                
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
+
+                    @foreach ($parent_categories->reverse() as $category)
+                        {{-- <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li> --}}
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+
+                    @if($parent_categories->isEmpty())
+                        <li class="breadcrumb-item active">Wszystkie kategorie</li>
+                    {{-- @else
+                        <li class="breadcrumb-item active">
+                            <a href="{{ route('admin.categories', ['param' => 0]) }}">Wszystkie kategorie</a>
+                        </li> --}}
+                    @endif
+
+
+                    {{-- <li class="breadcrumb-item">
                         <a href="javascript:void(0);">Home</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="javascript:void(0);">Library</a>
                     </li>
-                    <li class="breadcrumb-item active">Data</li>
+                    <li class="breadcrumb-item active">Data</li> --}}
                 </ol>
             </nav>
             <!-- Basic Breadcrumb -->
         </div>
-        <div>
-            {{-- {{ print_r($parent_categories, true) }} --}}
+        {{-- <div>
+            {{ print_r($parent_categories, true) }}
             <ul>
-                @foreach ($parent_categories as $category)
+                @foreach ($parent_categories->reverse() as $category)
                     <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li>
                 @endforeach
             </ul>
-        </div>
+        </div> --}}
         <div class="card-body mb-1">
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
