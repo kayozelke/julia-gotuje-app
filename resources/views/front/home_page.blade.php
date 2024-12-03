@@ -13,11 +13,11 @@
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
                             <span class="cat-links">
-                                <a href="category.html">Inspiration</a>
+                                <a href="#">Inspiration</a>
                             </span>
                         </div>
                         <h2 class="hero__entry-title">
-                            <a href="single-standard.html">
+                            <a href="#">
                                 Understanding and Using Negative Space.
                             </a>
                         </h2>
@@ -26,7 +26,7 @@
                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                             nostrud corporis est laudantium voluptatum consectetur adipiscing.
                         </p>
-                        <a class="hero__more-link" href="single-standard.html">Read More</a>
+                        <a class="hero__more-link" href="#">Read More</a>
                     </div>
                 </div>
             </article>
@@ -37,11 +37,11 @@
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
                             <span class="cat-links">
-                                <a href="category.html">Health</a>
+                                <a href="#">Health</a>
                             </span>
                         </div>
                         <h2 class="hero__entry-title">
-                            <a href="single-standard.html">
+                            <a href="#">
                                 10 Reasons Why Being in Nature Is Good For You.
                             </a>
                         </h2>
@@ -51,7 +51,7 @@
                             quibusdam ad nulla. Quis autem possimus dolores est est fugiat saepe vel aut. Earum
                             consequatur.
                         </p>
-                        <a class="hero__more-link" href="single-standard.html">Read More</a>
+                        <a class="hero__more-link" href="#">Read More</a>
                     </div>
                 </div>
             </article>
@@ -62,11 +62,11 @@
                     <div class="hero__entry-text-inner">
                         <div class="hero__entry-meta">
                             <span class="cat-links">
-                                <a href="category.html">Lifestyle</a>
+                                <a href="#">Lifestyle</a>
                             </span>
                         </div>
                         <h2 class="hero__entry-title">
-                            <a href="single-standard.html">
+                            <a href="#">
                                 Six Relaxation Techniques to Reduce Stress.
                             </a>
                         </h2>
@@ -76,7 +76,7 @@
                             Unde et earum. Nostrum nulla optio debitis odio modi. Quis autem possimus dolores est est
                             fugiat saepe vel aut.
                         </p>
-                        <a class="hero__more-link" href="single-standard.html">Read More</a>
+                        <a class="hero__more-link" href="#">Read More</a>
                     </div>
                 </div>
             </article>
@@ -111,7 +111,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/statue-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/statue-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/statue-1200.jpg')}} 2x"
                             alt="">
@@ -129,7 +129,7 @@
                                 <a href="#0">Naruto Uzumaki</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">Just a Normal Simple Blog Post.</a></h1>
+                        <h1 class="entry__title"><a href="#">Just a Normal Simple Blog Post.</a></h1>
                     </div>
                     <div class="entry__excerpt">
                         <p>
@@ -147,7 +147,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/beetle-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/beetle-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/beetle-1200.jpg')}} 2x"
                             alt="">
@@ -165,7 +165,7 @@
                                 <a href="#0">Sasuke Uchiha</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">Throwback To The Good Old Days.</a></h1>
+                        <h1 class="entry__title"><a href="#">Throwback To The Good Old Days.</a></h1>
                     </div>
                     <div class="entry__excerpt">
                         <p>
@@ -183,7 +183,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/grayscale-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/grayscale-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/grayscale-1200.jpg')}} 2x"
                             alt="">
@@ -201,7 +201,7 @@
                                 <a href="#0">Naruto Uzumaki</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">5 Grayscale Coloring Techniques.</a>
+                        <h1 class="entry__title"><a href="#">5 Grayscale Coloring Techniques.</a>
                         </h1>
                     </div>
                     <div class="entry__excerpt">
@@ -220,7 +220,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/woodcraft-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/woodcraft-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/woodcraft-1200.jpg')}} 2x"
                             alt="">
@@ -238,7 +238,7 @@
                                 <a href="#0">Shikamaru Nara</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">What Minimalism Really Looks Like.</a>
+                        <h1 class="entry__title"><a href="#">What Minimalism Really Looks Like.</a>
                         </h1>
                     </div>
                     <div class="entry__excerpt">
@@ -257,7 +257,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/tulips-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/tulips-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/tulips-1200.jpg')}} 2x"
                             alt="">
@@ -275,7 +275,7 @@
                                 <a href="#0">Kakashi Hatake</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">10 Interesting Facts About
+                        <h1 class="entry__title"><a href="#">10 Interesting Facts About
                                 Caffeine.</a></h1>
                     </div>
                     <div class="entry__excerpt">
@@ -297,7 +297,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/red-and-blue-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/red-and-blue-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/red-and-blue-1200.jpg')}} 2x"
                             alt="">
@@ -316,7 +316,7 @@
                                 <a href="#0">Shikamaru Nara</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">Red and Blue Photo Effects.</a></h1>
+                        <h1 class="entry__title"><a href="#">Red and Blue Photo Effects.</a></h1>
                     </div>
                     <div class="entry__excerpt">
                         <p>
@@ -335,7 +335,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/white-lamp-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/white-lamp-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/white-lamp-1200.jpg')}} 2x"
                             alt="">
@@ -354,7 +354,7 @@
                                 <a href="#0">Naruto Uzumaki</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">10 Practical Ways to Be
+                        <h1 class="entry__title"><a href="#">10 Practical Ways to Be
                                 Minimalist.</a></h1>
                     </div>
                     <div class="entry__excerpt">
@@ -373,7 +373,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/books-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/books-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/books-1200.jpg')}} 2x"
                             alt="">
@@ -392,7 +392,7 @@
                                 <a href="#0">Sakura Haruno</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">What Does Reading Do to Your
+                        <h1 class="entry__title"><a href="#">What Does Reading Do to Your
                                 Brain?</a></h1>
                     </div>
                     <div class="entry__excerpt">
@@ -411,7 +411,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/lamp-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/lamp-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/lamp-1200.jpg')}} 2x"
                             alt="">
@@ -430,7 +430,7 @@
                                 <a href="#0">Shikamaru Narra</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">Symmetry In Modern Design.</a></h1>
+                        <h1 class="entry__title"><a href="#">Symmetry In Modern Design.</a></h1>
                     </div>
                     <div class="entry__excerpt">
                         <p>
@@ -449,7 +449,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/clock-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/clock-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/clock-1200.jpg')}} 2x"
                             alt="">
@@ -468,7 +468,7 @@
                                 <a href="#0">Sasuke Uchiha</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">10 Tips for Managing Time
+                        <h1 class="entry__title"><a href="#">10 Tips for Managing Time
                                 Effectively.</a></h1>
                     </div>
                     <div class="entry__excerpt">
@@ -489,7 +489,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/phone-and-keyboard-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/phone-and-keyboard-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/phone-and-keyboard-1200.jpg')}} 2x"
                             alt="">
@@ -526,7 +526,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#" class="thumb-link">
                         <img src="{{ asset('front/images/thumbs/masonry/wheel-600.jpg')}}"
                             srcset="{{ asset('front/images/thumbs/masonry/wheel-600.jpg')}} 1x, {{ asset('front/images/thumbs/masonry/wheel-1200.jpg')}} 2x"
                             alt="">
@@ -544,7 +544,7 @@
                                 <a href="#0">Naruto Uzumaki</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">Black And White Photography Tips.</a>
+                        <h1 class="entry__title"><a href="#">Black And White Photography Tips.</a>
                         </h1>
                     </div>
                     <div class="entry__excerpt">
