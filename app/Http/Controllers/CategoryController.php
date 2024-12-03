@@ -28,11 +28,11 @@ class CategoryController extends Controller
         }
 
 
-        // Proste wyświetlenie wyników
-        foreach ($categories as $category) {
-            echo "$category <br>";
-            // echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
-        }
+        // // Proste wyświetlenie wyników
+        // foreach ($categories as $category) {
+        //     echo "$category <br>";
+        //     // echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
+        // }
 
         return view('panel.auth.categories', [
             'current_category_id' => $param,
@@ -58,7 +58,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('admin.categories', $request->parent_category_id);
-        $this->printParentCategories($request->parent_category_id);
+        // $this->printParentCategories($request->parent_category_id);
     }
 
 
