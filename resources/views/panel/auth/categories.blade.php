@@ -34,7 +34,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.categories.store') }}" method="POST">
+                            <form action="#" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nazwa kategorii</label>
