@@ -76,5 +76,10 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+    {{-- DATATABLES TEST --}}
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    
   </body>
 </html>
