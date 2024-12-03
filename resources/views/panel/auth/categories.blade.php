@@ -9,20 +9,20 @@
                 
                 <ol class="breadcrumb">
 
+                    @if(count($parent_categories) == 0)
+                        <li class="breadcrumb-item active">Wszystkie kategorie</li>
+                    @else
+                        <li class="breadcrumb-item active">
+                            <a href="{{ route('admin.categories'}}">Wszystkie kategorie</a>
+                        </li>
+                    @endif
+
                     @foreach (array_reverse($parent_categories) as $category)
                         {{-- <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li> --}}
                         <li class="breadcrumb-item">
                             <a href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
                         </li>
                     @endforeach
-
-                    @if(count($parent_categories) == 0)
-                        <li class="breadcrumb-item active">Wszystkie kategorie</li>
-                    @else
-                        <li class="breadcrumb-item active">
-                            <a href="{{ route('admin.categories', ['param' => 0]) }}">Wszystkie kategorie</a>
-                        </li>
-                    @endif
 
 
                     {{-- <li class="breadcrumb-item">
