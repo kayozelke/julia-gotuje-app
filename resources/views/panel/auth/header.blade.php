@@ -255,7 +255,7 @@
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
             {{-- Categories --}}
-            <li class="menu-item {{ @if(request()->routeIs('admin.categories')) active @endif }}">
+            <li class="menu-item {{ request()->routeIs('admin.categories') ? 'active' : '' }}">
               <a href="{{ route('admin.categories') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Kategorie</div>
