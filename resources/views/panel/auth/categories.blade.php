@@ -34,7 +34,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="#" method="POST">
+                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nazwa kategorii</label>

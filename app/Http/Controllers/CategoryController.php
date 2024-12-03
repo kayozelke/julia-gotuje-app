@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -34,10 +35,29 @@ class CategoryController extends Controller
         }
 
         return view('panel.auth.categories', [
+            'current_category_id' => $param,
             'categories' => $categories,
             'parent_categories' => $this->findParentCategories($param),
         ]);
     }
+
+    public function addPost(Request $request, int $param)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Category::create([
+            'name' => $validated['name'],
+            'parent_id' => $param,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'updated_by' => Auth::id(),
+        ]);
+
+        return redirect()->route('admin.categories', $param);
+    }
+
 
     /**
      * Recursively finds all parent categories for a given category ID.
