@@ -13,7 +13,7 @@
                         <li class="breadcrumb-item active">Wszystkie kategorie</li>
                     @else
                         <li class="breadcrumb-item active">
-                            <a href="{{ route('admin.categories'}}">Wszystkie kategorie</a>
+                            <a href="{{ route('admin.categories') }}">Wszystkie kategorie</a>
                         </li>
                     @endif
 
