@@ -192,10 +192,10 @@
             </div>
           </div>
         </div>
-        {{-- <div class="col-6 mb-4">
+        <div class="col-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <div class="card-title d-flex align-items-start justify-content-between">
+              {{-- <div class="card-title d-flex align-items-start justify-content-between">
                 <div class="avatar flex-shrink-0">
                   <img src="{{ asset('panel/assets/img/icons/unicons/cc-primary.png') }}" alt="Credit Card" class="rounded" />
                 </div>
@@ -218,10 +218,11 @@
               </div>
               <span class="fw-semibold d-block mb-1">Transactions</span>
               <h3 class="card-title mb-2">$14,857</h3>
-              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
+              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small> --}}
+              <i class="fab fa-jenkins fa-3x"></i>
             </div>
           </div>
-        </div> --}}
+        </div>
         <div class="col-12 mb-4">
           <div class="card">
             <div class="card-body">
