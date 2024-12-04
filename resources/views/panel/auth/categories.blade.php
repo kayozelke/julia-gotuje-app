@@ -19,10 +19,10 @@
                 <ol class="breadcrumb">
 
                     @if (count($parent_categories) == 0)
-                        <li class="breadcrumb-item active">Wszystkie kategorie</li>
+                        <li class="breadcrumb-item active">Wszystko</li>
                     @else
                         <li class="breadcrumb-item active">
-                            <a href="{{ route('admin.categories') }}">Wszystkie kategorie</a>
+                            <a href="{{ route('admin.categories') }}">Wszystko</a>
                         </li>
                     @endif
 
@@ -45,9 +45,9 @@
                 </ol>
             </nav>
             <!-- Basic Breadcrumb -->
-            
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                Dodaj kategorię
+                Dodaj kategorię w tym miejscu
             </button>
 
             <!-- Modal -->
