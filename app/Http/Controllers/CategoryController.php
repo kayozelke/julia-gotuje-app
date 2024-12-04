@@ -41,6 +41,7 @@ class CategoryController extends Controller
             'toastSuccessTitle' => "Test",
             'toastSuccessDescription' => "Opis test",
             'toastErrorTitle' => "Error occured",
+            'toastSuccessHideTime' => 5,
         ]);
     }
 
