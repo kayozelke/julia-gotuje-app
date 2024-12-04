@@ -94,7 +94,7 @@
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
                         <img src="{{ asset('images/thumbs/masonry/grayscale-600.jpg') }}"
-                            srcset="{{ asset('images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x') }}"
+                            srcset="{{ asset('front/images/thumbs/masonry/statue-600.jpg') }} 1x, {{ asset('front/images/thumbs/masonry/statue-1200.jpg') }} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
