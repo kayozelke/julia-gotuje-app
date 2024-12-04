@@ -85,11 +85,11 @@
 
             </article> <!-- end article --> --}}
             @include('front.single_post_thumbnail', [
-                'src' => "{{ asset('front/images/thumbs/masonry/beetle-600.jpg') }}",
-                'srcset' => "{{ asset('front/images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x') }}"
+                'src' => 'front/images/thumbs/masonry/beetle-600.jpg',
+                'srcset' => 'front/images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x'
             ])
 
-            <article class="brick entry" data-animate-el>
+            {{-- <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
                     <a href="#0" class="thumb-link">
@@ -124,7 +124,7 @@
                     <a class="entry__more-link" href="#0">Read More</a>
                 </div> <!-- end entry__text -->
 
-            </article> <!-- end article -->
+            </article> <!-- end article --> --}}
 
             {{-- <article class="brick entry" data-animate-el>
 
