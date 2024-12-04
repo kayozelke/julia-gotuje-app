@@ -9,13 +9,18 @@
     <div class="toast-body">Fruitcake chocolate bar tootsie roll gummies gummies jelly beans cake.</div>
 </div>
 
-<div class="bs-toast toast toast-placement-ex m-2 fade bg-success top-0 start-50 translate-middle-x show" role="alert"
-    aria-live="assertive" aria-atomic="true" data-delay="2000">
-    <div class="toast-header">
-        <i class="bx bx-check-circle me-2"></i>
-        <div class="me-auto fw-semibold">{{$current_category_id}}</div>
-        {{-- <!-- <small>11 mins ago</small> --> --}}
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">Fruitcake chocolate bar tootsie roll gummies gummies jelly beans cake.</div>
-</div>
+{{-- if isset $successTitle or $successDescription and one of them is not empty, then display the block below. --}}
+@if (isset($successTitle) || isset($successDescription))
+    @if (!empty($successTitle) || !empty($successDescription))
+        <div class="bs-toast toast toast-placement-ex m-2 fade bg-success top-0 start-50 translate-middle-x show"
+            role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+            <div class="toast-header">
+                <i class="bx bx-check-circle me-2"></i>
+                <div class="me-auto fw-semibold">{{ $successTitle ?? '' }}</div>
+                {{-- <!-- <small>11 mins ago</small> --> --}}
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ $successDescription ?? '' }}</div>
+        </div>
+    @endif
+@endif
