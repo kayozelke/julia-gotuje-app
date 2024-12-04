@@ -22,16 +22,30 @@ class AuthController extends Controller
     //
     public function login(){
         // echo "hello from controller - login";
-
         if(User::count() == 0){
             $this->addFirstUser();
             return view('panel/unauth/login', ['first_user' => true]);
         } 
+
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
         
         
         // echo "There is already ". User::count()." user(s) at database.";
 
-        return view('panel/unauth/login', ['first_user' => false]);
+        return view('panel/unauth/login', [
+            'first_user' => false,
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
     }
 
     public function logout(Request $request): RedirectResponse {
@@ -41,7 +55,11 @@ class AuthController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/login');
+        return redirect('/login')->with([
+            'toastSuccessTitle' => 'Wylogowano!',
+            // 'toastSuccessDescription' => 'Proszę wybrać inną nazwę.',
+            'toastSuccessHideTime' => 5,
+        ]);
     }
     // public function logout(Request $request)
     // {
@@ -52,7 +70,7 @@ class AuthController extends Controller
     // }
 
     public function loginPost(Request $request){
-        echo "hello from controller - loginPost";
+        // echo "hello from controller - loginPost";
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -65,7 +83,11 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             
-            return redirect()->intended('admin/home');
+            return redirect()->intended('admin/home')->with([
+                'toastSuccessTitle' => 'Wylogowano!',
+                // 'toastSuccessDescription' => 'Proszę wybrać inną nazwę.',
+                'toastSuccessHideTime' => 5,
+            ]);;
             // return redirect()->intended(route("admin.home"));
         }else{
             return redirect()->back()->withErrors([
