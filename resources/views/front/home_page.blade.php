@@ -1,4 +1,4 @@
-@include('front.header')
+@include('front.header', ['isHomePage' => true])
 
 <!-- hero -->
 <div class="hero">
