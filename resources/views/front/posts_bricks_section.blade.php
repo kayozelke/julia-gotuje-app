@@ -44,8 +44,8 @@
 
             </article> <!-- end article --> --}}
             @include('front.single_post_thumbnail', [
-                src => "images/thumbs/masonry/statue-600.jpg",
-                srcset => "images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x"
+                'src' => 'images/thumbs/masonry/statue-600.jpg',
+                'srcset' => 'images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x',
             ])
 
             {{-- <article class="brick entry" data-animate-el>
@@ -84,9 +84,9 @@
                 </div> <!-- end entry__text -->
 
             </article> <!-- end article --> --}}
-                        @include('front.single_post_thumbnail', [
-                src => "images/thumbs/masonry/beetle-600.jpg",
-                srcset => "images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x"
+            @include('front.single_post_thumbnail', [
+                'src' => 'images/thumbs/masonry/beetle-600.jpg',
+                'srcset' => 'images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x',
             ])
 
             <article class="brick entry" data-animate-el>
@@ -487,11 +487,10 @@
                     <li>
                         <a class="pgn__prev" href="#0">
                             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"
-                                    d="M10.25 6.75L4.75 12L10.25 17.25"></path>
-                                <path stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5" d="M19.25 12H5"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" d="M10.25 6.75L4.75 12L10.25 17.25"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" d="M19.25 12H5"></path>
                             </svg>
                         </a>
                     </li>
@@ -505,11 +504,10 @@
                     <li>
                         <a class="pgn__next" href="#0">
                             <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"
-                                    d="M13.75 6.75L19.25 12L13.75 17.25"></path>
-                                <path stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5" d="M19 12H4.75"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" d="M19 12H4.75"></path>
                             </svg>
                         </a>
                     </li>
