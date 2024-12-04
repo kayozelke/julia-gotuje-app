@@ -557,7 +557,7 @@
             </div> <!-- end pagination -->
 
         </div> <!-- end bricks --> --}}
-        @include('front.post_bricks_section')
+        @include('front.posts_bricks_section')
 
     </div> <!-- end entry-wrap -->
 
