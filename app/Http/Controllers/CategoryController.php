@@ -25,9 +25,9 @@ class CategoryController extends Controller
 
         // Znajdź kategorie bez rodzica (parent_id = NULL)
         if (isset($param)) {
-            $categories = Category::where('parent_id', $param)->get();
+            $categories = Category::where('parent_id', $param)->orderBy('id')->get();
         } else {
-            $categories = Category::whereNull('parent_id')->get();
+            $categories = Category::whereNull('parent_id')->orderBy('id')->get();
             // if($categories->count() == 0){
             //     $no_children_categories = true;
             // }
