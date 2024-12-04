@@ -1,4 +1,4 @@
-</section> <!-- end s-content -->
+{{-- </section> <!-- end s-content --> --}}
 
 
 <!-- # site-footer
