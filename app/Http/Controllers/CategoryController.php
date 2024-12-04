@@ -15,9 +15,14 @@ class CategoryController extends Controller
         // $categories = Category::all();
 
         // $no_children_categories = false;
-        
+
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+
         // Znajdź kategorie bez rodzica (parent_id = NULL)
-        if(isset($param)) {
+        if (isset($param)) {
             $categories = Category::where('parent_id', $param)->get();
         } else {
             $categories = Category::whereNull('parent_id')->get();
@@ -40,8 +45,9 @@ class CategoryController extends Controller
             'parent_categories' => $this->findParentCategories($param),
             'toastSuccessTitle' => "Test",
             'toastSuccessDescription' => "Opis test",
-            // 'toastErrorTitle' => "Error occured",
             'toastSuccessHideTime' => 5,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
         ]);
     }
 
@@ -52,8 +58,12 @@ class CategoryController extends Controller
         ]);
 
         // TODO - handle validation
-        if(Category::where('name', $validated['name'])->where('parent_id', $request->parent_category_id)->exists()){
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!']);
+        if (Category::where('name', $validated['name'])->where('parent_id', $request->parent_category_id)->exists()) {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!',
+                'toastErrorDescription' => 'Proszę wybrać inną nazwę.',
+                'toastErrorHideTime' => 5
+            ]);
         }
 
         Category::create([
@@ -62,7 +72,7 @@ class CategoryController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
             'updated_by' => Auth::id(),
-        ]);        
+        ]);
 
 
         return redirect()->route('admin.categories', $request->parent_category_id);
@@ -93,7 +103,8 @@ class CategoryController extends Controller
         }
 
         return $parents;
-    }    /**
+    }
+    /**
      * Prints parent categories in a nested, user-friendly format.
      *
      * @param int $categoryId The ID of the category to start from.
@@ -124,6 +135,4 @@ class CategoryController extends Controller
             }
         }
     }
-
-
 }
