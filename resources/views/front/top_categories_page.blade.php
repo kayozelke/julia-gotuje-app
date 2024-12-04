@@ -2,7 +2,7 @@
 
 <!-- # site-content
         ================================================== -->
-<div id="content" class="s-content s-content--page">
+<div id="content" class="s-content">
 
     <div class="row entry-wrap">
         <div class="column lg-12">
