@@ -806,8 +806,6 @@
             </section> <!-- end s-content -->
 
 
-            <!-- # site-footer
-        ================================================== -->
         @include('front.footer')
             {{-- <footer id="colophon" class="s-footer">
 
