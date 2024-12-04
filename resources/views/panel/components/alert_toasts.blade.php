@@ -13,7 +13,7 @@
     aria-live="assertive" aria-atomic="true" data-delay="2000">
     <div class="toast-header">
         <i class="bx bx-check-circle me-2"></i>
-        <div class="me-auto fw-semibold">{{current_category_id}}</div>
+        <div class="me-auto fw-semibold">{{$current_category_id}}</div>
         {{-- <!-- <small>11 mins ago</small> --> --}}
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
