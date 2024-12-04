@@ -52,14 +52,18 @@ class CategoryController extends Controller
         ]);
 
         // TODO - handle validation
-
+        if(Category::where('name', $validated['name'])->where('parent_id', $request->parent_category_id)->exists()){
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!']);
+        }
+        
         Category::create([
             'name' => $validated['name'],
             'parent_id' => $request->parent_category_id,
             'created_at' => now(),
             'updated_at' => now(),
             'updated_by' => Auth::id(),
-        ]);
+        ]);        
+
 
         return redirect()->route('admin.categories', $request->parent_category_id);
         // $this->printParentCategories($request->parent_category_id);
