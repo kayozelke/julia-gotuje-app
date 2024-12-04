@@ -62,7 +62,6 @@ class CategoryController extends Controller
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!',
                 'toastErrorDescription' => 'Proszę wybrać inną nazwę.',
-                'toastErrorHideTime' => 5
             ]);
         }
 
@@ -73,9 +72,14 @@ class CategoryController extends Controller
             'updated_at' => now(),
             'updated_by' => Auth::id(),
         ]);
+        
+        return redirect()->back()->with([
+            'toastSuccessTitle' => 'Pomyślnie dodano kategorię',
+            // 'toastSuccessDescription' => 'Proszę wybrać inną nazwę.',
+            'toastSuccessHideTime' => 5,
+        ]);
 
-
-        return redirect()->route('admin.categories', $request->parent_category_id);
+        // return redirect()->route('admin.categories', $request->parent_category_id);
         // $this->printParentCategories($request->parent_category_id);
     }
 
