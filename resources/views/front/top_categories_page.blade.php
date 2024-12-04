@@ -21,11 +21,41 @@
                         {{-- <p>Polecane, ulubione przez Was kategorie przepisów</p> --}}
                         <div class="table-responsive">
                             <table>
-                                <thead>
+                                {{-- <thead>
                                     <tr>
                                         <th>Nazwa</th>
                                     </tr>
-                                </thead>
+                                </thead> --}}
+                                <tbody>
+                                    <tr>
+                                        <td>Desery zimowe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dania wegetariańskie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zupy krem</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dania kuchni włoskiej</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+
+                {{-- table with standard categories --}}
+                <div class="row u-add-bottom">
+                    <div class="column lg-12">
+                        <h3>Wszystkie kategorie</h3>
+                        <div class="table-responsive">
+                            <table>
+                                {{-- <thead>
+                                    <tr>
+                                        <th>Nazwa</th>
+                                    </tr>
+                                </thead> --}}
                                 <tbody>
                                     <tr>
                                         <td>Desery zimowe</td>
