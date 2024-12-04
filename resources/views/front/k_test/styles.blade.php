@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+@include('front.header')
+{{-- <!DOCTYPE html>
 <html lang="en" class="no-js">
 
 <head>
@@ -21,9 +23,9 @@
 
     <!-- favicons
     ================================================== -->
-    {{-- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> --}}
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"> --> 
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
     <link rel="manifest" href="{{ asset('front/site.webmanifest') }}">
 
 </head>
@@ -39,10 +41,10 @@
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> --}}
 
 
-    <!-- page wrap
+    {{-- <!-- page wrap
     ================================================== -->
     <div id="page" class="s-pagewrap">
 
@@ -123,7 +125,7 @@
                 </svg>
             </a>
 
-        </header> <!-- end s-header -->
+        </header> <!-- end s-header --> --}}
 
 
         <!-- # site-content
@@ -810,7 +812,7 @@
         </section> <!-- end s-content -->
 
 
-        <!-- # site-footer
+        {{-- <!-- # site-footer
         ================================================== -->
         <footer id="colophon" class="s-footer">
 
@@ -966,4 +968,6 @@
 
 </body>
 
-</html>
+</html> --}}
+
+@include('front.footer')
