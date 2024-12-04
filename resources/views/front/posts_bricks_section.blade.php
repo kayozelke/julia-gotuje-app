@@ -89,12 +89,12 @@
                 'srcset' => "{{ asset('front/images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x') }}"
             ])
 
-            {{-- <article class="brick entry" data-animate-el>
+            <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/grayscale-600.jpg"
-                            srcset="images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x"
+                        <img src=""{{ asset('images/thumbs/masonry/grayscale-600.jpg') }}"
+                            srcset=""{{ asset('images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x') }}"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -126,7 +126,7 @@
 
             </article> <!-- end article -->
 
-            <article class="brick entry" data-animate-el>
+            {{-- <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
