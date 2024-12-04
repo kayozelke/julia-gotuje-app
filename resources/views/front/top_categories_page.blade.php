@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en" class="no-js">
 
 <head>
@@ -45,7 +45,7 @@
     <!-- page wrap
     ================================================== -->
     <div id="page" class="s-pagewrap">
-
+ --}}
 
         @include('front.header')
 
