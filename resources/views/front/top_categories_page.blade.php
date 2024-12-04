@@ -808,7 +808,7 @@
 
             <!-- # site-footer
         ================================================== -->
-        @include.('front.footer')
+        @include('front.footer')
             {{-- <footer id="colophon" class="s-footer">
 
                 <div class="row s-footer__subscribe">
