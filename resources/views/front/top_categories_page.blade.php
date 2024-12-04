@@ -12,7 +12,7 @@
                 <header class="entry__header entry__header--narrower">
 
                     <h1 class="entry__title">
-                        Style Guide.
+                        Strona główna kategorii przepisów
                     </h1>
 
                 </header>
@@ -21,33 +21,29 @@
 
                     <div class="column lg-12">
 
-                        <h3>Tables</h3>
-                        <p>Be sure to use properly formed table markup with <code>&lt;thead&gt;</code> and
-                            <code>&lt;tbody&gt;</code> when building a <code>table</code>.</p>
+                        <h3>Wyróżnione kategorie</h3>
+                        <p>Polecane, ulubione przez Was kategorie przepisów</p>
 
                         <div class="table-responsive">
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Age</th>
-                                        <th>Sex</th>
-                                        <th>Location</th>
+                                        <th>Nazwa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>William J. Seymour</td>
-                                        <td>34</td>
-                                        <td>Male</td>
-                                        <td>Azusa Street</td>
+                                        <td>Desery zimowe</td>
                                     </tr>
                                     <tr>
-                                        <td>Jennie Evans Moore</td>
-                                        <td>30</td>
-                                        <td>Female</td>
-                                        <td>Azusa Street</td>
+                                        <td>Dania wegetariańskie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zupy krem</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dania kuchni włoskiej</td>
                                     </tr>
                                 </tbody>
                             </table>
