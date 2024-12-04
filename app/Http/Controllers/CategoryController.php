@@ -38,6 +38,7 @@ class CategoryController extends Controller
             'current_category_id' => $param,
             'categories' => $categories,
             'parent_categories' => $this->findParentCategories($param),
+            'toastSuccessTitle' => "Test",
         ]);
     }
 
