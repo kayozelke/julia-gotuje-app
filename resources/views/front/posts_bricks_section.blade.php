@@ -92,7 +92,7 @@
             <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
+                    <a href="#0" class="thumb-link">
                         <img src="{{ asset('images/thumbs/masonry/grayscale-600.jpg') }}"
                             srcset="{{ asset('front/images/thumbs/masonry/statue-600.jpg') }} 1x, {{ asset('front/images/thumbs/masonry/statue-1200.jpg') }} 2x"
                             alt="">
