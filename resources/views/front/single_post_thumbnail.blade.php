@@ -9,10 +9,11 @@
 
     <div class="entry__text">
         <div class="entry__header">
-            <h1 class="entry__title"><a href="single-standard.html">Just a Normal Simple Blog
-                    Post.</a></h1>
+            <h1 class="entry__title">
+                <a href="single-standard.html">{{ $title ?? 'Default Title' }}</a>
+            </h1>
         </div>
-        <div class="entry__excerpt">
+        {{-- <div class="entry__excerpt">
             <p>
                 Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id
                 et sit proident dolor nulla
@@ -20,7 +21,7 @@
                 sint in aliqua cillum in.
             </p>
         </div>
-        <a class="entry__more-link" href="#0">Read More</a>
+        <a class="entry__more-link" href="#0">Read More</a> --}}
     </div> <!-- end entry__text -->
 
 </article> <!-- end article -->
