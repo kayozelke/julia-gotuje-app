@@ -44,8 +44,8 @@
 
             </article> <!-- end article --> --}}
             @include('front.single_post_thumbnail', [
-                'src' => "{{ asset('front/images/thumbs/masonry/statue-600.jpg') }}",
-                'srcset' => "{{ asset('front/images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x') }}"
+                'src' => 'front/images/thumbs/masonry/statue-600.jpg',
+                'srcset' => 'front/images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x'
             ])
 
             {{-- <article class="brick entry" data-animate-el>
@@ -89,12 +89,12 @@
                 'srcset' => "{{ asset('front/images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x') }}"
             ])
 
-            {{-- <article class="brick entry" data-animate-el>
+            <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="thumb-link">
-                        <img src="images/thumbs/masonry/grayscale-600.jpg"
-                            srcset="images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x"
+                    <a href="#0" class="thumb-link">
+                        <img src="{{ asset('images/thumbs/masonry/grayscale-600.jpg') }}"
+                            srcset="{{ asset('front/images/thumbs/masonry/statue-600.jpg') }} 1x, {{ asset('front/images/thumbs/masonry/statue-1200.jpg') }} 2x"
                             alt="">
                     </a>
                 </div> <!-- end entry__thumb -->
@@ -110,7 +110,7 @@
                                 <a href="#0">Naruto Uzumaki</a>
                             </span>
                         </div>
-                        <h1 class="entry__title"><a href="single-standard.html">5 Grayscale Coloring
+                        <h1 class="entry__title"><a href="#0">5 Grayscale Coloring
                                 Techniques.</a></h1>
                     </div>
                     <div class="entry__excerpt">
@@ -126,7 +126,7 @@
 
             </article> <!-- end article -->
 
-            <article class="brick entry" data-animate-el>
+            {{-- <article class="brick entry" data-animate-el>
 
                 <div class="entry__thumb">
                     <a href="single-standard.html" class="thumb-link">
