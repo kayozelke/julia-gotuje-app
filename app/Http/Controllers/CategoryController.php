@@ -18,8 +18,10 @@ class CategoryController extends Controller
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
         $toastErrorTitle = session('toastErrorTitle', null);
         $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
 
         // Znajdź kategorie bez rodzica (parent_id = NULL)
         if (isset($param)) {
@@ -43,11 +45,12 @@ class CategoryController extends Controller
             'current_category_id' => $param,
             'categories' => $categories,
             'parent_categories' => $this->findParentCategories($param),
-            'toastSuccessTitle' => "Test",
-            'toastSuccessDescription' => "Opis test",
-            'toastSuccessHideTime' => 5,
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
             'toastErrorTitle' => $toastErrorTitle,
             'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
         ]);
     }
 
