@@ -3,7 +3,7 @@
 @if (isset($toastSuccessTitle) || isset($toastSuccessDescription))
     @if (!empty($toastSuccessTitle) || !empty($toastSuccessDescription))
         <div class="bs-toast toast toast-placement-ex m-2 fade bg-success top-0 start-50 translate-middle-x show"
-            role="alert" aria-live="assertive" aria-atomic="true">
+            role="alert" aria-live="assertive" aria-atomic="true" id="success-toast">
             <div class="toast-header">
                 <i class="bx bx-check-circle me-2"></i>
                 <div class="me-auto fw-semibold">{{ $toastSuccessTitle ?? '' }}</div>
@@ -12,6 +12,14 @@
             </div>
             <div class="toast-body">{{ $toastSuccessDescription ?? '' }}</div>
         </div>
+        @if(isset($toastSuccessHideTime) && $toastSuccessHideTime > 0)
+            <script>
+                setTimeout(() => {
+                    let toast = document.getElementById('success-toast');
+                    if(toast) toast.remove();
+                }, {{ $toastSuccessHideTime * 1000 }});
+            </script>
+        @endif
     @endif
 @endif
 
@@ -19,7 +27,7 @@
 @if (isset($toastErrorTitle) || isset($toastErrorDescription))
     @if (!empty($toastErrorTitle) || !empty($toastErrorDescription))
         <div class="bs-toast toast toast-placement-ex m-2 fade bg-danger top-0 start-50 translate-middle-x show"
-            role="alert" aria-live="assertive" aria-atomic="true">
+            role="alert" aria-live="assertive" aria-atomic="true" id="error-toast">
             <div class="toast-header">
                 <i class="bx bx-error-circle me-2"></i>
                 <div class="me-auto fw-semibold">{{ $toastErrorTitle ?? '' }}</div>
@@ -28,5 +36,13 @@
             </div>
             <div class="toast-body">{{ $toastErrorDescription ?? '' }}</div>
         </div>
+        @if(isset($toastErrorHideTime) && $toastErrorHideTime > 0)
+            <script>
+                setTimeout(() => {
+                    let toast = document.getElementById('error-toast');
+                    if(toast) toast.remove();
+                }, {{ $toastErrorHideTime * 1000 }});
+            </script>
+        @endif
     @endif
 @endif
