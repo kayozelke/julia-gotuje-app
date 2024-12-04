@@ -1,5 +1,8 @@
 @include('panel.unauth.header')
 <div class="container-xxl">
+  
+  @include('panel.components.alert_toasts')
+  
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
             <!-- Register -->
