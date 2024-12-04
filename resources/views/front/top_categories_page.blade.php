@@ -48,9 +48,11 @@
             </article> <!-- end entry -->
         </div>
 
-        {{-- category posts --}}
-        <!--  masonry -->
-        {{-- <div id="bricks" class="bricks">
+    </div> <!-- end entry-wrap -->
+
+    {{-- category posts --}}
+    <!--  masonry -->
+    {{-- <div id="bricks" class="bricks">
 
             <div class="masonry">
 
@@ -557,9 +559,7 @@
             </div> <!-- end pagination -->
 
         </div> <!-- end bricks --> --}}
-        @include('front.posts_bricks_section')
-
-    </div> <!-- end entry-wrap -->
+    @include('front.posts_bricks_section')
 
 </div> <!-- end s-content -->
 
