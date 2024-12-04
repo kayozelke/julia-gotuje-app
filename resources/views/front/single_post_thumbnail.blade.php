@@ -4,8 +4,8 @@
         <a href="single-standard.html" class="thumb-link">
             {{-- <img src="{{ $src }}" srcset="{{ $srcset }}" alt=""> --}}
             {{-- <img src="{{ asset($src) }}" srcset="{{ asset($srcset) }}" alt=""> --}}
-            <img src="images/thumbs/masonry/statue-600.jpg"
-                srcset="images/thumbs/masonry/statue-600.jpg 1x, images/thumbs/masonry/statue-1200.jpg 2x" alt="">
+            <img src="{{ asset('front/images/thumbs/masonry/beetle-600.jpg') }}"
+                srcset="{{ asset('front/images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x') }}" alt="">
         </a>
     </div> <!-- end entry__thumb -->
 
