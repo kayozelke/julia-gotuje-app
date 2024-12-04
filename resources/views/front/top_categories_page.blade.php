@@ -50,7 +50,7 @@
 
         {{-- category posts --}}
         <!--  masonry -->
-        <div id="bricks" class="bricks">
+        {{-- <div id="bricks" class="bricks">
 
             <div class="masonry">
 
@@ -556,7 +556,8 @@
                 </div> <!-- end column -->
             </div> <!-- end pagination -->
 
-        </div> <!-- end bricks -->
+        </div> <!-- end bricks --> --}}
+        @include('front.post_bricks_section')
 
     </div> <!-- end entry-wrap -->
 
