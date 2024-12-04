@@ -1,20 +1,21 @@
-
 {{-- DATATABLES - TEST ONLY --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 
 @include('panel.auth.header')
 
 <div class="container-xxl flex-grow-1 container-p-y">
+    {{--  --}}
+    @include('panel.components.alert_toasts')
 
     <div class="card mb-4">
         <h5 class="card-header">Kategorie</h5>
         <div class="card-body mb-1">
             <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
-                
+
                 <ol class="breadcrumb">
 
-                    @if(count($parent_categories) == 0)
+                    @if (count($parent_categories) == 0)
                         <li class="breadcrumb-item active">Wszystkie kategorie</li>
                     @else
                         <li class="breadcrumb-item active">
@@ -25,7 +26,8 @@
                     @foreach (array_reverse($parent_categories) as $category)
                         {{-- <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li> --}}
                         <li class="breadcrumb-item">
-                            <a href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
+                            <a
+                                href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
                         </li>
                     @endforeach
 
@@ -65,12 +67,14 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}" method="POST">
+                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+                                method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nazwa kategorii</label>
                                     <input type="text" class="form-control" id="name" name="name" required>
-                                    <input type="hidden" class="form-control" id="parent_category_id" name="parent_category_id" value="{{ $current_category_id }}">
+                                    <input type="hidden" class="form-control" id="parent_category_id"
+                                        name="parent_category_id" value="{{ $current_category_id }}">
 
                                 </div>
                                 <button type="submit" class="btn btn-primary">Zapisz</button>
@@ -88,7 +92,7 @@
 
     <!-- Borderless Table -->
     <div class="card mb-4">
-        @if(count($categories) == 0)
+        @if (count($categories) == 0)
             <div class="alert alert-info m-3 text-center" role="alert">
                 Brak danych
             </div>
@@ -112,7 +116,8 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>
-                                    <a href="{{ route('admin.categories', ['param' => $category->id]) }}" class="href">
+                                    <a href="{{ route('admin.categories', ['param' => $category->id]) }}"
+                                        class="href">
                                         <strong>{{ $category->name }}</strong>
                                     </a>
                                 </td>
@@ -278,7 +283,7 @@
             </div>
         @endif
     </div>
-    <!--/ Borderless Table -->        
+    <!--/ Borderless Table -->
 
 </div>
 
@@ -290,13 +295,15 @@
 {{-- DATATABLES TEST --}}
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <script>
-    $(document).ready( function () {
+    $(document).ready(function() {
         $('#myTable').DataTable({
-            "paging": false,           // Włącz paginację
-            "ordering": true,         // Włącz sortowanie
-            "searching": false,        // Włącz wyszukiwanie
-            "order": [[ 0, "asc" ]],   // Domyślne sortowanie po ID
-            "info": false  // Wyłącza informacje o paginacji
+            "paging": false, // Włącz paginację
+            "ordering": true, // Włącz sortowanie
+            "searching": false, // Włącz wyszukiwanie
+            "order": [
+                [0, "asc"]
+            ], // Domyślne sortowanie po ID
+            "info": false // Wyłącza informacje o paginacji
         });
-    } );
+    });
 </script>
