@@ -7,9 +7,9 @@ use App\Http\Controllers\CategoryController;
 
 // ########### FRONT ######################
 
-    Route::get('/welcome', function () {
-        return view('welcome');
-    });
+    // Route::get('/welcome', function () {
+    //     return view('welcome');
+    // });
 
     Route::get('/', function () {
         return view('front/home_page');;
