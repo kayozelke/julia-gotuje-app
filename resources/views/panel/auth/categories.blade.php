@@ -9,17 +9,20 @@
 
     <div class="card mb-4">
         <h5 class="card-header">Kategorie</h5>
-        <div class="card-body mb-1">
+        {{-- <div class="card-body mb-1">
+        </div> --}}
+        <div class="card-body m-1">
+            
             <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
 
                 <ol class="breadcrumb">
 
                     @if (count($parent_categories) == 0)
-                        <li class="breadcrumb-item active">Wszystkie kategorie</li>
+                        <li class="breadcrumb-item active">Wszystko</li>
                     @else
                         <li class="breadcrumb-item active">
-                            <a href="{{ route('admin.categories') }}">Wszystkie kategorie</a>
+                            <a href="{{ route('admin.categories') }}">Wszystko</a>
                         </li>
                     @endif
 
@@ -42,19 +45,9 @@
                 </ol>
             </nav>
             <!-- Basic Breadcrumb -->
-        </div>
-        {{-- <div>
-            {{ print_r($parent_categories, true) }}
-            <ul>
-                @foreach ($parent_categories->reverse() as $category)
-                    <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li>
-                @endforeach
-            </ul>
-        </div> --}}
-        <div class="card-body mb-1">
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                Dodaj kategorię
+                Dodaj kategorię w tym miejscu
             </button>
 
             <!-- Modal -->
