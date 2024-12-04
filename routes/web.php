@@ -87,3 +87,8 @@ Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post")
 
 Route::get('/user/{id}', [UserController::class, 'show']);
 // Route::get('/categories', [CategoryController::class, 'index']);
+
+
+Route::get('/k_test', function (){
+    return view('front.k_test.styles');
+});
