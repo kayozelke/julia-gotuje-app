@@ -47,7 +47,7 @@
     <!-- page wrap
     ================================================== -->
     {{-- <div id="page" class="s-pagewrap ss-home"> --}}
-    <div id="page" class="s-pagewrap  @if(isset($specialHeader) && $specialHeader) ss-home @endif">
+    <div id="page" class="s-pagewrap  {{@if(isset($specialHeader) && $specialHeader) ss-home @endif}}">
 
 
         <!-- # site header 
