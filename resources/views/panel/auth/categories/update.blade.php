@@ -9,13 +9,13 @@
                 aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+            <form action="{{ route('admin.categories.add', ['param' => $category->id]) }}"
                 method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nazwa kategorii</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                    {{-- <input type="hidden" class="form-control" id="update_id" name="update_id" value=""> --}}
+                    <input type="text" class="form-control" id="name" name="name" required value="{{ $category->name }}">
+                    <input type="hidden" class="form-control" id="update_id" name="update_id" value="{{ $category->id }}">
                     <input type="hidden" class="form-control" id="parent_category_id"
                         name="parent_category_id" value="{{ $current_category_id }}">
 
