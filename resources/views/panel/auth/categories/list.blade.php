@@ -26,11 +26,11 @@
                         </li>
                     @endif
 
-                    @foreach (array_reverse($parent_categories) as $category)
-                        {{-- <li>ID: {{ $category->id }} - Nazwa: {{ $category->name }}</li> --}}
+                    @foreach (array_reverse($parent_categories) as $p_category)
+                        {{-- <li>ID: {{ $p_category->id }} - Nazwa: {{ $p_category->name }}</li> --}}
                         <li class="breadcrumb-item">
                             <a
-                                href="{{ route('admin.categories', ['param' => $category->id]) }}">{{ $category->name }}</a>
+                                href="{{ route('admin.categories', ['param' => $p_category->id]) }}">{{ $p_category->name }}</a>
                         </li>
                     @endforeach
 
@@ -127,7 +127,7 @@
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="{{ route('admin.categories.update', ['param' => $category->id]) }}"><i
                                                     class="bx bx-edit-alt me-1"></i> Edytuj</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                            <a class="dropdown-item" href="{{ route('admin.categories.delete', ['param' => $category->id]) }}"><i
                                                     class="bx bx-trash me-1"></i>
                                                 Usuń</a>
                                         </div>

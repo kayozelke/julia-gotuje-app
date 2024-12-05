@@ -30,7 +30,7 @@ class CategoryController extends Controller
             // echo "Category with ID $param not found.";
             // return;
 
-            return view('panel.unauth.header').view('panel.components.pages_misc_error').view('panel.unauth.footer');
+            return view('panel.auth.header').view('panel.components.pages_misc_error').view('panel.auth.footer');
         }
 
             $categories = Category::where('parent_id', $param)->orderBy('id')->get();
@@ -138,6 +138,35 @@ class CategoryController extends Controller
 
         return view('panel.auth.categories.update', [
             'category' => $category,
+            'parent_categories' => $this->findParentCategories($param),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
+
+    public function delete($param = null)
+    {
+
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        $category = Category::find($param);
+        if (!$category) {
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
+        }
+        // $parent_id = $category->parent_id;
+
+        return view('panel.auth.categories.delete', [
+            'category' => $category,
+            'backPage' => redirect()->back(),
             'parent_categories' => $this->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
