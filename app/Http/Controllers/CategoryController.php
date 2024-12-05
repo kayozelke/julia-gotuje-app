@@ -24,14 +24,14 @@ class CategoryController extends Controller
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
         // Znajdź kategorie bez rodzica (parent_id = NULL)
-        if (isset($param)) {
+        if (isset($param) && !empty($param)) {
             $categories = Category::where('parent_id', $param)->orderBy('id')->get();
         } else {
+            if(isset($param) && empty($param)){
+                echo "Parameter is empty";
+                return;
+            }
             $categories = Category::whereNull('parent_id')->orderBy('id')->get();
-            // if($categories->count() == 0){
-            //     $no_children_categories = true;
-            // }
-
         }
 
 
