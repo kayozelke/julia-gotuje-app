@@ -27,8 +27,10 @@ class CategoryController extends Controller
         if (isset($param)) {
             $category = Category::find($param);
         if (!$category) {
-            echo "Category with ID $param not found.";
-            return;
+            // echo "Category with ID $param not found.";
+            // return;
+
+            return view('panel.auth.header').view('panel.components.pages_misc_error').view('panel.auth.footer');
         }
 
             $categories = Category::where('parent_id', $param)->orderBy('id')->get();
