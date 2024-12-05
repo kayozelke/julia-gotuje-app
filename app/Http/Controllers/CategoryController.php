@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
-    // Metoda do wyświetlania wszystkich kategorii
-    public function adminCategories($param = null)
+    // eventually TODO
+    // - put toasts includings into header and remove includes at each view
+    // - add page titles into session variables
+
+    public function list($param = null)
     {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
@@ -84,7 +87,7 @@ class CategoryController extends Controller
 
 
             // route at web.php looks like below            
-            // Route::get('/admin/categories/{param?}', [CategoryController::class, 'adminCategories'])->middleware('auth')->name('admin.categories');
+            // Route::get('/admin/categories/{param?}', [CategoryController::class, 'list'])->middleware('auth')->name('admin.categories');
             // 
 
             return redirect(route('admin.categories', $request->parent_category_id))->with([
