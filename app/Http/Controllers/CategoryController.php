@@ -130,7 +130,7 @@ class CategoryController extends Controller
 
         return view('panel.auth.categories.update', [
             'category' => $category,
-            // 'parent_categories' => $this->findParentCategories($param),
+            'parent_categories' => $this->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
