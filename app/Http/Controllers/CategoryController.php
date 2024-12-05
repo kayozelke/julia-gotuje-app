@@ -73,8 +73,13 @@ class CategoryController extends Controller
                 'updated_by' => Auth::id(),
             ]);
             // return redirect()->back()->with([
-            return redirect(route('admin.categories'))->with([
-                'param' => $request->parent_id,
+
+
+            // route at web.php looks like below            
+            // Route::get('/admin/categories/{param?}', [CategoryController::class, 'adminCategories'])->middleware('auth')->name('admin.categories');
+            // 
+
+            return redirect(route('admin.categories', $request->parent_category_id))->with([
                 'toastSuccessTitle' => 'Pomyślnie zaktualizowano kategorię',
                 'toastSuccessHideTime' => 5,
             ]);
