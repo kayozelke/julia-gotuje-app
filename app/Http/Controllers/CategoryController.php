@@ -72,7 +72,9 @@ class CategoryController extends Controller
                 'updated_at' => now(),
                 'updated_by' => Auth::id(),
             ]);
-            return redirect()->back()->with([
+            // return redirect()->back()->with([
+            return redirect('admin.categories.update')->with([
+                'param' => $request->parent_id,
                 'toastSuccessTitle' => 'Pomyślnie zaktualizowano kategorię',
                 'toastSuccessHideTime' => 5,
             ]);
