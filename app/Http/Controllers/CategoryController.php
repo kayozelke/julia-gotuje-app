@@ -166,7 +166,7 @@ class CategoryController extends Controller
 
         return view('panel.auth.categories.delete', [
             'category' => $category,
-            'backPage' => redirect()->back(),
+            'backPage' => url()->previous(),
             'parent_categories' => $this->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",

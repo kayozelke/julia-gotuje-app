@@ -35,11 +35,13 @@
     </div>
     <div class="card mb-4">
         <div class="card-body m-1">
-            <div class="alert alert-info m-3 text-center" role="alert">
+            <div class="alert alert-danger m-3 text-center" role="alert">
                 Czy na pewno chcesz usunąć kategorię "{{$category->name}}"?
             </div>
-            <a href="#" class="btn btn-danger" role="button">Usuń</a>
-            <a href="{{$backPage}}" class="btn btn-secondary" role="button">Anuluj</a>
+            <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-danger mx-2" role="button">Usuń</a>
+                <a href="{{$backPage}}" class="btn btn-secondary mx-2" role="button">Anuluj</a>
+            </div>
             {{-- <form action="{{ route('admin.categories.delete', ['param' => $category->id]) }}" method="POST">
                 @csrf
                 <div class="mb-3">
