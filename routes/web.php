@@ -72,7 +72,7 @@ Route::middleware("auth")->group(function () {
     return redirect("/admin");
 });
 
-Route::get('/admin/categories/{param?}', [CategoryController::class, 'index'])->middleware('auth')->name('admin.categories');
+Route::get('/admin/categories/{param?}', [CategoryController::class, 'adminCategories'])->middleware('auth')->name('admin.categories');
 Route::post('/admin/categories/add/{param?}', [CategoryController::class, 'addPost'])->middleware('auth')->name('admin.categories.add');
 
 Route::get("/login", [AuthController::class, 'login'])->name("login");

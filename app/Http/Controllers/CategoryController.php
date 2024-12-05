@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class CategoryController extends Controller
 {
     // Metoda do wyświetlania wszystkich kategorii
-    public function index($param = null)
+    public function adminCategories($param = null)
     {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
