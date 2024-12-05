@@ -85,7 +85,7 @@
 
 
     <!-- Borderless Table -->
-    <div class="card mb-4">
+    <div class="card mb-4" style="min-height: 200px;">
         @if (count($categories) == 0)
             <div class="alert alert-info m-3 text-center" role="alert">
                 Brak danych
