@@ -1,14 +1,8 @@
 @include('panel.auth.header')
 {{--  --}}
 
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="modalCenterTitle">Edycja kategorii</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+
+        <div class="card mb-4">
             <form action="{{ route('admin.categories.add', ['param' => $category->id]) }}"
                 method="POST">
                 @csrf
@@ -23,7 +17,5 @@
                 <button type="submit" class="btn btn-primary">Zapisz</button>
             </form>
         </div>
-    </div>
-</div>
 
 @include('panel.auth.footer')
