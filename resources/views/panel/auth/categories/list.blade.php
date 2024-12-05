@@ -66,6 +66,7 @@
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nazwa kategorii</label>
                                     <input type="text" class="form-control" id="name" name="name" required>
+                                    {{-- <input type="hidden" class="form-control" id="update_id" name="update_id" value=""> --}}
                                     <input type="hidden" class="form-control" id="parent_category_id"
                                         name="parent_category_id" value="{{ $current_category_id }}">
 

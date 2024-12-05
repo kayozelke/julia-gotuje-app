@@ -41,7 +41,7 @@ class CategoryController extends Controller
         //     // echo "ID: " . $category->id . ", Name: " . $category->name . "<br>";
         // }
 
-        return view('panel.auth.categories', [
+        return view('panel.auth.categories.list', [
             'current_category_id' => $param,
             'categories' => $categories,
             'parent_categories' => $this->findParentCategories($param),
@@ -59,6 +59,24 @@ class CategoryController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
         ]);
+
+        if(isset($request->update_id) && !empty($request->update_id)){
+            $category = Category::find($request->update_id);
+            if (!$category) {
+                return redirect()->back()->withErrors(['category' => 'Kategoria o ID "'.$request->update_id.'" nie istnieje.']);
+            }
+            $category->update([
+                'name' => $validated['name'],
+                // 'parent_id' => $request->parent_category_id,
+                'updated_at' => now(),
+                'updated_by' => Auth::id(),
+            ]);
+            return redirect()->back()->with([
+                'toastSuccessTitle' => 'Pomyślnie zaktualizowano kategorię',
+                'toastSuccessHideTime' => 5,
+            ]);
+        }
+
 
         // TODO - handle validation
         if (Category::where('name', $validated['name'])->where('parent_id', $request->parent_category_id)->exists()) {
