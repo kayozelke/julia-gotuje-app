@@ -85,14 +85,14 @@
 
 
     <!-- Borderless Table -->
-    <div class="card mb-4" style="min-height: 200px;">
+    <div class="card mb-4">
         @if (count($categories) == 0)
             <div class="alert alert-info m-3 text-center" role="alert">
                 Brak danych
             </div>
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
-            <div class="table-responsive text-nowrap">
+            <div class="table-responsive text-nowrap" style="min-height: 200px;">
                 <table class="table table-borderless table-hover" id="myTable">
                     <thead>
                         <tr>
