@@ -17,7 +17,7 @@
                     <input type="text" class="form-control" id="name" name="name" required value="{{ $category->name }}">
                     <input type="hidden" class="form-control" id="update_id" name="update_id" value="{{ $category->id }}">
                     <input type="hidden" class="form-control" id="parent_category_id"
-                        name="parent_category_id" value="{{ $current_category_id }}">
+                        name="parent_category_id" value="{{ $category->parent_id }}">
 
                 </div>
                 <button type="submit" class="btn btn-primary">Zapisz</button>
