@@ -124,7 +124,7 @@ class CategoryController extends Controller
 
         $category = Category::find($param);
         if (!$category) {
-            return redirect()->back()->withErrors(['category' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
         }
         // $parent_id = $category->parent_id;
 
