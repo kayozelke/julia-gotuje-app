@@ -1,4 +1,4 @@
-@include('panel.header')
+@include('panel.auth.header')
 {{--  --}}
 
 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -26,4 +26,4 @@
     </div>
 </div>
 
-@include('panel.footer')
+@include('panel.auth.footer')
