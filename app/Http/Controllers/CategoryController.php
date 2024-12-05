@@ -60,8 +60,8 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        if(isset($request->update_id) && ($request->update_id == $request->parent_category_id)){
-        // if(isset($request->update_id) && !empty($request->update_id)){
+        // if(isset($request->update_id) && ($request->update_id == $request->parent_category_id)){
+        if(isset($request->update_id) && !empty($request->update_id)){
             $category = Category::find($request->update_id);
             if (!$category) {
                 return redirect()->back()->withErrors(['category' => 'Kategoria o ID "'.$request->update_id.'" nie istnieje.']);
