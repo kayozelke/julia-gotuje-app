@@ -5,7 +5,7 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     @include('panel.components.alert_toasts')
     <div class="card mb-4">
-        <h5 class="card-header">Kategorie</h5>
+        <h5 class="card-header">Edycja kategorii</h5>
         <div class="card-body m-1">
                 
             <!-- Basic Breadcrumb -->
