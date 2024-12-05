@@ -104,6 +104,34 @@ class CategoryController extends Controller
         // $this->printParentCategories($request->parent_category_id);
     }
 
+    public function update($param = null)
+    {
+
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        $category = Category::find($param);
+        if (!$category) {
+            return redirect()->back()->withErrors(['category' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
+        }
+        // $parent_id = $category->parent_id;
+
+        return view('panel.auth.categories.update', [
+            'category' => $category,
+            // 'parent_categories' => $this->findParentCategories($param),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
+
 
     /**
      * Recursively finds all parent categories for a given category ID.
@@ -129,35 +157,36 @@ class CategoryController extends Controller
 
         return $parents;
     }
-    /**
-     * Prints parent categories in a nested, user-friendly format.
-     *
-     * @param int $categoryId The ID of the category to start from.
-     * @return string The nested string representation of parent categories.
-     */
-    public function printParentCategories($categoryId): string
-    {
-        $parents = $this->findParentCategories($categoryId);
-        if (empty($parents)) {
-            return "No parent categories found.";
-        }
 
-        $output = "";
-        $this->printNestedCategories($parents, 0, $output);
-        return $output;
-    }
+    // /**
+    //  * Prints parent categories in a nested, user-friendly format.
+    //  *
+    //  * @param int $categoryId The ID of the category to start from.
+    //  * @return string The nested string representation of parent categories.
+    //  */
+    // public function printParentCategories($categoryId): string
+    // {
+    //     $parents = $this->findParentCategories($categoryId);
+    //     if (empty($parents)) {
+    //         return "No parent categories found.";
+    //     }
 
-    private function printNestedCategories(array $categories, int $level, string &$output): void
-    {
-        foreach ($categories as $category) {
-            $indent = str_repeat("--", $level);
-            $output .= "$indent $category->name\n";
-            if ($category->parent_id !== null) {
-                $children = Category::where('parent_id', $category->id)->get();
-                if ($children->isNotEmpty()) {
-                    $this->printNestedCategories($children->toArray(), $level + 1, $output);
-                }
-            }
-        }
-    }
+    //     $output = "";
+    //     $this->printNestedCategories($parents, 0, $output);
+    //     return $output;
+    // }
+
+    // private function printNestedCategories(array $categories, int $level, string &$output): void
+    // {
+    //     foreach ($categories as $category) {
+    //         $indent = str_repeat("--", $level);
+    //         $output .= "$indent $category->name\n";
+    //         if ($category->parent_id !== null) {
+    //             $children = Category::where('parent_id', $category->id)->get();
+    //             if ($children->isNotEmpty()) {
+    //                 $this->printNestedCategories($children->toArray(), $level + 1, $output);
+    //             }
+    //         }
+    //     }
+    // }
 }
