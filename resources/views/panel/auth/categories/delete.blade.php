@@ -36,7 +36,7 @@
     <div class="card mb-4">
         <div class="card-body m-1">
             <div class="alert alert-danger m-3 text-center" role="alert">
-                Czy na pewno chcesz usunąć kategorię "{{$category->name}}"?
+                <h6 class="mb-0">Czy na pewno chcesz usunąć kategorię "{{$category->name}}"?</h6>
             </div>
             <div class="d-flex justify-content-center">
                 <a href="#" class="btn btn-danger mx-2" role="button">Usuń</a>
