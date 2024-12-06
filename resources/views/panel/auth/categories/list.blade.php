@@ -47,19 +47,22 @@
             <!-- Basic Breadcrumb -->
 
             <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editChild">
                     Dodaj kategorię poniżej
                 </button>
 
                 @if ($p_category)
-                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $current_category_id]) }}">
-                    Usuń bieżącą kategorię
-                </a>
+                    <button type="button" class="btn btn-secondary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editSelf">
+                        Edytuj bieżącą kategorię
+                    </button>
+                    <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $current_category_id]) }}">
+                        Usuń bieżącą kategorię
+                    </a>
                 @endif
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="editChild" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -86,6 +89,37 @@
                 </div>
             </div>
             <!-- Modal -->
+
+            @if ($p_category)
+                <!-- Modal -->
+                <div class="modal fade" id="editSelf" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCenterTitle">Edycja kategorii</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+                                    method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nazwa kategorii</label>
+                                        <input type="text" class="form-control" id="name" name="name" required value="{{$p_category->name}}">
+                                        <input type="hidden" class="form-control" id="update_id" name="update_id" value="{{$current_category_id}}">
+                                        {{-- <input type="hidden" class="form-control" id="parent_category_id"
+                                            name="parent_category_id" value="{{ $current_category_id }}"> --}}
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+            @endif
 
         </div>
     </div>
