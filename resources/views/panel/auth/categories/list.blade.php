@@ -45,6 +45,8 @@
                 </ol>
             </nav>
             <!-- Basic Breadcrumb -->
+            
+            <hr>
 
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editChild">
