@@ -46,14 +46,16 @@
             </nav>
             <!-- Basic Breadcrumb -->
 
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                    Dodaj kategorię w tym miejscu
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                    Dodaj kategorię poniżej
                 </button>
 
-                <a type="button" class="btn btn-danger" href="{{ route('admin.categories.delete', ['param' => $p_category->id]) }}">
-                    Usuń
+                @if ($p_category)
+                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $p_category->id]) }}">
+                    Usuń bieżącą kategorię
                 </a>
+                @endif
             </div>
 
             <!-- Modal -->
