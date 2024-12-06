@@ -41,7 +41,6 @@
             <div class="d-flex justify-content-center">
                 <form action="{{ route('admin.categories.delete', ['delete_id' => $category->id]) }}" method="POST">
                     @csrf
-                    @method('DELETE')
                     <button type="submit" class="btn btn-danger mx-2" role="button">Usuń</button>
                 </form>
                 <a href="{{$backPage}}" class="btn btn-secondary mx-2" role="button">Anuluj</a>
