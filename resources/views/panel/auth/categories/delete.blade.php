@@ -39,9 +39,9 @@
                 <h6 class="mb-0">Czy na pewno chcesz usunąć kategorię "{{$category->name}}"?</h6>
             </div>
             <div class="d-flex justify-content-center">
-                <form action="{{ route('admin.categories.delete.post', ['delete_id' => $category->id]) }}" method="POST">
+                <form action="{{ route('admin.categories.delete.post') }}" method="POST">
                     @csrf
-                    <input type="password" id="password" class="form-control" name="password">
+                    <input type="hidden" name="delete_id" value="{{$category->id}}" id="delete_id">
                     <button type="submit" class="btn btn-danger mx-2" role="button">Usuń</button>
                 </form>
                 <a href="{{$backPage}}" class="btn btn-secondary mx-2" role="button">Anuluj</a>
