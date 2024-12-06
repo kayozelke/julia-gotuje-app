@@ -27,6 +27,9 @@ class CategoryController extends Controller
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
         // Znajdź kategorie bez rodzica (parent_id = NULL)
+        $category = null;
+        $categories = null;
+
         if (isset($param)) {
             $category = Category::find($param);
         if (!$category) {
