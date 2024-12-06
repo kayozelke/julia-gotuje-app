@@ -181,8 +181,8 @@ class CategoryController extends Controller
     }
 
     public function deletePost(Request $request){
-        
-        print_r($request);
+
+        print_r($request->delete_id);
         echo "<br><hr><br>";
         $category = Category::find($request->delete_id);
         print_r($category);
