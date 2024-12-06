@@ -187,7 +187,7 @@ class CategoryController extends Controller
             return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$request->delete_id.'" nie istnieje.']);
         }
         $parent_id = $category->parent_id;
-        
+
         try {
             $category->delete();
             return redirect('admin.categories', $parent_id)->with([
@@ -195,7 +195,7 @@ class CategoryController extends Controller
                 'toastSuccessHideTime' => 5,
             ]);
         } catch (\Exception $e) {
-            return redirect()->back()->with([
+            return redirect('admin.categories', $parent_id)->with([
                 'toastErrorTitle' => 'Wystąpił błąd podczas usuwania kategorii!',
                 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
