@@ -48,6 +48,7 @@
 
                 </div>
                 <button type="submit" class="btn btn-primary">Zapisz</button>
+                <a type="button" class="btn btn-secondary" href="{{ route('admin.categories', ['param' => $category->parent_id ]) }}">Powrót</a>
             </form>
         </div>
     </div>
