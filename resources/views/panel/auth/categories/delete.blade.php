@@ -39,21 +39,13 @@
                 <h6 class="mb-0">Czy na pewno chcesz usunąć kategorię "{{$category->name}}"?</h6>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-danger mx-2" role="button">Usuń</a>
+                <form action="{{ route('admin.categories.delete', ['delete_id' => $category->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger mx-2" role="button">Usuń</button>
+                </form>
                 <a href="{{$backPage}}" class="btn btn-secondary mx-2" role="button">Anuluj</a>
-            </div>
-            {{-- <form action="{{ route('admin.categories.delete', ['param' => $category->id]) }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nazwa kategorii</label>
-                    <input type="text" class="form-control" id="name" name="name" required
-                        value="{{ $category->name }}">
-                    <input type="hidden" class="form-control" id="parent_category_id" name="parent_category_id"
-                        value="{{ $category->parent_id }}">
-
-                </div>
-                <button type="submit" class="btn btn-primary">Zapisz</button>
-            </form> --}}
+            </div>            
         </div>
     </div>
 </div>

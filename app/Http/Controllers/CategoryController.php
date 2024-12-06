@@ -180,6 +180,15 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function deletePost(Request $request){
+        
+        print_r($request);
+        echo "<br><hr><br>";
+        $category = Category::find($request->delete_id);
+        print_r($category);
+        return;
+    }
+
 
     /**
      * Recursively finds all parent categories for a given category ID.

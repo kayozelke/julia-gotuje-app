@@ -76,6 +76,7 @@ Route::get('/admin/categories/{param?}', [CategoryController::class, 'list'])->m
 Route::post('/admin/categories/add/{param?}', [CategoryController::class, 'addPost'])->middleware('auth')->name('admin.categories.add');
 Route::get('/admin/categories/update/{param?}', [CategoryController::class, 'update'])->middleware('auth')->name('admin.categories.update');
 Route::get('/admin/categories/delete/{param?}', [CategoryController::class, 'delete'])->middleware('auth')->name('admin.categories.delete');
+Route::delete('/admin/categories/delete', [CategoryController::class, 'deletePost'])->middleware('auth')->name('admin.categories.delete');
 
 Route::get("/login", [AuthController::class, 'login'])->name("login");
 Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post");
