@@ -190,12 +190,12 @@ class CategoryController extends Controller
 
         try {
             $category->delete();
-            return redirect('admin.categories', ['param' => $parent_id])->with([
+            return redirect(route('admin.categories', $parent_id))->with([
                 'toastSuccessTitle' => 'Pomyślnie usunięto kategorię',
                 'toastSuccessHideTime' => 5,
             ]);
         } catch (\Exception $e) {
-            return redirect('admin.categories', ['param' => $parent_id])->with([
+            return redirect(route('admin.categories', $parent_id))->with([
                 'toastErrorTitle' => 'Wystąpił błąd podczas usuwania kategorii!',
                 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
