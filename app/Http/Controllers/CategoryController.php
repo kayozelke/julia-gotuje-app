@@ -56,7 +56,7 @@ class CategoryController extends Controller
         // }
 
         return view('panel.auth.categories.list', [
-            // 'current_category_id' => $param,
+            'current_category_id' => $param,
             'p_category' => $category,
             'categories' => $categories,
             'parent_categories' => $this->findParentCategories($param),

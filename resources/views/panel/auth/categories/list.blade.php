@@ -24,15 +24,15 @@
                         <li class="breadcrumb-item active">
                             <a href="{{ route('admin.categories') }}">Wszystko</a>
                         </li>
-                    @endif
+                        
 
-                    @foreach (array_reverse($parent_categories) as $p_category)
-                        {{-- <li>ID: {{ $p_category->id }} - Nazwa: {{ $p_category->name }}</li> --}}
-                        <li class="breadcrumb-item">
-                            <a
-                                href="{{ route('admin.categories', ['param' => $p_category->id]) }}">{{ $p_category->name }}</a>
-                        </li>
-                    @endforeach
+                        @foreach (array_reverse($parent_categories) as $p_category)
+                            <li class="breadcrumb-item">
+                                <a
+                                    href="{{ route('admin.categories', ['param' => $current_category_id]) }}">{{ $p_category->name }}</a>
+                            </li>
+                        @endforeach
+                    @endif
 
 
                     {{-- <li class="breadcrumb-item">
@@ -52,7 +52,7 @@
                 </button>
 
                 @if ($p_category)
-                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $p_category->id]) }}">
+                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $current_category_id]) }}">
                     Usuń bieżącą kategorię
                 </a>
                 @endif
@@ -68,7 +68,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.categories.add', ['param' => $p_category->id]) }}"
+                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
                                 method="POST">
                                 @csrf
                                 <div class="mb-3">
@@ -76,7 +76,7 @@
                                     <input type="text" class="form-control" id="name" name="name" required>
                                     {{-- <input type="hidden" class="form-control" id="update_id" name="update_id" value=""> --}}
                                     <input type="hidden" class="form-control" id="parent_category_id"
-                                        name="parent_category_id" value="{{ $p_category->id }}">
+                                        name="parent_category_id" value="{{ $current_category_id }}">
 
                                 </div>
                                 <button type="submit" class="btn btn-primary">Zapisz</button>
