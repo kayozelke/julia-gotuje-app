@@ -46,9 +46,15 @@
             </nav>
             <!-- Basic Breadcrumb -->
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
-                Dodaj kategorię w tym miejscu
-            </button>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                    Dodaj kategorię w tym miejscu
+                </button>
+
+                <a type="button" class="btn btn-danger" href="{{ route('admin.categories.delete', ['param' => $p_category->id]) }}">
+                    Usuń
+                </a>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
@@ -60,7 +66,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+                            <form action="{{ route('admin.categories.add', ['param' => $p_category->id]) }}"
                                 method="POST">
                                 @csrf
                                 <div class="mb-3">
@@ -68,7 +74,7 @@
                                     <input type="text" class="form-control" id="name" name="name" required>
                                     {{-- <input type="hidden" class="form-control" id="update_id" name="update_id" value=""> --}}
                                     <input type="hidden" class="form-control" id="parent_category_id"
-                                        name="parent_category_id" value="{{ $current_category_id }}">
+                                        name="parent_category_id" value="{{ $p_category->id }}">
 
                                 </div>
                                 <button type="submit" class="btn btn-primary">Zapisz</button>
