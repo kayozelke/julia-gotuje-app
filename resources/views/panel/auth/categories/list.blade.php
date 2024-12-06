@@ -21,16 +21,19 @@
                     @if (count($parent_categories) == 0)
                         <li class="breadcrumb-item active">Wszystko</li>
                     @else
-                        <li class="breadcrumb-item active">
+                        <li class="breadcrumb-item">
                             <a href="{{ route('admin.categories') }}">Wszystko</a>
                         </li>
                         
 
-                        @foreach (array_reverse($parent_categories) as $p_category)
-                            <li class="breadcrumb-item">
-                                <a
-                                    href="{{ route('admin.categories', ['param' => $current_category_id]) }}">{{ $p_category->name }}</a>
+                        @foreach (array_reverse($parent_categories) as $par_category)
+                            <li class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
+                                <a href="{{ route('admin.categories', ['param' => $par_category->id]) }}">{{ $par_category->name }}</a>
                             </li>
+                            {{-- <li class="breadcrumb-item ">
+                                <a href="{{ route('admin.categories', ['param' => $current_category_id]) }}">{{ $par_category->name }}</a>
+                            </li> --}}
+                            
                         @endforeach
                     @endif
 
