@@ -180,13 +180,28 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function deletePost(Request $request){
-
-        print_r($request->delete_id);
-        echo "<br><hr><br>";
+    public function deletePost(Request $request)
+    {
         $category = Category::find($request->delete_id);
-        print_r($category);
-        return;
+        if (!$category) {
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$request->delete_id.'" nie istnieje.']);
+        }
+        $parent_id = $category->parent_id;
+        
+        try {
+            $category->delete();
+            return redirect('admin.categories', $parent_id)->with([
+                'toastSuccessTitle' => 'Pomyślnie usunięto kategorię',
+                'toastSuccessHideTime' => 5,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania kategorii!',
+                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorHideTime' => 10,
+            ]);
+        }
+
     }
 
 
