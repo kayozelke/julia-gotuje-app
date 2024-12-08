@@ -31,23 +31,34 @@
                                 <thead>
                                     <tr>
                                         <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
+                                            <ol class="breadcrumb"
+                                                style="list-style: none; padding: 0; margin: 0; display: inline;">
                                                 @if (count($recurrent_parent_categories) == 0)
-                                                    <li class="breadcrumb-item active">Wszystko</li>
+                                                    <li class="breadcrumb-item active" style="display: inline;">Wszystko
+                                                    </li>
                                                 @else
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ route('top_categories') }}">Wszystko</a>
+                                                    <li class="breadcrumb-item" style="display: inline;">
+                                                        <a href="{{ route('top_categories') }}"
+                                                            style="text-decoration: none; color: inherit;">
+                                                            Wszystko
+                                                        </a>
                                                     </li>
 
+                                                    {{-- Iterate through parent categories and add '/' separator --}}
                                                     @foreach (array_reverse($recurrent_parent_categories) as $par_category)
-                                                        <li
-                                                            class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
-                                                            <span>{{ $par_category->name }}</span>
+                                                        <li style="display: inline;"> / </li> <!-- Separator -->
+
+                                                        <li class="breadcrumb-item" style="display: inline;">
+                                                            <a href="{{ route('categories', ['id' => $par_category->id]) }}"
+                                                                style="text-decoration: none; color: inherit;">
+                                                                {{ $par_category->name }}
+                                                            </a>
                                                         </li>
                                                     @endforeach
                                                 @endif
                                             </ol>
                                         </nav>
+
 
                                     </tr>
                                 </thead>
