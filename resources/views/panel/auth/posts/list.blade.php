@@ -6,34 +6,9 @@
 
     <div class="card mb-4">
         <h5 class="card-header">Posty</h5>
-        {{-- <div class="card-body mb-1">
-        </div> --}}
+        
         <div class="d-flex justify-content-between">
-
-            {{-- <!-- Basic Breadcrumb -->
-            <nav aria-label="breadcrumb">
-
-                <ol class="breadcrumb">
-
-                    @if (count($parent_categories) == 0)
-                        <li class="breadcrumb-item active">Wszystko</li>
-                    @else
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('admin.posts') }}">Wszystko</a>
-                        </li>
-
-
-                        @foreach (array_reverse($parent_categories) as $par_category)
-                            <li class="breadcrumb-item @if ($par_category->id == $p_category->id) active @endif">
-                                <a
-                                    href="{{ route('admin.posts', ['category_id' => $par_category->id]) }}">{{ $par_category->name }}</a>
-                            </li>
-                        @endforeach
-                    @endif
-
-                </ol>
-            </nav> --}}
-            <!-- Basic Breadcrumb -->
+            
 
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
