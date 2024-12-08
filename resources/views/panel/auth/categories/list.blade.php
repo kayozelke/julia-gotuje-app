@@ -28,10 +28,10 @@
 
                         @foreach (array_reverse($parent_categories) as $par_category)
                             <li class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
-                                <a href="{{ route('admin.categories', ['param' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                <a href="{{ route('admin.categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
                             </li>
                             {{-- <li class="breadcrumb-item ">
-                                <a href="{{ route('admin.categories', ['param' => $current_category_id]) }}">{{ $par_category->name }}</a>
+                                <a href="{{ route('admin.categories', ['id' => $current_category_id]) }}">{{ $par_category->name }}</a>
                             </li> --}}
                             
                         @endforeach
@@ -60,7 +60,7 @@
                     <button type="button" class="btn btn-secondary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editSelf">
                         Edytuj bieżącą kategorię
                     </button>
-                    <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['param' => $current_category_id]) }}">
+                    <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.categories.delete', ['id' => $current_category_id]) }}">
                         Usuń bieżącą kategorię
                     </a>
                 @endif
@@ -76,7 +76,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+                            <form action="{{ route('admin.categories.add') }}"
                                 method="POST">
                                 @csrf
                                 <div class="mb-3">
@@ -106,7 +106,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ route('admin.categories.add', ['param' => $current_category_id]) }}"
+                                <form action="{{ route('admin.categories.add') }}"
                                     method="POST">
                                     @csrf
                                     <div class="mb-3">
@@ -172,9 +172,9 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('admin.categories.update', ['param' => $category->id]) }}"><i
+                                            <a class="dropdown-item" href="{{ route('admin.categories.update', ['id' => $category->id]) }}"><i
                                                     class="bx bx-edit-alt me-1"></i> Edytuj</a>
-                                            <a class="dropdown-item" href="{{ route('admin.categories.delete', ['param' => $category->id]) }}"><i
+                                            <a class="dropdown-item" href="{{ route('admin.categories.delete', ['id' => $category->id]) }}"><i
                                                     class="bx bx-trash me-1"></i>
                                                 Usuń</a>
                                         </div>
