@@ -80,7 +80,7 @@
                                 <li><a href="#">Photography</a></li>
                             </ul>
                         </li>
-                        <li class="has-children">
+                        {{-- <li class="has-children">
                             <a href="#0" title="" class="">Blog</a>
                             <ul class="sub-menu">
                                 <li><a href="#">Standard Post</a></li>
@@ -90,7 +90,7 @@
                         </li>
                         <li><a href="#" title="">Styles</a></li>
                         <li><a href="#" title="">About</a></li>
-                        <li><a href="#" title="">Contact</a></li>
+                        <li><a href="#" title="">Contact</a></li> --}}
                     </ul> <!-- end s-header__nav -->
 
                 </nav> <!-- end s-header__nav-wrap -->

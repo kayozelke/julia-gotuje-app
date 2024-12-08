@@ -235,7 +235,6 @@ class CategoryController extends Controller
 
             // If the parent ID is not null, return the `categories_page` view
             return view('front.categories_page', [
-                'current_category_id' => $parent_category_id,
                 'parent_category' => $parent_category,
                 'subcategories' => $subcategories,
                 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
@@ -248,7 +247,6 @@ class CategoryController extends Controller
 
             // If the parent ID is null, return the `top_categories_page` view
             return view('front.top_categories_page', [
-                'current_category_id' => $parent_category_id,
                 'parent_category' => $parent_category,
                 'subcategories' => $subcategories,
                 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
