@@ -38,10 +38,13 @@
                     <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li> --}}
                     </ul>
                 </div>
+                
+                <div>
 
-                <a type="button" class="btn btn-primary me-auto mx-1" href="#">
-                    Dodaj post poniżej
-                </a>
+                    <a type="button" class="btn btn-primary me-auto mx-1" href="#">
+                        Dodaj post poniżej
+                    </a>
+                </div>
 
                 {{-- <hr> --}}
 
