@@ -88,8 +88,8 @@ class CategoryController extends Controller
             'p_category' => $category,
             'categories' => $categories,
             'parent_categories' => (new Category())->findParentCategories($param)
-        ])
-    };
+        ]);
+    }
 
     public function addPost(Request $request)
     {
