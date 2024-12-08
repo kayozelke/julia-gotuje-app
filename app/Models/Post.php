@@ -18,12 +18,14 @@ class Post extends Model
         'template_type',
         'content',
         'parent_category_id',
+        'is_hidden',
         'created_by',
         'updated_by',
     ];
 
     // Pola dat
     protected $dates = [
+        'hide_before_time',
         'created_at',
         'updated_at',
     ];

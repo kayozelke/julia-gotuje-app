@@ -254,11 +254,18 @@
             </li>
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-            {{-- Categories --}}
-            <li class="menu-item {{ request()->routeIs('admin.categories') ? 'active' : '' }}">
+            {{-- Categories  --}}
+            <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/categories') ? 'active' : '' }}">
               <a href="{{ route('admin.categories') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Kategorie</div>
+              </a>
+            </li>
+            {{-- Posts  --}}
+            <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/posts') ? 'active' : '' }}">
+              <a href="{{ route('admin.posts') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Posty</div>
               </a>
             </li>
             <!-- Cards -->
