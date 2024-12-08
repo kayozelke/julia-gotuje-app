@@ -8,7 +8,6 @@
         <h5 class="card-header">Posty</h5>
         {{-- <div class="card-body mb-1">
         </div> --}}
-        <div class="card-body m-1">
             <div class="d-flex justify-content-between">
 
                 {{-- <!-- Basic Breadcrumb -->
@@ -76,7 +75,6 @@
                 </button>
             </div> --}}
 
-        </div>
     </div>
 
 
