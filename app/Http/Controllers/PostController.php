@@ -92,6 +92,7 @@ class PostController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
+        $p_category = null;
         $parent_category_id = $request->query('category_id');
 
         // $p_category = ['id' => '', 'name' => 'Wszystko'];
