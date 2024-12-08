@@ -8,16 +8,16 @@
         <div class="column lg-12">
             <article class="entry">
 
-                <header class="entry__header entry__header--narrower">
-                    <h2 class="entry__title">
+                {{-- <header class="entry__header entry__header--narrower">
+                    <h1 class="entry__title">
                         {{-- Strona podkategorii przepisów --}}
                         @if ($parent_category)
                             {{ $parent_category->name }}
                         @else
                             Strona podkategorii przepisów
                         @endif
-                    </h2>
-                </header>
+                    </h1>
+                </header> --}}
 
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
