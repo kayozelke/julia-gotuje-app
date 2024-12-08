@@ -3253,17 +3253,30 @@ img.u-pull-left {
 /* --------------------------------------------------------------------
  * ## main navigation
  * -------------------------------------------------------------------- */
+/* .s-header__navigation {
+    max-width : none;
+    width     : 100%;
+} */
 .s-header__navigation {
     max-width : none;
     width     : 100%;
+    overflow: visible;
 }
 
-.s-header__nav-wrap {
+/* .s-header__nav-wrap {
     display         : flex;
     justify-content : center;
     margin-left     : 6rem;
     margin-right    : 6rem;
     width           : 100%;
+} */
+
+.s-header__nav-wrap {
+    display: flex; /* Wyświetla elementy w linii */
+    justify-content: flex-start; /* Ustawienie elementów po lewej stronie */
+    padding: 0 2rem; /* Zamiast marginesów użyj paddingu, aby uniknąć przesunięć */
+    width: auto; /* Element dopasowuje się do zawartości */
+    box-sizing: border-box; /* Uwzględnij padding w szerokości */
 }
 
 .ss-home .s-header__nav-wrap {
