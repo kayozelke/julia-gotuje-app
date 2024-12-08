@@ -44,7 +44,7 @@
                     @foreach ($all_categories as $c)
                         <li>
                             {{-- {{ print_r($c) }} --}}
-                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c['id'] ]) }}">
+                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c['id']]) }}">
                                 {{-- @foreach (array_reverse($c->parent_categories) as $element)
                                 {{ $element->name }}
                                 @endforeach --}}
@@ -73,29 +73,30 @@
                     Dodaj post poniżej
                 </button>
             </div> --}}
-            </div>
-
         </div>
+
     </div>
+
 
 
 
     <!-- Borderless Table -->
-    <div class="card mb-4">@if (count($posts) == 0)
-        <div class="alert alert-info m-3 text-center" role="alert">
-            Brak danych
-        </div>
-    @else
-        {{-- <h5 class="card-header">Kategorie</h5> --}}
-        <div class="table-responsive text-nowrap" style="min-height: 200px;">
-            @foreach ($posts as $post)
-                {{ print_r($post) }}
-                <hr><br>
-            @endforeach
-        </div>
-    @endif
+    <div class="card mb-4">
+        @if (count($posts) == 0)
+            <div class="alert alert-info m-3 text-center" role="alert">
+                Brak danych
+            </div>
+        @else
+            {{-- <h5 class="card-header">Kategorie</h5> --}}
+            <div class="table-responsive text-nowrap" style="min-height: 200px;">
+                @foreach ($posts as $post)
+                    {{ print_r($post) }}
+                    <hr><br>
+                @endforeach
+            </div>
+        @endif
     </div>
-    <!--/ Borderless Table -->
+<!--/ Borderless Table -->
 
 </div>
 
