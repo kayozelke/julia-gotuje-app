@@ -94,7 +94,7 @@ class PostController extends Controller
 
         $parent_category_id = $request->query('category_id');
 
-        $p_category = ['id' => '', 'Wszystko'];
+        // $p_category = ['id' => '', 'name' => 'Wszystko'];
         if(isset($parent_category_id)){
             $p_category = Category::find($parent_category_id);
         }
