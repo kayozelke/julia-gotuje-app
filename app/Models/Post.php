@@ -17,7 +17,7 @@ class Post extends Model
         'url',
         'template_type',
         'content',
-        // 'categories_id'
+        'parent_category_id',
         'created_by',
         'updated_by',
     ];
