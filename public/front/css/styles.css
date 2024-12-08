@@ -4442,6 +4442,9 @@ body.search-is-visible .s-header__search-inner {
 .ss-home .s-content {
     padding-top : 0;
 }
+.custom-home .s-content {
+    padding-top : var(--vspace-2);
+}
 
 /* --------------------------------------------------------------------
  * ## pageheader
