@@ -68,9 +68,9 @@
                     <h3 class="s-header__nav-heading">Navigate to</h3>
 
                     <ul class="s-header__nav">
-                        <li class="current-menu-item"><a href="#" title="">Home</a></li>
+                        <li class="current-menu-item"><a href="{{ route('home') }}" title="">Home</a></li>
                         <li class="has-children">
-                            <a href="#0" title="" class="">Categories</a>
+                            <a href="{{ route('top_categories') }}" title="" class="">Categories</a>
                             <ul class="sub-menu">
                                 <li><a href="#">Design</a></li>
                                 <li><a href="#">Lifestyle</a></li>

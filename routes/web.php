@@ -10,7 +10,7 @@ use App\Http\Controllers\PostController;
 
     Route::get('/', function () {
         return view('front/home_page');;
-    });
+    })->name('home');
 
     // front categories pages
     Route::get('/top_categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('top_categories');
