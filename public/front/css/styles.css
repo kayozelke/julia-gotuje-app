@@ -3271,11 +3271,15 @@ img.u-pull-left {
 } */
 
 .ss-home .s-header__nav-wrap {
-    margin-left: 0; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
+    margin: 0 auto; /* Centruje element, usuwając przesunięcia */
+    max-width: 1200px; /* Ustaw maksymalną szerokość, aby uniknąć zbyt dużego rozciągania */
+    display: flex; /* Flexbox dla elastycznego układu */
+    justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: center; /* Wyśrodkowanie pionowe */
+    width: 100%; /* Pełna szerokość */
+    padding: 0 1rem; /* Dodaj wewnętrzne odstępy dla wygody */
 }
+
 
 .s-header__nav-wrap .s-header__nav-heading {
     display        : none;
