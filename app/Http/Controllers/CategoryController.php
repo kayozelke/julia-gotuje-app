@@ -217,6 +217,7 @@ class CategoryController extends Controller
     public function frontListCategoriesWithParentParam(Request $request)
     {
         $parent_category = null;
+        $parent_category_id = null;
         $subcategories = null;
 
         if (isset($request->id)) {
@@ -229,7 +230,7 @@ class CategoryController extends Controller
         }
 
         return view('front.top_categories_page', [
-            'current_category_id' => $param,
+            'current_category_id' => $parent_category_id,
             'parent_category' => $parent_category,
             'subcategories' => $subcategories,
             'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
