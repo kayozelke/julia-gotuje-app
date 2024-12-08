@@ -59,13 +59,13 @@ class PostController extends Controller
 
         $all_categories = $all_categories->toArray();
 
-        // array_unshift($all_categories, [
-        //     'id' => "",
-        //     'name' => 'Wszystko',
-        //     'parent_categories_str' => 'Wszystko'
-        // ]);
+        array_unshift($all_categories, [
+            'id' => "",
+            'name' => 'Wszystko',
+            'parent_categories_str' => 'Wszystko'
+        ]);
 
-        print_r($all_categories);
+        // print_r($all_categories);
 
 
         return view('panel.auth.posts.list', [
