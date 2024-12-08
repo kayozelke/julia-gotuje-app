@@ -57,10 +57,10 @@
 
                 <div class="entry__media">
                     <figure class="featured-image">
-                        <img src="images/thumbs/single/standard-1200.jpg"
-                            srcset="images/thumbs/single/standard-2400.jpg 2400w, 
-                                    images/thumbs/single/standard-1200.jpg 1200w, 
-                                    images/thumbs/single/standard-600.jpg 600w"
+                        <img src="{{  asset('front/images/thumbs/single/standard-1200.jpg') }}"
+                            srcset=" {{ asset('front/images/thumbs/single/standard-2400.jpg 2400w, 
+                                    front/images/thumbs/single/standard-1200.jpg 1200w, 
+                                    front/images/thumbs/single/standard-600.jpg 600w') }}"
                             sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                     </figure>
                 </div>
@@ -92,10 +92,10 @@
                         </p>
 
                         <figure class="alignwide">
-                            <img src="images/sample-1200.jpg"
-                                srcset="images/sample-2400.jpg 2400w, 
-                                                  images/sample-1200.jpg 1200w, 
-                                                  images/sample-600.jpg 600w"
+                            <img src="{{ asset('front/images/sample-1200.jpg') }}"
+                                srcset="{{ asset('front/images/sample-2400.jpg 2400w, 
+                                        front/images/sample-1200.jpg 1200w, 
+                                        front/images/sample-600.jpg 600w') }}"
                                 sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                         </figure>
 
@@ -213,7 +213,7 @@
 
                         <div class="entry__author-box">
                             <figure class="entry__author-avatar">
-                                <img alt="" src="images/avatars/user-06.jpg" class="avatar">
+                                <img alt="" src="{{ asset('front/images/avatars/user-06.jpg') }}" class="avatar">
                             </figure>
                             <div class="entry__author-info">
                                 <h5 class="entry__author-name">
@@ -264,7 +264,7 @@
                             <li class="depth-1 comment">
 
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50"
+                                    <img class="avatar" src="{{ asset('front/images/avatars/user-01.jpg') }}" alt="" width="50"
                                         height="50">
                                 </div>
 
@@ -295,7 +295,7 @@
                             <li class="thread-alt depth-1 comment">
 
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-04.jpg" alt=""
+                                    <img class="avatar" src="{{ asset('front/images/avatars/user-04.jpg') }}" alt=""
                                         width="50" height="50">
                                 </div>
 
@@ -327,7 +327,7 @@
                                     <li class="depth-2 comment">
 
                                         <div class="comment__avatar">
-                                            <img class="avatar" src="images/avatars/user-03.jpg" alt=""
+                                            <img class="avatar" src="{{ asset('front/images/avatars/user-03.jpg') }}" alt=""
                                                 width="50" height="50">
                                         </div>
 
@@ -358,7 +358,7 @@
                                             <li class="depth-3 comment">
 
                                                 <div class="comment__avatar">
-                                                    <img class="avatar" src="images/avatars/user-04.jpg"
+                                                    <img class="avatar" src="{{ asset('front/images/avatars/user-04.jpg') }}"
                                                         alt="" width="50" height="50">
                                                 </div>
 
@@ -397,7 +397,7 @@
                             <li class="depth-1 comment">
 
                                 <div class="comment__avatar">
-                                    <img class="avatar" src="images/avatars/user-02.jpg" alt=""
+                                    <img class="avatar" src="{{ asset('front/images/avatars/user-02.jpg') }}" alt=""
                                         width="50" height="50">
                                 </div>
 
