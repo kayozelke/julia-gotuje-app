@@ -31,7 +31,7 @@
                                         <tr>
                                             <td>
                                                 {{-- Link do strony kategorii --}}
-                                                <a href="{{ route('front.categories_page', ['id' => $category->id]) }}">
+                                                <a href="{{ route('categories', ['id' => $category->id]) }}">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
