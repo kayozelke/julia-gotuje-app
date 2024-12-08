@@ -20,7 +20,7 @@ use App\Http\Controllers\PostController;
     // front single view
     Route::get('/single_post_test', function () {
         return view('front/single_post');;
-    });
+    })->name('single_post');
 
 // ################ PANEL ###################
 

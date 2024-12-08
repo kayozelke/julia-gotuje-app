@@ -108,7 +108,7 @@
 
 
     <!--  masonry -->
-    <div id="bricks" class="bricks">
+    {{-- <div id="bricks" class="bricks">
 
         <div class="masonry">
 
@@ -623,7 +623,8 @@
             </div> <!-- end column -->
         </div> <!-- end pagination -->
 
-    </div> <!-- end bricks -->
+    </div> <!-- end bricks --> --}}
+    @include('front.posts_bricks_section')
 
 </section> <!-- end s-content -->
 @include('front.footer')

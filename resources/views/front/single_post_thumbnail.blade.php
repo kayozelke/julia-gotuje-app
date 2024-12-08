@@ -10,7 +10,7 @@
     <div class="entry__text">
         <div class="entry__header">
             <h1 class="entry__title">
-                <a href="single-standard.html">{{ $title ?? 'Default Title' }}</a>
+                <a href="{{ route('single_post') }}">{{ $title ?? 'Default Title' }}</a>
             </h1>
         </div>
         {{-- <div class="entry__excerpt">
