@@ -61,7 +61,8 @@
                                         <tr>
                                             <td>
                                                 {{-- Link do strony kategorii --}}
-                                                <a href="{{ route('categories', ['id' => $category->id]) }}">
+                                                <a href="{{ route('categories', ['id' => $category->id]) }}"
+                                                    style="text-decoration: none; color: inherit;">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
