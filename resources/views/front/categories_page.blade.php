@@ -26,12 +26,21 @@
                                     </tr>
                                 </thead> --}}
                                 <tbody>
-                                    <td>
-                                        {{-- Link do strony kategorii --}}
-                                        <a href="{{ route('front.categories', ['id' => $category->id]) }}">
-                                            {{ $category->name }}
-                                        </a>
-                                    </td>
+                                    @forelse ($subcategories as $category)
+                                        {{-- Iteracja po kategoriach --}}
+                                        <tr>
+                                            <td>
+                                                {{-- Link do strony kategorii --}}
+                                                <a href="{{ route('front.categories', ['id' => $category->id]) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty {{-- Obsługa przypadku, gdy brak kategorii --}}
+                                        <tr>
+                                            <td colspan="1">Brak kategorii do wyświetlenia.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

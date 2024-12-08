@@ -57,7 +57,7 @@
                                     </tr>
                                 </thead> --}}
                                 <tbody>
-                                    @forelse ($categories as $category)
+                                    @forelse ($subcategories as $category)
                                         {{-- Iteracja po kategoriach --}}
                                         <tr>
                                             <td>
