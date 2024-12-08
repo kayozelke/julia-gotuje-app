@@ -58,7 +58,6 @@
                                 </thead> --}}
                                 <tbody>
                                     @forelse ($subcategories as $category)
-                                        {{-- Iteracja po kategoriach --}}
                                         <tr>
                                             <td>
                                                 {{-- Link do strony kategorii --}}
