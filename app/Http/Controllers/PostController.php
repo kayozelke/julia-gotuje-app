@@ -40,33 +40,20 @@ class PostController extends Controller
             echo 'OK - no category set';
         }
 
-
-        echo view('panel.auth.header');
-        echo "TEST 123<br>";
-
-        $searchQuery = $request->query('search');
-        
-        echo "<br><hr><br>";
-        print_r(compact('searchQuery'));
-        echo "<br><hr><br>";
-        print_r($searchQuery);
-        echo "<br><hr><br>";
-
-        // print_r($request);
-        echo view('panel.auth.footer');
-
-        // return view('panel.auth.categories.list', [
-        //     'current_category_id' => $param,
-        //     'p_category' => $category,
-        //     'categories' => $categories,
-        //     'parent_categories' => (new Category())->findParentCategories($param),
-        //     'toastSuccessTitle' => "$toastSuccessTitle",
-        //     'toastSuccessDescription' => "$toastSuccessDescription",
-        //     'toastSuccessHideTime' => $toastSuccessHideTime,
-        //     'toastErrorTitle' => $toastErrorTitle,
-        //     'toastErrorDescription' => $toastErrorDescription,
-        //     'toastErrorHideTime' => $toastErrorHideTime,
-        // ]);
+        return view('panel.auth.posts.list', [
+            'current_category_id' => $parent_category_id,
+            'p_category' => $category,
+            'subcategories' => $subcategories,
+            'posts' => $posts,
+            // 'recurrent_parent_categories
+            'parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
     }
 }
 
