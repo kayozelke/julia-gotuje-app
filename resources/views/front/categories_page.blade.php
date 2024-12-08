@@ -51,7 +51,9 @@
                                                         </li>
                                                         {{-- Add a separator after each category except the last one --}}
                                                         @if (!$loop->last)
-                                                            <li class="breadcrumb-separator">/</li>
+                                                            <li class="breadcrumb-separator">
+                                                                <span>/</span>
+                                                            </li>
                                                         @endif
                                                     @endforeach
                                                 @endif
