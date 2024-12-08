@@ -14,9 +14,11 @@ use App\Http\Controllers\CategoryController;
     Route::get('/', function () {
         return view('front/home_page');;
     });
+    
+    Route::get('/top-categories', [CategoryController::class, 'topCategories'])->name('top.categories');
 
     Route::get('/categories', function () {
-        return view('front/top_categories_page');;
+        return view('front/categories_page');;
     });
 
     Route::get('/single_post_test', function () {
