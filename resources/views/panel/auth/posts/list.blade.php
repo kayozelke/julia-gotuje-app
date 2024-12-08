@@ -5,11 +5,11 @@
     @include('panel.components.alert_toasts')
 
     <div class="card mb-4">
-        <h5 class="card-header">Kategorie</h5>
+        <h5 class="card-header">Posty</h5>
         {{-- <div class="card-body mb-1">
         </div> --}}
         <div class="card-body m-1">
-            
+
             <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
 
@@ -19,18 +19,18 @@
                         <li class="breadcrumb-item active">Wszystko</li>
                     @else
                         <li class="breadcrumb-item">
-                            <a href="{{ route('admin.categories') }}">Wszystko</a>
+                            <a href="{{ route('admin.posts') }}">Wszystko</a>
                         </li>
-                        
+
 
                         @foreach (array_reverse($parent_categories) as $par_category)
                             <li class="breadcrumb-item @if ($par_category->id == $p_category->id) active @endif">
-                                <a href="{{ route('admin.posts', ['category_id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                <a
+                                    href="{{ route('admin.posts', ['category_id' => $par_category->id]) }}">{{ $par_category->name }}</a>
                             </li>
                             {{-- <li class="breadcrumb-item ">
                                 <a href="{{ route('admin.categories', ['id' => $p_category->id]) }}">{{ $par_category->name }}</a>
                             </li> --}}
-                            
                         @endforeach
                     @endif
 
@@ -44,8 +44,34 @@
                     <li class="breadcrumb-item active">Data</li> --}}
                 </ol>
             </nav>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Primary
+                </button>
+                <ul class="dropdown-menu" style="">
+                    @foreach ($all_categories as $c)
+                        
+                        <li>
+                            <a class="dropdown-item" href="#">
+                            @foreach (array_reverse($c->parent_categories) as $element)
+                                {{ $element->name }}/
+                            @endforeach
+                                {{-- Action --}}
+                            </a>
+                        </li>
+                    @endforeach
+                    {{-- <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li> --}}
+                </ul>
+            </div>
             <!-- Basic Breadcrumb -->
-            
+
             <hr>
 
             {{-- <div class="d-flex justify-content-between">
@@ -54,15 +80,15 @@
                 </button>
             </div> --}}
 
-</div>
-</div>
+        </div>
+    </div>
 
 
 
-<!-- Borderless Table -->
-<div class="card mb-4">
-</div>
-<!--/ Borderless Table -->
+    <!-- Borderless Table -->
+    <div class="card mb-4">
+    </div>
+    <!--/ Borderless Table -->
 
 </div>
 
