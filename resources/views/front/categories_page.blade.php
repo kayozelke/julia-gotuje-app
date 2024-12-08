@@ -14,6 +14,28 @@
                     </h1>
                 </header>
 
+                <!-- Breadcrumb with slashes -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    </ol>
+                </nav>
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                    </ol>
+                </nav>
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
+
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
                     <div class="column lg-12">
@@ -27,31 +49,11 @@
                         </h3>
                         <div class="table-responsive">
                             <table>
-                                <thead>
+                                {{-- <thead>
                                     <tr>
-                                        <!-- Breadcrumb with slashes -->
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item active" aria-current="page">Home</li>
-                                            </ol>
-                                        </nav>
 
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                            </ol>
-                                        </nav>
-
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Data</li>
-                                            </ol>
-                                        </nav>
                                     </tr>
-                                </thead>
+                                </thead> --}}
 
 
                                 <tbody>
