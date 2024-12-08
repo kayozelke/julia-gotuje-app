@@ -217,6 +217,7 @@ class CategoryController extends Controller
     public function frontListCategoriesWithParentParam(Request $request)
     {
         $parent_category = null;
+        $parent_category_id = null;
         $subcategories = null;
 
         if (isset($request->id)) {
