@@ -3762,7 +3762,7 @@ body.search-is-visible .s-header__search-inner {
         top               : 2.8em;
     }
 
-    .burger_mod >li {
+    /* .burger_mod >li {
         content           : counter(ctr, decimal-leading-zero);
         counter-increment : ctr;
         display           : inline;
@@ -3774,7 +3774,7 @@ body.search-is-visible .s-header__search-inner {
         position          : absolute;
         left              : 0;
         top               : 2.8em;
-    }
+    } */
 
     .s-header__nav-wrap .s-header__nav li {
         display    : block;
