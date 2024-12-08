@@ -45,21 +45,22 @@
                 </ol>
             </nav>
 
-            <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item">
-                    <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                        data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income"
-                        aria-selected="true">
-                        Income
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="nav-link" role="tab">Expenses</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="nav-link" role="tab">Profit</button>
-                </li>
-            </ul>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle show" data-bs-toggle="dropdown"
+                    aria-expanded="true">
+                    Primary
+                </button>
+                <ul class="dropdown-menu show" data-popper-placement="bottom-start"
+                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 41px);">
+                    <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li>
+                </ul>
+            </div>
             <!-- Basic Breadcrumb -->
 
             <hr>
