@@ -7,7 +7,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Posty</h5>
         
-        <div class="d-flex justify-content-between">
+        <div class="card-body d-flex justify-content-between">
             
 
             <div class="btn-group">
