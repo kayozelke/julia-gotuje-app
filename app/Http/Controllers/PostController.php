@@ -65,6 +65,8 @@ class PostController extends Controller
             'parent_categories_str' => 'Wszystko'
         ]);
 
+        print_r($all_categories);
+
 
         return view('panel.auth.posts.list', [
             'p_category' => $current_category,
