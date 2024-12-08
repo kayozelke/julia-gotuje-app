@@ -80,9 +80,9 @@ class CategoryController extends Controller
         if (isset($param)) {
             $parent_category = Category::find($param);
 
-            $subcategories = Category::where('parent_id', $param)->orderBy('id')->get();
+            $subcategories = Category::where('parent_id', $param)->orderBy('name')->get();
         } else {
-            $subcategories = Category::whereNull('parent_id')->orderBy('id')->get();
+            $subcategories = Category::whereNull('parent_id')->orderBy('name')->get();
         }
 
         return view('front.top_categories_page', [
