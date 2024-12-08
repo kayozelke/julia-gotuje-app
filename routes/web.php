@@ -7,15 +7,15 @@ use App\Http\Controllers\CategoryController;
 
 // ########### FRONT ######################
 
-    // Route::get('/welcome', function () {
-    //     return view('welcome');
-    // });
-
     Route::get('/', function () {
         return view('front/home_page');;
     });
-    
-    Route::get('/top-categories', [CategoryController::class, 'topCategories'])->name('top.categories');
+
+    // Route::get('/top_categories', function () {
+    //     return view('front/categories_page');;
+    // });
+
+    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam'])
 
     Route::get('/categories', function () {
         return view('front/categories_page');;
@@ -25,9 +25,7 @@ use App\Http\Controllers\CategoryController;
         return view('front/single_post');;
     });
 
-
     // Route::redirect('/', '/template_index');
-
 
     Route::get('/id/{id?}', function ($id = null) {
         return '<h3>Hello world, id is ' . $id . '</h3>'; //id can be null

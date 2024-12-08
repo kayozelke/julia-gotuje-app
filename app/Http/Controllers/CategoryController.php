@@ -69,6 +69,13 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function listCategoriesWithParentParam($param = null)
+    {
+        return view('front.top_catogories_page', [
+            'categories' => (new Category())->findParentCategories($param)
+        ])
+    }
+
     public function addPost(Request $request)
     {
         $validated = $request->validate([
