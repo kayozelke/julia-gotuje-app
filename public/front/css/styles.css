@@ -3253,15 +3253,15 @@ img.u-pull-left {
 /* --------------------------------------------------------------------
  * ## main navigation
  * -------------------------------------------------------------------- */
-/* .s-header__navigation {
-    max-width : none;
-    width     : 100%;
-} */
 .s-header__navigation {
     max-width : none;
     width     : 100%;
-    overflow: visible;
 }
+/* .s-header__navigation {
+    max-width : none;
+    width     : 100%;
+    overflow: visible;
+} */
 
 .s-header__nav-wrap {
     display         : flex;

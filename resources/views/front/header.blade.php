@@ -49,7 +49,8 @@
     <!-- page wrap
     ================================================== -->
     {{-- <div id="page" class="s-pagewrap ss-home"> --}}
-    <div id="page" class="s-pagewrap {{ isset($isHomePage) && $isHomePage ? 'ss-home' : '' }}">
+    {{-- <div id="page" class="s-pagewrap {{ isset($isHomePage) && $isHomePage ? 'ss-home' : '' }}"> --}}
+    <div id="page" class="s-pagewrap">
 
 
         <!-- # site header
