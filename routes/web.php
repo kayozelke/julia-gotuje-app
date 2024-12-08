@@ -15,7 +15,7 @@ use App\Http\Controllers\CategoryController;
     //     return view('front/categories_page');;
     // });
 
-    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam'])
+    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam']);
 
     Route::get('/categories', function () {
         return view('front/categories_page');;

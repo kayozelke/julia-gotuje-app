@@ -71,10 +71,25 @@ class CategoryController extends Controller
 
     public function listCategoriesWithParentParam($param = null)
     {
+        // Znajdź kategorie bez rodzica (parent_id = NULL)
+        $category = null;
+        $categories = null;
+
+        if (isset($param)) {
+            $category = Category::find($param);
+
+        $categories = Category::where('parent_id', $param)->orderBy('id')->get();
+        } else {
+            $categories = Category::whereNull('parent_id')->orderBy('id')->get();
+        }
+
         return view('front.top_catogories_page', [
-            'categories' => (new Category())->findParentCategories($param)
+            'current_category_id' => $param,
+            'p_category' => $category,
+            'categories' => $categories,
+            'parent_categories' => (new Category())->findParentCategories($param)
         ])
-    }
+    };
 
     public function addPost(Request $request)
     {

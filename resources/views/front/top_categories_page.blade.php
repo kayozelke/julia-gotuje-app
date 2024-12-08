@@ -57,18 +57,16 @@
                                     </tr>
                                 </thead> --}}
                                 <tbody>
-                                    <tr>
-                                        <td>Desery zimowe</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dania wegetariańskie</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Zupy krem</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dania kuchni włoskiej</td>
-                                    </tr>
+                                    @forelse ($categories as $category)
+                                        {{-- Iteracja po kategoriach --}}
+                                        <tr>
+                                            <td>{{ $category->name }}</td> {{-- Wyświetlenie nazwy kategorii --}}
+                                        </tr>
+                                    @empty {{-- Obsługa przypadku, gdy brak kategorii --}}
+                                        <tr>
+                                            <td colspan="1">Brak kategorii do wyświetlenia.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
