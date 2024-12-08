@@ -4431,7 +4431,8 @@ body.search-is-visible .s-header__search-inner {
  *
  * ------------------------------------------------------------------- */
 .s-content {
-    padding-top : var(--vspace-5);
+    /* padding-top : var(--vspace-5); */
+    padding-top : var(--vspace-3);
 }
 
 .s-content--blog,
