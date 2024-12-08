@@ -10,7 +10,7 @@
 
                 <header class="entry__header entry__header--narrower">
                     <h1 class="entry__title">
-                        Strona główna kategorii przepisów
+                        Strona podkategorii przepisów
                     </h1>
                 </header>
 
@@ -31,7 +31,7 @@
                                         <tr>
                                             <td>
                                                 {{-- Link do strony kategorii --}}
-                                                <a href="{{ route('front.categories_page', ['id' => $category->id]) }}">
+                                                <a href="{{ route('categories', ['id' => $category->id]) }}">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
