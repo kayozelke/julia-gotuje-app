@@ -43,10 +43,11 @@
                     @foreach ($all_categories as $c)
                         <li>
                             {{-- {{ print_r($c) }} --}}
-                            <a class="dropdown-item" href="#">{{ $c->parent_categories_str }}
-                                @foreach (array_reverse($c->parent_categories) as $element)
-                                    {{ $element->name }}
-                                @endforeach
+                            <a class="dropdown-item" href="#">
+                                {{-- @foreach (array_reverse($c->parent_categories) as $element)
+                                {{ $element->name }}
+                                @endforeach --}}
+                                {{ $c['parent_categories_str'] }}
                                 {{-- Action --}}
                             </a>
                         </li>
