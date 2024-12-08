@@ -57,7 +57,7 @@ class PostController extends Controller
 
         $all_categories = $all_categories->sortBy('parent_categories_str');
 
-        // $all_categories = $all_categories->toArray();
+        $all_categories = $all_categories->toArray();
 
         // array_unshift($all_categories, [
         //     'id' => "",
