@@ -27,6 +27,7 @@
                         </h3>
                         <div class="table-responsive">
                             <table>
+
                                 <thead>
                                     <tr>
                                         <nav aria-label="breadcrumb">
