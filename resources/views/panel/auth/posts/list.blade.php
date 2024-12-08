@@ -54,10 +54,10 @@
                     @foreach ($all_categories as $c)
                         
                         <li>
-                            <a class="dropdown-item" href="#">
-                            @foreach (array_reverse($c->parent_categories) as $element)
-                                / {{ $element->name }}
-                            @endforeach
+                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c->id]) }}">{{ $c->parent_categories_str }}
+                                {{-- @foreach (array_reverse($c->parent_categories) as $element)
+                                    {{ $element->name }}
+                                @endforeach --}}
                                 {{-- Action --}}
                             </a>
                         </li>
