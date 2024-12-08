@@ -157,7 +157,7 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>
-                                    <a href="{{ route('admin.categories', ['param' => $category->id]) }}"
+                                    <a href="{{ route('admin.categories', ['id' => $category->id]) }}"
                                         class="href">
                                         <strong>{{ $category->name }}</strong>
                                     </a>
