@@ -83,7 +83,7 @@ class CategoryController extends Controller
             $categories = Category::whereNull('parent_id')->orderBy('id')->get();
         }
 
-        return view('front.top_catogories_page', [
+        return view('front.top_categories_page', [
             'current_category_id' => $param,
             'p_category' => $category,
             'categories' => $categories,
