@@ -28,7 +28,7 @@
                                 <tbody>
                                     <td>
                                         {{-- Link do strony kategorii --}}
-                                        <a href="{{ route('categories.show', ['id' => $category->id]) }}">
+                                        <a href="{{ route('front.categories', ['id' => $category->id]) }}">
                                             {{ $category->name }}
                                         </a>
                                     </td>
