@@ -29,11 +29,9 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <!-- Basic Breadcrumb -->
+                                        <!-- Breadcrumb with slashes -->
                                         <nav aria-label="breadcrumb">
-
                                             <ol class="breadcrumb">
-
                                                 @if (count($recurrent_parent_categories) == 0)
                                                     <li class="breadcrumb-item active">Wszystko</li>
                                                 @else
@@ -41,20 +39,26 @@
                                                         <a href="{{ route('top_categories') }}">Wszystko</a>
                                                     </li>
 
-
+                                                    {{-- Iterate through parent categories and add '/' as separator --}}
                                                     @foreach (array_reverse($recurrent_parent_categories) as $par_category)
                                                         <li
                                                             class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
                                                             <a
-                                                                href="{{ route('categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                                                href="{{ route('categories', ['id' => $par_category->id]) }}">
+                                                                {{ $par_category->name }}
+                                                            </a>
                                                         </li>
+                                                        {{-- Add a separator after each category except the last one --}}
+                                                        @if (!$loop->last)
+                                                            <span>/</span>
+                                                        @endif
                                                     @endforeach
                                                 @endif
-
                                             </ol>
                                         </nav>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     @forelse ($subcategories as $category)
                                         {{-- Iterate over subcategories --}}
