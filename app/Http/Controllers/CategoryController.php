@@ -229,7 +229,7 @@ class CategoryController extends Controller
         }
 
         return view('front.top_categories_page', [
-            'current_category_id' => $param,
+            'current_category_id' => $parent_category_id,
             'parent_category' => $parent_category,
             'subcategories' => $subcategories,
             'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
