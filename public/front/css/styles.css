@@ -3257,11 +3257,6 @@ img.u-pull-left {
     max-width : none;
     width     : 100%;
 }
-/* .s-header__navigation {
-    max-width : none;
-    width     : 100%;
-    overflow: visible;
-} */
 
 .s-header__nav-wrap {
     display         : flex;
@@ -3270,14 +3265,6 @@ img.u-pull-left {
     margin-right    : 6rem;
     width           : 100%;
 }
-
-/* .s-header__nav-wrap {
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 2rem; 
-    width: auto; 
-    box-sizing: border-box; 
-} */
 
 .ss-home .s-header__nav-wrap {
     margin-left : 50%;
