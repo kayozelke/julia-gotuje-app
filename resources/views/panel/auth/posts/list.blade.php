@@ -62,7 +62,7 @@
             </div>
             <!-- Basic Breadcrumb -->
 
-            <hr>
+            {{-- <hr> --}}
 
             {{-- <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editChild">
@@ -76,7 +76,15 @@
 
 
     <!-- Borderless Table -->
-    <div class="card mb-4">
+    <div class="card mb-4">@if (count($categories) == 0)
+        <div class="alert alert-info m-3 text-center" role="alert">
+            Brak danych
+        </div>
+    @else
+        {{-- <h5 class="card-header">Kategorie</h5> --}}
+        <div class="table-responsive text-nowrap" style="min-height: 200px;">
+        </div>
+    @endif
     </div>
     <!--/ Borderless Table -->
 
