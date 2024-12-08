@@ -42,13 +42,13 @@
                                                     @foreach (array_reverse($recurrent_parent_categories) as $par_category)
                                                         <li
                                                             class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
-                                                            <a
-                                                                href="{{ route('categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                                            <span>{{ $par_category->name }}</span>
                                                         </li>
                                                     @endforeach
                                                 @endif
                                             </ol>
                                         </nav>
+
                                     </tr>
                                 </thead>
 
