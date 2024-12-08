@@ -27,11 +27,34 @@
                         </h3>
                         <div class="table-responsive">
                             <table>
-                                {{-- <thead>
+                                <thead>
                                     <tr>
-                                        <th>Nazwa</th>
+                                        <!-- Basic Breadcrumb -->
+                                        <nav aria-label="breadcrumb">
+
+                                            <ol class="breadcrumb">
+
+                                                @if (count($recurrent_parent_categories) == 0)
+                                                    <li class="breadcrumb-item active">Wszystko</li>
+                                                @else
+                                                    <li class="breadcrumb-item">
+                                                        <a href="{{ route('top_categories') }}">Wszystko</a>
+                                                    </li>
+
+
+                                                    @foreach (array_reverse($recurrent_parent_categories) as $par_category)
+                                                        <li
+                                                            class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
+                                                            <a
+                                                                href="{{ route('categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+
+                                            </ol>
+                                        </nav>
                                     </tr>
-                                </thead> --}}
+                                </thead>
                                 <tbody>
                                     @forelse ($subcategories as $category)
                                         {{-- Iterate over subcategories --}}
