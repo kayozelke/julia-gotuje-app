@@ -10,7 +10,7 @@
 
                 <header class="entry__header entry__header--narrower">
                     <h1 class="entry__title">
-                        Strona główna kategorii przepisów
+                        Strona podkategorii przepisów
                     </h1>
                 </header>
 

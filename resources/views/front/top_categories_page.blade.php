@@ -48,7 +48,7 @@
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
                     <div class="column lg-12">
-                        <h3>Wszystkie kategorie</h3>
+                        <h3>Wszystkie kategorie przepisów</h3>
                         <div class="table-responsive">
                             <table>
                                 {{-- <thead>

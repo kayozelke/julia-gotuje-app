@@ -40,7 +40,7 @@ class CategoryController extends Controller
                 // echo "Category with ID $param not found.";
                 // return;
 
-                return view('panel.auth.header').view('panel.components.pages_misc_error').view('panel.auth.footer');
+                return view('panel.auth.header') . view('panel.components.pages_misc_error') . view('panel.auth.footer');
             }
 
             $categories = Category::where('parent_id', $parent_category_id)->orderBy('id')->get();
@@ -80,10 +80,10 @@ class CategoryController extends Controller
         ]);
 
         // if(isset($request->update_id) && ($request->update_id == $request->parent_category_id)){
-        if(isset($request->update_id) && !empty($request->update_id)){
+        if (isset($request->update_id) && !empty($request->update_id)) {
             $category = Category::find($request->update_id);
             if (!$category) {
-                return redirect()->back()->withErrors(['category' => 'Kategoria o ID "'.$request->update_id.'" nie istnieje.']);
+                return redirect()->back()->withErrors(['category' => 'Kategoria o ID "' . $request->update_id . '" nie istnieje.']);
             }
             $category->update([
                 'name' => $validated['name'],
@@ -95,7 +95,7 @@ class CategoryController extends Controller
 
 
             return redirect()->back()->with([
-            // return redirect(route('admin.categories', $request->parent_category_id))->with([
+                // return redirect(route('admin.categories', $request->parent_category_id))->with([
                 'toastSuccessTitle' => 'Pomyślnie zaktualizowano kategorię',
                 'toastSuccessHideTime' => 5,
             ]);
@@ -117,7 +117,7 @@ class CategoryController extends Controller
             'updated_at' => now(),
             'updated_by' => Auth::id(),
         ]);
-        
+
         return redirect()->back()->with([
             'toastSuccessTitle' => 'Pomyślnie dodano kategorię',
             // 'toastSuccessDescription' => 'Proszę wybrać inną nazwę.',
@@ -142,7 +142,7 @@ class CategoryController extends Controller
 
         $category = Category::find($category_id);
         if (!$category) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$category_id.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "' . $category_id . '" nie istnieje.']);
         }
         // $parent_id = $category->parent_id;
 
@@ -171,7 +171,7 @@ class CategoryController extends Controller
         $category_id = $request->id;
         $category = Category::find($category_id);
         if (!$category) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$category_id.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "' . $category_id . '" nie istnieje.']);
         }
         // $parent_id = $category->parent_id;
 
@@ -192,7 +192,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($request->delete_id);
         if (!$category) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$request->delete_id.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "' . $request->delete_id . '" nie istnieje.']);
         }
         $parent_id = $category->parent_id;
 
@@ -209,10 +209,32 @@ class CategoryController extends Controller
                 // 'toastErrorHideTime' => 10,
             ]);
         }
-
     }
 
     // ############################## FRONT ##############################
+
+    // public function frontListCategoriesWithParentParam(Request $request)
+    // {
+    //     $parent_category = null;
+    //     $parent_category_id = null;
+    //     $subcategories = null;
+
+    //     if (isset($request->id)) {
+    //         $parent_category_id = $request->id;
+    //         $parent_category = Category::find($parent_category_id);
+
+    //         $subcategories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
+    //     } else {
+    //         $subcategories = Category::whereNull('parent_id')->orderBy('name')->get();
+    //     }
+
+    //     return view('front.top_categories_page', [
+    //         'current_category_id' => $parent_category_id,
+    //         'parent_category' => $parent_category,
+    //         'subcategories' => $subcategories,
+    //         'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
+    //     ]);
+    // }
 
     public function frontListCategoriesWithParentParam(Request $request)
     {
@@ -224,16 +246,36 @@ class CategoryController extends Controller
             $parent_category_id = $request->id;
             $parent_category = Category::find($parent_category_id);
 
-            $subcategories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
-        } else {
-            $subcategories = Category::whereNull('parent_id')->orderBy('name')->get();
-        }
+            // If the category does not exist, return a 404 error
+            if (!$parent_category) {
+                abort(404, 'Category not found');
+            }
 
-        return view('front.top_categories_page', [
-            'current_category_id' => $parent_category_id,
-            'parent_category' => $parent_category,
-            'subcategories' => $subcategories,
-            'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
-        ]);
+            // Fetch subcategories for the given parent category
+            $subcategories = Category::where('parent_id', $parent_category_id)
+                ->orderBy('name')
+                ->get();
+
+            // If the parent ID is not null, return the `categories_page` view
+            return view('front.categories_page', [
+                'current_category_id' => $parent_category_id,
+                'parent_category' => $parent_category,
+                'subcategories' => $subcategories,
+                'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            ]);
+        } else {
+            // Fetch top-level categories (categories with no parent)
+            $subcategories = Category::whereNull('parent_id')
+                ->orderBy('name')
+                ->get();
+
+            // If the parent ID is null, return the `top_categories_page` view
+            return view('front.top_categories_page', [
+                'current_category_id' => $parent_category_id,
+                'parent_category' => $parent_category,
+                'subcategories' => $subcategories,
+                'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            ]);
+        }
     }
 }
