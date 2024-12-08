@@ -67,7 +67,7 @@ Route::post('/admin/categories/delete', [CategoryController::class, 'panelDelete
 
 // admin posts
 Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
-Route::get('/admin/posts/add', [CategoryController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
+Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
 
 
 // ################ TEST #####################
