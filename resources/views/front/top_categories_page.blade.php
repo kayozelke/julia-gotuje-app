@@ -57,12 +57,12 @@
                                     </tr>
                                 </thead> --}}
                                 <tbody>
-                                    @forelse ($categories as $category)
+                                    @forelse ($subcategories as $category)
                                         {{-- Iteracja po kategoriach --}}
                                         <tr>
                                             <td>
                                                 {{-- Link do strony kategorii --}}
-                                                <a href="{{ route('front.categories', ['id' => $category->id]) }}">
+                                                <a href="{{ route('front.categories_page', ['id' => $category->id]) }}">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
