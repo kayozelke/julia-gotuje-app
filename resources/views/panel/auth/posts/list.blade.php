@@ -9,8 +9,9 @@
         {{-- <div class="card-body mb-1">
         </div> --}}
         <div class="card-body m-1">
+            <div class="d-flex justify-content-between">
 
-            {{-- <!-- Basic Breadcrumb -->
+                {{-- <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
 
                 <ol class="breadcrumb">
@@ -33,38 +34,39 @@
 
                 </ol>
             </nav> --}}
-            <!-- Basic Breadcrumb -->
+                <!-- Basic Breadcrumb -->
 
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Kategoria: {{ $p_category ? $p_category->name : 'Wszystko' }}
-                </button>
-                <ul class="dropdown-menu" style="">
-                    @foreach ($all_categories as $c)
-                        <li>
-                            {{-- {{ print_r($c) }} --}}
-                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c['id'] ]) }}">
-                                {{-- @foreach (array_reverse($c->parent_categories) as $element)
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Kategoria: {{ $p_category ? $p_category->name : 'Wszystko' }}
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                        @foreach ($all_categories as $c)
+                            <li>
+                                {{-- {{ print_r($c) }} --}}
+                                <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c['id']]) }}">
+                                    {{-- @foreach (array_reverse($c->parent_categories) as $element)
                                 {{ $element->name }}
                                 @endforeach --}}
-                                {{ $c['parent_categories_str'] }}
-                                {{-- Action --}}
-                            </a>
-                        </li>
-                    @endforeach
-                    {{-- <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                                    {{ $c['parent_categories_str'] }}
+                                    {{-- Action --}}
+                                </a>
+                            </li>
+                        @endforeach
+                        {{-- <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li> --}}
-                </ul>
-            </div>
+                    </ul>
+                </div>
 
-            <a type="button" class="btn btn-primary me-auto mx-1" href="#">
-                Dodaj post poniżej
-            </a>
+                <a type="button" class="btn btn-primary me-auto mx-1" href="#">
+                    Dodaj post poniżej
+                </a>
+            </div>
 
             {{-- <hr> --}}
 
@@ -80,19 +82,20 @@
 
 
     <!-- Borderless Table -->
-    <div class="card mb-4">@if (count($posts) == 0)
-        <div class="alert alert-info m-3 text-center" role="alert">
-            Brak danych
-        </div>
-    @else
-        {{-- <h5 class="card-header">Kategorie</h5> --}}
-        <div class="table-responsive text-nowrap" style="min-height: 200px;">
-            @foreach ($posts as $post)
-                {{ print_r($post) }}
-                <hr><br>
-            @endforeach
-        </div>
-    @endif
+    <div class="card mb-4">
+        @if (count($posts) == 0)
+            <div class="alert alert-info m-3 text-center" role="alert">
+                Brak danych
+            </div>
+        @else
+            {{-- <h5 class="card-header">Kategorie</h5> --}}
+            <div class="table-responsive text-nowrap" style="min-height: 200px;">
+                @foreach ($posts as $post)
+                    {{ print_r($post) }}
+                    <hr><br>
+                @endforeach
+            </div>
+        @endif
     </div>
     <!--/ Borderless Table -->
 
