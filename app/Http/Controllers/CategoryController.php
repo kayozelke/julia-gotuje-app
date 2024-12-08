@@ -59,7 +59,7 @@ class CategoryController extends Controller
             'current_category_id' => $param,
             'p_category' => $category,
             'categories' => $categories,
-            'parent_categories' => $this->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -146,7 +146,7 @@ class CategoryController extends Controller
 
         return view('panel.auth.categories.update', [
             'category' => $category,
-            'parent_categories' => $this->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -175,7 +175,7 @@ class CategoryController extends Controller
         return view('panel.auth.categories.delete', [
             'category' => $category,
             'backPage' => url()->previous(),
-            'parent_categories' => $this->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($param),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -210,60 +210,29 @@ class CategoryController extends Controller
     }
 
 
-    /**
-     * Recursively finds all parent categories for a given category ID.
-     *
-     * @param int $categoryId The ID of the category to find parents for.
-     * @param array $parents An array to store the parent categories (passed by reference).
-     * @return array An array of parent categories, including the initial category.
-     */
-    private function findParentCategories($categoryId, array &$parents = []): array
-    {
-        if ($categoryId === null) {
-            return $parents;
-        }
-
-        $category = Category::find($categoryId);
-
-        if ($category) {
-            $parents[] = $category;
-            if ($category->parent_id !== null) {
-                $this->findParentCategories($category->parent_id, $parents);
-            }
-        }
-
-        return $parents;
-    }
-
     // /**
-    //  * Prints parent categories in a nested, user-friendly format.
+    //  * Recursively finds all parent categories for a given category ID.
     //  *
-    //  * @param int $categoryId The ID of the category to start from.
-    //  * @return string The nested string representation of parent categories.
+    //  * @param int $categoryId The ID of the category to find parents for.
+    //  * @param array $parents An array to store the parent categories (passed by reference).
+    //  * @return array An array of parent categories, including the initial category.
     //  */
-    // public function printParentCategories($categoryId): string
+    // private function findParentCategories($categoryId, array &$parents = []): array
     // {
-    //     $parents = $this->findParentCategories($categoryId);
-    //     if (empty($parents)) {
-    //         return "No parent categories found.";
+    //     if ($categoryId === null) {
+    //         return $parents;
     //     }
 
-    //     $output = "";
-    //     $this->printNestedCategories($parents, 0, $output);
-    //     return $output;
-    // }
+    //     $category = Category::find($categoryId);
 
-    // private function printNestedCategories(array $categories, int $level, string &$output): void
-    // {
-    //     foreach ($categories as $category) {
-    //         $indent = str_repeat("--", $level);
-    //         $output .= "$indent $category->name\n";
+    //     if ($category) {
+    //         $parents[] = $category;
     //         if ($category->parent_id !== null) {
-    //             $children = Category::where('parent_id', $category->id)->get();
-    //             if ($children->isNotEmpty()) {
-    //                 $this->printNestedCategories($children->toArray(), $level + 1, $output);
-    //             }
+    //             $this->findParentCategories($category->parent_id, $parents);
     //         }
     //     }
+
+    //     return $parents;
     // }
+
 }
