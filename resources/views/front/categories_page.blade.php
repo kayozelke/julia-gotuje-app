@@ -31,7 +31,8 @@
                                     <tr>
                                         <!-- Breadcrumb with slashes -->
                                         <nav aria-label="breadcrumb">
-                                            <ul class="breadcrumb">
+                                            <ul class="breadcrumb"
+                                                style="list-style-type: none; padding: 0; margin: 0;">
                                                 @if (count($recurrent_parent_categories) == 0)
                                                     <li class="breadcrumb-item active">Wszystko</li>
                                                 @else
@@ -58,6 +59,7 @@
                                         </nav>
                                     </tr>
                                 </thead>
+
 
                                 <tbody>
                                     @forelse ($subcategories as $category)
