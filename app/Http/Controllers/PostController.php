@@ -20,14 +20,15 @@ class PostController extends Controller
 
 
         $parent_category_id = $request->query('category_id');
+        $current_category = null;
         $subcategories = null;
         $posts = null;
 
         if(isset($parent_category_id)){
             // $parent_category_id = $request->category_id;
 
-            $category = Category::find($parent_category_id);
-            if(!$category){
+            $current_category = Category::find($parent_category_id);
+            if(!$current_category){
                 return redirect()->back()->with([
                     'toastErrorTitle' => 'Wystąpił błąd.',
                     'toastErrorDescription' => 'Kategoria o ID "'.$parent_category_id.'" nie istnieje.',
@@ -41,8 +42,7 @@ class PostController extends Controller
         }
 
         return view('panel.auth.posts.list', [
-            'current_category_id' => $parent_category_id,
-            'p_category' => $category,
+            'p_category' => $current_category,
             'subcategories' => $subcategories,
             'posts' => $posts,
             // 'recurrent_parent_categories
