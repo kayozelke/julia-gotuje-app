@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 
 // ########### FRONT ######################
 
@@ -88,7 +89,7 @@ Route::get('/admin/categories/delete/{param?}', [CategoryController::class, 'pan
 Route::post('/admin/categories/delete', [CategoryController::class, 'panelDeletePost'])->middleware('auth')->name('admin.categories.delete.post');
 
 // admin posts
-Route::get('/admin/posts', [CategoryController::class, 'panelList'])->middleware('auth')->name('admin.posts');
+Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
 
 
 // ################ TEST #####################
