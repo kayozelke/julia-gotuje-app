@@ -50,11 +50,20 @@ class PostController extends Controller
             }
             
 
-            $c->parent_categories = (new Category())->findParentCategories($c->id);
+            // $c->parent_categories = (new Category())->findParentCategories($c->id);
         }
+
+
 
         $all_categories = $all_categories->sortBy('parent_categories_str');
 
+        $all_categories = $all_categories->toArray();
+
+        array_unshift($all_categories, [
+            'id' => null,
+            'name' => 'Wszystko',
+            'parent_categories_str' => 'Wszystko'
+        ]);
 
 
         return view('panel.auth.posts.list', [
