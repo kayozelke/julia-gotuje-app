@@ -83,7 +83,7 @@ Route::post("/login", [AuthController::class, 'loginPost']) ->name("login.post")
 // });
 
 // admin categories
-Route::get('/admin/categories/{param?}', [CategoryController::class, 'panelList'])->middleware('auth')->name('admin.categories');
+Route::get('/admin/categories', [CategoryController::class, 'panelList'])->middleware('auth')->name('admin.categories');
 Route::post('/admin/categories/add/{param?}', [CategoryController::class, 'panelAddPost'])->middleware('auth')->name('admin.categories.add');
 Route::get('/admin/categories/update/{param?}', [CategoryController::class, 'panelUpdate'])->middleware('auth')->name('admin.categories.update');
 Route::get('/admin/categories/delete/{param?}', [CategoryController::class, 'panelDelete'])->middleware('auth')->name('admin.categories.delete');

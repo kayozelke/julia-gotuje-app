@@ -12,7 +12,7 @@ class CategoryController extends Controller
     // - put toasts includings into header and remove includes at each view
     // - add page titles into session variables
 
-    public function panelList($param = null)
+    public function panelList(Request $request)
     {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
@@ -26,20 +26,22 @@ class CategoryController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
-        // Znajdź kategorie bez rodzica (parent_id = NULL)
         $category = null;
         $categories = null;
+        $parent_category_id = null;
 
-        if (isset($param)) {
-            $category = Category::find($param);
-        if (!$category) {
-            // echo "Category with ID $param not found.";
-            // return;
+        if (isset($request->id)) {
+            $parent_category_id = $request->id;
+            $category = Category::find($parent_category_id);
 
-            return view('panel.auth.header').view('panel.components.pages_misc_error').view('panel.auth.footer');
-        }
+            if (!$category) {
+                // echo "Category with ID $param not found.";
+                // return;
 
-            $categories = Category::where('parent_id', $param)->orderBy('id')->get();
+                return view('panel.auth.header').view('panel.components.pages_misc_error').view('panel.auth.footer');
+            }
+
+            $categories = Category::where('parent_id', $parent_category_id)->orderBy('id')->get();
         } else {
             $categories = Category::whereNull('parent_id')->orderBy('id')->get();
             // if($categories->count() == 0){
@@ -56,10 +58,10 @@ class CategoryController extends Controller
         // }
 
         return view('panel.auth.categories.list', [
-            'current_category_id' => $param,
+            'current_category_id' => $parent_category_id,
             'p_category' => $category,
             'categories' => $categories,
-            'parent_categories' => (new Category())->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($parent_category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
