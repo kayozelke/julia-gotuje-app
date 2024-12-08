@@ -210,29 +210,4 @@ class CategoryController extends Controller
     }
 
 
-    // /**
-    //  * Recursively finds all parent categories for a given category ID.
-    //  *
-    //  * @param int $categoryId The ID of the category to find parents for.
-    //  * @param array $parents An array to store the parent categories (passed by reference).
-    //  * @return array An array of parent categories, including the initial category.
-    //  */
-    // private function findParentCategories($categoryId, array &$parents = []): array
-    // {
-    //     if ($categoryId === null) {
-    //         return $parents;
-    //     }
-
-    //     $category = Category::find($categoryId);
-
-    //     if ($category) {
-    //         $parents[] = $category;
-    //         if ($category->parent_id !== null) {
-    //             $this->findParentCategories($category->parent_id, $parents);
-    //         }
-    //     }
-
-    //     return $parents;
-    // }
-
 }
