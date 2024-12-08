@@ -60,7 +60,7 @@ class PostController extends Controller
         $all_categories = $all_categories->toArray();
 
         array_unshift($all_categories, [
-            'id' => null,
+            'id' => "",
             'name' => 'Wszystko',
             'parent_categories_str' => 'Wszystko'
         ]);
