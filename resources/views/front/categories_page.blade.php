@@ -10,7 +10,6 @@
 
                 {{-- <header class="entry__header entry__header--narrower">
                     <h1 class="entry__title">
-                        {{-- Strona podkategorii przepisów --}}
                         @if ($parent_category)
                             {{ $parent_category->name }}
                         @else
