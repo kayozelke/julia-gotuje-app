@@ -10,21 +10,26 @@
 
                 <header class="entry__header entry__header--narrower">
                     <h1 class="entry__title">
-                        Strona podkategorii przepisów
+                        {{-- Strona podkategorii przepisów --}}
+                        @if ($parent_category)
+                            {{ $parent_category->name }}
+                        @else
+                            Strona podkategorii przepisów
+                        @endif
                     </h1>
                 </header>
 
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
                     <div class="column lg-12">
-                        <h3>
+                        {{-- <h3>
                             Wszystkie podkategorie
                             @if ($parent_category)
                                 z kategorii: {{ $parent_category->name }}
                             @else
                                 tej kategorii przepisów
                             @endif
-                        </h3>
+                        </h3> --}}
                         <div class="table-responsive">
                             <table>
 
