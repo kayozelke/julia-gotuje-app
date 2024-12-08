@@ -39,8 +39,22 @@ class PostController extends Controller
 
         $all_categories = Category::all();
         foreach($all_categories as $c){
+            $c->parent_categories_str = '';
+            
+            foreach(array_reverse((new Category())->findParentCategories($c->id)) as $p){
+                if (! ($c->id == $p->id)){
+                    $c->parent_categories_str .= $p->name . ' / ';
+                } else {
+                    $c->parent_categories_str .= $p->name;
+                }
+            }
+            
+
             $c->parent_categories = (new Category())->findParentCategories($c->id);
         }
+
+        $all_categories = $all_categories->sortBy('parent_categories_str');
+
 
 
         return view('panel.auth.posts.list', [
