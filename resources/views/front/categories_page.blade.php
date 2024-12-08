@@ -17,7 +17,14 @@
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
                     <div class="column lg-12">
-                        <h3>Wszystkie podkategorie tej kategorii przepisów</h3>
+                        <h3>
+                            Wszystkie podkategorie
+                            @if ($parent_category)
+                                z kategorii: {{ $parent_category->name }}
+                            @else
+                                tej kategorii przepisów
+                            @endif
+                        </h3>
                         <div class="table-responsive">
                             <table>
                                 {{-- <thead>
@@ -27,16 +34,16 @@
                                 </thead> --}}
                                 <tbody>
                                     @forelse ($subcategories as $category)
-                                        {{-- Iteracja po kategoriach --}}
+                                        {{-- Iterate over subcategories --}}
                                         <tr>
                                             <td>
-                                                {{-- Link do strony kategorii --}}
+                                                {{-- Link to the category page --}}
                                                 <a href="{{ route('categories', ['id' => $category->id]) }}">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
                                         </tr>
-                                    @empty {{-- Obsługa przypadku, gdy brak kategorii --}}
+                                    @empty {{-- Handle the case when there are no categories --}}
                                         <tr>
                                             <td colspan="1">Brak kategorii do wyświetlenia.</td>
                                         </tr>
@@ -46,6 +53,7 @@
                         </div>
                     </div>
                 </div> <!-- end row -->
+
 
             </article> <!-- end entry -->
         </div>
