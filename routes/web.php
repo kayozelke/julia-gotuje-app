@@ -12,40 +12,15 @@ use App\Http\Controllers\PostController;
         return view('front/home_page');;
     });
 
-    // Route::get('/top_categories', function () {
-    //     return view('front/categories_page');;
-    // });
+    // front categories pages
+    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam'])->name('top_categories');
+    Route::get('/categories', [CategoryController::class, 'listCategoriesWithParentParam'])->name('categories');
 
-    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam']);
-
-    // Route::get('/categories', function () {
-    //     return view('front/categories_page');;
-    // });
-    Route::get('/categories/{id}', [CategoryController::class, 'listCategoriesWithParentParam']);
-
+    
+    // front single view
     Route::get('/single_post_test', function () {
         return view('front/single_post');;
     });
-
-    // Route::redirect('/', '/template_index');
-
-    Route::get('/id/{id?}', function ($id = null) {
-        return '<h3>Hello world, id is ' . $id . '</h3>'; //id can be null
-    });
-
-    // Route::get('/dev', function () {
-    //     echo view('header_view');
-    //     echo view('home_page_view');
-    //     echo view('footer_view');
-    // });
-
-    // Route::get('/template_index', function () {
-    //     return view('templates/template_index');
-    // });
-
-    // Route::get('/template_single', function () {
-    //     return view('templates/template_single');
-    // });
 
 // ################ PANEL ###################
 
@@ -88,6 +63,7 @@ Route::post('/admin/categories/add', [CategoryController::class, 'panelAddPost']
 Route::get('/admin/categories/update', [CategoryController::class, 'panelUpdate'])->middleware('auth')->name('admin.categories.update');
 Route::get('/admin/categories/delete', [CategoryController::class, 'panelDelete'])->middleware('auth')->name('admin.categories.delete');
 Route::post('/admin/categories/delete', [CategoryController::class, 'panelDeletePost'])->middleware('auth')->name('admin.categories.delete.post');
+
 
 // admin posts
 Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
