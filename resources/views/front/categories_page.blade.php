@@ -52,7 +52,7 @@
                                                         {{-- Add a separator after each category except the last one --}}
                                                         @if (!$loop->last)
                                                             <li class="breadcrumb-separator">
-                                                                <span>/</span>
+                                                                <span> AAA </span>
                                                             </li>
                                                         @endif
                                                     @endforeach
