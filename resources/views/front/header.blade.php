@@ -70,7 +70,7 @@
                     <h3 class="s-header__nav-heading">Navigate to</h3>
 
                     {{-- <ul class="s-header__nav"> --}}
-                    <ul class="s-header__nav_mod">
+                    <ul class="s-header__nav burger_mod">
                         <li class="current-menu-item"><a href="{{ route('home') }}" title="">Home</a></li>
                         <li class="has-children">
                             <a href="{{ route('top_categories') }}" title="" class="">Categories</a>
