@@ -91,10 +91,10 @@ class PostController extends Controller
         $toastErrorTitle = session('toastErrorTitle', null);
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
-        
+
         $parent_category_id = $request->query('category_id');
 
-        $p_category = null;
+        $p_category = ['id' => '', 'Wszystko'];
         if(isset($parent_category_id)){
             $p_category = Category::find($parent_category_id);
         }
