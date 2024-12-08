@@ -83,6 +83,10 @@
     @else
         {{-- <h5 class="card-header">Kategorie</h5> --}}
         <div class="table-responsive text-nowrap" style="min-height: 200px;">
+            @foreach ($posts as $post)
+                {{ print_r($post) }}
+                <hr><br>
+            @endforeach
         </div>
     @endif
     </div>
