@@ -16,11 +16,11 @@ class PostController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
-        echo view('panel.auth.header');
+        // echo view('panel.auth.header');
         echo "TEST 123<br>";
 
         print_r($request);
-        echo view('panel.auth.footer');
+        // echo view('panel.auth.footer');
 
         // return view('panel.auth.categories.list', [
         //     'current_category_id' => $param,
