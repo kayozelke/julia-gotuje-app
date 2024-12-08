@@ -10,7 +10,7 @@
         </div> --}}
         <div class="card-body m-1">
 
-            <!-- Basic Breadcrumb -->
+            {{-- <!-- Basic Breadcrumb -->
             <nav aria-label="breadcrumb">
 
                 <ol class="breadcrumb">
@@ -28,27 +28,16 @@
                                 <a
                                     href="{{ route('admin.posts', ['category_id' => $par_category->id]) }}">{{ $par_category->name }}</a>
                             </li>
-                            {{-- <li class="breadcrumb-item ">
-                                <a href="{{ route('admin.categories', ['id' => $p_category->id]) }}">{{ $par_category->name }}</a>
-                            </li> --}}
                         @endforeach
                     @endif
 
-
-                    {{-- <li class="breadcrumb-item">
-                        <a href="javascript:void(0);">Home</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="javascript:void(0);">Library</a>
-                    </li>
-                    <li class="breadcrumb-item active">Data</li> --}}
                 </ol>
-            </nav>
+            </nav> --}}
 
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Primary
+                    Kategoria: {{ $p_category ? $p_category->name : 'Wszystko' }}
                 </button>
                 <ul class="dropdown-menu" style="">
                     @foreach ($all_categories as $c)
