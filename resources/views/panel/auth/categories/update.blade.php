@@ -23,7 +23,7 @@
                     @foreach (array_reverse($parent_categories) as $p_category)
                         <li class="breadcrumb-item">
                             <a
-                                href="{{ route('admin.categories', ['param' => $p_category->id]) }}">{{ $p_category->name }}</a>
+                                href="{{ route('admin.categories', ['id' => $p_category->id]) }}">{{ $p_category->name }}</a>
                         </li>
                     @endforeach
 
@@ -35,7 +35,7 @@
     </div>
     <div class="card mb-4">
         <div class="card-body m-1">
-            <form action="{{ route('admin.categories.add', ['param' => $category->id]) }}" method="POST">
+            <form action="{{ route('admin.categories.add') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nazwa kategorii</label>

@@ -23,7 +23,7 @@
                     @foreach (array_reverse($parent_categories) as $p_category)
                         <li class="breadcrumb-item">
                             <a
-                                href="{{ route('admin.categories', ['param' => $p_category->id]) }}">{{ $p_category->name }}</a>
+                                href="{{ route('admin.categories', ['id' => $p_category->id]) }}">{{ $p_category->name }}</a>
                         </li>
                     @endforeach
 

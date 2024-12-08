@@ -148,7 +148,7 @@ class CategoryController extends Controller
         // $this->printParentCategories($request->parent_category_id);
     }
 
-    public function panelUpdate($param = null)
+    public function panelUpdate(Request $request)
     {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
@@ -158,15 +158,17 @@ class CategoryController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
-        $category = Category::find($param);
+        $category_id = $request->id;
+
+        $category = Category::find($category_id);
         if (!$category) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$category_id.'" nie istnieje.']);
         }
         // $parent_id = $category->parent_id;
 
         return view('panel.auth.categories.update', [
             'category' => $category,
-            'parent_categories' => (new Category())->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -176,7 +178,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function panelDelete($param = null)
+    public function panelDelete(Request $request)
     {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
@@ -186,16 +188,17 @@ class CategoryController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
-        $category = Category::find($param);
+        $category_id = $request->id;
+        $category = Category::find($category_id);
         if (!$category) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$param.'" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "'.$category_id.'" nie istnieje.']);
         }
         // $parent_id = $category->parent_id;
 
         return view('panel.auth.categories.delete', [
             'category' => $category,
             'backPage' => url()->previous(),
-            'parent_categories' => (new Category())->findParentCategories($param),
+            'parent_categories' => (new Category())->findParentCategories($category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
