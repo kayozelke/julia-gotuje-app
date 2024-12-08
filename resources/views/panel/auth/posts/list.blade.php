@@ -41,14 +41,14 @@
                 </button>
                 <ul class="dropdown-menu" style="">
                     @foreach ($all_categories as $c)
-                        
                         <li>
-                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c->id]) }}">{{ $c->parent_categories_str }}
+                            {{ $c }}
+                            {{-- <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c->id]) }}">{{ $c->parent_categories_str }} --}}
                                 {{-- @foreach (array_reverse($c->parent_categories) as $element)
                                     {{ $element->name }}
                                 @endforeach --}}
                                 {{-- Action --}}
-                            </a>
+                            {{-- </a> --}}
                         </li>
                     @endforeach
                     {{-- <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
