@@ -60,7 +60,12 @@
                                     @forelse ($categories as $category)
                                         {{-- Iteracja po kategoriach --}}
                                         <tr>
-                                            <td>{{ $category->name }}</td> {{-- Wyświetlenie nazwy kategorii --}}
+                                            <td>
+                                                {{-- Link do strony kategorii --}}
+                                                <a href="{{ route('categories.show', ['id' => $category->id]) }}">
+                                                    {{ $category->name }}
+                                                </a>
+                                            </td>
                                         </tr>
                                     @empty {{-- Obsługa przypadku, gdy brak kategorii --}}
                                         <tr>
