@@ -12,7 +12,7 @@ class CategoryController extends Controller
     // - put toasts includings into header and remove includes at each view
     // - add page titles into session variables
 
-    public function list($param = null)
+    public function panelList($param = null)
     {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
@@ -96,10 +96,6 @@ class CategoryController extends Controller
             ]);
             // return redirect()->back()->with([
 
-
-            // route at web.php looks like below            
-            // Route::get('/admin/categories/{param?}', [CategoryController::class, 'list'])->middleware('auth')->name('admin.categories');
-            // 
 
             return redirect()->back()->with([
             // return redirect(route('admin.categories', $request->parent_category_id))->with([
