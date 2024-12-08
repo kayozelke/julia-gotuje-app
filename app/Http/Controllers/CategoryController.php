@@ -91,7 +91,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function addPost(Request $request)
+    public function panelAddPost(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -146,7 +146,7 @@ class CategoryController extends Controller
         // $this->printParentCategories($request->parent_category_id);
     }
 
-    public function update($param = null)
+    public function panelUpdate($param = null)
     {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
@@ -174,7 +174,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function delete($param = null)
+    public function panelDelete($param = null)
     {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
@@ -203,7 +203,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function deletePost(Request $request)
+    public function panelDeletePost(Request $request)
     {
         $category = Category::find($request->delete_id);
         if (!$category) {
