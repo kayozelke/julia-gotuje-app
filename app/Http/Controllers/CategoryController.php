@@ -224,9 +224,9 @@ class CategoryController extends Controller
             $parent_category_id = $request->id;
             $parent_category = Category::find($parent_category_id);
 
-            $categories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
+            $subcategories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
         } else {
-            $categories = Category::whereNull('parent_id')->orderBy('name')->get();
+            $subcategories = Category::whereNull('parent_id')->orderBy('name')->get();
         }
 
         return view('front.top_categories_page', [
