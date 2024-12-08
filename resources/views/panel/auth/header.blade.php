@@ -261,13 +261,13 @@
                 <div data-i18n="Basic">Kategorie</div>
               </a>
             </li>
-            {{-- Categories  --}}
-            {{-- <li class="menu-item {{ request()->routeIs('admin.categories') ? 'active' : '' }}">
-              <a href="{{ route('admin.categories') }}" class="menu-link">
+            {{-- Posts  --}}
+            <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/posts') ? 'active' : '' }}">
+              <a href="{{ route('admin.posts') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Kategorie</div>
+                <div data-i18n="Basic">Posty</div>
               </a>
-            </li> --}}
+            </li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="cards-basic.html" class="menu-link">
