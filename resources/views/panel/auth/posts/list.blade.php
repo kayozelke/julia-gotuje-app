@@ -33,6 +33,7 @@
 
                 </ol>
             </nav> --}}
+            <!-- Basic Breadcrumb -->
 
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
@@ -60,7 +61,10 @@
                     <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li> --}}
                 </ul>
             </div>
-            <!-- Basic Breadcrumb -->
+
+            <a type="button" class="btn btn-primary me-auto mx-1" href="#">
+                Dodaj post poniżej
+            </a>
 
             {{-- <hr> --}}
 
