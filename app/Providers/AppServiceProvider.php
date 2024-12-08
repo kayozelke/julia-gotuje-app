@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Share top categories with the header view
+        View::composer('partials.header', function ($view) {
+            $view->with('top_categories', Category::whereNull('parent_id')->orderBy('name')->get());
+        });
     }
 }
