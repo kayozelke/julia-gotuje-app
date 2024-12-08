@@ -46,12 +46,11 @@
             </nav>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle show" data-bs-toggle="dropdown"
-                    aria-expanded="true">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     Primary
                 </button>
-                <ul class="dropdown-menu show" data-popper-placement="bottom-start"
-                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 41px);">
+                <ul class="dropdown-menu" style="">
                     <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>

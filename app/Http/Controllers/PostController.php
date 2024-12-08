@@ -25,8 +25,6 @@ class PostController extends Controller
         $posts = null;
 
         if(isset($parent_category_id)){
-            // $parent_category_id = $request->category_id;
-
             $current_category = Category::find($parent_category_id);
             if(!$current_category){
                 return redirect()->back()->with([
@@ -35,16 +33,21 @@ class PostController extends Controller
                 ]);
             }
             $posts = Post::where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
-            echo 'OK - some category set';
         } else {
             $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
-            echo 'OK - no category set';
         }
+
+        $all_categories = Category::all();
+        foreach($all_categories as $c){
+            $c->parent_categories = (new Category())->findParentCategories($c->id);
+        }
+
 
         return view('panel.auth.posts.list', [
             'p_category' => $current_category,
             'subcategories' => $subcategories,
             'posts' => $posts,
+            'all_categories' => $all_categories,
             // 'recurrent_parent_categories
             'parent_categories' => (new Category())->findParentCategories($parent_category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
