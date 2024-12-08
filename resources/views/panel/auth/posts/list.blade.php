@@ -51,13 +51,23 @@
                     Primary
                 </button>
                 <ul class="dropdown-menu" style="">
-                    <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
-                    <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                    @foreach ($all_categories as $c)
+                        
+                        <li>
+                            <a class="dropdown-item" href="#">
+                            @foreach (array_reverse($c->parent_categories) as $element)
+                                {{ $element }}/
+                            @endforeach
+                                {{-- Action --}}
+                            </a>
+                        </li>
+                    @endforeach
+                    {{-- <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li> --}}
                 </ul>
             </div>
             <!-- Basic Breadcrumb -->
