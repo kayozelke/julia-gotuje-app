@@ -226,12 +226,13 @@ class CategoryController extends Controller
             $categories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
         } else {
             $categories = Category::whereNull('parent_id')->orderBy('name')->get();
+        }
 
         return view('front.top_categories_page', [
             'current_category_id' => $param,
             'parent_category' => $parent_category,
             'subcategories' => $subcategories,
-            'recurrent_parent_categories' => (new Category())->findParentCategories($param)
+            'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
         ]);
     }
 }
