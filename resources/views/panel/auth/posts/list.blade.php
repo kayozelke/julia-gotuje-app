@@ -25,7 +25,7 @@
 
                         @foreach (array_reverse($parent_categories) as $par_category)
                             <li class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
-                                <a href="{{ route('admin.categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                <a href="{{ route('admin.list', ['category_id' => $par_category->id]) }}">{{ $par_category->name }}</a>
                             </li>
                             {{-- <li class="breadcrumb-item ">
                                 <a href="{{ route('admin.categories', ['id' => $current_category_id]) }}">{{ $par_category->name }}</a>
