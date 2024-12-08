@@ -7,7 +7,7 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    public function panelList($request){
+    public function panelList(Request $request){
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);

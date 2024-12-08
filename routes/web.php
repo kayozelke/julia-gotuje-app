@@ -90,7 +90,7 @@ Route::get('/admin/categories/delete/{param?}', [CategoryController::class, 'pan
 Route::post('/admin/categories/delete', [CategoryController::class, 'panelDeletePost'])->middleware('auth')->name('admin.categories.delete.post');
 
 // admin posts
-Route::get('/admin/posts', [PostController::class, 'panelList', $_REQUEST])->middleware('auth')->name('admin.posts');
+Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
 
 
 // ################ TEST #####################
