@@ -71,7 +71,8 @@
                                         <tr>
                                             <td>
                                                 {{-- Link to the category page --}}
-                                                <a href="{{ route('categories', ['id' => $category->id]) }}">
+                                                <a href="{{ route('categories', ['id' => $category->id]) }}"
+                                                    style="text-decoration: none; color: inherit;">
                                                     {{ $category->name }}
                                                 </a>
                                             </td>
