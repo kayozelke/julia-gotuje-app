@@ -26,18 +26,12 @@
                                     </tr>
                                 </thead> --}}
                                 <tbody>
-                                    <tr>
-                                        <td>Desery zimowe</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dania wegetariańskie</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Zupy krem</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dania kuchni włoskiej</td>
-                                    </tr>
+                                    <td>
+                                        {{-- Link do strony kategorii --}}
+                                        <a href="{{ route('categories.show', ['id' => $category->id]) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </td>
                                 </tbody>
                             </table>
                         </div>

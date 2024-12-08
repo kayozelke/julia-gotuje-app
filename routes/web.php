@@ -18,9 +18,10 @@ use App\Http\Controllers\PostController;
 
     Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam']);
 
-    Route::get('/categories', function () {
-        return view('front/categories_page');;
-    });
+    // Route::get('/categories', function () {
+    //     return view('front/categories_page');;
+    // });
+    Route::get('/categories/{id}', [CategoryController::class, 'listCategoriesWithParentParam']);
 
     Route::get('/single_post_test', function () {
         return view('front/single_post');;
