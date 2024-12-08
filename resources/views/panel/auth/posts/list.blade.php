@@ -56,7 +56,7 @@
                         <li>
                             <a class="dropdown-item" href="#">
                             @foreach (array_reverse($c->parent_categories) as $element)
-                                {{ $element->name }}/
+                                {{ $element->name }} /
                             @endforeach
                                 {{-- Action --}}
                             </a>
