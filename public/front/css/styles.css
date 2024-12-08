@@ -3660,13 +3660,13 @@ body.search-is-visible .s-header__search-inner {
     .ss-home .s-header__nav>li>a {
         font-size : 1.6rem;
     }
-} */
+} */ 
 
 @media screen and (max-width: 1400px) {
     .ss-home .s-header__nav-wrap {
-        margin-left: 0; /* Usuń przesunięcie */
-        justify-content: flex-start; /* Dla mniejszych ekranów wyrównaj do lewej */
-        padding: 0 1rem; /* Dodaj przestrzeń po bokach */
+        margin-left: 0;
+        justify-content: flex-start;
+        padding: 0 1rem;
     }
 
     .ss-home .s-header__nav>li {
