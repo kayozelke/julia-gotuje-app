@@ -12,6 +12,8 @@ class CategoryController extends Controller
     // - put toasts includings into header and remove includes at each view
     // - add page titles into session variables
 
+    // ############################## PANEL ##############################
+
     public function panelList(Request $request)
     {
         // // Pobierz wszystkie kategorie z bazy danych
@@ -68,28 +70,6 @@ class CategoryController extends Controller
             'toastErrorTitle' => $toastErrorTitle,
             'toastErrorDescription' => $toastErrorDescription,
             'toastErrorHideTime' => $toastErrorHideTime,
-        ]);
-    }
-
-    public function listCategoriesWithParentParam($param = null)
-    {
-        // Znajdź kategorie bez rodzica (parent_id = NULL)
-        $parent_category = null;
-        $subcategories = null;
-
-        if (isset($param)) {
-            $parent_category = Category::find($param);
-
-            $subcategories = Category::where('parent_id', $param)->orderBy('name')->get();
-        } else {
-            $subcategories = Category::whereNull('parent_id')->orderBy('name')->get();
-        }
-
-        return view('front.top_categories_page', [
-            'current_category_id' => $param,
-            'parent_category' => $parent_category,
-            'subcategories' => $subcategories,
-            'recurrent_parent_categories' => (new Category())->findParentCategories($param)
         ]);
     }
 
@@ -232,5 +212,27 @@ class CategoryController extends Controller
 
     }
 
+    // ############################## FRONT ##############################
 
+    public function frontListCategoriesWithParentParam(Request $request)
+    {
+        $parent_category = null;
+        $subcategories = null;
+
+        if (isset($request->id)) {
+            $parent_category_id = $request->id;
+            $parent_category = Category::find($parent_category_id);
+
+            $categories = Category::where('parent_id', $parent_category_id)->orderBy('name')->get();
+        } else {
+            $categories = Category::whereNull('parent_id')->orderBy('name')->get();
+        }
+
+        return view('front.top_categories_page', [
+            'current_category_id' => $param,
+            'parent_category' => $parent_category,
+            'subcategories' => $subcategories,
+            'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id)
+        ]);
+    }
 }
