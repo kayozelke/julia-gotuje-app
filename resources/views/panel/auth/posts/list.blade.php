@@ -43,7 +43,7 @@
                     @foreach ($all_categories as $c)
                         <li>
                             {{-- {{ print_r($c) }} --}}
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('admin.posts', ['category_id' => $c['id'] ]) }}">
                                 {{-- @foreach (array_reverse($c->parent_categories) as $element)
                                 {{ $element->name }}
                                 @endforeach --}}
