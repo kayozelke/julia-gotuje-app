@@ -83,5 +83,33 @@ class PostController extends Controller
             'toastErrorHideTime' => $toastErrorHideTime,
         ]);
     }
+
+    public function panelAdd(Request $request){
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        $p_category = null;
+        $parent_category_id = $request->query('category_id');
+
+        // $p_category = ['id' => '', 'name' => 'Wszystko'];
+        if(isset($parent_category_id)){
+            $p_category = Category::find($parent_category_id);
+        }
+
+
+        return view('panel.auth.posts.add', [
+            'p_category' => $p_category,
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
 }
 
