@@ -35,14 +35,14 @@
                                                     <li class="breadcrumb-item active">Wszystko</li>
                                                 @else
                                                     <li class="breadcrumb-item">
-                                                        <a href="{{ route('admin.categories') }}">Wszystko</a>
+                                                        <a href="{{ route('top_categories') }}">Wszystko</a>
                                                     </li>
 
                                                     @foreach (array_reverse($recurrent_parent_categories) as $par_category)
                                                         <li
                                                             class="breadcrumb-item @if ($par_category->id == $current_category_id) active @endif">
                                                             <a
-                                                                href="{{ route('admin.categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
+                                                                href="{{ route('categories', ['id' => $par_category->id]) }}">{{ $par_category->name }}</a>
                                                         </li>
                                                     @endforeach
                                                 @endif
@@ -50,7 +50,6 @@
                                         </nav>
                                     </tr>
                                 </thead>
-
 
                                 <tbody>
                                     @forelse ($subcategories as $category)
@@ -65,7 +64,7 @@
                                         </tr>
                                     @empty {{-- Handle the case when there are no categories --}}
                                         <tr>
-                                            <td colspan="1">Brak kategorii do wyświetlenia.</td>
+                                            <td colspan="1">Brak podrzędnych kategorii do wyświetlenia.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
