@@ -3263,21 +3263,21 @@ img.u-pull-left {
     overflow: visible;
 }
 
-/* .s-header__nav-wrap {
+.s-header__nav-wrap {
     display         : flex;
     justify-content : center;
     margin-left     : 6rem;
     margin-right    : 6rem;
     width           : 100%;
-} */
-
-.s-header__nav-wrap {
-    display: flex; /* Wyświetla elementy w linii */
-    justify-content: flex-start; /* Ustawienie elementów po lewej stronie */
-    padding: 0 2rem; /* Zamiast marginesów użyj paddingu, aby uniknąć przesunięć */
-    width: auto; /* Element dopasowuje się do zawartości */
-    box-sizing: border-box; /* Uwzględnij padding w szerokości */
 }
+
+/* .s-header__nav-wrap {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 2rem; 
+    width: auto; 
+    box-sizing: border-box; 
+} */
 
 .ss-home .s-header__nav-wrap {
     margin-left : 50%;
