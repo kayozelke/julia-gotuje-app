@@ -22,52 +22,49 @@
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">
                     <div class="column lg-12">
-                        {{-- <h3>
-                            Wszystkie podkategorie
+                        <h3>
+                            {{-- Wszystkie podkategorie
                             @if ($parent_category)
                                 z kategorii: {{ $parent_category->name }}
                             @else
                                 tej kategorii przepisów
-                            @endif
-                        </h3> --}}
+                            @endif --}}
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb"
+                                    style="list-style: none; padding: 0; margin: 0; display: inline;">
+                                    @if (count($recurrent_parent_categories) == 0)
+                                        <li class="breadcrumb-item active" style="display: inline;">Wszystko
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item" style="display: inline;">
+                                            <a href="{{ route('top_categories') }}"
+                                                style="text-decoration: none; color: inherit;">
+                                                Wszystko
+                                            </a>
+                                        </li>
+
+                                        {{-- Iterate through parent categories and add '/' separator --}}
+                                        @foreach (array_reverse($recurrent_parent_categories) as $par_category)
+                                            <li style="display: inline;"> / </li> <!-- Separator -->
+
+                                            <li class="breadcrumb-item" style="display: inline;">
+                                                <a href="{{ route('categories', ['id' => $par_category->id]) }}"
+                                                    style="text-decoration: none; color: inherit;">
+                                                    {{ $par_category->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ol>
+                            </nav>
+                        </h3>
                         <div class="table-responsive">
                             <table>
-
-                                <thead>
+                                {{-- <thead>
                                     <tr>
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb"
-                                                style="list-style: none; padding: 0; margin: 0; display: inline;">
-                                                @if (count($recurrent_parent_categories) == 0)
-                                                    <li class="breadcrumb-item active" style="display: inline;">Wszystko
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item" style="display: inline;">
-                                                        <a href="{{ route('top_categories') }}"
-                                                            style="text-decoration: none; color: inherit;">
-                                                            Wszystko
-                                                        </a>
-                                                    </li>
-
-                                                    {{-- Iterate through parent categories and add '/' separator --}}
-                                                    @foreach (array_reverse($recurrent_parent_categories) as $par_category)
-                                                        <li style="display: inline;"> / </li> <!-- Separator -->
-
-                                                        <li class="breadcrumb-item" style="display: inline;">
-                                                            <a href="{{ route('categories', ['id' => $par_category->id]) }}"
-                                                                style="text-decoration: none; color: inherit;">
-                                                                {{ $par_category->name }}
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                @endif
-                                            </ol>
-                                        </nav>
-
-
                                     </tr>
-                                </thead>
-
+                                </thead> --}}
                                 <tbody>
                                     @forelse ($subcategories as $category)
                                         {{-- Iterate over subcategories --}}
