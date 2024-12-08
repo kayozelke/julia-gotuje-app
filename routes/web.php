@@ -13,8 +13,8 @@ use App\Http\Controllers\PostController;
     });
 
     // front categories pages
-    Route::get('/top_categories', [CategoryController::class, 'listCategoriesWithParentParam'])->name('top_categories');
-    Route::get('/categories', [CategoryController::class, 'listCategoriesWithParentParam'])->name('categories');
+    Route::get('/top_categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('top_categories');
+    Route::get('/categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('categories');
 
     
     // front single view
