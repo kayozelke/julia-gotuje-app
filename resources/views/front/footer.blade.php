@@ -35,10 +35,8 @@
             <h4>JuliaGotuje</h4>
 
             <p>
-            Śledź bloga JuliaGotuje oraz jej profile w mediach społecznościowych,
-            aby zawsze być na bieżąco z najnowszymi, sezonowymi przepisami i kulinarnymi inspiracjami. 
-            Dzięki temu nie przegapisz żadnych ciekawych pomysłów na dania oraz aktualności z kuchennego świata. 
-            Dołącz do społeczności pasjonatów gotowania i ciesz się smakiem na każdą okazję!
+            Śledź bloga JuliaGotuje i jej profile w mediach społecznościowych, by być na bieżąco z sezonowymi przepisami i kulinarnymi nowościami.
+            Nie przegap żadnej inspiracji!
             </p>
         </div> <!-- end s-footer__about -->
 
