@@ -233,8 +233,8 @@ class CategoryController extends Controller
                 ->orderBy('name')
                 ->get();
 
-            // If the parent ID is not null, return the `categories_page` view
-            return view('front.categories_page', [
+            // If the parent ID is not null, return the `sub_categories_page` view
+            return view('front.sub_categories_page', [
                 'parent_category' => $parent_category,
                 'subcategories' => $subcategories,
                 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),

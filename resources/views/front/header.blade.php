@@ -60,7 +60,7 @@
 
             <div class="s-header__branding">
                 <p class="site-title">
-                    <a href="#" rel="home">JuliaGotuje</a>
+                    <a href="{{ route('home') }}" rel="home">JuliaGotuje</a>
                 </p>
             </div>
 
