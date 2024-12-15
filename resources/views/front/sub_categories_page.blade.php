@@ -77,9 +77,9 @@
                                             </td>
                                         </tr>
                                     @empty {{-- Handle the case when there are no categories --}}
-                                        <tr>
+                                        {{-- <tr>
                                             <td colspan="1">Brak podrzędnych kategorii do wyświetlenia.</td>
-                                        </tr>
+                                        </tr> --}}
                                     @endforelse
                                 </tbody>
                             </table>
