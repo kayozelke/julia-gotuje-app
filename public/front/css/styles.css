@@ -4548,8 +4548,8 @@ body.search-is-visible .s-header__search-inner {
 .s-footer {
     background-color : var(--color-gray-4);
     font-weight      : 300;
-    padding-top      : var(--vspace-2_5);
-    padding-bottom   : var(--vspace-2_5);
+    padding-top      : var(--vspace-2);
+    padding-bottom   : var(--vspace-2);
     position         : relative;
 }
 
