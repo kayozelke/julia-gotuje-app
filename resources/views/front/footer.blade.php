@@ -5,7 +5,7 @@
 ================================================== -->
 <footer id="colophon" class="s-footer">
 
-    <div class="row s-footer__subscribe">
+    {{-- <div class="row s-footer__subscribe">
         <div class="column lg-12">
 
             <h2>
@@ -27,7 +27,7 @@
             </form>
 
         </div>
-    </div> <!-- end s-footer__subscribe -->
+    </div> <!-- end s-footer__subscribe --> --}}
 
     <div class="row s-footer__main">
 
