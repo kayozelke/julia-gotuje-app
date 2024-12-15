@@ -46,25 +46,25 @@
         <div class="column lg-5 md-6 tab-12">
             <div class="row">
                 <div class="column lg-6">
-                    <h4>Categories</h4>
+                    <h4>Kategorie</h4>
                     <ul class="link-list">
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Workplace</a></li>
-                        <li><a href="#">Inspiration</a></li>
-                        <li><a href="#">Design</a></li>
-                        <li><a href="#">Health</a></li>
-                        <li><a href="#">Photography</a></li>
+                        @foreach ($top_categories as $category)
+                            <li>
+                                <a href="{{ route('categories', ['id' => $category->id]) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="column lg-6">
                     <h4>Site Links</h4>
                     <ul class="link-list">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#0">Terms & Policy</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('top_categories') }}">Kategorie</a></li>
+                        <li><a href="#">O mnie</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="#">Regulamin</a></li>
                     </ul>
                 </div>
             </div>
