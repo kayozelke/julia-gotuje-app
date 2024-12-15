@@ -4,7 +4,7 @@
         ================================================== -->
 <div id="content" class="s-content">
 
-    <div class="row entry-wrap">
+    {{-- <div class="row entry-wrap"> --}}
         <div class="column lg-12">
             <article class="entry">
 
@@ -91,7 +91,7 @@
             </article> <!-- end entry -->
         </div>
 
-    </div> <!-- end entry-wrap -->
+    {{-- </div> <!-- end entry-wrap --> --}}
 
     {{-- category posts --}}
     @include('front.posts_bricks_section')
