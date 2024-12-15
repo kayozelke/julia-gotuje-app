@@ -34,7 +34,8 @@ class PostController extends Controller
             }
             $posts = Post::where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
         } else {
-            $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
+            // $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
+            $posts = Post::orderBy('updated_at')->get();        
         }
 
         $all_categories = Category::all();
