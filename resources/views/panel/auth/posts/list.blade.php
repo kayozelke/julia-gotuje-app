@@ -130,3 +130,20 @@
 </div>
 
 @include('panel.auth.footer')
+
+
+{{-- DATATABLES TEST --}}
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            "paging": false, // Włącz paginację
+            "ordering": true, // Włącz sortowanie
+            "searching": false, // Włącz wyszukiwanie
+            "order": [
+                [0, "asc"]
+            ], // Domyślne sortowanie po ID
+            "info": false // Wyłącza informacje o paginacji
+        });
+    });
+</script>
