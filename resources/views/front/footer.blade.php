@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <div class="column lg-6">
-                    <h4>Site Links</h4>
+                    <h4>Linki na stronie</h4>
                     <ul class="link-list">
                         <li><a href="{{ route('home') }}">Strona główna</a></li>
                         <li><a href="{{ route('main_categories') }}">Kategorie</a></li>
