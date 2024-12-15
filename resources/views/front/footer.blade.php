@@ -32,14 +32,13 @@
     <div class="row s-footer__main">
 
         <div class="column lg-5 md-6 tab-12 s-footer__about">
-            <h4>Spurgeon</h4>
+            <h4>JuliaGotuje</h4>
 
             <p>
-                Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo
+            Śledź bloga JuliaGotuje oraz jej profile w mediach społecznościowych,
+            aby zawsze być na bieżąco z najnowszymi, sezonowymi przepisami i kulinarnymi inspiracjami. 
+            Dzięki temu nie przegapisz żadnych ciekawych pomysłów na dania oraz aktualności z kuchennego świata. 
+            Dołącz do społeczności pasjonatów gotowania i ciesz się smakiem na każdą okazję!
             </p>
         </div> <!-- end s-footer__about -->
 
