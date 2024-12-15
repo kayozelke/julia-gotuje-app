@@ -37,7 +37,7 @@
                                         </li>
                                     @else
                                         <li class="breadcrumb-item" style="display: inline;">
-                                            <a href="{{ route('top_categories') }}"
+                                            <a href="{{ route('main_categories') }}"
                                                 style="text-decoration: none; color: inherit;">
                                                 Wszystko
                                             </a>

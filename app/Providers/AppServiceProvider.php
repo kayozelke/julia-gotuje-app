@@ -22,12 +22,12 @@ class AppServiceProvider extends ServiceProvider
     {
         // Share top categories with the header view
         View::composer('front.header', function ($view) {
-            $view->with('top_categories', Category::whereNull('parent_id')->orderBy('name')->get());
+            $view->with('main_categories', Category::whereNull('parent_id')->orderBy('name')->get());
         });
 
         // Share top categories with the footer view
         View::composer('front.footer', function ($view) {
-            $view->with('top_categories', Category::whereNull('parent_id')->orderBy('name')->get());
+            $view->with('main_categories', Category::whereNull('parent_id')->orderBy('name')->get());
         });
     }
 }

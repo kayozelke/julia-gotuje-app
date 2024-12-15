@@ -13,7 +13,7 @@ use App\Http\Controllers\PostController;
     })->name('home');
 
     // front categories pages
-    Route::get('/top_categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('top_categories');
+    Route::get('/main_categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('main_categories');
     Route::get('/categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('categories');
 
     

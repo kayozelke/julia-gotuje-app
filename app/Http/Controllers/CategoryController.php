@@ -245,8 +245,8 @@ class CategoryController extends Controller
                 ->orderBy('name')
                 ->get();
 
-            // If the parent ID is null, return the `top_categories_page` view
-            return view('front.top_categories_page', [
+            // If the parent ID is null, return the `main_categories_page` view
+            return view('front.main_categories_page', [
                 'parent_category' => $parent_category,
                 'subcategories' => $subcategories,
                 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
