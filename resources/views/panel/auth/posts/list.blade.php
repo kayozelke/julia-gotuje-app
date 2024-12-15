@@ -79,7 +79,7 @@
                             <th>Utworzono</th>
                             <th>Zmodyfikowano</th>
                             <th>Zmodyfikowano przez</th>
-                            <th>Akcje</th>
+                            {{-- <th>Akcje</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -96,23 +96,20 @@
                                 <td>{{ $post->created_at }}</td>
                                 <td>{{ $post->updated_at }}</td>
                                 <td>Albert Cook</td>
-                                <td>
+                                {{-- <td>
                                     <div class="dropdown position-static">
-                                        {{-- <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                     data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('admin.categories.update', ['id' => $post->id]) }}"><i
+                                    <a class="dropdown-item" href="{{ route('admin.post.update', ['id' => $post->id]) }}"><i
                                             class="bx bx-edit-alt me-1"></i> Edytuj</a>
-                                    <a class="dropdown-item" href="{{ route('admin.categories.delete', ['id' => $post->id]) }}"><i
-                                            class="bx bx-trash me-1"></i>
-                                        Usuń</a>
-                                </div> --}}
+                                    <a class="dropdown-item" href="{{ route('admin.post.delete', ['id' => $post->id]) }}"><i
+                                            class="bx bx-trash me-1"></i> Usuń</a>
+                                </div>
                                     </div>
-                                </td>
-                                {{-- {{ print_r($post) }}
-                        <hr><br> --}}
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -121,10 +118,10 @@
         @endif
     </div>
 
-    @foreach ($posts as $post)
+    {{-- @foreach ($posts as $post)
         {{ print_r($post) }}
         <hr><br>
-    @endforeach
+    @endforeach --}}
     <!--/ Borderless Table -->
 
 </div>
