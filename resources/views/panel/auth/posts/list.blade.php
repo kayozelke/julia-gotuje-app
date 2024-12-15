@@ -71,34 +71,34 @@
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
             <div class="table-responsive text-nowrap" style="min-height: 200px;">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nazwa</th>
-                        <th>Utworzono</th>
-                        <th>Zmodyfikowano</th>
-                        <th>Zmodyfikowano przez</th>
-                        <th>Akcje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($posts as $post)
-                    <tr>
-                        <td>{{ $post->id }}</td>
-                        
-                        <td>
-                            {{-- <a href="{{ route('admin.categories', ['id' => $category->id]) }}" --}}
-                            <a href="#"
-                                class="href">
-                                <strong>{{ $post->name }}</strong>
-                            </a>
-                        </td>
-                        <td>{{ $post->created_at }}</td>
-                        <td>{{ $post->updated_at }}</td>
-                        <td>Albert Cook</td>
-                        <td>
-                            <div class="dropdown position-static">
-                                {{-- <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                <table class="table table-borderless table-hover" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nazwa</th>
+                            <th>Utworzono</th>
+                            <th>Zmodyfikowano</th>
+                            <th>Zmodyfikowano przez</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($posts as $post)
+                            <tr>
+                                <td>{{ $post->id }}</td>
+
+                                <td>
+                                    {{-- <a href="{{ route('admin.categories', ['id' => $category->id]) }}" --}}
+                                    <a href="#" class="href">
+                                        <strong>{{ $post->name }}</strong>
+                                    </a>
+                                </td>
+                                <td>{{ $post->created_at }}</td>
+                                <td>{{ $post->updated_at }}</td>
+                                <td>Albert Cook</td>
+                                <td>
+                                    <div class="dropdown position-static">
+                                        {{-- <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                     data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
@@ -109,17 +109,18 @@
                                             class="bx bx-trash me-1"></i>
                                         Usuń</a>
                                 </div> --}}
-                            </div>
-                        </td>
-                        {{-- {{ print_r($post) }}
+                                    </div>
+                                </td>
+                                {{-- {{ print_r($post) }}
                         <hr><br> --}}
-                    </tr>
-                    @endforeach
-                </tbody>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         @endif
     </div>
-    
+
     @foreach ($posts as $post)
         {{ print_r($post) }}
         <hr><br>
