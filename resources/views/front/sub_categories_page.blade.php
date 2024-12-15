@@ -4,7 +4,7 @@
         ================================================== -->
 <div id="content" class="s-content">
 
-    <div class="row entry-wrap">
+    {{-- <div class="row entry-wrap"> --}}
         <div class="column lg-12">
             <article class="entry">
 
@@ -77,9 +77,9 @@
                                             </td>
                                         </tr>
                                     @empty {{-- Handle the case when there are no categories --}}
-                                        <tr>
+                                        {{-- <tr>
                                             <td colspan="1">Brak podrzędnych kategorii do wyświetlenia.</td>
-                                        </tr>
+                                        </tr> --}}
                                     @endforelse
                                 </tbody>
                             </table>
@@ -91,7 +91,7 @@
             </article> <!-- end entry -->
         </div>
 
-    </div> <!-- end entry-wrap -->
+    {{-- </div> <!-- end entry-wrap --> --}}
 
     {{-- category posts --}}
     @include('front.posts_bricks_section')

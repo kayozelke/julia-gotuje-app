@@ -24,5 +24,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('front.header', function ($view) {
             $view->with('top_categories', Category::whereNull('parent_id')->orderBy('name')->get());
         });
+
+        // Share top categories with the footer view
+        View::composer('front.footer', function ($view) {
+            $view->with('top_categories', Category::whereNull('parent_id')->orderBy('name')->get());
+        });
     }
 }
