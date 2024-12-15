@@ -90,7 +90,7 @@
                                 <td>
                                     {{-- <a href="{{ route('admin.categories', ['id' => $category->id]) }}" --}}
                                     <a href="#" class="href">
-                                        <strong>{{ $post->name }}</strong>
+                                        <strong>{{ $post->title }}</strong>
                                     </a>
                                 </td>
                                 <td>{{ $post->created_at }}</td>
