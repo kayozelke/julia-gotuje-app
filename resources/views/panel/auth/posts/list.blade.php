@@ -43,7 +43,7 @@
 
                     <a type="button" class="btn btn-primary me-auto mx-1"
                         href="{{ route('admin.posts.add', $p_category ? ['parent_category_id' => $p_category->id] : '') }}">
-                        Dodaj post poniżej
+                        Dodaj post
                     </a>
                 </div>
 
