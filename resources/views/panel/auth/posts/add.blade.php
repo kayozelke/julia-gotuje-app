@@ -120,18 +120,22 @@
                 <h4 class="card-header">Czas publikacji</h4>
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" id="use_hide_before_time">
-                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później</label>
+                        <div class="card-body">
+                            <div class="form-check form-switch mb-2">
+                                <input class="form-check-input" type="checkbox" id="use_hide_before_time">
+                                <label class="form-check-label" for="use_hide_before_time">Opublikuj później</label>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="mb-3 row">
-                        <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="datetime-local"
-                                value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
+                    <div class="card-body">
+                        <div class="mb-3 row">
+                            <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="datetime-local"
+                                    value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
+                            </div>
                         </div>
                     </div>
                 </div>
