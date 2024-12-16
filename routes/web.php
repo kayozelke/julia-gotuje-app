@@ -70,6 +70,12 @@ Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('au
 Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
 
 
+
+// api calls
+Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
+
+
+
 // ################ TEST #####################
 
 Route::get('/user/{id}', [UserController::class, 'show']);

@@ -9,6 +9,31 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+
+    public function generatePageUrl(string $text){
+        // string $text is just a regular text with spaces and letter cases
+
+        // this function should:
+        // 1. replace all spaces with char '-'
+        // 2. delete all non letter or non number chars from text
+        // 3. make all leters lowercase
+
+        // return another string as result        
+        $text = preg_replace('/\s+/', '-', $text);
+        $text = preg_replace('/[^a-zA-Z0-9-]/', '', $text);
+        $text = strtolower($text);
+        return $text;
+    }
+
+    public function apiGeneratePageUrl(Request $request){
+        $text = $request->query('text');
+
+        return [
+            'page_url' => $this->generatePageUrl($text),
+        ];
+    }
+
+
     public function panelList(Request $request){
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
