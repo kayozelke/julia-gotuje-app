@@ -102,8 +102,34 @@ class PostController extends Controller
         }
 
 
+        $all_categories = Category::all();
+        foreach($all_categories as $c){
+            $c->parent_categories_str = '';
+            
+            foreach(array_reverse((new Category())->findParentCategories($c->id)) as $p){
+                if (! ($c->id == $p->id)){
+                    $c->parent_categories_str .= $p->name . ' / ';
+                } else {
+                    $c->parent_categories_str .= $p->name;
+                }
+            }
+        }
+
+        $all_categories = $all_categories->sortBy('parent_categories_str');
+        $all_categories = $all_categories->toArray();
+
+        // array_unshift($all_categories, [
+        //     'id' => "",
+        //     'name' => 'Brak',
+        //     'parent_categories_str' => 'Brak'
+        // ]);
+
+
+
+
         return view('panel.auth.posts.add', [
             'p_category' => $p_category,
+            'all_categories' => $all_categories,
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,

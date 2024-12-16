@@ -27,8 +27,8 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="defaultFormControlInput"
-                                    {{-- placeholder="John Doe"  --}} aria-describedby="defaultFormControlHelp">
+                                <input type="text" class="form-control" id="title"
+                                    {{-- placeholder="John Doe"  --}} aria-describedby="titleOfPost">
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="defaultFormControlInput"
-                                    {{-- placeholder="John Doe"  --}} aria-describedby="defaultFormControlHelp">
+                                <input type="text" class="form-control" id="custom_url"
+                                    {{-- placeholder="John Doe"  --}} aria-describedby="customUrlOfPost">
                             </div>
                         </div>
                     </div>
@@ -51,19 +51,37 @@
                         <h5 class="card-header">Ustawienia</h5>
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="exampleFormControlSelect1" class="form-label">Example select</label>
-                                <select class="form-select" id="exampleFormControlSelect1"
-                                    aria-label="Default select example">
-                                    <option selected="">Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <label for="template_type" class="form-label">Typ wpisu</label>
+                                <select class="form-select" id="template_type"
+                                    aria-label="Template type">
+                                    {{-- <option selected="">Open this select menu</option> --}}
+                                    <option value="recipe">Przepis</option>
+                                    <option value="default">Zwykły wpis</option>
+                                    {{-- <option value="3">Three</option> --}}
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Kategoria</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="template_type" class="form-label">Typ wpisu</label>
+                                <select class="form-select" id="template_type"
+                                    aria-label="Template type">
+                                    <option value="0">Brak</option>
+                                    {{-- <option value="3">Three</option> --}}
+                                    @foreach ($all_categories as $c)
+                                        <option value="{{ $category->id }}">{{ $c['parent_categories_str'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="row">
