@@ -217,10 +217,10 @@ class PostController extends Controller
             // echo "OK<br>";
 
         } catch (\Exception $e) {
-            echo "NIE OK<br>";
-            print_r($e->getMessage());
+            // echo "NIE OK<br>";
+            // print_r($e->getMessage());
 
-            return;
+            // return;
 
             return redirect()->back()->with([
             // return redirect()->route('admin.posts')->with([
