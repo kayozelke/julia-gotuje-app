@@ -72,7 +72,7 @@ Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware(
 
 
 // api calls
-Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
+Route::post('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
 // Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl']);
 
 
