@@ -175,7 +175,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'custom-url' => 'required|string|max:255',
-            'template_type' => 'required',
+            // 'template_type' => 'required',
         ]);
 
         // check if category exists
@@ -192,7 +192,7 @@ class PostController extends Controller
             Post::create([
                 'title' => $validated['title'],
                 'custom_url' => $this->generatePageUrl($validated['custom-url']),
-                'template_type' => $validated['template_type'],
+                // 'template_type' => $validated['template_type'],
                 'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -217,6 +217,7 @@ class PostController extends Controller
             echo "NIE OK<br>";
             print_r($e->getMessage());
         }
+        return;
     }
 
 }
