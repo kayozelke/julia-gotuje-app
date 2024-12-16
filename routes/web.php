@@ -81,7 +81,7 @@ Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl
 // ################ TEST #####################
 
 Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/test_kayoz', [CategoryController::class, 'testKayoz']);
+// Route::get('/test_kayoz', [CategoryController::class, 'testKayoz']);
 // Route::get('/categories', [CategoryController::class, 'index']);
 
 
