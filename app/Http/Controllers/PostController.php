@@ -168,7 +168,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function panelPostAdd(Request $request){
+    public function panelAddPost(Request $request){
         
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -204,7 +204,7 @@ class PostController extends Controller
                 'toastSuccessTitle' => 'Pomyślnie dodano wpis',
                 'toastSuccessHideTime' => 5,
             ]);
-            
+
         } catch (\Exception $e) {
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Wystąpił błąd!',
