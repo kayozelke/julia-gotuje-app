@@ -48,7 +48,7 @@
 
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <h5 class="card-header">Ustawienia</h5>
+                        <h5 class="card-header">Rodzaj</h5>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="template_type" class="form-label">Typ wpisu</label>
@@ -71,7 +71,7 @@
                                 <label for="template_type" class="form-label">Wybór kategorii nadrzędnej</label>
                                 <select class="form-select" id="parent_category_id"
                                     aria-label="Category select">
-                                    <option value="0">Brak</option>
+                                    <option value="0">Brak (post niewidoczny w kategoriach)</option>
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
                                         <option value="{{ $c['id'] }}">{{ $c['parent_categories_str'] }}</option>
@@ -91,6 +91,21 @@
                         <div class="card-body">
                             {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <h5 class="card-header">Ustawienia</h5>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Ustawienia</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
