@@ -171,12 +171,14 @@ class PostController extends Controller
     public function panelAddPost(Request $request){
 
         print_r("hello");
+
+        // $request->query()
         
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'custom-url' => 'required|string|max:255',
-            // 'template_type' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'custom-url' => 'required|string|max:255',
+        //     // 'template_type' => 'required',
+        // ]);
 
         // check if category exists
         // if isset ...
@@ -190,8 +192,10 @@ class PostController extends Controller
         try {
 
             Post::create([
-                'title' => $validated['title'],
-                'custom_url' => $this->generatePageUrl($validated['custom-url']),
+                // 'title' => $validated['title'],
+                'title' => $request->query('title'),
+                // 'custom_url' => $this->generatePageUrl($validated['custom-url']),
+                'custom_url' => $request->query('custom-url'),
                 // 'template_type' => $validated['template_type'],
                 'parent_id' => null,
                 'created_at' => now(),
