@@ -28,6 +28,18 @@ class PostController extends Controller
     public function apiGeneratePageUrl(Request $request){
         $text = (string)$request->query('text');
 
+
+        
+        $string = "ʿABBĀSĀBĀD";
+        
+        echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $string);
+        // output: [nothing, and you get a notice]
+
+        echo iconv('UTF-8', 'ISO-8859-1//IGNORE', $string);
+        // output: ABBSBD
+
+        echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $string);
+
         return [
             'page_url' => $this->generatePageUrl($text),
         ];
