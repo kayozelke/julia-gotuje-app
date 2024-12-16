@@ -784,8 +784,16 @@
     }
 
     function generateUrl() {
+        console.log('generateUrl()');
         const title = titleInput.value;
-        fetch(`/api/generate_page_url?text=${title}`)
+        // fetch(`/api/generate_page_url?text=${title}`)
+        fetch('/api/generate_page_url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: title })
+        })
             .then(response => response.json())
             .then(data => {
                 customUrlInput.value = data.page_url;
