@@ -42,7 +42,6 @@
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                 <input type="text" class="form-control" id="custom_url" {{-- placeholder="John Doe"  --}}
                                     pattern="[a-z0-9-]+"
-                                    autocomplete="off"
                                     aria-describedby="customUrlOfPost">
                             </div>
                         </div>
@@ -775,7 +774,7 @@
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
 
-    titleInput.addEventListener('input', () => {
+    titleInput.addEventListener('keyup', () => {
         generateUrl();
     })
 
