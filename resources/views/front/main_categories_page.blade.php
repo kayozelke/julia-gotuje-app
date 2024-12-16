@@ -65,6 +65,11 @@
                                                     style="text-decoration: none; color: inherit;">
                                                     {{ $category->name }}
                                                 </a>
+
+                                                {{-- Badge z liczbą postów --}}
+                                                <span class="badge rounded-pill bg-light text-dark">
+                                                    {{ $category->posts_count ?? 0 }}
+                                                </span>
                                             </td>
                                         </tr>
                                     @empty {{-- Obsługa przypadku, gdy brak kategorii --}}
