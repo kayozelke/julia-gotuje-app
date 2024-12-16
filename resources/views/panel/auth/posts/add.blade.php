@@ -830,7 +830,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             url : "/api/generate_page_url",
-            type : 'POST',
+            method : 'POST',
             dataType : 'json',
             body: JSON.stringify({ text: title })
         })
