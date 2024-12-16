@@ -8,7 +8,7 @@
 
         {{-- ADD POST --}}
         <div class="card-body m-1">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-md-6">
                     {{-- <div class="card mb-4">
                         <h5 class="card-header">Tytuł</h5>
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <h5 class="card-header">Treść wpisu</h5>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="row mb-2">
+            <div class="row">
                 <!-- Form controls -->
                 <div class="col-md-6">
                     <div class="card mb-4">
