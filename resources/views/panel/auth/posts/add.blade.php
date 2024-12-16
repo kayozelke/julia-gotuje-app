@@ -47,7 +47,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="row">
+                <div>
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
+                </div>
+            </div>
 
+            <div class="row">
                 <!-- Form controls -->
                 <div class="col-md-6">
                     <div class="card mb-4">
