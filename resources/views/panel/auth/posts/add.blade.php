@@ -794,9 +794,9 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             url : "/api/generate_page_url",
-            data : {'token' : $('meta[name="csrf-token"]').attr('content')},
             type : 'GET',
             dataType : 'json',
+            body: JSON.stringify({ text: title })
             success : function(result){
 
                 // console.log("===== " + result + " =====");
