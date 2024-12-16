@@ -50,7 +50,7 @@
             </div>
             
             <div class="row mb-2">
-                <div class="">
+                <div class="card mb-4">
                     <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
                 </div>
