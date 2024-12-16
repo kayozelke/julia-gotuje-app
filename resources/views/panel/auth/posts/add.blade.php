@@ -19,7 +19,8 @@
                                     <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
                                         name="title"
                                         {{-- autocomplete="off"  --}}
-                                        aria-describedby="titleOfPost">
+                                        aria-describedby="titleOfPost"
+                                        required>
                                 </div>
                             </div>
                         </div>
