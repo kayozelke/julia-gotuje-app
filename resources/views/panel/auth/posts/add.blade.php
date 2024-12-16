@@ -757,6 +757,12 @@
     const hideBeforeTimeInput = document.getElementById('hide_before_time');
 
     useHideBeforeTimeCheckbox.addEventListener('change', () => {
-        hideBeforeTimeInput.disabled = useHideBeforeTimeCheckbox.checked;
+        if (useHideBeforeTimeCheckbox.checked) {
+            hideBeforeTimeInput.value = new Date().toISOString().slice(0, 16);
+            hideBeforeTimeInput.disabled = false;
+        } else {
+            hideBeforeTimeInput.value = null;
+            hideBeforeTimeInput.disabled = true;
+        }
     });
 </script>
