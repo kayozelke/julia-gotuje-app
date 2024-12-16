@@ -10,18 +10,6 @@
             <div class="card-body m-1">
                 <div class="row">
                     <div class="col-md-6">
-                        {{-- <div class="card mb-4">
-                        <h5 class="card-header">Tytuł</h5>
-                        <div class="card-body">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" 
-                                    placeholder="John Doe"
-                                    aria-describedby="floatingInputHelp">
-                                <label for="floatingInput">Wyświetlany tytuł wpisu</label>
-                                <div id="floatingInputHelp" class="form-text">We'll never share your details with anyone else.</div>
-                            </div>
-                        </div>
-                    </div> --}}
                         <div class="card mb-4">
                             <h5 class="card-header">Tytuł wpisu</h5>
                             <div class="card-body">
@@ -39,8 +27,13 @@
                             <div class="card-body">
                                 <div>
                                     {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                    <input type="text" class="form-control" id="custom_url" {{-- placeholder="John Doe"  --}}
-                                        pattern="[a-z0-9\-]+" {{-- autocomplete="off" --}} aria-describedby="customUrlOfPost">
+                                    <input 
+                                        type="text" class="form-control" id="custom_url"
+                                        {{-- placeholder="John Doe"  --}}
+                                        pattern="[a-z0-9\-]+"
+                                        {{-- autocomplete="off" --}}
+                                        aria-describedby="customUrlOfPost"
+                                        required>
                                 </div>
                             </div>
                         </div>
