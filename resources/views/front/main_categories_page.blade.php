@@ -68,7 +68,7 @@
 
                                                 {{-- Badge with sub posts counter --}}
                                                 <span class="badge rounded-pill bg-light text-dark">
-                                                    {{ $category->posts_count ?? 0 }}
+                                                    {{ $category->post_count ?? 0 }}
                                                 </span>
                                             </td>
                                         </tr>
