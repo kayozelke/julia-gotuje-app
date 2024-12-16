@@ -8,7 +8,7 @@
 
         {{-- ADD POST --}}
         <div class="card-body m-1">
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-md-6">
                     {{-- <div class="card mb-4">
                         <h5 class="card-header">Tytuł</h5>
@@ -49,14 +49,14 @@
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row mb-2">
+                <div class="">
                     <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-2">
                 <!-- Form controls -->
                 <div class="col-md-6">
                     <div class="card mb-4">
