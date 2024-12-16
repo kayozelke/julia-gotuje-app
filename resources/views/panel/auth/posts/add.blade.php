@@ -123,11 +123,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    {{-- <div class="form-check form-switch mb-2"> --}}
+                                    <div class="form-check form-switch mb-2">
                                         <input class="form-check-input" type="checkbox" id="use_hide_before_time">
                                         <label class="form-check-label" for="use_hide_before_time">Opublikuj
                                             później</label>
-                                    {{-- </div> --}}
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
