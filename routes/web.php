@@ -75,3 +75,12 @@ Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware(
 Route::get('/user/{id}', [UserController::class, 'show']);
 // Route::get('/categories', [CategoryController::class, 'index']);
 
+
+
+// ############################################
+
+// Route for dynamic pages must be at the end
+// Route::get('/{custom_url}', [PageController::class, 'show'])
+//     ->where('custom_url', '[a-zA-Z0-9\-]+')
+//     ->name('page.show'); 
+
