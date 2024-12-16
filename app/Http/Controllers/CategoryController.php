@@ -240,6 +240,7 @@ class CategoryController extends Controller
                 'subcategories' => $subcategories,
                 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
             ]);
+            
         } else {
             // Fetch top-level categories (categories with no parent)
             $subcategories = Category::whereNull('parent_id')
@@ -255,12 +256,12 @@ class CategoryController extends Controller
         }
     }
 
-    public function testKayoz(Request $request){
-        $category_id = $request->query('id');
-        print_r($this->countItemsAtCategory($category_id));
-        print_r("<br>");
-        return;
-    }
+    // public function testKayoz(Request $request){
+    //     $category_id = $request->query('id');
+    //     print_r($this->countItemsAtCategory($category_id));
+    //     print_r("<br>");
+    //     return;
+    // }
 
     public function countItemsAtCategory(int $categoryId, bool $with_children = true){
         $count = Post::where('parent_category_id', $categoryId)->count();
