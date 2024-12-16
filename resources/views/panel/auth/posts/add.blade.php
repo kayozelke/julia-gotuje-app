@@ -39,7 +39,8 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="custom_url" {{-- placeholder="John Doe"  --}}
+                                <input type="text" class="form-control" id="custom_url" 
+                                    {{-- placeholder="John Doe"  --}}
                                     aria-describedby="customUrlOfPost">
                             </div>
                         </div>
@@ -765,4 +766,20 @@
             hideBeforeTimeInput.disabled = true;
         }
     });
+</script>
+
+
+<script>
+    const titleInput = document.getElementById('title');
+    const customUrlInput = document.getElementById('custom_url');
+
+    titleInput.addEventListener('input', () => {
+        const title = titleInput.value;
+        fetch(`/api/generate_page_url?text=${title}`)
+            .then(response => response.json())
+            .then(data => {
+                customUrlInput.value = data.page_url;
+            });
+    });
+
 </script>
