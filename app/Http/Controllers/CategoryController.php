@@ -234,6 +234,11 @@ class CategoryController extends Controller
                 ->orderBy('name')
                 ->get();
 
+            foreach ($subcategories as $subcategory) {
+                $subcategory->post_count = $this->countItemsAtCategory($subcategory->id);
+            }
+
+
             // If the parent ID is not null, return the `sub_categories_page` view
             return view('front.sub_categories_page', [
                 'parent_category' => $parent_category,
@@ -246,6 +251,10 @@ class CategoryController extends Controller
             $subcategories = Category::whereNull('parent_id')
                 ->orderBy('name')
                 ->get();
+
+            foreach ($subcategories as $subcategory) {
+                $subcategory->post_count = $this->countItemsAtCategory($subcategory->id);
+            }
 
             // If the parent ID is null, return the `main_categories_page` view
             return view('front.main_categories_page', [
