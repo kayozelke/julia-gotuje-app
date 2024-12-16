@@ -793,7 +793,8 @@
         fetch('/api/generate_page_url', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
             },
             body: JSON.stringify({ text: title })
         })
