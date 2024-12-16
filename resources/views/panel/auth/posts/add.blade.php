@@ -789,23 +789,39 @@
         console.log('generateUrl()');
         const title = titleInput.value;
 
-        fetch('/api/generate_page_url', {
-            method: 'POST',
+        $.ajax({
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Pobranie tokena CSRF
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            body: JSON.stringify({ text: title })
+            url : "/api/generate_page_url",
+            data : {'token' : token},
+            type : 'GET',
+            dataType : 'json',
+            success : function(result){
+
+                console.log("===== " + result + " =====");
+
+            }
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                customUrlInput.value = data.page_url;
-            })
             .catch(error => console.error('Error:', error));
+
+        // fetch('/api/generate_page_url', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Pobranie tokena CSRF
+        //     },
+        //     body: JSON.stringify({ text: title })
+        // })
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error(`HTTP error! status: ${response.status}`);
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(data => {
+        //         customUrlInput.value = data.page_url;
+        //     })
+        //     .catch(error => console.error('Error:', error));
     }
 </script>
