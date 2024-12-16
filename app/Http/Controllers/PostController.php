@@ -33,12 +33,15 @@ class PostController extends Controller
         $string = "ʿABBĀSĀBĀD";
         
         echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $string);
+        echo "<br>";
         // output: [nothing, and you get a notice]
-
+        
         echo iconv('UTF-8', 'ISO-8859-1//IGNORE', $string);
+        echo "<br>";
         // output: ABBSBD
-
+        
         echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $string);
+        echo "<br>";
 
         return [
             'page_url' => $this->generatePageUrl($text),
