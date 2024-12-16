@@ -15,15 +15,16 @@ class PostController extends Controller
 
         // this function should:
         // 1. replace all spaces with char '-'
-        // 2. replace all polish chars to english ones
-        // 3. delete all non letter or non number chars from text
-        // 4. make all leters lowercase
+        // 2. make all leters lowercase
+        // 3. replace all polish chars to english ones
+        // 4. delete all non letter or non number chars from text
 
         // return another string as result        
         $text = preg_replace('/\s+/', '-', $text);
+        $text = strtolower($text);
+        $text = preg_replace("/ó/", "o", $text);
         $text = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $text);
         $text = preg_replace('/[^a-zA-Z0-9-]/', '', $text);
-        $text = strtolower($text);
         return $text;
     }
 
