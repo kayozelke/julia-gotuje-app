@@ -751,3 +751,12 @@
 </div>
 
 @include('panel.auth.footer')
+
+<script>
+    const useHideBeforeTimeCheckbox = document.getElementById('use_hide_before_time');
+    const hideBeforeTimeInput = document.getElementById('hide_before_time');
+
+    useHideBeforeTimeCheckbox.addEventListener('change', () => {
+        hideBeforeTimeInput.disabled = useHideBeforeTimeCheckbox.checked;
+    });
+</script>
