@@ -117,6 +117,7 @@
             </div> --}}
 
             <div class="row">
+                <div class="card mb-4">
                 <h4 class="card-header">Czas publikacji</h4>
                 <div class="card-body">
                     <div class="col-md-6">
@@ -132,6 +133,7 @@
                                 value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 
