@@ -7,6 +7,7 @@
         <h5 class="card-header">Dodawanie posta</h5>
         {{-- ADD POST --}}
         <form action="{{ route('admin.posts.add.post') }}" method="POST">
+            @csrf
             <div class="card-body m-1">
                 <div class="row">
                     <div class="col-md-6">
