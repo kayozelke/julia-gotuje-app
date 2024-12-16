@@ -39,8 +39,7 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="custom_url" 
-                                    {{-- placeholder="John Doe"  --}}
+                                <input type="text" class="form-control" id="custom_url" {{-- placeholder="John Doe"  --}}
                                     aria-describedby="customUrlOfPost">
                             </div>
                         </div>
@@ -133,8 +132,8 @@
                                 <div class="col-md-6">
                                     {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                     {{-- <div class="col-md-10"> --}}
-                                        <input class="form-control" type="datetime-local"
-                                            value="" id="hide_before_time">
+                                    <input class="form-control" type="datetime-local" value=""
+                                        id="hide_before_time">
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -789,20 +788,24 @@
     function generateUrl() {
         console.log('generateUrl()');
         const title = titleInput.value;
-        // fetch(`/api/generate_page_url?text=${title}`)
+
         fetch('/api/generate_page_url', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Pobranie tokena CSRF
             },
             body: JSON.stringify({ text: title })
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 customUrlInput.value = data.page_url;
-            });
-    };
-
-
+            })
+            .catch(error => console.error('Error:', error));
+    }
 </script>
