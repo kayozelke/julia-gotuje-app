@@ -172,7 +172,8 @@ class PostController extends Controller
 
         print_r("hello");
 
-        // $request->query()
+        print_r($request->query('title'));
+        print_r($request->title);
         
         // $validated = $request->validate([
         //     'title' => 'required|string|max:255',
