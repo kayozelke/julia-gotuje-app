@@ -177,7 +177,7 @@ class PostController extends Controller
         print_r("<br>2<br>");
         print_r($request->title);
 
-        return;
+        // return;
         
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -210,6 +210,7 @@ class PostController extends Controller
                 'updated_by' => Auth::id(),
             ]);
 
+            // return redirect()->back()->with([
             return redirect()->route('admin.posts')->with([
                 'toastSuccessTitle' => 'Pomyślnie dodano wpis',
                 'toastSuccessHideTime' => 5,
@@ -217,10 +218,13 @@ class PostController extends Controller
             echo "OK<br>";
 
         } catch (\Exception $e) {
-            // return redirect()->back()->with([
             echo "NIE OK<br>";
             print_r($e->getMessage());
-            return redirect()->route('admin.posts')->with([
+            
+            return;
+
+            return redirect()->back()->with([
+            // return redirect()->route('admin.posts')->with([
                 'toastErrorTitle' => 'Wystąpił błąd!',
                 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
