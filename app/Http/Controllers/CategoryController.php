@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -257,11 +258,22 @@ class CategoryController extends Controller
     public function testKayoz(Request $request){
         $category_id = $request->query('id');
         print_r($this->countItemsAtCategory($category_id));
+        print_r("<br>");
         return;
     }
 
-    public function countItemsAtCategory(int $categoryId){
+    public function countItemsAtCategory(int $categoryId, bool $with_children = true){
+        $count = Post::where('parent_category_id', $categoryId)->count();
+        if (!$with_children){
+            return $count;
+        }
+
         $children_categories = (new Category())->findChildrenCategories($categoryId);
-        return $children_categories;
+
+        foreach($children_categories as $children_category){
+            $count += Post::where('parent_category_id', $children_category)->count();
+        }
+        return $count;
+
     }
 }
