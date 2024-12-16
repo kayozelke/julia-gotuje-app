@@ -74,7 +74,7 @@
                                     <option value="0">Brak</option>
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
-                                        <option value="{{ $category->id }}">{{ $c['parent_categories_str'] }}</option>
+                                        <option value="{{ $c->id }}">{{ $c['parent_categories_str'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
