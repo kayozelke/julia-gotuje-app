@@ -771,11 +771,10 @@
 <script>
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
-    document.addEventListener('input', (event) => {
-        if (event.target !== titleInput) {
-            generateUrl();
-        }
-    });
+
+    titleInput.addEventListener('input', () => {
+        generateUrl();
+    })
 
     // function handleFocusChange(event) {
     //     generateUrl(); 
