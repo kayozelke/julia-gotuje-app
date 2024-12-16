@@ -789,22 +789,22 @@
         console.log('generateUrl()');
         const title = titleInput.value;
 
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url : "/api/generate_page_url",
-            type : 'GET',
-            dataType : 'json',
-            body: JSON.stringify({ text: title })
-            success : function(result){
+        // $.ajax({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     },
+        //     url : "/api/generate_page_url",
+        //     type : 'GET',
+        //     dataType : 'json',
+        //     body: JSON.stringify({ text: title })
+        //     success : function(result){
 
-                // console.log("===== " + result + " =====");
-                customUrlInput.value = result.page_url
+        //         console.log("===== " + result + " =====");
+        //         customUrlInput.value = result.page_url
 
-            }
-        })
-            .catch(error => console.error('Error:', error));
+        //     }
+        // })
+        //     .catch(error => console.error('Error:', error));
 
         // fetch('/api/generate_page_url', {
         //     method: 'POST',
@@ -824,5 +824,25 @@
         //         customUrlInput.value = data.page_url;
         //     })
         //     .catch(error => console.error('Error:', error));
+        console.log($('meta[name="csrf-token"]').attr('content'))
+        fetch('/api/generate_page_url', {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url : "/api/generate_page_url",
+            type : 'GET',
+            dataType : 'json',
+            body: JSON.stringify({ text: title })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                customUrlInput.value = data.page_url;
+            })
+            .catch(error => console.error('Error:', error));
     }
 </script>
