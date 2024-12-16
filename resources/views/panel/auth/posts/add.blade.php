@@ -120,7 +120,7 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <h4 class="card-header">Czas publikacji</h4>
-                        <div class="card-body">
+                        <div class="card-body d-flex align-items-center">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-check form-switch mb-2">
