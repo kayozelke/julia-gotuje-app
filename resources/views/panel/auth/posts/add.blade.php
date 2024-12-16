@@ -27,8 +27,8 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="title"
-                                    {{-- placeholder="John Doe"  --}} aria-describedby="titleOfPost">
+                                <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
+                                    aria-describedby="titleOfPost">
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                         <div class="card-body">
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                <input type="text" class="form-control" id="custom_url"
-                                    {{-- placeholder="John Doe"  --}} aria-describedby="customUrlOfPost">
+                                <input type="text" class="form-control" id="custom_url" {{-- placeholder="John Doe"  --}}
+                                    aria-describedby="customUrlOfPost">
                             </div>
                         </div>
                     </div>
@@ -52,8 +52,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="template_type" class="form-label">Typ wpisu</label>
-                                <select class="form-select" id="template_type"
-                                    aria-label="Template type">
+                                <select class="form-select" id="template_type" aria-label="Template type">
                                     {{-- <option selected="">Open this select menu</option> --}}
                                     <option value="recipe">Przepis</option>
                                     <option value="default">Zwykły wpis</option>
@@ -69,8 +68,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="template_type" class="form-label">Wybór kategorii nadrzędnej</label>
-                                <select class="form-select" id="parent_category_id"
-                                    aria-label="Category select">
+                                <select class="form-select" id="parent_category_id" aria-label="Category select">
                                     <option value="0">Brak (post niewidoczny w kategoriach)</option>
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
@@ -96,15 +94,24 @@
                 </div>
             </div>
 
-            
+
             <div class="row">
-                <h5 class="card-header">Ustawienia</h5>
+                <h4 class="card-header">Ustawienia</h4>
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <h5 class="card-header">Ustawienia</h5>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                
+                        <h5 class="card-header">Czas publikacji</h5>
+                        <div class="form-check form-switch mb-2">
+                            <label class="form-check-label" for="use_hide_before_time">Opublikuj teraz
+                                input</label>
+                            <input class="form-check-input" type="checkbox" id="use_hide_before_time">
+                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później
+                                input</label>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="hide_before_time" class="col-md-2 col-form-label">Czas publikacji</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="datetime-local"
+                                    value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
                             </div>
                         </div>
                     </div>
