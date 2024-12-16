@@ -217,7 +217,7 @@ class PostController extends Controller
             echo "NIE OK<br>";
             print_r($e->getMessage());
         }
-        return;
+        // return;
     }
 
 }
