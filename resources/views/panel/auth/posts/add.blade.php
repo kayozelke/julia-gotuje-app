@@ -772,14 +772,28 @@
 <script>
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
+    // document.addEventListener('click', (event) => {
+    //     if (event.target !== titleInput) {
+    //         titleInput.removeEventListener('focusout', generateUrl);
+    //         titleInput.addEventListener('focusout', generateUrl);
+    //     }
+    // });
 
-    titleInput.addEventListener('input', () => {
+    function handleFocusChange(event) {
+        generateUrl(); 
+    }
+
+    function generateUrl() {
         const title = titleInput.value;
         fetch(`/api/generate_page_url?text=${title}`)
             .then(response => response.json())
             .then(data => {
                 customUrlInput.value = data.page_url;
             });
-    });
+    };
+
+
+    titleInput.addEventListener('focus', handleFocusChange);
+    titleInput.addEventListener('blur', handleFocusChange);
 
 </script>
