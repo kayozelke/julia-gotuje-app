@@ -202,10 +202,11 @@ class PostController extends Controller
                 'updated_by' => Auth::id(),
             ]);
 
-            return redirect()->back()->with([
-                'toastSuccessTitle' => 'Pomyślnie dodano wpis',
-                'toastSuccessHideTime' => 5,
-            ]);
+            // return redirect()->back()->with([
+            //     'toastSuccessTitle' => 'Pomyślnie dodano wpis',
+            //     'toastSuccessHideTime' => 5,
+            // ]);
+            echo "OK<br>";
 
         } catch (\Exception $e) {
             return redirect()->back()->with([
@@ -213,6 +214,8 @@ class PostController extends Controller
                 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
             ]);
+            echo "NIE OK<br>";
+            print_r($e->getMessage());
         }
     }
 
