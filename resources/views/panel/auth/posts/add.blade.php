@@ -803,6 +803,9 @@
 
             }
         })
+            .done(function(result){
+                customUrlInput.value = result.page_url;}
+            )
             .catch(error => console.error('Error:', error));
 
         // fetch('/api/generate_page_url', {
