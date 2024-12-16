@@ -28,8 +28,7 @@
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                 <input type="text" class="form-control" id="defaultFormControlInput"
-                                    {{-- placeholder="John Doe"  --}}
-                                    aria-describedby="defaultFormControlHelp">
+                                    {{-- placeholder="John Doe"  --}} aria-describedby="defaultFormControlHelp">
                             </div>
                         </div>
                     </div>
@@ -41,18 +40,22 @@
                             <div>
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                 <input type="text" class="form-control" id="defaultFormControlInput"
-                                    {{-- placeholder="John Doe"  --}}
-                                    aria-describedby="defaultFormControlHelp">
+                                    {{-- placeholder="John Doe"  --}} aria-describedby="defaultFormControlHelp">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mb-2">
-                <div class="card mb-4">
-                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Treść wpisu</h5>
+                        <div class="card-body">
+                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
 
