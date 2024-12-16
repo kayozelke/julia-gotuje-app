@@ -68,9 +68,9 @@
                         <h5 class="card-header">Kategoria</h5>
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="template_type" class="form-label">Typ wpisu</label>
-                                <select class="form-select" id="template_type"
-                                    aria-label="Template type">
+                                <label for="template_type" class="form-label">Wybór kategorii nadrzędnej</label>
+                                <select class="form-select" id="parent_category_id"
+                                    aria-label="Category select">
                                     <option value="0">Brak</option>
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
