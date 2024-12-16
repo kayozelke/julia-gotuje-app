@@ -60,13 +60,13 @@
                                     @forelse ($subcategories as $category)
                                         <tr>
                                             <td>
-                                                {{-- Link do strony kategorii --}}
+                                                {{-- Link to the category page --}}
                                                 <a href="{{ route('categories', ['id' => $category->id]) }}"
                                                     style="text-decoration: none; color: inherit;">
                                                     {{ $category->name }}
                                                 </a>
 
-                                                {{-- Badge z liczbą postów --}}
+                                                {{-- Badge with sub posts counter --}}
                                                 <span class="badge rounded-pill bg-light text-dark">
                                                     {{ $category->posts_count ?? 0 }}
                                                 </span>
