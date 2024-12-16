@@ -56,7 +56,7 @@ class Category extends Model
         * @param array $childrens An array to store the child categories (passed by reference).
         * @return array An array of child categories.
         */
-        print_r("findChildrenCategories(): ".$categoryId."<br>");
+        // print_r("findChildrenCategories(): ".$categoryId."<br>");
         
         $own_childrens = Category::where('parent_id', $categoryId)->get();
 
