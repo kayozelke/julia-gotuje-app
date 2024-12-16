@@ -15,11 +15,13 @@ class PostController extends Controller
 
         // this function should:
         // 1. replace all spaces with char '-'
-        // 2. delete all non letter or non number chars from text
-        // 3. make all leters lowercase
+        // 2. replace all polish chars to english ones
+        // 3. delete all non letter or non number chars from text
+        // 4. make all leters lowercase
 
         // return another string as result        
         $text = preg_replace('/\s+/', '-', $text);
+        $text = iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $text);
         $text = preg_replace('/[^a-zA-Z0-9-]/', '', $text);
         $text = strtolower($text);
         return $text;
@@ -27,21 +29,6 @@ class PostController extends Controller
 
     public function apiGeneratePageUrl(Request $request){
         $text = (string)$request->query('text');
-
-
-        
-        $string = "ʿABBĀSĀBĀD";
-        
-        echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $string);
-        echo "<br>";
-        // output: [nothing, and you get a notice]
-        
-        echo iconv('UTF-8', 'ISO-8859-1//IGNORE', $string);
-        echo "<br>";
-        // output: ABBSBD
-        
-        echo iconv('UTF-8', 'ISO-8859-1//TRANSLIT//IGNORE', $string);
-        echo "<br>";
 
         return [
             'page_url' => $this->generatePageUrl($text),
