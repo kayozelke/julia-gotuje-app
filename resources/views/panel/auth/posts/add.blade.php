@@ -16,7 +16,7 @@
                             <div class="card-body">
                                 <div>
                                     {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                    <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
+                                    <input type="text" class="form-control" id="post_title" {{-- placeholder="John Doe"  --}}
                                         autocomplete="off" aria-describedby="titleOfPost">
                                 </div>
                             </div>
