@@ -170,13 +170,13 @@ class PostController extends Controller
 
     public function panelAddPost(Request $request){
 
-        // print_r("hello");
+        print_r("hello");
         
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'custom-url' => 'required|string|max:255',
-            // 'template_type' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'custom-url' => 'required|string|max:255',
+        //     // 'template_type' => 'required',
+        // ]);
 
         // check if category exists
         // if isset ...
@@ -189,18 +189,18 @@ class PostController extends Controller
 
         try {
 
-            Post::create([
-                'title' => $validated['title'],
-                'custom_url' => $this->generatePageUrl($validated['custom-url']),
-                // 'template_type' => $validated['template_type'],
-                'parent_id' => null,
-                'created_at' => now(),
-                'updated_at' => now(),
-                'content' => '',
-                'is_hidden' => 0,
-                'created_by' => Auth::id(),
-                'updated_by' => Auth::id(),
-            ]);
+            // Post::create([
+            //     'title' => $validated['title'],
+            //     'custom_url' => $this->generatePageUrl($validated['custom-url']),
+            //     // 'template_type' => $validated['template_type'],
+            //     'parent_id' => null,
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            //     'content' => '',
+            //     'is_hidden' => 0,
+            //     'created_by' => Auth::id(),
+            //     'updated_by' => Auth::id(),
+            // ]);
 
             // return redirect()->back()->with([
             //     'toastSuccessTitle' => 'Pomyślnie dodano wpis',
