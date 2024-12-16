@@ -253,4 +253,15 @@ class CategoryController extends Controller
             ]);
         }
     }
+
+    public function testKayoz(Request $request){
+        $category_id = $request->query('id');
+        print_r($this->countItemsAtCategory($category_id));
+        return;
+    }
+
+    public function countItemsAtCategory(int $categoryId){
+        $children_categories = (new Category())->findChildrenCategories($categoryId);
+        return $children_categories;
+    }
 }
