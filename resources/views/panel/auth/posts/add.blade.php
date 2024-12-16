@@ -95,17 +95,15 @@
             </div>
 
 
-            <div class="row">
+            {{-- <div class="row">
                 <h4 class="card-header">Ustawienia</h4>
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Czas publikacji</h5>
                         <div class="form-check form-switch mb-2">
-                            <label class="form-check-label" for="use_hide_before_time">Opublikuj teraz
-                                input</label>
+                            <label class="form-check-label" for="use_hide_before_time">Opublikuj teraz</label>
                             <input class="form-check-input" type="checkbox" id="use_hide_before_time">
-                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później
-                                input</label>
+                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później</label>
                         </div>
                         <div class="mb-3 row">
                             <label for="hide_before_time" class="col-md-2 col-form-label">Czas publikacji</label>
@@ -113,6 +111,27 @@
                                 <input class="form-control" type="datetime-local"
                                     value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+            <div class="row">
+                <h4 class="card-header">Czas publikacji</h4>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="use_hide_before_time">
+                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 row">
+                        <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="datetime-local"
+                                value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
                         </div>
                     </div>
                 </div>
