@@ -771,22 +771,22 @@
 <script>
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
-    document.addEventListener('click', (event) => {
-        if (event.target !== titleInput) {
-            titleInput.removeEventListener('focusout', generateUrl);
-            titleInput.addEventListener('focusout', generateUrl);
-        }
-    });
+    // document.addEventListener('click', (event) => {
+    //     if (event.target !== titleInput) {
+    //         titleInput.removeEventListener('focusout', generateUrl);
+    //         titleInput.addEventListener('focusout', generateUrl);
+    //     }
+    // });
 
-    // function handleFocusChange(event) {
-    //     generateUrl(); 
-    // }
+    function handleFocusChange(event) {
+        generateUrl(); 
+    }
 
-    // titleInput.addEventListener('focus', handleFocusChange);
-    // titleInput.addEventListener('blur', handleFocusChange);
+    titleInput.addEventListener('focus', handleFocusChange);
+    titleInput.addEventListener('blur', handleFocusChange);
 
     function generateUrl() {
-        console.log('generateUrl()');
+        // console.log('generateUrl()');
         const title = titleInput.value;
         // Budowanie URL z parametrami
         const url = `/api/generate_page_url?text=${encodeURIComponent(title)}`;
@@ -805,5 +805,5 @@
             })
             .catch(error => console.error('Error:', error));
     }
-    
+
 </script>
