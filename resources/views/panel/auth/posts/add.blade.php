@@ -771,19 +771,18 @@
 <script>
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
-    // document.addEventListener('click', (event) => {
-    //     if (event.target !== titleInput) {
-    //         titleInput.removeEventListener('focusout', generateUrl);
-    //         titleInput.addEventListener('focusout', generateUrl);
-    //     }
-    // });
+    document.addEventListener('input', (event) => {
+        if (event.target !== titleInput) {
+            generateUrl();
+        }
+    });
 
-    function handleFocusChange(event) {
-        generateUrl(); 
-    }
+    // function handleFocusChange(event) {
+    //     generateUrl(); 
+    // }
 
-    titleInput.addEventListener('focus', handleFocusChange);
-    titleInput.addEventListener('blur', handleFocusChange);
+    // titleInput.addEventListener('focus', handleFocusChange);
+    // titleInput.addEventListener('blur', handleFocusChange);
 
     function generateUrl() {
         // console.log('generateUrl()');
