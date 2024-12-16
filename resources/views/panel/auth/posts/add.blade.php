@@ -16,7 +16,8 @@
                             <div class="card-body">
                                 <div>
                                     {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                    <input type="text" class="form-control" id="post_title" {{-- placeholder="John Doe"  --}}
+                                    <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
+                                        name="title"
                                         autocomplete="off" aria-describedby="titleOfPost">
                                 </div>
                             </div>
@@ -30,6 +31,7 @@
                                     {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                     <input 
                                         type="text" class="form-control" id="custom_url"
+                                        name="custom_url"
                                         {{-- placeholder="John Doe"  --}}
                                         pattern="[a-z0-9\-]+"
                                         {{-- autocomplete="off" --}}
@@ -46,7 +48,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="template_type" class="form-label">Typ wpisu</label>
-                                    <select class="form-select" id="template_type" aria-label="Template type">
+                                    <select class="form-select" id="template_type" aria-label="Template type" name="template_type">
                                         {{-- <option selected="">Open this select menu</option> --}}
                                         <option value="recipe">Przepis</option>
                                         <option value="default">Zwykły wpis</option>
@@ -61,8 +63,8 @@
                             <h5 class="card-header">Kategoria</h5>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="template_type" class="form-label">Wybór kategorii nadrzędnej</label>
-                                    <select class="form-select" id="parent_category_id" aria-label="Category select">
+                                    <label for="parent_category_id" class="form-label">Wybór kategorii nadrzędnej</label>
+                                    <select class="form-select" id="parent_category_id" aria-label="Category select" name="parent_category_id">
                                         <option value="0">Brak (post niewidoczny w kategoriach)</option>
                                         {{-- <option value="3">Three</option> --}}
                                         @foreach ($all_categories as $c)
