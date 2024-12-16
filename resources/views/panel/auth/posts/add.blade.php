@@ -4,10 +4,21 @@
     {{-- TOASTS --}}
     @include('panel.components.alert_toasts')
     <div class="card mb-4">
-        <h5 class="card-header">Posty</h5>
+        <h5 class="card-header">Dodawanie posta</h5>
 
         {{-- ADD POST --}}
         <div class="card-body m-1">
+            <div class="card mb-4">
+                <h5 class="card-header">Tytuł</h5>
+                <div class="card-body">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="John Doe"
+                            aria-describedby="floatingInputHelp">
+                        <label for="floatingInput">Wyświetlany tytuł wpisu</label>
+                        {{-- <div id="floatingInputHelp" class="form-text">We'll never share your details with anyone else.</div> --}}
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-4">
@@ -18,21 +29,6 @@
                                 <input type="text" class="form-control" id="defaultFormControlInput"
                                     placeholder="John Doe" aria-describedby="defaultFormControlHelp">
                                 <div id="defaultFormControlHelp" class="form-text">
-                                    We'll never share your details with anyone else.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <h5 class="card-header">Float label</h5>
-                        <div class="card-body">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="John Doe"
-                                    aria-describedby="floatingInputHelp">
-                                <label for="floatingInput">Name</label>
-                                <div id="floatingInputHelp" class="form-text">
                                     We'll never share your details with anyone else.
                                 </div>
                             </div>
