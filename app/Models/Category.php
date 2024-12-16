@@ -52,15 +52,15 @@ class Category extends Model
     public function findChildrenCategories($categoryId, array &$childrens = []): array {/**
 
         * Recursively finds all child categories for a given category
-        * @param int $categoryId The ID of the category to find children for.
+        * @param int $categoryId The ID of the category to find children2 for.
         * @param array $childrens An array to store the child categories (passed by reference).
         * @return array An array of child categories.
         */
         
-        $children = Category::where('parent_id', $categoryId)->get();
+        $own_childrens = Category::where('parent_id', $categoryId)->get();
 
-        foreach ($children as $child) {
-            $childrens[] = $child->id;
+        foreach ($own_childrens as $child) {
+            array_push($childrens, $child->id);
             $this->findChildrenCategories($child, $childrens);
         }
 
