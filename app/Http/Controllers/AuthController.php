@@ -84,7 +84,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             
             return redirect()->intended('admin/home')->with([
-                'toastSuccessTitle' => 'Wylogowano!',
+                'toastSuccessTitle' => 'Zalogowano!',
                 // 'toastSuccessDescription' => 'Proszę wybrać inną nazwę.',
                 'toastSuccessHideTime' => 5,
             ]);;
