@@ -293,6 +293,8 @@
                     </div>
                 </div>
             </div>
+            
+            <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
         </form>
 
 
