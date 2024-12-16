@@ -133,7 +133,7 @@
                                     {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                     {{-- <div class="col-md-10"> --}}
                                         <input class="form-control" type="datetime-local"
-                                            value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
+                                            value="" id="hide_before_time">
                                     {{-- </div> --}}
                                 </div>
                             </div>
