@@ -18,7 +18,8 @@
                                     {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                     <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
                                         name="title"
-                                        autocomplete="off" aria-describedby="titleOfPost">
+                                        {{-- autocomplete="off"  --}}
+                                        aria-describedby="titleOfPost">
                                 </div>
                             </div>
                         </div>

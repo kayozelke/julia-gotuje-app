@@ -170,12 +170,12 @@ class PostController extends Controller
 
     public function panelAddPost(Request $request){
 
-        print_r("hello<br>");
+        // print_r("hello<br>");
         
-        print_r("<br>1<br>");
-        print_r($request->query('title'));
-        print_r("<br>2<br>");
-        print_r($request->title);
+        // print_r("<br>1<br>");
+        // print_r($request->query('title'));
+        // print_r("<br>2<br>");
+        // print_r($request->title);
 
         // return;
         
@@ -198,7 +198,6 @@ class PostController extends Controller
 
             Post::create([
                 'title' => $validated['title'],
-                // 'custom_url' => $this->generatePageUrl($validated['custom-url']),
                 'url' => $validated['custom_url'],
                 'template_type' => $validated['template_type'],
                 'parent_id' => null,
@@ -215,7 +214,7 @@ class PostController extends Controller
                 'toastSuccessTitle' => 'Pomyślnie dodano wpis',
                 'toastSuccessHideTime' => 5,
             ]);
-            echo "OK<br>";
+            // echo "OK<br>";
 
         } catch (\Exception $e) {
             echo "NIE OK<br>";
