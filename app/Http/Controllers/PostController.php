@@ -26,7 +26,7 @@ class PostController extends Controller
     }
 
     public function apiGeneratePageUrl(Request $request){
-        $text = $request->query('text');
+        $text = (string)$request->query('text');
 
         return [
             'page_url' => $this->generatePageUrl($text),
