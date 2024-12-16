@@ -788,52 +788,11 @@
     function generateUrl() {
         console.log('generateUrl()');
         const title = titleInput.value;
+        // Budowanie URL z parametrami
+        const url = `/api/generate_page_url?text=${encodeURIComponent(title)}`;
 
-        // $.ajax({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     },
-        //     url : "/api/generate_page_url",
-        //     type : 'GET',
-        //     dataType : 'json',
-        //     body: JSON.stringify({ text: title })
-        //     success : function(result){
-
-        //         console.log("===== " + result + " =====");
-        //         customUrlInput.value = result.page_url
-
-        //     }
-        // })
-        //     .catch(error => console.error('Error:', error));
-
-        // fetch('/api/generate_page_url', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Pobranie tokena CSRF
-        //     },
-        //     body: JSON.stringify({ text: title })
-        // })
-        //     .then(response => {
-        //         if (!response.ok) {
-        //             throw new Error(`HTTP error! status: ${response.status}`);
-        //         }
-        //         return response.json();
-        //     })
-        //     .then(data => {
-        //         customUrlInput.value = data.page_url;
-        //     })
-        //     .catch(error => console.error('Error:', error));
-        console.log($('meta[name="csrf-token"]').attr('content'))
-        fetch('/api/generate_page_url', {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url : "/api/generate_page_url",
-            method : 'POST',
-            dataType : 'json',
-            body: JSON.stringify({ text: title })
+        fetch(url, {
+            method: 'GET',
         })
             .then(response => {
                 if (!response.ok) {
@@ -846,4 +805,5 @@
             })
             .catch(error => console.error('Error:', error));
     }
+    
 </script>
