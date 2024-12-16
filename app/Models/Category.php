@@ -60,8 +60,8 @@ class Category extends Model
         $children = Category::where('parent_id', $categoryId)->get();
 
         foreach ($children as $child) {
-            $childrens[] = $child;
-            $this->findChildrenCategories($child->id, $childrens);
+            $childrens[] = $child->id;
+            $this->findChildrenCategories($child, $childrens);
         }
 
         return $childrens;
