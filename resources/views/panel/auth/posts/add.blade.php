@@ -827,6 +827,7 @@
         console.log($('meta[name="csrf-token"]').attr('content'))
         fetch('/api/generate_page_url', {
             headers: {
+                'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             url : "/api/generate_page_url",
