@@ -198,9 +198,8 @@ class PostController extends Controller
 
             Post::create([
                 'title' => $validated['title'],
-                // 'title' => $request->query('title'),
                 'custom_url' => $this->generatePageUrl($validated['custom-url']),
-                // 'custom_url' => $request->query('custom_url'),
+                'custom_url' => $validated['custom-url'],
                 // 'template_type' => $validated['template_type'],
                 'parent_id' => null,
                 'created_at' => now(),
