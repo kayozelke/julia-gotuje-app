@@ -9,6 +9,17 @@
         <form action="{{ route('admin.posts.add.post') }}" method="POST">
             @csrf
             <div class="card-body m-1">
+                {{-- ########################## --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{-- ########################## --}}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card mb-4">
