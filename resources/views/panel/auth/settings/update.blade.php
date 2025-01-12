@@ -8,6 +8,9 @@
         @csrf
         @method('PUT')
 
+        <!-- Ukryte pole na ID ustawienia -->
+        <input type="hidden" name="id" value="{{ $setting->id }}">
+
         {{-- Nagłówek z nazwą ustawienia --}}
         <div class="card mb-4">
             <h5 class="card-header">Ustawienia dla: {{ $setting->key }}</h5>

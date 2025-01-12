@@ -21,11 +21,12 @@ class SettingsController extends Controller {
     {
         // Walidacja danych wejściowych
         $request->validate([
+            'id' => 'required|integer|exists:general_settings,id', // Sprawdź, czy ID istnieje w bazie
             'value' => 'required|string',          // Wartość musi być wypełniona
             'description' => 'required|string',   // Opis musi być wypełniony
         ]);
 
-        // Pobierz wpis na podstawie ID
+        // Pobierz wpis na podstawie ID z żądania
         $setting = GeneralSetting::with(['updatedByUser'])->findOrFail($request->input('id'));
 
         // Aktualizacja wartości oraz osoby aktualizującej
@@ -40,4 +41,14 @@ class SettingsController extends Controller {
         // Przekierowanie z komunikatem sukcesu
         return redirect()->route('settings.panelList')->with('success', 'Ustawienie zostało zaktualizowane.');
     }
+
+    public function edit($id)
+    {
+        // Pobierz wpis na podstawie ID
+        $setting = GeneralSetting::with(['updatedByUser'])->findOrFail($id);
+
+        // Wyślij dane do widoku
+        return view('panel.auth.settings.update', compact('setting'));
+    }
+
 }

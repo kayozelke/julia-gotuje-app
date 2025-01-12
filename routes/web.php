@@ -74,6 +74,7 @@ Route::get('/admin/posts/view', [PostController::class, 'panelView'])->middlewar
 
 // admin settings
 Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middleware('auth')->name('admin.settings');
+Route::get('/admin/settings/update/{id}', [SettingsController::class, 'edit'])->name('admin.settings.update.form');
 Route::get('/admin/settings/update', [SettingsController::class, 'panelUpdate'])->middleware('auth')->name('admin.settings.update');
 
 
