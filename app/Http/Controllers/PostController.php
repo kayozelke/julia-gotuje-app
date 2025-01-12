@@ -209,27 +209,42 @@ class PostController extends Controller
 
         // handle hiding post
         $hide_before_time_param = null;
-        if($request->hide_before_time && $request->use_hide_before_time == "on"){
-            $hide_before_time_param = $request->hide_before_time;
+
+
+        try {
+            // echo "<br>post_content: ";
+            // print_r($validated['post_content']);
+            // echo "<br>use_hide_before_time: ";
+            // print_r($request->use_hide_before_time);
+            // echo "<br>hide_before_time: ";
+            // print_r($request->hide_before_time);
+            // echo "<br>";
+
+            
+            if($request->use_hide_before_time == "on"){
+                echo 'use_hide_before_time is ON<br> ';
+
+                if ($request->hide_before_time != null) {
+                    echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
+                    $hide_before_time_param = $request->hide_before_time;
+                } else {
+                    echo 'hide_before_time is not null, value: ' . $request->hide_before_time . '<br>';
+                }
+                
+                $hide_before_time_param = $request->hide_before_time;
+            } else {
+                echo 'use_hide_before_time is OFF, value: '.$request->use_hide_before_time.'<br> ';
+            }
+
+
+            return;
+
+        } catch (\Exception $e){
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Wystąpił błąd!',
+                'toastErrorDescription' => $e->getMessage(),
+            ]);
         }
-
-
-        // try {
-        //     echo "<br>post_content: ";
-        //     print_r($validated['post_content']);
-        //     echo "<br>use_hide_before_time: ";
-        //     print_r($request->use_hide_before_time);
-        //     echo "<br>hide_before_time: ";
-        //     print_r($request->hide_before_time);
-        //     echo "<br>";
-        //     return;
-
-        // } catch (\Exception $e){
-        //     return redirect()->back()->with([
-        //         'toastErrorTitle' => 'Wystąpił błąd!',
-        //         'toastErrorDescription' => $e->getMessage(),
-        //     ]);
-        // }
 
         try {
 
