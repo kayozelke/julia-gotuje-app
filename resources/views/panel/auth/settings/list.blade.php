@@ -35,7 +35,7 @@
                         {{-- Updated by --}}
                         <td>
                             {{-- @if ($setting->updated_by)
-                                {{ \App\Models\User::find($setting->updated_by)->name ?? 'Nieznany' }}
+                                {{ \App\Models\User::find($setting->updated_by)->first_name ?? 'Nieznany' }}
                             @else
                                 N/A
                             @endif --}}
