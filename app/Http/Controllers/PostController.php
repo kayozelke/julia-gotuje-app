@@ -195,12 +195,13 @@ class PostController extends Controller
 
         // check if category exists
         if ($parent_category_id != 0){    
-            if (!Category::where('parent_id', $parent_category_id)->exists()) {
+            if (Category::where('parent_id', $parent_category_id)->exists()) {}
+            else {
                 return redirect()->back()->with([
                     'toastErrorTitle' => 'Wybrana kategoria (ID: '.$parent_category_id.') nie istnieje!',
                     'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
                 ]);
-            } 
+            }
         }
 
         // handle hiding post
