@@ -130,7 +130,6 @@ class PostController extends Controller
             $p_category = Category::find($parent_category_id);
         }
 
-
         $all_categories = Category::all();
         foreach($all_categories as $c){
             $c->parent_categories_str = '';
@@ -183,14 +182,52 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
-        ]);
+            'post_content' => 'required|string',
+        ],
+        // [
+        //     'title.required' => 'Tytuł jest wymagany',
+        //     'custom_url.required' => 'Niestandardowy URL jest wymagany',
+        //     'template_type.required' => 'Typ szablonu jest wymagany',
+        //     'post_content.required' => 'Treść wpisu jest wymagana',
+        //     'title.string' => 'Tytuł musi być ciągiem znaków',
+        //     'custom_url.string' => 'Niestandardowy URL musi być ciągiem znaków',
+        //     'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
+        // ]
+        );
+        
+        $parent_category_id = $request->query('parent_category_id');
 
         // check if category exists
-        // if isset ...
-        // if (Category::where('parent_id', $request->parent_category_id)->exists()) {
+        if ($parent_category_id != 0){    
+            if (Category::where('parent_id', $parent_category_id)->exists()) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wybrana kategoria (ID: '.$parent_category_id.') nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
+                ]);
+            } 
+        }
+
+        // handle hiding post
+        $hide_before_time_param = null;
+        if($request->hide_before_time && $request->use_hide_before_time == "on"){
+            $hide_before_time_param = $request->hide_before_time;
+        }
+
+
+        // try {
+        //     echo "<br>post_content: ";
+        //     print_r($validated['post_content']);
+        //     echo "<br>use_hide_before_time: ";
+        //     print_r($request->use_hide_before_time);
+        //     echo "<br>hide_before_time: ";
+        //     print_r($request->hide_before_time);
+        //     echo "<br>";
+        //     return;
+
+        // } catch (\Exception $e){
         //     return redirect()->back()->with([
-        //         'toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!',
-        //         'toastErrorDescription' => 'Proszę wybrać inną nazwę.',
+        //         'toastErrorTitle' => 'Wystąpił błąd!',
+        //         'toastErrorDescription' => $e->getMessage(),
         //     ]);
         // }
 
@@ -200,12 +237,13 @@ class PostController extends Controller
                 'title' => $validated['title'],
                 'url' => $validated['custom_url'],
                 'template_type' => $validated['template_type'],
-                'parent_id' => null,
-                'created_at' => now(),
-                'updated_at' => now(),
-                'content' => '',
+                'content' => $validated['post_content'],
+                'parent_category_id' => $parent_category_id,
                 'is_hidden' => 0,
+                'hide_before_time' => $hide_before_time_param,
+                'created_at' => now(),
                 'created_by' => Auth::id(),
+                'updated_at' => now(),
                 'updated_by' => Auth::id(),
             ]);
 
