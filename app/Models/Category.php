@@ -67,4 +67,10 @@ class Category extends Model
 
         return $childrens;
     }
+
+    // Relation to the user who updated the category
+    public function updatedByUser()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }

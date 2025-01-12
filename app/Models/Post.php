@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts'; // Nazwa tabeli w bazie danych
+    protected $table = 'posts'; // Table name in the database
 
     // Pola, które można masowo przypisywać
     protected $fillable = [
@@ -24,11 +24,24 @@ class Post extends Model
         'updated_by',
     ];
 
-    // Pola dat
+    // Date fields
     protected $dates = [
         'hide_before_time',
         'created_at',
         'updated_at',
     ];
+
+
+    // Relation to the user who created the post
+    public function createdByUser()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    // Relation to the user who updated the post
+    public function updatedByUser()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 
 }

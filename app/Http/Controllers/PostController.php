@@ -62,10 +62,10 @@ class PostController extends Controller
                     'toastErrorDescription' => 'Kategoria o ID "'.$parent_category_id.'" nie istnieje.',
                 ]);
             }
-            $posts = Post::where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
+            $posts = Post::with(['createdByUser', 'updatedByUser'])->where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
         } else {
             // $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
-            $posts = Post::orderBy('updated_at')->get();        
+            $posts = Post::with(['createdByUser', 'updatedByUser'])->orderBy('updated_at')->get();        
         }
 
         $all_categories = Category::all();
@@ -286,8 +286,46 @@ class PostController extends Controller
 
         $post_id = $request->query('id');
 
-        print_r($post_id);
-        return;
+        $post = null;
+
+        if (isset($post_id)) {
+
+            if ( !(Post::where('id', $post_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wpis o ID "' . $post_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny post.',
+                ]);
+            } else {
+                $post = Post::with(['createdByUser', 'updatedByUser'])->find($post_id);
+            }
+
+        } else {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+            ]);
+        }
+
+        // print_r($post_id);
+        // echo '<br>';
+        // print_r($post);
+        // return;
+
+
+        return view('panel.auth.posts.view', [
+            // 'p_category' => $current_category,
+            // 'subcategories' => $subcategories,
+            'post' => $post,
+            // 'all_categories' => $all_categories,
+            // 'recurrent_parent_categories
+            'parent_categories' => (new Category())->findParentCategories($post->parent_category_id),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
     }
 
 }

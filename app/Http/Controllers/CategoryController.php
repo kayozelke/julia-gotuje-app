@@ -35,7 +35,7 @@ class CategoryController extends Controller
 
         if (isset($request->id)) {
             $parent_category_id = $request->id;
-            $category = Category::find($parent_category_id);
+            $category = Category::with(['updatedByUser'])->find($parent_category_id);
 
             if (!$category) {
                 // echo "Category with ID $param not found.";
@@ -44,9 +44,9 @@ class CategoryController extends Controller
                 return view('panel.auth.header') . view('panel.components.pages_misc_error') . view('panel.auth.footer');
             }
 
-            $categories = Category::where('parent_id', $parent_category_id)->orderBy('id')->get();
+            $categories = Category::with(['updatedByUser'])->where('parent_id', $parent_category_id)->orderBy('id')->get();
         } else {
-            $categories = Category::whereNull('parent_id')->orderBy('id')->get();
+            $categories = Category::with(['updatedByUser'])->whereNull('parent_id')->orderBy('id')->get();
             // if($categories->count() == 0){
             //     $no_children_categories = true;
             // }
