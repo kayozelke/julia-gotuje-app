@@ -202,7 +202,10 @@ class PostController extends Controller
                     'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
                 ]);
             }
+        } else {
+            $parent_category_id = null;
         }
+
 
         // handle hiding post
         $hide_before_time_param = null;
