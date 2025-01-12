@@ -76,6 +76,11 @@
                 </tr>
 
                 <tr>
+                    <td><small class="text-light fw-semibold">Publikacja postu</small></td>
+                    <td class="py-3"><h6 class="mb-0"><small>{{ $post->hide_before_time ? $post->hide_before_time : 'Natychmiast' }}</small></h6></td>
+                </tr>
+
+                <tr>
                     <td><small class="text-light fw-semibold">Dodano</small></td>
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->created_at }} przez {{ $post->createdByUser->first_name }} {{ $post->createdByUser->last_name }}</small></h6></td>
                 </tr>
