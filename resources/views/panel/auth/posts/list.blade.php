@@ -88,8 +88,8 @@
                                 <td>{{ $post->id }}</td>
 
                                 <td>
-                                    {{-- <a href="{{ route('admin.categories', ['id' => $category->id]) }}" --}}
-                                    <a href="#" class="href">
+                                    {{-- <a href="#" class="href"> --}}
+                                    <a href="{{ route('admin.posts.view', ['id' => $post->id]) }}">
                                         <strong>{{ $post->title }}</strong>
                                     </a>
                                 </td>
