@@ -5,7 +5,7 @@
     @include('panel.components.alert_toasts')
 
     <div class="card mb-4">
-        <h5 class="card-header">{{ $post->title }}</h5>
+        <h5 class="card-header">Podgląd wpisu - <strong>{{ $post->title }}</strong></h5>
 
         <div class="card-body m-1">
 
