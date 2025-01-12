@@ -170,15 +170,6 @@ class PostController extends Controller
 
     public function panelAddPost(Request $request){
 
-        // print_r("hello<br>");
-        
-        // print_r("<br>1<br>");
-        // print_r($request->query('title'));
-        // print_r("<br>2<br>");
-        // print_r($request->title);
-
-        // return;
-        
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
@@ -196,7 +187,7 @@ class PostController extends Controller
         // ]
         );
         
-        $parent_category_id = $request->query('parent_category_id');
+        $parent_category_id = $request->input('parent_category_id');
 
         print_r($parent_category_id);
         echo '<br>-------------<br>';
@@ -217,11 +208,11 @@ class PostController extends Controller
         try {
             if($request->use_hide_before_time == "on"){
                 // echo 'use_hide_before_time is ON<br> ';
-                // if ($request->hide_before_time != null) {
+                if ($request->hide_before_time != null) {
                     // echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
                     // convert input, ex. 2025-01-12T18:35 to database time format, ex. like now()
                     $hide_before_time_param = Carbon::parse($request->hide_before_time);
-                // } 
+                } 
             } 
         } catch (\Exception $e){
             return redirect()->back()->with([
