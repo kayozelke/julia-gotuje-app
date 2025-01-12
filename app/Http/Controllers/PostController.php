@@ -183,7 +183,17 @@ class PostController extends Controller
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
             'post_content' => 'required|string',
-        ]);
+        ],
+        // [
+        //     'title.required' => 'Tytuł jest wymagany',
+        //     'custom_url.required' => 'Niestandardowy URL jest wymagany',
+        //     'template_type.required' => 'Typ szablonu jest wymagany',
+        //     'post_content.required' => 'Treść wpisu jest wymagana',
+        //     'title.string' => 'Tytuł musi być ciągiem znaków',
+        //     'custom_url.string' => 'Niestandardowy URL musi być ciągiem znaków',
+        //     'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
+        // ]
+        );
         
         $parent_category_id = $request->query('parent_category_id');
 

@@ -98,7 +98,7 @@
                             <h5 class="card-header">Treść wpisu</h5>
                             <div class="card-body">
                                 {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
-                                <textarea class="form-control" id="post_content" rows="3" style="height: 282px;"></textarea>
+                                <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea>
                             </div>
                         </div>
                     </div>
