@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
 
                     <li class="breadcrumb-item">
-                        <a href="{{ route('admin.categories') }}">Wszystko</a>
+                        <a href="{{ route('admin.posts') }}">Wszystko</a>
                     </li>
 
                     @foreach (array_reverse($parent_categories) as $par_category)
