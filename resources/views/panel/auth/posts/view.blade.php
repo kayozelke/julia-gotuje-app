@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <h5 class="card-header">Headings</h5>
+        <h5 class="card-header">Właściwości</h5>
         <table class="table table-borderless">
             <tbody>
                 <tr>
@@ -69,6 +69,12 @@
                     <td><small class="text-light fw-semibold">ID</small></td>
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->id }}</small></h6></td>
                 </tr>
+                
+                <tr>
+                    <td><small class="text-light fw-semibold">Post ukryty na stałe</small></td>
+                    <td class="py-3"><h6 class="mb-0"><small>{{ $post->is_hidden ? 'Tak' : 'Nie' }}</small></h6></td>
+                </tr>
+
                 <tr>
                     <td><small class="text-light fw-semibold">Dodano</small></td>
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->created_at }} przez {{ $post->createdByUser->first_name }} {{ $post->createdByUser->last_name }}</small></h6></td>
