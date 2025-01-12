@@ -198,8 +198,6 @@ class PostController extends Controller
         $parent_category_id = $request->query('parent_category_id');
 
         // check if category exists
-        // if isset ...
-
         if ($parent_category_id != 0){    
             if (Category::where('parent_id', $parent_category_id)->exists()) {
                 return redirect()->back()->with([
@@ -209,22 +207,29 @@ class PostController extends Controller
             } 
         }
 
-        try {
-            echo "<br>post_content: ";
-            print_r($validated['post_content']);
-            echo "<br>use_hide_before_time: ";
-            print_r($request->use_hide_before_time);
-            echo "<br>hide_before_time: ";
-            print_r($request->hide_before_time);
-            echo "<br>";
-            return;
-
-        } catch (\Exception $e){
-            return redirect()->back()->with([
-                'toastErrorTitle' => 'Wystąpił błąd!',
-                'toastErrorDescription' => $e->getMessage(),
-            ]);
+        // handle hiding post
+        $hide_before_time_param = null;
+        if($request->hide_before_time && $request->use_hide_before_time == "on"){
+            $hide_before_time_param = $request->hide_before_time;
         }
+
+
+        // try {
+        //     echo "<br>post_content: ";
+        //     print_r($validated['post_content']);
+        //     echo "<br>use_hide_before_time: ";
+        //     print_r($request->use_hide_before_time);
+        //     echo "<br>hide_before_time: ";
+        //     print_r($request->hide_before_time);
+        //     echo "<br>";
+        //     return;
+
+        // } catch (\Exception $e){
+        //     return redirect()->back()->with([
+        //         'toastErrorTitle' => 'Wystąpił błąd!',
+        //         'toastErrorDescription' => $e->getMessage(),
+        //     ]);
+        // }
 
         try {
 
@@ -232,12 +237,13 @@ class PostController extends Controller
                 'title' => $validated['title'],
                 'url' => $validated['custom_url'],
                 'template_type' => $validated['template_type'],
-                'parent_id' => $parent_category_id,
-                'created_at' => now(),
-                'updated_at' => now(),
                 'content' => $validated['post_content'],
+                'parent_category_id' => $parent_category_id,
                 'is_hidden' => 0,
+                'hide_before_time' => $hide_before_time_param,
+                'created_at' => now(),
                 'created_by' => Auth::id(),
+                'updated_at' => now(),
                 'updated_by' => Auth::id(),
             ]);
 
