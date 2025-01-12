@@ -286,18 +286,30 @@ class PostController extends Controller
 
         $post_id = $request->query('id');
 
+
+
+        if (isset($post_id)) {
+            // $parent_category_id = $request->id;
+            // $category = Category::with(['updatedByUser'])->find($parent_category_id);
+
+            // if (!$category) {
+            //     // echo "Category with ID $param not found.";
+            //     // return;
+
+            //     return view('panel.auth.header') . view('panel.components.pages_misc_error') . view('panel.auth.footer');
+            // }
+
+            // $categories = Category::with(['updatedByUser'])->where('parent_id', $parent_category_id)->orderBy('id')->get();
+        } else {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+            ]);
+
+        }
         print_r($post_id);
         return;
-
-
-        // code for parent categories to modify
-        // foreach(array_reverse((new Category())->findParentCategories($c->id)) as $p){
-        //     if (! ($c->id == $p->id)){
-        //         $c->parent_categories_str .= $p->name . ' / ';
-        //     } else {
-        //         $c->parent_categories_str .= $p->name;
-        //     }
-        // }
+        
     }
 
 }
