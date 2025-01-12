@@ -19,6 +19,7 @@ class Post extends Model
         'content',
         'parent_category_id',
         'is_hidden',
+        'hide_before_time',
         'created_by',
         'updated_by',
     ];

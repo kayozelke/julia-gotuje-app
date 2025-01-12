@@ -89,9 +89,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
+                {{-- Treść wpisu --}}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-4">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-
+                {{-- Czas publikacji --}}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-4">
@@ -122,7 +122,7 @@
                                         {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                         {{-- <div class="col-md-10"> --}}
                                         <input class="form-control" type="datetime-local" value=""
-                                            id="hide_before_time" name="hide_before_time">
+                                            id="hide_before_time" name="hide_before_time" disabled>
                                         {{-- </div> --}}
                                     </div>
                                 </div>
@@ -131,7 +131,26 @@
                     </div>
                 </div>
 
+                {{-- inne --}}
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <h4 class="card-header">Inne</h4>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex align-items-center">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" name="is_hidden" id="is_hidden">
+                                            <label class="form-check-label" for="is_hidden">Ukryj na stałe</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- <div class="row">
                     <!-- Form controls -->
                     <div class="col-md-6">
                         <div class="card mb-4">
@@ -286,7 +305,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             
             <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
@@ -294,12 +313,12 @@
 
 
         {{-- ################################## --}}
-        <hr>
+        {{-- <hr>
         <div style="min-height: 200px"></div>
-        <hr>
+        <hr> --}}
         {{-- ################################## --}}
 
-        <div class="card-body m-1">
+        {{-- <div class="card-body m-1">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-4">
@@ -740,7 +759,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 
