@@ -70,6 +70,9 @@ Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('au
 Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
 Route::post('/admin/posts/add_post', [PostController::class, 'panelAddPost'])->middleware('auth')->name('admin.posts.add.post');
 
+// admin settings
+Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middleware('auth')->name('admin.settings');
+Route::get('/admin/settings/update', [SettingsController::class, 'panelUpdate'])->middleware('auth')->name('admin.settings.update');
 
 
 // api calls

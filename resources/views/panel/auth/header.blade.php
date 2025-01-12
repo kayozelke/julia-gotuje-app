@@ -166,6 +166,13 @@
                 <div data-i18n="Basic">Posty</div>
               </a>
             </li>
+            {{-- General settings --}}
+            <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/settings') ? 'active' : '' }}">
+              <a href="{{ route('admin.settings') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Ustawienia</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
