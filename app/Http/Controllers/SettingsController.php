@@ -39,7 +39,7 @@ class SettingsController extends Controller {
         $setting->save();
 
         // Przekierowanie z komunikatem sukcesu
-        return redirect()->route('panel.auth.settings.list')->with('success', 'Ustawienie zostało zaktualizowane.');
+        return redirect()->route('admin.settings')->with('success', 'Ustawienie zostało zaktualizowane.');
     }
 
     public function edit($id)
