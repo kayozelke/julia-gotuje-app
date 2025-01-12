@@ -130,6 +130,9 @@ class PostController extends Controller
             $p_category = Category::find($parent_category_id);
         }
 
+        print_r($p_category);
+        return;
+
 
         $all_categories = Category::all();
         foreach($all_categories as $c){
