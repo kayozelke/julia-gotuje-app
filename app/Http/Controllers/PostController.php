@@ -318,7 +318,7 @@ class PostController extends Controller
             'post' => $post,
             // 'all_categories' => $all_categories,
             // 'recurrent_parent_categories
-            'parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'parent_categories' => (new Category())->findParentCategories($post->parent_category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
