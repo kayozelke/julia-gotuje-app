@@ -213,11 +213,11 @@ class PostController extends Controller
         try {
             if($request->use_hide_before_time == "on"){
                 // echo 'use_hide_before_time is ON<br> ';
-                if ($request->hide_before_time != null) {
+                // if ($request->hide_before_time != null) {
                     // echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
                     // convert input, ex. 2025-01-12T18:35 to database time format, ex. like now()
                     $hide_before_time_param = Carbon::parse($request->hide_before_time);
-                } 
+                // } 
             } 
         } catch (\Exception $e){
             return redirect()->back()->with([
