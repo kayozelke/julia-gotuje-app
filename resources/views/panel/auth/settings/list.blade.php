@@ -47,7 +47,7 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('settings.panelUpdate', ['id' => $setting->id]) }}">
+                                    <a class="dropdown-item" href="{{ route('admin.settings.update', ['id' => $setting->id]) }}">
                                         <i class="bx bx-edit-alt me-1"></i> Edytuj
                                     </a>
                                 </div>
