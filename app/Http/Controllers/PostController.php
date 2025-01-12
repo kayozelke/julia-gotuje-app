@@ -225,19 +225,21 @@ class PostController extends Controller
             ]);
         }
 
+        $is_hidden_param = null;
+        if($request->input('is_hidden') == "on"){
+            $is_hidden_param = 1;
+        } else {
+            $is_hidden_param = 0;
+        }
+
         try {
-            // echo "hide_before_time_param: ";
-            // print_r($hide_before_time_param);
-            // return;
-
-
             Post::create([
                 'title' => $validated['title'],
                 'url' => $validated['custom_url'],
                 'template_type' => $validated['template_type'],
                 'content' => $validated['post_content'],
                 'parent_category_id' => $parent_category_id,
-                'is_hidden' => 0,
+                'is_hidden' => $is_hidden_param,
                 'hide_before_time' => $hide_before_time_param,
                 'created_at' => now(),
                 'created_by' => Auth::id(),
