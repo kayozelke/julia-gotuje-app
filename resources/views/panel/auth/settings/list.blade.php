@@ -55,7 +55,7 @@
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.settings.update', ['id' => $setting->id]) }}">
+                                            href="{{ route('admin.settings.update.form', ['id' => $setting->id]) }}">
                                             <i class="bx bx-edit-alt me-1"></i> Edytuj
                                         </a>
                                     </div>
