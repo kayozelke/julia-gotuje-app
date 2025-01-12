@@ -227,6 +227,12 @@ class PostController extends Controller
                 if ($request->hide_before_time != null) {
                     echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
                     $hide_before_time_param = $request->hide_before_time;
+                    // convert input, ex. 2025-01-12T18:35 to database time format
+                    print_r(now());
+                    echo '<br>';
+
+
+
                 } else {
                     echo 'hide_before_time is not null, value: ' . $request->hide_before_time . '<br>';
                 }
