@@ -98,7 +98,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Treść</h5>
 
-        <div class="p-5">
+        <div class="py-3 px-1">
             {{ $post->content }}
         </div>
         
