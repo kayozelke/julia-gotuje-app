@@ -210,43 +210,15 @@ class PostController extends Controller
 
         // handle hiding post
         $hide_before_time_param = null;
-
-
         try {
-            // echo "<br>post_content: ";
-            // print_r($validated['post_content']);
-            // echo "<br>use_hide_before_time: ";
-            // print_r($request->use_hide_before_time);
-            // echo "<br>hide_before_time: ";
-            // print_r($request->hide_before_time);
-            // echo "<br>";
-
-            
             if($request->use_hide_before_time == "on"){
-                echo 'use_hide_before_time is ON<br> ';
-
+                // echo 'use_hide_before_time is ON<br> ';
                 if ($request->hide_before_time != null) {
-                    echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
+                    // echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
                     // convert input, ex. 2025-01-12T18:35 to database time format, ex. like now()
                     $hide_before_time_param = Carbon::parse($request->hide_before_time);
-                    echo 'Parsed value: ';
-                    print_r( $hide_before_time_param);
-                    echo '<br>';
-
-
-
-                } else {
-                    echo 'hide_before_time is not null, value: ' . $request->hide_before_time . '<br>';
-                }
-                
-                $hide_before_time_param = $request->hide_before_time;
-            } else {
-                echo 'use_hide_before_time is OFF, value: '.$request->use_hide_before_time.'<br> ';
-            }
-
-
-            return;
-
+                } 
+            } 
         } catch (\Exception $e){
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Wystąpił błąd!',
