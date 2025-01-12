@@ -93,6 +93,17 @@
             </tbody>
         </table>
     </div>
+
+
+    <div class="card mb-4">
+        <h5 class="card-header">Treść</h5>
+
+        <div class="m-2">
+            {{ $post->content }}
+        </div>
+        
+    </div>
+
 </div>
 
 @include('panel.auth.footer')
