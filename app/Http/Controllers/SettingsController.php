@@ -11,7 +11,7 @@ class SettingsController extends Controller {
 
     public function panelList(Request $request){
         // Pobierz wszystkie ustawienia z bazy
-        $settings = GeneralSetting::with(['updatedByUser'])->all();
+        $settings = GeneralSetting::with(['updatedByUser'])->get();
 
         // Wyślij ustawienia do widoku
         return view('panel.auth.settings.list', ['settings' => $settings]);
