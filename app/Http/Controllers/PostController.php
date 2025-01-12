@@ -130,10 +130,6 @@ class PostController extends Controller
             $p_category = Category::find($parent_category_id);
         }
 
-        print_r($p_category);
-        return;
-
-
         $all_categories = Category::all();
         foreach($all_categories as $c){
             $c->parent_categories_str = '';
@@ -188,14 +184,17 @@ class PostController extends Controller
             'template_type' => 'required',
         ]);
 
+        
+        $parent_category_id = $request->query('category_id');
+
         // check if category exists
         // if isset ...
-        // if (Category::where('parent_id', $request->parent_category_id)->exists()) {
-        //     return redirect()->back()->with([
-        //         'toastErrorTitle' => 'Kategoria o takiej nazwie już istnieje!',
-        //         'toastErrorDescription' => 'Proszę wybrać inną nazwę.',
-        //     ]);
-        // }
+        if (Category::where('parent_id', $parent_category_id)->exists()) {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Wybrana kategoria (ID: '.$parent_category_id.') nie istnieje!',
+                'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
+            ]);
+        }
 
         try {
 
