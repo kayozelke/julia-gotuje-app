@@ -198,6 +198,10 @@ class PostController extends Controller
         
         $parent_category_id = $request->query('parent_category_id');
 
+        print_r($parent_category_id);
+        echo '<br>-------------<br>';
+        return;
+
         // check if category exists
         if ($parent_category_id != 0){    
             if (Category::where('parent_id', $parent_category_id)->exists()) {
