@@ -223,6 +223,10 @@ class PostController extends Controller
         }
 
         try {
+            echo "hide_before_time_param: ";
+            print_r($hide_before_time_param);
+            return;
+
 
             Post::create([
                 'title' => $validated['title'],
