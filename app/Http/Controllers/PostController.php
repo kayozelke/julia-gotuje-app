@@ -62,10 +62,10 @@ class PostController extends Controller
                     'toastErrorDescription' => 'Kategoria o ID "'.$parent_category_id.'" nie istnieje.',
                 ]);
             }
-            $posts = Post::where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
+            $posts = Post::with(['createdByUser', 'updatedByUser'])->where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
         } else {
             // $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
-            $posts = Post::orderBy('updated_at')->get();        
+            $posts = Post::with(['createdByUser', 'updatedByUser'])->orderBy('updated_at')->get();        
         }
 
         $all_categories = Category::all();
@@ -288,6 +288,16 @@ class PostController extends Controller
 
         print_r($post_id);
         return;
+
+
+        // code for parent categories to modify
+        // foreach(array_reverse((new Category())->findParentCategories($c->id)) as $p){
+        //     if (! ($c->id == $p->id)){
+        //         $c->parent_categories_str .= $p->name . ' / ';
+        //     } else {
+        //         $c->parent_categories_str .= $p->name;
+        //     }
+        // }
     }
 
 }

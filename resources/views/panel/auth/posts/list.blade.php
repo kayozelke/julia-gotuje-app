@@ -77,6 +77,7 @@
                             <th>ID</th>
                             <th>Nazwa</th>
                             <th>Utworzono</th>
+                            <th>Utworzono przez</th>
                             <th>Zmodyfikowano</th>
                             <th>Zmodyfikowano przez</th>
                             {{-- <th>Akcje</th> --}}
@@ -94,8 +95,9 @@
                                     </a>
                                 </td>
                                 <td>{{ $post->created_at }}</td>
+                                <td>{{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}</td>
                                 <td>{{ $post->updated_at }}</td>
-                                <td>Albert Cook</td>
+                                <td>{{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}</td>
                                 {{-- <td>
                                     <div class="dropdown position-static">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
