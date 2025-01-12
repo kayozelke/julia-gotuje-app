@@ -183,17 +183,19 @@ class PostController extends Controller
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
         ]);
-
         
-        $parent_category_id = $request->query('category_id');
+        $parent_category_id = $request->query('parent_category_id');
 
         // check if category exists
         // if isset ...
-        if (Category::where('parent_id', $parent_category_id)->exists()) {
-            return redirect()->back()->with([
-                'toastErrorTitle' => 'Wybrana kategoria (ID: '.$parent_category_id.') nie istnieje!',
-                'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
-            ]);
+
+        if ($parent_category_id != 0){    
+            if (Category::where('parent_id', $parent_category_id)->exists()) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wybrana kategoria (ID: '.$parent_category_id.') nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać inną kategorię.',
+                ]);
+            } 
         }
 
         try {
