@@ -87,33 +87,12 @@
                             <h5 class="card-header">Treść wpisu</h5>
                             <div class="card-body">
                                 {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 282px;"></textarea>
+                                <textarea class="form-control" id="post_content" rows="3" style="height: 282px;"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                {{-- <div class="row">
-                <h4 class="card-header">Ustawienia</h4>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <h5 class="card-header">Czas publikacji</h5>
-                        <div class="form-check form-switch mb-2">
-                            <label class="form-check-label" for="use_hide_before_time">Opublikuj teraz</label>
-                            <input class="form-check-input" type="checkbox" id="use_hide_before_time">
-                            <label class="form-check-label" for="use_hide_before_time">Opublikuj później</label>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="hide_before_time" class="col-md-2 col-form-label">Czas publikacji</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="datetime-local"
-                                    value="{{ now()->format('Y-m-d\TH:i:s') }}" id="hide_before_time">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 
                 <div class="row">
                     <div class="col-md-12">

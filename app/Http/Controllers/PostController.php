@@ -182,6 +182,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
+            'post_content' => 'required|string',
         ]);
         
         $parent_category_id = $request->query('parent_category_id');
@@ -199,15 +200,32 @@ class PostController extends Controller
         }
 
         try {
+            echo "<br>post_content: ";
+            print_r($validated['post_content']);
+            echo "<br>use_hide_before_time: ";
+            print_r($request->use_hide_before_time);
+            echo "<br>hide_before_time: ";
+            print_r($request->hide_before_time);
+            echo "<br>";
+            return;
+
+        } catch (\Exception $e){
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Wystąpił błąd!',
+                'toastErrorDescription' => $e->getMessage(),
+            ]);
+        }
+
+        try {
 
             Post::create([
                 'title' => $validated['title'],
                 'url' => $validated['custom_url'],
                 'template_type' => $validated['template_type'],
-                'parent_id' => null,
+                'parent_id' => $parent_category_id,
                 'created_at' => now(),
                 'updated_at' => now(),
-                'content' => '',
+                'content' => $validated['post_content'],
                 'is_hidden' => 0,
                 'created_by' => Auth::id(),
                 'updated_by' => Auth::id(),
