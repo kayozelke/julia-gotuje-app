@@ -164,7 +164,7 @@
                                 </td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>{{ $category->updated_at }}</td>
-                                <td>Albert Cook</td>
+                                <td>{{ $category->createdByUser->first_name ?? 'N/A' }} {{ $category->createdByUser->last_name ?? '' }}</td>
                                 <td>
                                     <div class="dropdown position-static">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
