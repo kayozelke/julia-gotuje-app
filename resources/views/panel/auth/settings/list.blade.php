@@ -34,11 +34,12 @@
                         <td>{{ $setting->updated_at ? $setting->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
                         {{-- Updated by --}}
                         <td>
-                            @if ($setting->updated_by)
+                            {{-- @if ($setting->updated_by)
                                 {{ \App\Models\User::find($setting->updated_by)->name ?? 'Nieznany' }}
                             @else
                                 N/A
-                            @endif
+                            @endif --}}
+                            {{ $setting->updatedByUser->first_name ?? 'N/A' }} {{ $setting->updatedByUser->last_name ?? '' }}
                         </td>
                         {{-- Akcje --}}
                         <td>

@@ -11,7 +11,7 @@ class SettingsController extends Controller {
 
     public function panelList(Request $request){
         // Pobierz wszystkie ustawienia z bazy
-        $settings = GeneralSetting::all();
+        $settings = GeneralSetting::with(['updatedByUser'])->all();
 
         // Wyślij ustawienia do widoku
         return view('panel.auth.settings.list', ['settings' => $settings]);
@@ -26,7 +26,7 @@ class SettingsController extends Controller {
         ]);
 
         // Pobierz wpis na podstawie ID
-        $setting = GeneralSetting::findOrFail($request->input('id'));
+        $setting = GeneralSetting::with(['updatedByUser'])->findOrFail($request->input('id'));
 
         // Aktualizacja wartości oraz osoby aktualizującej
         $setting->value = $request->input('value');
