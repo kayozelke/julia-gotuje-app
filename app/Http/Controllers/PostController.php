@@ -189,9 +189,9 @@ class PostController extends Controller
         
         $parent_category_id = $request->input('parent_category_id');
 
-        print_r($parent_category_id);
-        echo '<br>-------------<br>';
-        return;
+        // print_r($parent_category_id);
+        // echo '<br>-------------<br>';
+        // return;
 
         // check if category exists
         if ($parent_category_id != 0){    
