@@ -21,8 +21,8 @@ class SettingsController extends Controller {
     {
         // Walidacja danych wejściowych
         $request->validate([
-            'id' => 'required|exists:general_settings,id',
-            'value' => 'required|string',
+            'value' => 'required|string',          // Wartość musi być wypełniona
+            'description' => 'required|string',   // Opis musi być wypełniony
         ]);
 
         // Pobierz wpis na podstawie ID
@@ -30,8 +30,11 @@ class SettingsController extends Controller {
 
         // Aktualizacja wartości oraz osoby aktualizującej
         $setting->value = $request->input('value');
-        $setting->updated_by = Auth::id();
-        $setting->updated_at = now();
+        $setting->description = $request->input('description'); // Zaktualizuj opis
+        $setting->updated_by = Auth::id();                  // Ustaw aktualnego użytkownika jako edytującego
+        $setting->updated_at = now();                       // Zapisz aktualną datę i czas
+
+        // 4. Zapis zmian w bazie danych
         $setting->save();
 
         // Przekierowanie z komunikatem sukcesu
