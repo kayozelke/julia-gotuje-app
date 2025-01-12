@@ -292,7 +292,7 @@ class PostController extends Controller
 
             if ( !(Post::where('id', $post_id)->exists()) ) {
                 return redirect()->back()->with([
-                    'toastErrorTitle' => 'Wpis o ID: "' . $post_id . '" nie istnieje!',
+                    'toastErrorTitle' => 'Wpis o ID "' . $post_id . '" nie istnieje!',
                     'toastErrorDescription' => 'Proszę wybrać poprawny post.',
                 ]);
             } else {
@@ -304,13 +304,28 @@ class PostController extends Controller
                 'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
                 // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
             ]);
-
         }
-        print_r($post_id);
-        echo '<br>';
-        print_r($post);
-        return;
 
+        // print_r($post_id);
+        // echo '<br>';
+        // print_r($post);
+        // return;
+
+
+        return view('panel.auth.posts.view', [
+            // 'p_category' => $current_category,
+            // 'subcategories' => $subcategories,
+            'post' => $post,
+            // 'all_categories' => $all_categories,
+            // 'recurrent_parent_categories
+            'parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
     }
 
 }
