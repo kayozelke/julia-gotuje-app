@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -226,9 +227,10 @@ class PostController extends Controller
 
                 if ($request->hide_before_time != null) {
                     echo 'hide_before_time is not not null, value: ' . $request->hide_before_time . '<br>';
-                    $hide_before_time_param = $request->hide_before_time;
-                    // convert input, ex. 2025-01-12T18:35 to database time format
-                    print_r(now());
+                    // convert input, ex. 2025-01-12T18:35 to database time format, ex. like now()
+                    $hide_before_time_param = Carbon::parse($request->hide_before_time);
+                    echo 'Parsed value: ';
+                    print_r( $hide_before_time_param);
                     echo '<br>';
 
 
