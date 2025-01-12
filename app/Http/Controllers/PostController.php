@@ -270,5 +270,25 @@ class PostController extends Controller
         // return;
     }
 
+    public function panelView(Request $request){
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+
+        // $parent_category_id = $request->query('category_id');
+        $parent_category_id = null;
+        $parent_categories = null;
+
+
+        $post_id = $request->query('id');
+
+        print_r($post_id);
+        return;
+    }
+
 }
 

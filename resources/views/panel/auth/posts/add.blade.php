@@ -141,7 +141,7 @@
                                     <div class="col-md-6 d-flex align-items-center">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" name="is_hidden" id="is_hidden">
-                                            <label class="form-check-label" for="is_hidden">Ukryj na stałe</label>
+                                            <label class="form-check-label" for="is_hidden">Ukryj post na stałe</label>
                                         </div>
                                     </div>
                                 </div>
