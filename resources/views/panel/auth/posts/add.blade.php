@@ -122,7 +122,7 @@
                                         {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                         {{-- <div class="col-md-10"> --}}
                                         <input class="form-control" type="datetime-local" value=""
-                                            id="hide_before_time" name="hide_before_time">
+                                            id="hide_before_time" name="hide_before_time" disabled>
                                         {{-- </div> --}}
                                     </div>
                                 </div>
