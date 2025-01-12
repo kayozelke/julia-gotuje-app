@@ -113,7 +113,7 @@
                                 <div class="row">
                                     <div class="col-md-6 d-flex align-items-center">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="use_hide_before_time">
+                                            <input class="form-check-input" type="checkbox" name="use_hide_before_time" id="use_hide_before_time">
                                             <label class="form-check-label" for="use_hide_before_time">Opublikuj
                                                 później</label>
                                         </div>
@@ -122,7 +122,7 @@
                                         {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                         {{-- <div class="col-md-10"> --}}
                                         <input class="form-control" type="datetime-local" value=""
-                                            id="hide_before_time">
+                                            id="hide_before_time" name="hide_before_time">
                                         {{-- </div> --}}
                                     </div>
                                 </div>
