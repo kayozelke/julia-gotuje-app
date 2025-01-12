@@ -71,11 +71,11 @@
                 </tr>
                 <tr>
                     <td><small class="text-light fw-semibold">Dodano</small></td>
-                    <td class="py-3"><h6 class="mb-0">{{ $post->created_at }} przez {{ $post->createdByUser->first_name }} {{ $post->createdByUser->last_name }}</h6></td>
+                    <td class="py-3"><h6 class="mb-0">{{ $post->created_at }}<small> przez </small>{{ $post->createdByUser->first_name }} {{ $post->createdByUser->last_name }}</h6></td>
                 </tr>
                 <tr>
                     <td><small class="text-light fw-semibold">Zmodyfikowano</small></td>
-                    <td class="py-3"><h6 class="mb-0">{{ $post->updated_at }} przez {{ $post->updatedByUser->first_name }} {{ $post->updatedByUser->last_name }}</h6></td>
+                    <td class="py-3"><h6 class="mb-0">{{ $post->updated_at }}<small> przez </small>{{ $post->updatedByUser->first_name }} {{ $post->updatedByUser->last_name }}</h6></td>
                 </tr>
 
 
