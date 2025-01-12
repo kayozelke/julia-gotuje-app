@@ -286,20 +286,19 @@ class PostController extends Controller
 
         $post_id = $request->query('id');
 
-
+        $post = null;
 
         if (isset($post_id)) {
-            // $parent_category_id = $request->id;
-            // $category = Category::with(['updatedByUser'])->find($parent_category_id);
 
-            // if (!$category) {
-            //     // echo "Category with ID $param not found.";
-            //     // return;
+            if ( !(Post::where('id', $post_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wpis o ID: "' . $post_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny post.',
+                ]);
+            } else {
+                $post = Post::with(['createdByUser', 'updatedByUser'])->find($post_id);
+            }
 
-            //     return view('panel.auth.header') . view('panel.components.pages_misc_error') . view('panel.auth.footer');
-            // }
-
-            // $categories = Category::with(['updatedByUser'])->where('parent_id', $parent_category_id)->orderBy('id')->get();
         } else {
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
@@ -308,8 +307,10 @@ class PostController extends Controller
 
         }
         print_r($post_id);
+        echo '<br>';
+        print_r($post);
         return;
-        
+
     }
 
 }
