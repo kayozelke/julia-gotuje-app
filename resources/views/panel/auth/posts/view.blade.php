@@ -63,8 +63,9 @@
                 </tr>
                 <tr>
                     <td><small class="text-light fw-semibold">Adres URL</small></td>
-                    <td class="py-3"><h5 class="mb-0">{{ $post->url }}</h5></td>
+                    <td class="py-3"><h5 class="mb-0"><small>{{ url('/') }}/</small>{{ $post->url }}</h5></td>
                 </tr>
+                
                 <tr>
                     <td><small class="text-light fw-semibold">ID</small></td>
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->id }}</small></h6></td>
@@ -76,8 +77,8 @@
                 </tr>
 
                 <tr>
-                    <td><small class="text-light fw-semibold">Publikacja postu</small></td>
-                    <td class="py-3"><h6 class="mb-0"><small>{{ $post->hide_before_time ? $post->hide_before_time : 'Natychmiast' }}</small></h6></td>
+                    <td><small class="text-light fw-semibold">Późniejsza publikacja postu</small></td>
+                    <td class="py-3"><h6 class="mb-0"><small>{{ $post->hide_before_time ? $post->hide_before_time : 'Nie ustawiono' }}</small></h6></td>
                 </tr>
 
                 <tr>
@@ -89,65 +90,6 @@
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->updated_at }} przez {{ $post->updatedByUser->first_name }} {{ $post->updatedByUser->last_name }}</small></h6></td>
                 </tr>
 
-
-
-
-
-
-
-
-
-
-
-                {{-- <tr>
-                    <td><small class="text-light fw-semibold">Heading 6</small></td>
-                    <td class="py-3"><h6 class="mb-0">Bootstrap heading</h6></td>
-                </tr> --}}
-
-
-
-
-
-
-
-
-
-                {{-- <tr>
-                    <td class="align-middle"><small class="text-light fw-semibold">Heading 1</small></td>
-                    <td class="py-3">
-                        <h1 class="mb-0">Bootstrap heading</h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle"><small class="text-light fw-semibold">Heading 2</small></td>
-                    <td class="py-3">
-                        <h2 class="mb-0">Bootstrap heading</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td><small class="text-light fw-semibold">Heading 3</small></td>
-                    <td class="py-3">
-                        <h3 class="mb-0">Bootstrap heading</h3>
-                    </td>
-                </tr>
-                <tr>
-                    <td><small class="text-light fw-semibold">Heading 4</small></td>
-                    <td class="py-3">
-                        <h4 class="mb-0">Bootstrap heading</h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td><small class="text-light fw-semibold">Heading 5</small></td>
-                    <td class="py-3">
-                        <h5 class="mb-0">Bootstrap heading</h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td><small class="text-light fw-semibold">Heading 6</small></td>
-                    <td class="py-3">
-                        <h6 class="mb-0">Bootstrap heading</h6>
-                    </td>
-                </tr> --}}
             </tbody>
         </table>
     </div>
