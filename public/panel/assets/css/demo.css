@@ -107,6 +107,7 @@
 }
 
 .is-breakable {
+  table-layout: fixed;
   word-break: break-word;
 }
 
