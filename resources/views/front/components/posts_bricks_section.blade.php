@@ -1,4 +1,6 @@
 @php
+    use Illuminate\Support\Facades\DB;
+
     $posts = [
         [
             'src' => 'front/images/thumbs/masonry/statue-600.jpg',
@@ -69,10 +71,13 @@
     // Total posts
     $totalPosts = count($posts);
 
-    // Get the posts_per_page setting (you can replace this with a database call if needed)
-    $postsPerPage = 5; // Example value; replace with your dynamic setting
+    // Fetch posts_per_page from the database
+    $postsPerPage = DB::table('general_settings')
+        ->where('key', 'posts_per_page')
+        ->value('value'); // Get the value column directly
 
     // Calculate total pages
+    $postsPerPage = (int) $postsPerPage;
     $totalPages = ceil($totalPosts / $postsPerPage);
 
     // Get the current page from the query string, default to 1
