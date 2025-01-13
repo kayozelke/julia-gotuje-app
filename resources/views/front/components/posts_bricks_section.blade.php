@@ -80,6 +80,11 @@
     $postsPerPage = (int) $postsPerPage;
     $totalPages = ceil($totalPosts / $postsPerPage);
 
+    // Debug values
+    echo "Total Posts: $totalPosts<br>";
+    echo "Posts Per Page: $postsPerPage<br>";
+    echo "Total Pages: $totalPages<br>";
+
     // Get the current page from the query string, default to 1
     $currentPage = request('page', 1);
 
