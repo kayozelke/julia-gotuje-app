@@ -357,13 +357,14 @@ class PostController extends Controller
         print_r($post);
 
 
-        return;
+        // return;
 
-        // return view('front.main_categories_page', [
-        //     'parent_category' => $parent_category,
-        //     'subcategories' => $subcategories,
-        //     'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
-        // ]);
+        return view('front.posts.show', [
+            // 'parent_category' => $parent_category,
+            // 'subcategories' => $subcategories,
+            // 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'post' => $post,
+        ]);
     }
 
 }

@@ -63,7 +63,13 @@
                 </tr>
                 <tr>
                     <td><small class="text-light fw-semibold">Adres URL</small></td>
-                    <td class="py-3"><h5 class="mb-0"><small>{{ url('/') }}/</small>{{ $post->url }}</h5></td>
+                    <td class="py-3">
+                        <h5 class="mb-0">
+                            <a href="{{ url('/') }}/{{ $post->url }}">
+                                <small>{{ url('/') }}/</small>{{ $post->url }}
+                            </a>
+                        </h5>
+                    </td>
                 </tr>
                 
                 <tr>
