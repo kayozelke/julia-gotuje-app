@@ -105,14 +105,6 @@
 
             <div class="grid-sizer"></div>
 
-            {{-- @foreach ($posts as $post)
-                @include('front.components.single_post_thumbnail', [
-                    'src' => $post['src'],
-                    'srcset' => $post['srcset'],
-                    'title' => $post['title'],
-                ])
-            @endforeach --}}
-
             <!-- Display paginated posts -->
             @foreach ($paginatedPosts as $post)
                 @include('front.components.single_post_thumbnail', [
