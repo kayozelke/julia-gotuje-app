@@ -368,6 +368,7 @@ class PostController extends Controller
 
         return view('panel.auth.posts.delete', [
             'post' => $post,
+            'backPage' => url()->previous(),
             'parent_categories' => (new Category())->findParentCategories($post->parent_category_id),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
