@@ -340,12 +340,30 @@ class PostController extends Controller
 
     public function show(Request $request){
 
-        echo 'Youre at show method of PostController.php';
+        // echo 'Youre at show method of PostController.php';
         $custom_url = $request->route('custom_url');
-        echo '<br>';
-        echo 'Custom URL: ' . $custom_url;
+        // echo '<br>';
+        // echo 'Custom URL: ' . $custom_url;
+
+        
+        $post = Post::where('url', $custom_url)->first();
+        
+
+        // If the category does not exist, return a 404 error
+        if (!$post) {
+            abort(404, 'Page not found: "'.$custom_url.'".');
+        }
+
+        print_r($post);
+
 
         return;
+
+        // return view('front.main_categories_page', [
+        //     'parent_category' => $parent_category,
+        //     'subcategories' => $subcategories,
+        //     'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+        // ]);
     }
 
 }
