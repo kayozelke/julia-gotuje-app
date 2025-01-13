@@ -106,10 +106,7 @@
   margin-top: 1rem;
 }
 
-td.description-cell {
-  max-width: 200px; /* Maksymalna szerokość komórki */
-  white-space: normal; /* Wymusza zawijanie tekstu */
-  word-wrap: break-word; /* Przenosi długie ciągi znaków */
-  overflow-wrap: break-word; /* Alternatywne wsparcie dla zawijania */
+.is-breakable {
+  word-break: break-word;
 }
 

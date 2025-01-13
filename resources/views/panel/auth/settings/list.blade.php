@@ -33,7 +33,7 @@
                             {{-- Value --}}
                             <td>{{ $setting->value }}</td>
                             {{-- Description --}}
-                            <td class="description-cell">{{ $setting->description }}</td>
+                            <td class="is-breakable">{{ $setting->description }}</td>
                             {{-- Update at --}}
                             <td>{{ $setting->updated_at ? $setting->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
                             {{-- Updated by --}}
