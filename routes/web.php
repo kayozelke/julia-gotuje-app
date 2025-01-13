@@ -36,7 +36,7 @@ Route::get('/admin_test', function () {
 });
 
 Route::get('/admin', function () {
-    return redirect(route('admin.home'));
+    return redirect()->route('admin.home');
 })->name("admin");
 
 Route::get('/admin/home', function () {
@@ -45,10 +45,10 @@ Route::get('/admin/home', function () {
 
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-Route::middleware("auth")->group(function () {
-    // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
-    return redirect("/admin");
-});
+// Route::middleware("auth")->group(function () {
+//     // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
+//     return redirect()->route('admin.home');
+// });
 
 // admin login
 Route::get("/login", [AuthController::class, 'login'])->name("login");
