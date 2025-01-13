@@ -99,7 +99,7 @@
     {{-- </div> <!-- end entry-wrap --> --}}
 
     {{-- category posts --}}
-    @include('front.posts_bricks_section')
+    @include('front.components.posts_bricks_section')
 
 </div> <!-- end s-content -->
 

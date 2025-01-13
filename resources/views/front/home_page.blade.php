@@ -108,7 +108,7 @@
 
 
     <!--  masonry -->
-    @include('front.posts_bricks_section')
+    @include('front.components.posts_bricks_section')
 
 </section> <!-- end s-content -->
 @include('front.footer')

@@ -85,7 +85,7 @@
             @endphp
 
             @foreach ($posts as $post)
-                @include('front.single_post_thumbnail', [
+                @include('front.components.single_post_thumbnail', [
                     'src' => $post['src'],
                     'srcset' => $post['srcset'],
                     'title' => $post['title'],

@@ -20,7 +20,7 @@ use App\Http\Controllers\SettingsController;
     
     // front single view
     Route::get('/single_post_test', function () {
-        return view('front/single_post');;
+        return view('front/posts/single_post');;
     })->name('single_post');
 
 // ################ PANEL ###################
