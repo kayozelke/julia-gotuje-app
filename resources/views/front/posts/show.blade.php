@@ -50,10 +50,13 @@
                             </svg>
 
                             <!-- if parent category -->
-                            <span class="cat-links">
-                                <a href="#0"></a>
-                                <!-- <a href="#0">Design</a> -->
-                            </span>
+                            @if($post->parent_category)
+                                <span class="cat-links">
+                                    <a href="{{ route('categories', ['id' => $post->parent_category->id]) }}">
+                                        {{ $post->parent_category->name }}
+                                    </a>
+                                </span>
+                            @endif
                         </div>
                     </div>
                 </header>
