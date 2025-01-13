@@ -270,7 +270,7 @@ class PostController extends Controller
         // return;
     }
 
-    public function panelView(Request $request){
+    public function panelShow(Request $request){
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
         $toastSuccessHideTime = session('toastSuccessHideTime', null);
@@ -312,7 +312,7 @@ class PostController extends Controller
         // return;
 
 
-        return view('panel.auth.posts.view', [
+        return view('panel.auth.posts.show', [
             // 'p_category' => $current_category,
             // 'subcategories' => $subcategories,
             'post' => $post,

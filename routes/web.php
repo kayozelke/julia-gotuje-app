@@ -70,7 +70,7 @@ Route::post('/admin/categories/delete', [CategoryController::class, 'panelDelete
 Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
 Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
 Route::post('/admin/posts/add_post', [PostController::class, 'panelAddPost'])->middleware('auth')->name('admin.posts.add.post');
-Route::get('/admin/posts/view', [PostController::class, 'panelView'])->middleware('auth')->name('admin.posts.view');
+Route::get('/admin/posts/show', [PostController::class, 'panelShow'])->middleware('auth')->name('admin.posts.show');
 
 // admin settings
 Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middleware('auth')->name('admin.settings');

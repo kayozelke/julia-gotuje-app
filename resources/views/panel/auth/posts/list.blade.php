@@ -90,7 +90,7 @@
 
                                 <td>
                                     {{-- <a href="#" class="href"> --}}
-                                    <a href="{{ route('admin.posts.view', ['id' => $post->id]) }}">
+                                    <a href="{{ route('admin.posts.show', ['id' => $post->id]) }}">
                                         <strong>{{ $post->title }}</strong>
                                     </a>
                                 </td>
