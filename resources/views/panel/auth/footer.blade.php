@@ -10,25 +10,27 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                  JA & DK
+                  <!-- <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a> -->
                 </div>
                 <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
+                  <!-- <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a> -->
+                  <!-- <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a> -->
 
                   <a
-                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                    {{-- href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" --}}
+                    href="https://drive.google.com/drive/folders/1akwNdWT1sPrh2Wwb3_bzSAW5-Zl53J81?usp=drive_link"
                     target="_blank"
                     class="footer-link me-4"
-                    >Documentation</a
+                    >Dokumentacja</a
                   >
 
-                  <a
+                  <!-- <a
                     href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                     target="_blank"
                     class="footer-link me-4"
                     >Support</a
-                  >
+                  > -->
                 </div>
               </div>
             </footer>

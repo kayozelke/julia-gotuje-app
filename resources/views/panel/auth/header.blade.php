@@ -162,14 +162,14 @@
             {{-- Posts  --}}
             <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/posts') ? 'active' : '' }}">
               <a href="{{ route('admin.posts') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Basic">Posty</div>
               </a>
             </li>
             {{-- General settings --}}
             <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/settings') ? 'active' : '' }}">
               <a href="{{ route('admin.settings') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="Basic">Ustawienia</div>
               </a>
             </li>
