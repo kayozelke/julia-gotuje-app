@@ -328,5 +328,22 @@ class PostController extends Controller
         ]);
     }
 
+
+
+
+
+
+
+
+    // FRONT
+
+
+    public function show(Request $request){
+
+        echo 'Youre at show method of PostController.php';
+
+        return;
+    }
+
 }
 

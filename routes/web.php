@@ -95,7 +95,7 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 // ############################################
 
 // Route for dynamic pages must be at the end
-// Route::get('/{custom_url}', [PostController::class, 'show'])
-//     ->where('custom_url', '[a-zA-Z0-9\-]+')
-//     ->name('page.show'); 
+Route::get('/{custom_url}', [PostController::class, 'show'])
+    ->where('custom_url', '[a-zA-Z0-9\-]+')
+    ->name('posts.show'); 
 
