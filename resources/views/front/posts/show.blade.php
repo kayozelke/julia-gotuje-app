@@ -37,27 +37,26 @@
                             <!-- August 15, 2021 -->
                             {{ $post->updated_at }}
                         </div>
-                        <div class="entry__meta-cat">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M19.25 17.25V9.75C19.25 8.64543 18.3546 7.75 17.25 7.75H4.75V17.25C4.75 18.3546 5.64543 19.25 6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25Z">
-                                </path>
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M13.5 7.5L12.5685 5.7923C12.2181 5.14977 11.5446 4.75 10.8127 4.75H6.75C5.64543 4.75 4.75 5.64543 4.75 6.75V11">
-                                </path>
-                            </svg>
-
-                            <!-- if parent category -->
-                            @if($post->parent_category)
+                        <!-- if parent category -->
+                        @if($post->parent_category)
+                            <div class="entry__meta-cat">
+                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M19.25 17.25V9.75C19.25 8.64543 18.3546 7.75 17.25 7.75H4.75V17.25C4.75 18.3546 5.64543 19.25 6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25Z">
+                                    </path>
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M13.5 7.5L12.5685 5.7923C12.2181 5.14977 11.5446 4.75 10.8127 4.75H6.75C5.64543 4.75 4.75 5.64543 4.75 6.75V11">
+                                    </path>
+                                </svg>
                                 <span class="cat-links">
                                     <a href="{{ route('categories', ['id' => $post->parent_category->id]) }}">
                                         {{ $post->parent_category->name }}
                                     </a>
                                 </span>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div>
                 </header>
 
@@ -80,12 +79,12 @@
                             enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco
                             magna amet magna cupidatat qui labore cillum cillum cupidatat fugiat nostrud. </p>
 
-                        <p class="drop-cap">
+                        <!-- <p class="drop-cap">
                             Eligendi quam at quis. Sit vel neque quam consequuntur expedita quisquam. Incidunt quae
                             qui error. Rerum non facere mollitia ut magnam laboriosam. Quisquam neque quia ex eligendi
                             repellat illum quibusdam aut. Architecto quam consequuntur totam ratione reprehenderit est
                             praesentium impedit maiores incididunt adipisicing veniam velit .
-                        </p>
+                        </p> -->
 
                         <p>
                             Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor
@@ -113,96 +112,6 @@
                             adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut
                             laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat
                             in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                        </p>
-
-                        <h2>Large Heading</h2>
-
-                        <p>
-                            Harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta
-                            nobis est eligendi optio cumque nihil impedit quo minus <a href="http://#">omnis voluptas
-                                assumenda est</a>
-                            id quod maxime placeat facere possimus, omnis dolor repellendus. Temporibus autem quibusdam
-                            et
-                            aut officiis debitis aut rerum necessitatibus saepe eveniet ut et.</p>
-
-                        <blockquote>
-                            <p>
-                                For God so loved the world, that he gave his only Son, that whoever believes in
-                                him should not perish but have eternal life. For God did not send his Son into
-                                the world to condemn the world, but in order that the world might be
-                                saved through him.
-                            </p>
-                            <cite>John 3:16-17 ESV</cite>
-                        </blockquote>
-
-                        <p>
-                            Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-                            dolores
-                            et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
-                            culpa.
-                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae
-                            elit
-                            libero, a pharetra augue laboris in sit minim cupidatat ut dolor voluptate enim veniam
-                            consequat
-                            occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis
-                            nostrud sed sed..</p>
-
-                        <h3>Smaller Heading</h3>
-
-                        <p>
-                            Quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                            eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
-                            voluptas
-                            assumenda est, omnis dolor repellendus.
-                        </p>
-
-                        <p>
-                            Quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                            eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
-                            voluptas
-                            assumenda est, omnis dolor repellendus.
-                        </p>
-
-                        <pre><code class="language-css">
-                            code {
-                                font-size: 1.4rem;
-                                margin: 0 .2rem;
-                                padding: .2rem .6rem;
-                                white-space: nowrap;
-                                background: #F1F1F1;
-                                border: 1px solid #E1E1E1;	
-                                border-radius: 3px;
-                            }
-                        </code></pre>
-
-                        <p>
-                            Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-                            dolores et
-                            quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.
-                        </p>
-
-                        <ul>
-                            <li>Donec nulla non metus auctor fringilla.
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </li>
-                            <li>Donec nulla non metus auctor fringilla.</li>
-                            <li>Donec nulla non metus auctor fringilla.</li>
-                        </ul>
-
-                        <p>
-                            Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-                            dolores et quas
-                            molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa. Aenean
-                            eu leo quam.
-                            Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a
-                            pharetra augue
-                            laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in
-                            adipisicing
-                            in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
                         </p>
 
                         <!-- <p class="entry__tags">
