@@ -341,6 +341,9 @@ class PostController extends Controller
     public function show(Request $request){
 
         echo 'Youre at show method of PostController.php';
+        $custom_url = $request->route('custom_url');
+        echo '<br>';
+        echo 'Custom URL: ' . $custom_url;
 
         return;
     }
