@@ -346,7 +346,7 @@ class PostController extends Controller
         // echo 'Custom URL: ' . $custom_url;
 
         
-        $post = Post::where('url', $custom_url)->first();
+        $post = Post::with(['createdByUser', 'updatedByUser', 'parent_category'])->where('url', $custom_url)->first();
         
 
         // If the category does not exist, return a 404 error

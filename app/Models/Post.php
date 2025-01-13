@@ -44,4 +44,10 @@ class Post extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    // Relation to the parent category 
+    public function parent_category()
+    {
+        return $this->belongsTo(Category::class, 'parent_category_id');
+    }
+
 }
