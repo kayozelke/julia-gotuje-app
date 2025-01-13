@@ -25,15 +25,15 @@ use App\Http\Controllers\SettingsController;
 
 // ################ PANEL ###################
 
-Route::get('/admin_test', function () {
+// Route::get('/admin_test', function () {
 
-    // echo view('panel/auth/header');
-    // // echo view('panel/auth/home_page');
-    // echo view('panel/auth/account_settings');
-    // echo view('panel/auth/footer');
-    return view('panel/auth/account_settings');
-    // return view('panel/auth/form_horizontal');
-});
+//     // echo view('panel/auth/header');
+//     // // echo view('panel/auth/home_page');
+//     // echo view('panel/auth/account_settings');
+//     // echo view('panel/auth/footer');
+//     return view('panel/auth/account_settings');
+//     // return view('panel/auth/form_horizontal');
+// });
 
 Route::get('/admin', function () {
     return redirect()->route('admin.home');
@@ -46,7 +46,7 @@ Route::get('/admin/home', function () {
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Route::middleware("auth")->group(function () {
-//     // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
+// //     // Route::view("admin/home", [AuthController::class, 'index'])->name("admin.home");
 //     return redirect()->route('admin.home');
 // });
 
@@ -95,7 +95,7 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 // ############################################
 
 // Route for dynamic pages must be at the end
-// Route::get('/{custom_url}', [PageController::class, 'show'])
+// Route::get('/{custom_url}', [PostController::class, 'show'])
 //     ->where('custom_url', '[a-zA-Z0-9\-]+')
 //     ->name('page.show'); 
 
