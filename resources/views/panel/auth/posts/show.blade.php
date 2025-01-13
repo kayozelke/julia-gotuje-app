@@ -45,7 +45,7 @@
                     Edytuj wpis
                 </button>
                 {{-- {{ route('admin.categories.delete', ['id' => $current_category_id]) }} --}}
-                <a type="button" class="btn btn-danger mx-1" href="#">
+                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.posts.delete', ['id' => $post->id]) }}">
                     Usuń wpis
                 </a>
             </div>

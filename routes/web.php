@@ -71,6 +71,8 @@ Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('au
 Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
 Route::post('/admin/posts/add_post', [PostController::class, 'panelAddPost'])->middleware('auth')->name('admin.posts.add.post');
 Route::get('/admin/posts/show', [PostController::class, 'panelShow'])->middleware('auth')->name('admin.posts.show');
+Route::get('/admin/posts/delete', [PostController::class, 'panelDelete'])->middleware('auth')->name('admin.posts.delete');
+Route::post('/admin/posts/delete', [PostController::class, 'panelDeletePost'])->middleware('auth')->name('admin.posts.delete.post');
 
 // admin settings
 Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middleware('auth')->name('admin.settings');

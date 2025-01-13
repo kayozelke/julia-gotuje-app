@@ -328,9 +328,80 @@ class PostController extends Controller
         ]);
     }
 
+    public function panelDelete(Request $request){
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+
+        // $parent_category_id = $request->query('category_id');
+        $parent_category_id = null;
+        $parent_categories = null;
+
+
+        $post_id = $request->query('id');
+
+        $post = null;
+
+        if (isset($post_id)) {
+
+            if ( !(Post::where('id', $post_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wpis o ID "' . $post_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny post.',
+                ]);
+            } else {
+                $post = Post::with(['createdByUser', 'updatedByUser'])->find($post_id);
+            }
+
+        } else {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+            ]);
+        }
 
 
 
+        return view('panel.auth.posts.delete', [
+            'post' => $post,
+            'parent_categories' => (new Category())->findParentCategories($post->parent_category_id),
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
+
+    
+    public function panelDeletePost(Request $request){
+
+        $post = Post::find($request->delete_id);
+        if (!$post) {
+            return redirect()->back()->with(['toastErrorTitle' => 'Wpis o ID "' . $request->delete_id . '" nie istnieje.']);
+        }
+
+        try {
+            $post->delete();
+            return redirect(route('admin.posts'))->with([
+                'toastSuccessTitle' => 'Pomyślnie usunięto wpis',
+                'toastSuccessHideTime' => 5,
+            ]);
+        } catch (\Exception $e) {
+            return redirect(route('admin.posts'))->with([
+                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania wpisu!',
+                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorHideTime' => 10,
+            ]);
+        }
+
+        
+    }
 
 
 
