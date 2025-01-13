@@ -6,7 +6,7 @@
 
     <!-- Hoverable Table rows -->
     <div class="card">
-        <h5 class="card-header">Hoverable rows</h5>
+        <h5 class="card-header">Panel ustawień</h5>
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
@@ -33,7 +33,7 @@
                             {{-- Value --}}
                             <td>{{ $setting->value }}</td>
                             {{-- Description --}}
-                            <td>{{ $setting->description }}</td>
+                            <td class="description-cell">{{ $setting->description }}</td>
                             {{-- Update at --}}
                             <td>{{ $setting->updated_at ? $setting->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
                             {{-- Updated by --}}
