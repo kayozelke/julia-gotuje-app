@@ -37,10 +37,12 @@
         </div>
 
         {{-- Przyciski akcji --}}
-        <div class="d-flex justify-content-between">
+        {{-- <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-primary">Zapisz</button>
             <a class="btn btn-secondary" href="{{ route('admin.settings') }}">Powrót</a>
-        </div>
+        </div> --}}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+        <a class="btn btn-secondary" href="{{ route('admin.settings') }}">Powrót</a>
     </form>
 </div>
 
