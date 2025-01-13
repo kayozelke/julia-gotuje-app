@@ -33,7 +33,7 @@
                             {{-- Value --}}
                             <td>{{ $setting->value }}</td>
                             {{-- Description --}}
-                            <td style="word-break: break-all">{{ $setting->description }}</td>
+                            <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">{{ $setting->description }}</td>
                             {{-- Update at --}}
                             <td>{{ $setting->updated_at ? $setting->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
                             {{-- Updated by --}}
