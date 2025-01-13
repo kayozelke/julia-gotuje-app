@@ -101,7 +101,7 @@
         </div>
         <div class="column lg-5 md-6 tab-12">
             <div class="ss-copyright">
-                <span>© Copyright Spurgeon 2021</span>
+                <span>© Copyright JA & DK 2025</span>
                 <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
             </div>
         </div>
