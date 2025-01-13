@@ -119,7 +119,7 @@
         </a>
     </div> <!-- end ss-go-top -->
 
-</footer><!-- end s-footer -->
+</footer><!-- end s-footer --> 
 
 
 <!-- Java Script
