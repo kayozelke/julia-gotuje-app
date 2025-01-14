@@ -411,10 +411,10 @@ class PostController extends Controller
 
     public function show(Request $request){
 
-        echo 'Youre at show method of PostController.php';
+        // echo 'Youre at show method of PostController.php';
         $custom_url = $request->route('custom_url');
-        echo '<br>';
-        echo 'Custom URL: ' . $custom_url;
+        // echo '<br>';
+        // echo 'Custom URL: ' . $custom_url;
 
         
         $post = Post::with(['createdByUser', 'updatedByUser', 'parent_category'])->where('url', $custom_url)->first();
@@ -433,7 +433,7 @@ class PostController extends Controller
         return view('front.posts.show', [
             // 'parent_category' => $parent_category,
             // 'subcategories' => $subcategories,
-            // 'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
             'post' => $post,
         ]);
     }

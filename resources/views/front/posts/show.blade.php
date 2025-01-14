@@ -7,6 +7,33 @@
     <div class="row entry-wrap">
         <div class="column lg-12">
 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="list-style: none; padding: 0; margin: 0; display: inline;">
+                    @if (count($recurrent_parent_categories) == 0)
+                        <li class="breadcrumb-item active" style="display: inline;">Wszystko
+                        </li>
+                    @else
+                        <li class="breadcrumb-item" style="display: inline;">
+                            <a href="{{ route('main_categories') }}" style="text-decoration: none; color: inherit;">
+                                Wszystko
+                            </a>
+                        </li>
+
+                        {{-- Iterate through parent categories and add '/' separator --}}
+                        @foreach (array_reverse($recurrent_parent_categories) as $par_category)
+                            <li style="display: inline;"> / </li> <!-- Separator -->
+
+                            <li class="breadcrumb-item" style="display: inline;">
+                                <a href="{{ route('categories', ['id' => $par_category->id]) }}"
+                                    style="text-decoration: none; color: inherit;">
+                                    {{ $par_category->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    @endif
+                </ol>
+            </nav>
+
             <article class="entry format-standard">
 
                 <header class="entry__header">
@@ -38,7 +65,7 @@
                             {{ $post->updated_at }}
                         </div>
                         <!-- if parent category -->
-                        @if($post->parent_category)
+                        @if ($post->parent_category)
                             <div class="entry__meta-cat">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -62,10 +89,10 @@
 
                 <div class="entry__media">
                     <figure class="featured-image">
-                        <img src="{{  asset('front/images/thumbs/single/standard-1200.jpg') }}"
-                            srcset=" {{ asset('front/images/thumbs/single/standard-2400.jpg 2400w, 
-                                    front/images/thumbs/single/standard-1200.jpg 1200w, 
-                                    front/images/thumbs/single/standard-600.jpg 600w') }}"
+                        <img src="{{ asset('front/images/thumbs/single/standard-1200.jpg') }}"
+                            srcset=" {{ asset('front/images/thumbs/single/standard-2400.jpg 2400w,
+                                                                front/images/thumbs/single/standard-1200.jpg 1200w, 
+                                                                front/images/thumbs/single/standard-600.jpg 600w') }}"
                             sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                     </figure>
                 </div>
@@ -98,9 +125,9 @@
 
                         <figure class="alignwide">
                             <img src="{{ asset('front/images/sample-1200.jpg') }}"
-                                srcset="{{ asset('front/images/sample-2400.jpg 2400w, 
-                                        front/images/sample-1200.jpg 1200w, 
-                                        front/images/sample-600.jpg 600w') }}"
+                                srcset="{{ asset('front/images/sample-2400.jpg 2400w,
+                                                                        front/images/sample-1200.jpg 1200w, 
+                                                                        front/images/sample-600.jpg 600w') }}"
                                 sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                         </figure>
 
