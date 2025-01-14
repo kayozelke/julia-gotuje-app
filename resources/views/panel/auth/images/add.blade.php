@@ -15,7 +15,7 @@
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
+                <button type="submit" class="btn btn-success" role="button">Zapisz</button>
             </div>
 
         </form>
