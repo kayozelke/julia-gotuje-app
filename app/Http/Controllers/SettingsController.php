@@ -22,7 +22,7 @@ class SettingsController extends Controller {
         // Walidacja danych wejściowych
         $request->validate([
             'id' => 'required|integer|exists:general_settings,id', // Sprawdź, czy ID istnieje w bazie
-            'value' => 'required|string',          // Wartość musi być wypełniona
+            'value' => 'nullable|string',          // Wartość musi być wypełniona
             'description' => 'required|string',   // Opis musi być wypełniony
         ]);
 

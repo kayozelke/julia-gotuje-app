@@ -20,7 +20,7 @@
                     <label for="value" class="form-label">Wartość dla pola {{ $setting->key }}</label>
                     <input type="text" name="value" class="form-control" id="value"
                         placeholder="Wprowadź nową wartość" value="{{ old('value', $setting->value) }}"
-                        aria-describedby="valueHelp" required>
+                        aria-describedby="valueHelp">
                     <div id="valueHelp" class="form-text">
                         Wprowadź wartość, która zostanie przypisana do tego ustawienia.
                     </div>
