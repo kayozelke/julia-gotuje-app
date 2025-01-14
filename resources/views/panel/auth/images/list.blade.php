@@ -14,6 +14,26 @@
                 </a>
             </div>
         </div>
+        <hr>
+        <div class="card-body m-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Zdjęcie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($images as $image)
+                        <tr>
+                            <td>{{ $image->title }}</td>
+                            <td><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+        </div>
     </div>
 
 

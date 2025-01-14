@@ -21,8 +21,7 @@ class ImageController extends Controller
         // $parent_category_id = $request->query('category_id');
         // $current_category = null;
         // $subcategories = null;
-        $images = null;
-
+        $images = Image::all();
 
         return view('panel.auth.images.list', [
             $images => $images,
