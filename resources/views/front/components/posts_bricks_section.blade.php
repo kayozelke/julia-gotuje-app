@@ -72,9 +72,7 @@
     $totalPosts = count($posts);
 
     // Fetch posts_per_page from the database
-    $postsPerPage = DB::table('general_settings')
-        ->where('key', 'posts_per_page')
-        ->value('value'); // Get the value column directly
+    $postsPerPage = DB::table('general_settings')->where('key', 'posts_per_page')->value('value'); // Get the value column directly
 
     // Calculate total pages
     $postsPerPage = (int) $postsPerPage;
@@ -118,44 +116,31 @@
         <div class="column lg-12">
             <nav class="pgn">
                 <ul>
-                    <!-- Previous Button -->
-                    @if ($currentPage > 1)
+                    <li>
+                        @if ($currentPage > 1)
+                            <a class="pgn__prev"
+                                href="{{ url('categories') }}?id={{ $categoryId }}&page={{ $currentPage - 1 }}">Previous</a>
+                        @endif
+                    </li>
+
+                    @for ($i = 1; $i <= $totalPages; $i++)
                         <li>
-                            <a class="pgn__prev" href="?page={{ $currentPage - 1 }}">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M10.25 6.75L4.75 12L10.25 17.25"></path>
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M19.25 12H5"></path>
-                                </svg>
+                            <a class="{{ $i == $currentPage ? 'current' : '' }}"
+                                href="{{ url('categories') }}?id={{ $categoryId }}&page={{ $i }}">
+                                {{ $i }}
                             </a>
                         </li>
-                    @endif
-
-                    <!-- Page Numbers -->
-                    @for ($i = 1; $i <= $totalPages; $i++)
-                        @if ($i == $currentPage)
-                            <li><span class="pgn__num current">{{ $i }}</span></li>
-                        @else
-                            <li><a class="pgn__num" href="?page={{ $i }}">{{ $i }}</a></li>
-                        @endif
                     @endfor
 
-                    <!-- Next Button -->
-                    @if ($currentPage < $totalPages)
-                        <li>
-                            <a class="pgn__next" href="?page={{ $currentPage + 1 }}">
-                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M19 12H4.75"></path>
-                                </svg>
-                            </a>
-                        </li>
-                    @endif
+                    <li>
+                        @if ($currentPage < $totalPages)
+                            <a class="pgn__next"
+                                href="{{ url('categories') }}?id={{ $categoryId }}&page={{ $currentPage + 1 }}">Next</a>
+                        @endif
+                    </li>
                 </ul>
             </nav>
+
         </div> <!-- end column -->
     </div> <!-- end pagination -->
 
