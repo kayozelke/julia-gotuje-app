@@ -14,8 +14,8 @@ use App\Http\Controllers\SettingsController;
     })->name('home');
 
     // front categories pages
-    Route::get('/main_categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('main_categories');
-    Route::get('/categories', [CategoryController::class, 'FrontListCategoriesWithParentParam'])->name('categories');
+    Route::get('/main_categories', [CategoryController::class, 'frontListCategoriesWithParentParam'])->name('main_categories');
+    Route::get('/categories', [CategoryController::class, 'frontListCategoriesWithParentParam'])->name('categories');
 
     
     // front single view

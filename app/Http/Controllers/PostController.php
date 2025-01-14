@@ -38,6 +38,7 @@ class PostController extends Controller
         ];
     }
 
+    // ############################## PANEL ##############################
 
     public function panelList(Request $request){
 
@@ -405,17 +406,15 @@ class PostController extends Controller
     }
 
 
-
-
-    // FRONT
+// ############################## FRONT ##############################
 
 
     public function show(Request $request){
 
-        // echo 'Youre at show method of PostController.php';
+        echo 'Youre at show method of PostController.php';
         $custom_url = $request->route('custom_url');
-        // echo '<br>';
-        // echo 'Custom URL: ' . $custom_url;
+        echo '<br>';
+        echo 'Custom URL: ' . $custom_url;
 
         
         $post = Post::with(['createdByUser', 'updatedByUser', 'parent_category'])->where('url', $custom_url)->first();
@@ -426,7 +425,7 @@ class PostController extends Controller
             abort(404, 'Page not found: "'.$custom_url.'".');
         }
 
-        print_r($post);
+        // print_r($post);
 
 
         // return;
