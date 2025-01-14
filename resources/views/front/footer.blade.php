@@ -54,7 +54,7 @@
                 {{-- Show Facebook icon if value not empty --}}
                 @if (!empty($generalSettings->where('key', 'Facebook')->first()?->value))
                     <li>
-                        <a href="{{ $generalSettings->where('key', 'Facebook')->first()?->value }}" target="_blank">
+                        <a href="{{ $generalSettings->where('key', 'Facebook')->first()?->value }}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                 <path
@@ -69,7 +69,7 @@
                 {{-- Show Twitter/X icon if value not empty --}}
                 @if (!empty($generalSettings->where('key', 'X')->first()?->value))
                     <li>
-                        <a href="{{ $generalSettings->where('key', 'X')->first()?->value }}" target="_blank">
+                        <a href="{{ $generalSettings->where('key', 'X')->first()?->value }}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
                                 <path
@@ -84,7 +84,7 @@
                 {{-- Show Instagram icon if value not empty --}}
                 @if (!empty($generalSettings->where('key', 'Instagram')->first()?->value))
                     <li>
-                        <a href="{{ $generalSettings->where('key', 'Instagram')->first()?->value }}">
+                        <a href="{{ $generalSettings->where('key', 'Instagram')->first()?->value }}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
                                 <path
@@ -103,7 +103,7 @@
                 {{-- Show Pinterest icon if value not empty --}}
                 @if (!empty($generalSettings->where('key', 'Pinterest')->first()?->value))
                     <li>
-                        <a href="{{ $generalSettings->where('key', 'Pinterest')->first()?->value }}">
+                        <a href="{{ $generalSettings->where('key', 'Pinterest')->first()?->value }}" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                 <path
