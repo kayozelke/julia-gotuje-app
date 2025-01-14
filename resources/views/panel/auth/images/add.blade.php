@@ -8,6 +8,12 @@
         {{-- ADD POST --}}
         <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1">
             @csrf
+
+            <div class="mb-3">
+                <label for="imageFilesMultiple" class="form-label">Przesyłanie jednego lub wielu obrazów</label>
+                <input class="form-control" type="file" id="imageFilesMultiple" name="imageFilesMultiple" multiple="">
+            </div>
+
         </form>
     </div>
 </div>
