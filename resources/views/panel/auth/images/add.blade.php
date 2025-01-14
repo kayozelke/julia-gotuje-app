@@ -14,6 +14,10 @@
                 <input class="form-control" type="file" id="imageFilesMultiple" name="imageFilesMultiple" multiple="">
             </div>
 
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
+            </div>
+
         </form>
     </div>
 </div>
