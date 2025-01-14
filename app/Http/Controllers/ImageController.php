@@ -56,9 +56,9 @@ class ImageController extends Controller
 
 
     public function panelAddPost(Request $request) {
-        dd($request->all(), $request->file('imageFilesMultiple'));
+        // dd($request->all(), $request->file('imageFilesMultiple'));
 
-        
+
         // Walidacja plików i danych
         $request->validate([
             'imageFilesMultiple' => 'required|array', // Sprawdza, czy to tablica
