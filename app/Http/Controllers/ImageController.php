@@ -56,8 +56,12 @@ class ImageController extends Controller
 
 
     public function panelAddPost(Request $request) {
+        dd($request->all(), $request->file('imageFilesMultiple'));
+
+        
         // Walidacja plików i danych
         $request->validate([
+            'imageFilesMultiple' => 'required|array', // Sprawdza, czy to tablica
             'imageFilesMultiple.*' => 'file|image|max:2048', // Maksymalnie 2 MB na obraz
             'titles' => 'array',
             'titles.*' => 'string|max:255',
