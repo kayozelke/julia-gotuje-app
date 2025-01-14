@@ -8,6 +8,17 @@
         {{-- ADD POST --}}
         <form action="{{ route('admin.images.add.post') }}" method="POST" class="card-body m-1">
             @csrf
+            {{-- ########################## --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            {{-- ########################## --}}
 
             <div class="mb-3">
                 <label for="imageFilesMultiple" class="form-label">Przesyłanie jednego lub wielu obrazów</label>
