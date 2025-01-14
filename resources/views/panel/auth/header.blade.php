@@ -166,6 +166,13 @@
                 <div data-i18n="Basic">Posty</div>
               </a>
             </li>
+            {{-- Images  --}}
+            <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/images') ? 'active' : '' }}">
+              <a href="{{ route('admin.images') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-image"></i>
+                <div data-i18n="Basic">Obrazy</div>
+              </a>
+            </li>
             {{-- General settings --}}
             <li class="menu-item {{ Str::startsWith(request()->path(), 'admin/settings') ? 'active' : '' }}">
               <a href="{{ route('admin.settings') }}" class="menu-link">

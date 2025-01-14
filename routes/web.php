@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\SettingsController;
 
 // ########### FRONT ######################
@@ -73,6 +74,14 @@ Route::post('/admin/posts/add_post', [PostController::class, 'panelAddPost'])->m
 Route::get('/admin/posts/show', [PostController::class, 'panelShow'])->middleware('auth')->name('admin.posts.show');
 Route::get('/admin/posts/delete', [PostController::class, 'panelDelete'])->middleware('auth')->name('admin.posts.delete');
 Route::post('/admin/posts/delete', [PostController::class, 'panelDeletePost'])->middleware('auth')->name('admin.posts.delete.post');
+
+// admin images
+Route::get('/admin/images', [ImageController::class, 'panelList'])->middleware('auth')->name('admin.images');
+Route::get('/admin/images/add', [ImageController::class, 'panelAdd'])->middleware('auth')->name('admin.images.add');
+Route::post('/admin/images/add_post', [ImageController::class, 'panelAddPost'])->middleware('auth')->name('admin.images.add.post');
+Route::get('/admin/images/show', [ImageController::class, 'panelShow'])->middleware('auth')->name('admin.images.show');
+Route::get('/admin/images/delete', [ImageController::class, 'panelDelete'])->middleware('auth')->name('admin.images.delete');
+Route::post('/admin/images/delete', [ImageController::class, 'panelDeletePost'])->middleware('auth')->name('admin.images.delete.post');
 
 // admin settings
 Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middleware('auth')->name('admin.settings');
