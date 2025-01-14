@@ -70,7 +70,10 @@ class ImageController extends Controller
         if (!$images || !is_array($images)) {
             return redirect()
                 ->back()
-                ->withErrors(['imageFilesMultiple' => 'Musisz przesłać przynajmniej jeden plik.']);
+                ->with([
+                    'toastErrorTitle' => 'Wystąpił błąd!',
+                    'toastErrorDescription' => 'Musisz przesłać przynajmniej jeden plik.',
+                ]);
         }
     
         $titles = $request->input('titles');
