@@ -22,7 +22,7 @@
 
             <div class="mb-3">
                 <label for="imageFilesMultiple" class="form-label">Przesyłanie jednego lub wielu obrazów</label>
-                <input class="form-control" type="file" id="imageFilesMultiple" name="imageFilesMultiple" multiple="">
+                <input class="form-control" type="file" id="imageFilesMultiple" name="imageFilesMultiple[]" multiple="">
             </div>
 
             <div id="imageMetadataContainer">

@@ -64,8 +64,15 @@ class ImageController extends Controller
             'labels' => 'array',
             'labels.*' => 'string|max:255',
         ]);
-    
+
         $images = $request->file('imageFilesMultiple');
+
+        if (!$images || !is_array($images)) {
+            return redirect()
+                ->back()
+                ->withErrors(['imageFilesMultiple' => 'Musisz przesłać przynajmniej jeden plik.']);
+        }
+    
         $titles = $request->input('titles');
         $labels = $request->input('labels');
         $uploadPath = public_path('public/uploaded_images'); // Katalog na serwerze
