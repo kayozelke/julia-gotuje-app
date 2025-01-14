@@ -141,6 +141,7 @@
                             <li>
                                 <a class="{{ $i == $currentPage ? 'current' : '' }}"
                                     href="?{{ http_build_query(request()->except('page')) }}&page={{ $i }}">
+                                </a>
                             </li>
                         @endif
                     @endfor
