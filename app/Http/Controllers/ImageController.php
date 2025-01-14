@@ -84,6 +84,8 @@ class ImageController extends Controller
                     echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
                 }
             }
+        } else {
+            echo "no file<br>";
         }
 
         return;
