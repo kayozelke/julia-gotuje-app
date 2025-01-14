@@ -86,6 +86,8 @@ class ImageController extends Controller
             }
         }
 
+        return;
+
 
 
 
