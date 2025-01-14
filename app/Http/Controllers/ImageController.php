@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use Illuminate\Support\Facades\Auth;
 
 class ImageController extends Controller
 {
@@ -116,7 +117,7 @@ class ImageController extends Controller
     
         $titles = $request->input('titles');
         $labels = $request->input('labels');
-        $uploadPath = public_path('public/uploaded_images'); // Katalog na serwerze
+        $uploadPath = public_path('uploaded_images'); // Katalog na serwerze
     
         // Przetwarzanie każdego pliku
         foreach ($images as $index => $image) {
@@ -129,6 +130,10 @@ class ImageController extends Controller
                 'file_location' => "uploads/images/$filename",
                 'title' => $titles[$index] ?? null,
                 'label' => $labels[$index] ?? null,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'created_by' => Auth::id(),
+                'updated_by' => Auth::id(),
             ]);
         }
     
