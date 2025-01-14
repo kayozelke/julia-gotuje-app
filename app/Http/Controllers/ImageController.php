@@ -116,7 +116,7 @@ class ImageController extends Controller
     
         $titles = $request->input('titles');
         $labels = $request->input('labels');
-        $uploadPath = public_path('public/uploaded_images'); // Katalog na serwerze
+        $uploadPath = public_path('uploaded_images'); // Katalog na serwerze
     
         // Przetwarzanie każdego pliku
         foreach ($images as $index => $image) {
