@@ -24,7 +24,7 @@ class ImageController extends Controller
         $images = Image::all();
 
         return view('panel.auth.images.list', [
-            $images => $images,
+            'images' => $images,
 
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
