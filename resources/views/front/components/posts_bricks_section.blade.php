@@ -114,12 +114,14 @@
     <!-- Pagination -->
     <div class="row pagination">
         <div class="column lg-12">
-            {{-- <nav class="pgn">
+            <nav class="pgn">
                 <ul>
                     <!-- Previous Button -->
                     @if ($currentPage > 1)
                         <li>
-                            <a class="pgn__prev" href="?page={{ $currentPage - 1 }}">
+                            {{-- <a class="pgn__prev" href="?page={{ $currentPage - 1 }}"> --}}
+                            <a class="pgn__prev"
+                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage - 1 }}">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="1.5" d="M10.25 6.75L4.75 12L10.25 17.25"></path>
@@ -135,14 +137,20 @@
                         @if ($i == $currentPage)
                             <li><span class="pgn__num current">{{ $i }}</span></li>
                         @else
-                            <li><a class="pgn__num" href="?page={{ $i }}">{{ $i }}</a></li>
+                            {{-- <li><a class="pgn__num" href="?page={{ $i }}">{{ $i }}</a></li> --}}
+                            <li>
+                                <a class="{{ $i == $currentPage ? 'current' : '' }}"
+                                    href="?{{ http_build_query(request()->except('page')) }}&page={{ $i }}">
+                            </li>
                         @endif
                     @endfor
 
                     <!-- Next Button -->
                     @if ($currentPage < $totalPages)
                         <li>
-                            <a class="pgn__next" href="?page={{ $currentPage + 1 }}">
+                            {{-- <a class="pgn__next" href="?page={{ $currentPage + 1 }}"> --}}
+                            <a class="pgn__next"
+                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage + 1 }}">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="1.5" d="M13.75 6.75L19.25 12L13.75 17.25"></path>
@@ -152,36 +160,6 @@
                             </a>
                         </li>
                     @endif
-                </ul>
-            </nav> --}}
-            <nav class="pgn">
-                <ul>
-                    <li>
-                        @if ($currentPage > 1)
-                            <a class="pgn__prev"
-                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage - 1 }}">
-                                Previous
-                            </a>
-                        @endif
-                    </li>
-
-                    @for ($i = 1; $i <= $totalPages; $i++)
-                        <li>
-                            <a class="{{ $i == $currentPage ? 'current' : '' }}"
-                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $i }}">
-                                {{ $i }}
-                            </a>
-                        </li>
-                    @endfor
-
-                    <li>
-                        @if ($currentPage < $totalPages)
-                            <a class="pgn__next"
-                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage + 1 }}">
-                                Next
-                            </a>
-                        @endif
-                    </li>
                 </ul>
             </nav>
 
