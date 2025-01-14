@@ -126,7 +126,7 @@ class ImageController extends Controller
     
             // Tworzenie wpisu w bazie danych
             Image::create([
-                'file_location' => "uploads/images/$filename",
+                'file_location' => "/uploaded_images/$filename",
                 'title' => $titles[$index] ?? null,
                 'label' => $labels[$index] ?? null,
                 'created_at' => now(),
