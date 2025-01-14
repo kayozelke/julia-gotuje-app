@@ -72,9 +72,7 @@
     $totalPosts = count($posts);
 
     // Fetch posts_per_page from the database
-    $postsPerPage = DB::table('general_settings')
-        ->where('key', 'posts_per_page')
-        ->value('value'); // Get the value column directly
+    $postsPerPage = DB::table('general_settings')->where('key', 'posts_per_page')->value('value'); // Get the value column directly
 
     // Calculate total pages
     $postsPerPage = (int) $postsPerPage;
@@ -116,7 +114,7 @@
     <!-- Pagination -->
     <div class="row pagination">
         <div class="column lg-12">
-            <nav class="pgn">
+            {{-- <nav class="pgn">
                 <ul>
                     <!-- Previous Button -->
                     @if ($currentPage > 1)
@@ -155,7 +153,38 @@
                         </li>
                     @endif
                 </ul>
+            </nav> --}}
+            <nav class="pgn">
+                <ul>
+                    <li>
+                        @if ($currentPage > 1)
+                            <a class="pgn__prev"
+                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage - 1 }}">
+                                Previous
+                            </a>
+                        @endif
+                    </li>
+
+                    @for ($i = 1; $i <= $totalPages; $i++)
+                        <li>
+                            <a class="{{ $i == $currentPage ? 'current' : '' }}"
+                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $i }}">
+                                {{ $i }}
+                            </a>
+                        </li>
+                    @endfor
+
+                    <li>
+                        @if ($currentPage < $totalPages)
+                            <a class="pgn__next"
+                                href="?{{ http_build_query(request()->except('page')) }}&page={{ $currentPage + 1 }}">
+                                Next
+                            </a>
+                        @endif
+                    </li>
+                </ul>
             </nav>
+
         </div> <!-- end column -->
     </div> <!-- end pagination -->
 
