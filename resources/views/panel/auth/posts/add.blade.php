@@ -6,9 +6,9 @@
     <div class="card mb-4">
         <h5 class="card-header">Dodawanie posta</h5>
         {{-- ADD POST --}}
-        <form action="{{ route('admin.posts.add.post') }}" method="POST">
+        <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1">
             @csrf
-            <div class="card-body m-1">
+            {{-- <div class="card-body m-1"> --}}
                 {{-- ########################## --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -306,7 +306,7 @@
                         </div>
                     </div>
                 </div> --}}
-            </div>
+            {{-- </div> --}}
             
             <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
         </form>
