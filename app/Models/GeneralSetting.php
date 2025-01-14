@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GeneralSetting extends Model
 {
-    protected $table = 'general_settings'; // Nazwa tabeli
-    protected $fillable = ['key', 'value', 'description', 'updated_at', 'updated_by']; // Pola do masowego wypełniania
+    protected $table = 'general_settings'; // Table name
+    protected $fillable = ['key', 'value', 'description', 'updated_at', 'updated_by']; // Mass assignable fields
 
     // Relation to the user who updated the category
     public function updatedByUser()

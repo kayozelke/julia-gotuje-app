@@ -9,16 +9,16 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'categories'; // Nazwa tabeli w bazie danych
+    protected $table = 'categories'; // Table name in the database
 
-    // Pola, które można masowo przypisywać
+    // Mass assignable fields
     protected $fillable = [
         'name',
         'parent_id',
         'updated_by',
     ];
 
-    // Pola dat
+    // Date fields
     protected $dates = [
         'created_at',
         'updated_at',
@@ -51,7 +51,7 @@ class Category extends Model
 
     public function findChildrenCategories($categoryId, array &$childrens = []): array {/**
 
-        * Recursively finds all child categories for a given category
+        * Recursively finds all child categories for a given category.
         * @param int $categoryId The ID of the category to find children2 for.
         * @param array $childrens An array to store the child categories (passed by reference).
         * @return array An array of child categories.
@@ -68,7 +68,7 @@ class Category extends Model
         return $childrens;
     }
 
-    // Relation to the user who updated the category
+    // Relation to the user who updated the category.
     public function updatedByUser()
     {
         return $this->belongsTo(User::class, 'updated_by');
