@@ -6,7 +6,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Przesyłanie obrazów</h5>
         {{-- ADD POST --}}
-        <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1">
+        <form action="{{ route('admin.images.add.post') }}" method="POST" class="card-body m-1">
             @csrf
 
             <div class="mb-3">
