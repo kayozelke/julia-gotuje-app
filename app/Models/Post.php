@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $table = 'posts'; // Table name in the database
 
-    // Pola, które można masowo przypisywać
+    // Mass assignable fields
     protected $fillable = [
         'title',
         'url',
