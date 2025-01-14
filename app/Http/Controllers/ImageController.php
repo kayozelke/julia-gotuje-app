@@ -34,7 +34,24 @@ class ImageController extends Controller
         ]);
     }
 
-    public function panelAdd(Request $request) {}
+    public function panelAdd(Request $request) {
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        return view('panel.auth.images.add', [
+            
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
     public function panelAddPost(Request $request) {}
     public function panelShow(Request $request) {}
     public function panelDelete(Request $request) {}
