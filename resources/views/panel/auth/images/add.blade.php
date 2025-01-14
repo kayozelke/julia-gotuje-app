@@ -14,6 +14,10 @@
                 <input class="form-control" type="file" id="imageFilesMultiple" name="imageFilesMultiple" multiple="">
             </div>
 
+            <div id="imageMetadataContainer">
+                <p>Po dodaniu plików, wprowadź tytuły i opisy:</p>
+            </div>
+
             <div class="mb-3">
                 <button type="submit" class="btn btn-success" role="button">Zapisz</button>
             </div>
@@ -21,5 +25,29 @@
         </form>
     </div>
 </div>
+
+{{-- script for images metadata --}}
+<script>
+    const inputFile = document.getElementById('imageFilesMultiple');
+    const metadataContainer = document.getElementById('imageMetadataContainer');
+
+    inputFile.addEventListener('change', (event) => {
+        metadataContainer.innerHTML = ''; // Reset formularza
+        Array.from(event.target.files).forEach((file, index) => {
+            const metadataBlock = document.createElement('div');
+            metadataBlock.classList.add('mb-3');
+
+            metadataBlock.innerHTML = `
+                <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
+                <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł">
+                
+                <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
+                <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
+            `;
+            metadataContainer.appendChild(metadataBlock);
+        });
+    });
+</script>
+
 
 @include('panel.auth.footer')

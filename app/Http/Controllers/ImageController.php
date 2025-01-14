@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
 
 class ImageController extends Controller
 {
@@ -52,7 +53,44 @@ class ImageController extends Controller
             'toastErrorHideTime' => $toastErrorHideTime,
         ]);
     }
-    public function panelAddPost(Request $request) {}
+
+
+    public function panelAddPost(Request $request) {
+        // Walidacja plików i danych
+        $request->validate([
+            'imageFilesMultiple.*' => 'file|image|max:2048', // Maksymalnie 2 MB na obraz
+            'titles' => 'array',
+            'titles.*' => 'string|max:255',
+            'labels' => 'array',
+            'labels.*' => 'string|max:255',
+        ]);
+    
+        $images = $request->file('imageFilesMultiple');
+        $titles = $request->input('titles');
+        $labels = $request->input('labels');
+        $uploadPath = public_path('public/uploaded_images'); // Katalog na serwerze
+    
+        // Przetwarzanie każdego pliku
+        foreach ($images as $index => $image) {
+            // Tworzenie unikalnej nazwy pliku
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $image->move($uploadPath, $filename);
+    
+            // Tworzenie wpisu w bazie danych
+            Image::create([
+                'file_location' => "uploads/images/$filename",
+                'title' => $titles[$index] ?? null,
+                'label' => $labels[$index] ?? null,
+            ]);
+        }
+    
+        // Informacja zwrotna
+        return redirect()
+            ->route('admin.images')
+            ->with('toastSuccessTitle', 'Obrazy zostały przesłane!')
+            ->with('toastSuccessDescription', 'Wszystkie obrazy zostały poprawnie zapisane.');
+    }
+    
     public function panelShow(Request $request) {}
     public function panelDelete(Request $request) {}
     public function panelDeletePost(Request $request) {}
