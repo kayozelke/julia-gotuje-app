@@ -427,13 +427,16 @@ class PostController extends Controller
 
         // print_r($post);
 
+        // Pobierz ID nadrzędnej kategorii z posta
+        $parent_category_id = $post->parent_category_id;
 
-        // return;
+        // Znajdź wszystkie nadrzędne kategorie
+        $recurrent_parent_categories = (new Category())->findParentCategories($parent_category_id);
 
         return view('front.posts.show', [
             // 'parent_category' => $parent_category,
             // 'subcategories' => $subcategories,
-            'recurrent_parent_categories' => (new Category())->findParentCategories($parent_category_id),
+            'recurrent_parent_categories' => $recurrent_parent_categories,
             'post' => $post,
         ]);
     }
