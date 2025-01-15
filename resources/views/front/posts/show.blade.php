@@ -6,13 +6,15 @@
 
     <div class="row entry-wrap">
         <div class="column lg-12">
+            {{-- show breadcrumb if any category is set --}}
+            @if (count($recurrent_parent_categories) != 0)
             <h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb" style="list-style: none; padding: 0; margin: 0; display: inline;">
-                        @if (count($recurrent_parent_categories) == 0)
+                        {{-- @if (count($recurrent_parent_categories) == 0) --}}
                             {{-- <li class="breadcrumb-item active" style="display: inline;">Wszystko
                             </li> --}}
-                        @else
+                        {{-- @else --}}
                             <li class="breadcrumb-item" style="display: inline;">
                                 <a href="{{ route('main_categories') }}" style="text-decoration: none; color: inherit;">
                                     Wszystko
@@ -30,10 +32,11 @@
                                     </a>
                                 </li>
                             @endforeach
-                        @endif
+                        {{-- @endif --}}
                     </ol>
                 </nav>
             </h3>
+            @endif
 
             <article class="entry format-standard">
 
