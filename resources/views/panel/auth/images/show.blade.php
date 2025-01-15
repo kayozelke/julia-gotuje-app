@@ -52,7 +52,8 @@
 						<td class="align-middle"><small class="text-light fw-semibold">Adres URL</small></td>
 						<td class="py-3">
 							{{-- <p class="mb-0"><em>{{ url() }}{{ $image->file_location }}</em></p> --}}
-							<p class="mb-0"><em><input type="text" value="{{ rtrim(url('/'), '/') }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p>
+							{{-- <p class="mb-0"><em><input type="text" value="{{ rtrim(url('/'), '/') }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p> --}}
+							<p class="mb-0"><em><span id="urlToCopy">{{ rtrim(url('/'), '/') }}{{ $image->file_location }}</span></em></p>
 							
 							<button class="btn btn-secondary" onclick="copyUrlToClipboard()">Kopiuj do schowka</button>
 						</td>
@@ -76,17 +77,28 @@
 
 <script>
 	function copyUrlToClipboard() {
-	// Get the text field
-	var copyText = document.getElementById("urlToCopy");
+		// Get the span element
+		var copyText = document.getElementById("urlToCopy");
 
-	// Select the text field
-	copyText.select();
-	copyText.setSelectionRange(0, 99999); // For mobile devices
+		// Create a temporary textarea element
+		var tempTextArea = document.createElement("textarea");
+		tempTextArea.value = copyText.textContent || copyText.innerText;
 
-	// Copy the text inside the text field
-	navigator.clipboard.writeText(copyText.value);
+		// Append the textarea to the body (temporarily)
+		document.body.appendChild(tempTextArea);
 
-	// Alert the copied text
-	alert("Copied the text: " + copyText.value);
+		// Select the text in the textarea
+		tempTextArea.select();
+		tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+		// Copy the text inside the textarea
+		navigator.clipboard.writeText(tempTextArea.value);
+
+		// Remove the temporary textarea
+		document.body.removeChild(tempTextArea);
+
+		// Optionally, you can show a message to the user
+		// alert("Copied the text: " + tempTextArea.value);
 	}
 </script>
+
