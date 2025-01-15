@@ -1,5 +1,12 @@
 @include('panel.auth.header')
 
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor.css" rel="stylesheet"> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor-contents.css" rel="stylesheet"> -->
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+<!-- languages (Basic Language: English/en) -->
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/pl.js"></script>
+
 <div class="container-xxl flex-grow-1 container-p-y">
     {{-- TOASTS --}}
     @include('panel.components.alert_toasts')
@@ -98,7 +105,10 @@
                             <h5 class="card-header">Treść wpisu</h5>
                             <div class="card-body">
                                 {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
-                                <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea>
+                                {{-- <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea> --}}
+
+                                
+                                <textarea name="post_content" id="sunEditorTextArea" style="width:100%; height:300px;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -818,4 +828,32 @@
             })
             .catch(error => console.error('Error:', error));
     }
+</script>
+
+<script>
+    // /**
+    // * ID : 'suneditor_sample'
+    // * ClassName : 'sun-eidtor'
+    // */
+    // // ID or DOM object
+    const editor = SUNEDITOR.create((document.getElementById('sunEditorTextArea') || 'sunEditorTextArea'),{
+        // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
+        // Insert options
+        // Language global object (default: en)
+        lang: SUNEDITOR_LANG['pl'],
+        buttonList: [
+            // Podstawowe narzędzia
+            ['undo', 'redo'],
+            ['font', 'fontSize', 'formatBlock'],
+            ['paragraphStyle', 'blockquote'],
+            ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+            ['fontColor', 'hiliteColor', 'textStyle'],
+            ['align', 'horizontalRule', 'list', 'lineHeight'],
+            ['outdent', 'indent'],
+            ['table', 'link', 'image', 'video', 'audio'],
+            ['fullScreen', 'showBlocks', 'codeView'],
+            ['preview', 'print'],
+            ['removeFormat']
+        ]
+    });
 </script>
