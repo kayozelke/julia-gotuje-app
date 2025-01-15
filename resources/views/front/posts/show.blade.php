@@ -101,6 +101,12 @@
                 <div class="content-primary">
 
                     <div class="entry__content">
+                        
+                        <div>
+                            {{ $post->content }}
+                        </div>
+
+                        <hr>
                         <p class="lead">
                             Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor
                             sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat
