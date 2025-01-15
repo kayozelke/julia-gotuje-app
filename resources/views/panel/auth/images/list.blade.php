@@ -27,7 +27,8 @@
                 <tbody>
                     @foreach ($images as $image)
                         <tr>
-                            <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td>
+<!--                             <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> -->
+                            <td><a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td>
                             <td>{{ $image->title }}</td>
                             <td>{{ $image->label }}</td>
                         </tr>
