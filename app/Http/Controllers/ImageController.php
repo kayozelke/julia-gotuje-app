@@ -101,7 +101,7 @@ class ImageController extends Controller
             'titles' => 'array',
             'titles.*' => 'string|max:255',
             'labels' => 'array',
-            'labels.*' => 'string|max:255',
+            // 'labels.*' => 'string|max:255',
         ]);
 
         $images = $request->file('imageFilesMultiple');
