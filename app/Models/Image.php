@@ -27,4 +27,16 @@ class Image extends Model
         'created_at',
         'updated_at',
     ];
+
+     // Relation to the user who created the post
+    public function createdByUser()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    // Relation to the user who updated the post
+    public function updatedByUser()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }
