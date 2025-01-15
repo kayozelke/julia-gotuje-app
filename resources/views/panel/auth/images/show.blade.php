@@ -53,9 +53,14 @@
 						<td class="py-3">
 							{{-- <p class="mb-0"><em>{{ url() }}{{ $image->file_location }}</em></p> --}}
 							{{-- <p class="mb-0"><em><input type="text" value="{{ rtrim(url('/'), '/') }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p> --}}
-							<p class="mb-0"><em><span id="urlToCopy">{{ rtrim(url('/'), '/') }}{{ $image->file_location }}</span></em></p>
+							<p class="mb-0">
+								<em><span id="urlToCopy">{{ rtrim(url('/'), '/') }}{{ $image->file_location }}</span></em>
+								
+								<button class="btn btn-secondary mx-3" onclick="copyUrlToClipboard()">
+									<i class='bx bx-clipboard'></i>
+								</button>
+							</p>
 							
-							<button class="btn btn-secondary" onclick="copyUrlToClipboard()">Kopiuj do schowka</button>
 						</td>
 					</tr>
 				</tbody>
