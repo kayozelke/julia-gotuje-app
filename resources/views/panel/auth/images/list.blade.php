@@ -19,15 +19,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Tytuł</th>
                         <th>Zdjęcie</th>
+                        <th>Tytuł</th>
+                        <th>Opis</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($images as $image)
                         <tr>
+                            <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td>
                             <td>{{ $image->title }}</td>
-                            <td><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></td>
+                            <td>{{ $image->label }}</td>
                         </tr>
                     @endforeach
                 </tbody>
