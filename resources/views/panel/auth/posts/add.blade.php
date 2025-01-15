@@ -859,6 +859,7 @@
         ],
         imageFileInput: false,
         minHeight: '450px',
+        maxCharCount: 10000,
     });
 
     // 
