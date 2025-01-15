@@ -56,7 +56,7 @@
 							<p class="mb-0">
 								<em><span id="urlToCopy">{{ rtrim(url('/'), '/') }}{{ $image->file_location }}</span></em>
 								
-								<button class="btn btn-secondary mx-3" onclick="copyUrlToClipboard()">
+								<button class="btn btn-sm btn-secondary mx-3" onclick="copyUrlToClipboard()" id="copyUrlButton">
 									<i class='bx bx-clipboard'></i>
 								</button>
 							</p>
@@ -104,6 +104,15 @@
 
 		// Optionally, you can show a message to the user
 		// alert("Copied the text: " + tempTextArea.value);
+
+		document.getElementById("copyUrlButton").classList.remove("btn-secondary");
+		document.getElementById("copyUrlButton").classList.add("btn-success");
+
+		setTimeout(function() {
+			document.getElementById("copyUrlButton").classList.remove("btn-success");
+			document.getElementById("copyUrlButton").classList.add("btn-secondary");
+		}, 5000);
+
 	}
 </script>
 
