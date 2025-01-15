@@ -165,9 +165,7 @@ class ImageController extends Controller
                     'toastErrorDescription' => 'Proszę wybrać poprawny obraz.',
                 ]);
             } else {
-                // TODO - add methods createdByUser updatedByUser
-                // $image = Image::with(['createdByUser', 'updatedByUser'])->find($image_id);
-                $image = Image::find($image_id);
+                $image = Image::with(['createdByUser', 'updatedByUser'])->find($image_id);
             }
 
         } else {
