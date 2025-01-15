@@ -268,7 +268,7 @@ class ImageController extends Controller
         }        
         
         return redirect(route('admin.posts'))->with([
-            'toastSuccessTitle' => 'Pomyślnie usunięto wpis',
+            'toastSuccessTitle' => 'Pomyślnie usunięto obraz',
             'toastSuccessHideTime' => 5,
         ]);
 
