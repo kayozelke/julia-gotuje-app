@@ -88,7 +88,7 @@
                     </div>
                 </header>
 
-                <div class="entry__media">
+                {{-- <div class="entry__media">
                     <figure class="featured-image">
                         <img src="{{ asset('front/images/thumbs/single/standard-1200.jpg') }}"
                             srcset=" {{ asset('front/images/thumbs/single/standard-2400.jpg 2400w,
@@ -96,7 +96,7 @@
                                                                                             front/images/thumbs/single/standard-600.jpg 600w') }}"
                             sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                     </figure>
-                </div>
+                </div> --}}
 
                 <div class="content-primary">
 
@@ -106,7 +106,7 @@
                             {!! $post->content !!}
                         </div>
 
-                        <hr>
+                        {{-- <hr>
                         <p class="lead">
                             Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor
                             sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat
@@ -146,7 +146,7 @@
                             adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut
                             laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat
                             in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                        </p>
+                        </p> --}}
 
                         <!-- <p class="entry__tags">
                             <strong>Tags:</strong>
