@@ -28,11 +28,13 @@
                     <tbody>
                         @foreach ($images as $image)
                             <tr>
-    <!--                             <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> -->
+                                {{-- <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> --}}
                                 <td class="d-flex justify-content-center">
-                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a>
+                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 100px; max-width: 150px; height: auto;"></a>
                                 </td>
-                                <td>{{ $image->title }}</td>
+                                <td>
+                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}">{{ $image->title }}</a>
+                                </td>
                                 <td>{{ $image->label }}</td>
                             </tr>
                         @endforeach
