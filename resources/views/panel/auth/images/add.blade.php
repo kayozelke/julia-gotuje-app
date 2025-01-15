@@ -26,7 +26,7 @@
             </div>
 
             <div id="imageMetadataContainer">
-                <p>Po dodaniu plików, wprowadź tytuły i opisy:</p>
+                {{-- <p>Po dodaniu plików, wprowadź tytuły i opisy:</p> --}}
             </div>
 
             <div class="mb-3">
@@ -49,11 +49,16 @@
             metadataBlock.classList.add('mb-3');
 
             metadataBlock.innerHTML = `
-                <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
-                <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł">
-                
-                <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
-                <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
+                        <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
+                        <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
+                    </div>
+                </div>
             `;
             metadataContainer.appendChild(metadataBlock);
         });
