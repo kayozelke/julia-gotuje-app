@@ -105,7 +105,7 @@
         <h5 class="card-header">Treść</h5>
 
         <div class="px-4 py-3">
-            {{ $post->content }}
+            {{!! $post->content !!}}
         </div>
         
     </div>
