@@ -6,11 +6,27 @@
 
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
-        <h6>Dodano {{ $image->created_at }} przez {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</h6>
-        <h6>Zmodyfikowano {{ $image->updated_at }} przez {{ $image->updatedByUser->first_name ?? 'N/A' }} {{ $image->updatedByUser->last_name ?? '' }}</h6>
+        <div class="card-body">
+            <table class="table table-borderless">
+				<tbody>
+					<tr>
+						<td class="align-middle"><small class="text-light fw-semibold">Dodano</small></td>
+						<td class="py-3">
+							<p class="mb-0">{{ $image->created_at }} przez {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="align-middle"><small class="text-light fw-semibold">Zmodyfikowano</small></td>
+						<td class="py-3">
+							<p class="mb-0">{{ $image->updated_at }} przez {{ $image->updatedByUser->first_name ?? 'N/A' }} {{ $image->updatedByUser->last_name ?? '' }}</p>
+						</td>
+					</tr>
+				</tbody>
+            </table>
+        </div>
 
         <div class="card-body">
-          <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="300"></a>
+            <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="height: 100%; width: 100%; object-fit: contain;"></a>
         </div>
 
 
@@ -20,5 +36,3 @@
 </div>
 
 @include('panel.auth.footer')
-
-
