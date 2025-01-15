@@ -16,25 +16,29 @@
         </div>
         <hr>
         <div class="card-body m-1">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Zdjęcie</th>
-                        <th>Tytuł</th>
-                        <th>Opis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($images as $image)
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
                         <tr>
-<!--                             <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> -->
-                            <td><a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td>
-                            <td>{{ $image->title }}</td>
-                            <td>{{ $image->label }}</td>
+                            <th>Zdjęcie</th>
+                            <th>Tytuł</th>
+                            <th>Opis</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($images as $image)
+                            <tr>
+    <!--                             <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> -->
+                                <td class="d-flex justify-content-center">
+                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a>
+                                </td>
+                                <td>{{ $image->title }}</td>
+                                <td>{{ $image->label }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>
