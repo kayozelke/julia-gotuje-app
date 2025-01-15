@@ -44,23 +44,35 @@
 
     inputFile.addEventListener('change', (event) => {
         metadataContainer.innerHTML = ''; // Reset formularza
-        Array.from(event.target.files).forEach((file, index) => {
-            const metadataBlock = document.createElement('div');
-            metadataBlock.classList.add('mb-3');
 
-            metadataBlock.innerHTML = `
-                <div class="row align-items-center">
-                    <div class="col-md-3">
-                        <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
-                        <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
+        Array.from(event.target.files).forEach((file, index) => {
+            const reader = new FileReader();
+
+            // Po załadowaniu pliku wyświetl podgląd
+            reader.onload = (e) => {
+                const metadataBlock = document.createElement('div');
+                metadataBlock.classList.add('mb-3', 'border', 'p-3', 'rounded', 'shadow-sm');
+
+                metadataBlock.innerHTML = `
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <img src="${e.target.result}" alt="Podgląd obrazu" class="img-thumbnail" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
+                            <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
+                            <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
+                        </div>
                     </div>
-                    <div class="col-md-9">
-                        <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
-                        <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
-                    </div>
-                </div>
-            `;
-            metadataContainer.appendChild(metadataBlock);
+                `;
+                metadataContainer.appendChild(metadataBlock);
+            };
+
+            // Odczyt pliku jako URL danych
+            reader.readAsDataURL(file);
         });
     });
 </script>
