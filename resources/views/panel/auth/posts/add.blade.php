@@ -108,7 +108,7 @@
                                 {{-- <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea> --}}
 
                                     <input type="hidden" name="post_content" id="postContent">
-                                    <textarea id="sunEditorTextArea" style="width:100%; height:100%;"></textarea>
+                                    <textarea id="sunEditorTextArea" style="width:100%;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -858,6 +858,7 @@
             ['removeFormat']
         ],
         imageFileInput: false
+        minHeight: '450px',
     });
 
     // 
