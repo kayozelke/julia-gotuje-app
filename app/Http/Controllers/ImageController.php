@@ -204,12 +204,12 @@ class ImageController extends Controller
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
         $validated = $request->validate([
-            'id' => 'required|integer|exists:images,id', // Check if id exists in database
+            'update_id' => 'required|integer|exists:images,id', // Check if id exists in database
             'title' => 'required|string',   
             'label' => 'nullable|string',          
         ]);
 
-        $image = Image::with(['createdByUser','updatedByUser'])->findOrFail($request->input('id'));
+        $image = Image::with(['createdByUser','updatedByUser'])->findOrFail($request->input('update_id'));
 
         $image->update([
             'title' => $validated['title'],
