@@ -13,7 +13,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Dodawanie posta</h5>
         {{-- ADD POST --}}
-        <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1">
+        <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1" id="postForm">
             @csrf
             {{-- <div class="card-body m-1"> --}}
                 {{-- ########################## --}}
@@ -859,11 +859,17 @@
         ]
     });
 
+    // 
+    // 
+    // 
 
-    function handleFormSubmit(event) {
+    const form = document.getElementById('postForm');
+
+    // Add submit handler
+    form.addEventListener('submit', function(event) {
         const content = editor.getContents();
-        
-        // Set value to hidden field
+        // set hidden field content
         document.getElementById('postContent').value = content;
-    }
+    });
+
 </script>
