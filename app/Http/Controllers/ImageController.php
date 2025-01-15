@@ -195,6 +195,40 @@ class ImageController extends Controller
         ]);
     }
 
+    public function panelUpdatePost(Request $request){
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        $validated = $request->validate([
+            'id' => 'required|integer|exists:images,id', // Check if id exists in database
+            'title' => 'required|string',   
+            'label' => 'nullable|string',          
+        ]);
+
+        $image = Image::with(['createdByUser','updatedByUser'])->findOrFail($request->input('id'));
+
+        $image->update([
+            'title' => $validated['title'],
+            'label' => $validated['label'],
+            'updated_at' => now(),
+            'updated_by' => Auth::id(),
+        ]);
+
+        return redirect()->route('admin.images.show', ['id' => $image->id])
+        // ->with('success', 'Ustawienie zostało zaktualizowane.')
+        // ->with('toastSuccessTitle', 'Zaktualizowano pomyślnie!')
+        // ->with('toastSuccessHideTime', 5);
+        // ->with('toastSuccessDescription', 'Wszystkie obrazy zostały poprawnie zapisane.');
+        ->with([
+            'toastSuccessTitle' => 'Zaktualizowano pomyślnie!',
+            'toastSuccessHideTime' => 5,
+        ]);
+    }
+
     // Delete image
     public function panelDelete(Request $request) {
         

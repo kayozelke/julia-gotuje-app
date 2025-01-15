@@ -9,6 +9,20 @@
         <div class="card-body col-md-10 py-2">
             <form action="{{ route('admin.images.update.post') }}" method="POST">
                 @csrf
+                
+                <input type="hidden" class="form-control" id="update_id" name="update_id"
+                value="{{ $image->id }}">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
