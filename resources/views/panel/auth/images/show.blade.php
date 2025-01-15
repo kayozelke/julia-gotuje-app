@@ -9,7 +9,7 @@
         <div class="card-body py-2">
 			<div class="row text-center">
 				<div class="col">
-					<a type="button" class="btn btn-secondary me-auto" href="#">
+					<a type="button" class="btn btn-secondary me-auto" href="{{ route('admin.images.update', ['id' => $image->id]) }}">
 						Edytuj dane
 					</a>
 				</div>
@@ -42,6 +42,11 @@
 							<p class="mb-0">{{ $image->updated_at }} przez {{ $image->updatedByUser->first_name ?? 'N/A' }} {{ $image->updatedByUser->last_name ?? '' }}</p>
 						</td>
 					</tr>
+					<tr>
+						<td class="align-middle"><small class="text-light fw-semibold">ID</small></td>
+						<td class="py-3">
+							<p class="mb-0">{{ $image->id }}</p>
+						</td>
 					</tr>
 					<tr>
 						<td class="align-middle"><small class="text-light fw-semibold">Ścieżka</small></td>

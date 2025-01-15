@@ -45,7 +45,7 @@ class ImageController extends Controller
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
         return view('panel.auth.images.add', [
-            
+
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -57,47 +57,10 @@ class ImageController extends Controller
 
 
     public function panelAddPost(Request $request) {
-        // dd($request->all(), $request->file('imageFilesMultiple'));
-
-
-
-        
-        // if($request->hasFile('imageFilesMultiple')) {
-        //     $allowedfileExtension=['jpg','png'];
-        //     $files = $request->file('imageFilesMultiple');
-        //     foreach($files as $file){
-        //         $filename = $file->getClientOriginalName();
-        //         $extension = $file->getClientOriginalExtension();
-        //         $check=in_array($extension,$allowedfileExtension);
-        //         // dd($check);
-        //         if($check) {
-        //             // $items= Item::create($request->all());
-        //             foreach ($request->photos as $photo) {
-        //                 // $filename = $photo->store('photos');
-        //                 // ItemDetail::create([
-        //                 // 'item_id' => $items->id,
-        //                 // 'filename' => $filename
-        //                 // ]);
-        //             }
-        //             echo "Check Successfully <br>";
-        //         }
-        //         else {
-        //             echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>';
-        //         }
-        //     }
-        // } else {
-        //     echo "no file<br>";
-        // }
-
-        // return;
-
-
-
-
-        // Walidacja plików i danych
+        // Validate files and data
         $request->validate([
-            'imageFilesMultiple' => 'required|array', // Sprawdza, czy to tablica
-            'imageFilesMultiple.*' => 'file|image|max:2048', // Maksymalnie 2 MB na obraz
+            'imageFilesMultiple' => 'required|array', 
+            'imageFilesMultiple.*' => 'file|image|max:2048', // max size 2 MB per image
             'titles' => 'array',
             'titles.*' => 'string|max:255',
             'labels' => 'array',
@@ -105,7 +68,7 @@ class ImageController extends Controller
         ]);
 
         $images = $request->file('imageFilesMultiple');
-
+        
         if (!$images || !is_array($images)) {
             return redirect()
                 ->back()
@@ -114,18 +77,18 @@ class ImageController extends Controller
                     'toastErrorDescription' => 'Musisz przesłać przynajmniej jeden plik.',
                 ]);
         }
-    
+
         $titles = $request->input('titles');
         $labels = $request->input('labels');
-        $uploadPath = public_path('uploaded_images'); // Katalog na serwerze
-    
-        // Przetwarzanie każdego pliku
+        $uploadPath = public_path('uploaded_images'); 
+
+        // Process each file
         foreach ($images as $index => $image) {
-            // Tworzenie unikalnej nazwy pliku
+            // Create a unique filename
             $filename = time() . '_' . $image->getClientOriginalName();
             $image->move($uploadPath, $filename);
-    
-            // Tworzenie wpisu w bazie danych
+
+            // Create database entry
             Image::create([
                 'file_location' => "/uploaded_images/$filename",
                 'title' => $titles[$index] ?? null,
@@ -136,15 +99,15 @@ class ImageController extends Controller
                 'updated_by' => Auth::id(),
             ]);
         }
-    
-        // Informacja zwrotna
+
+        // Return feedback
         return redirect()
             ->route('admin.images')
             ->with('toastSuccessTitle', 'Obrazy zostały przesłane!')
             ->with('toastSuccessDescription', 'Wszystkie obrazy zostały poprawnie zapisane.');
     }
-    
-    public function panelShow(Request $request) {
+
+    public function panelShow(Request $request) {        
         
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
@@ -187,6 +150,52 @@ class ImageController extends Controller
             'toastErrorHideTime' => $toastErrorHideTime,
         ]);
     }
+
+    public function panelUpdate(Request $request) {
+
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+
+        $image_id = $request->query('id');
+
+        $image = null;
+
+        if (isset($image_id)) {
+
+            if ( !(Image::where('id', $image_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Obraz o ID "' . $image_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny obraz.',
+                ]);
+            } else {
+                $image = Image::with(['createdByUser', 'updatedByUser'])->find($image_id);
+            }
+
+        } else {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Niepoprawne ID obrazu: "' . $image_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+            ]);
+        }
+
+        return view('panel.auth.images.update', [
+            'image' => $image,
+
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
+
+    // Delete image
     public function panelDelete(Request $request) {
         
         $toastSuccessTitle = session('toastSuccessTitle', null);
@@ -231,6 +240,7 @@ class ImageController extends Controller
         ]);
     }
     public function panelDeletePost(Request $request) {
+        // Find image by ID
 
         $image = Image::find($request->delete_id);
         if (!$image) {
@@ -238,13 +248,13 @@ class ImageController extends Controller
         }
 
         $image_path = $image->file_location;
-        // remove first slash from path
+        // Remove first slash from path
         $image_path = substr($image_path, 1);
-        // get full path to image
+        // Get full path to image
         $image_path = public_path($image_path);
 
         try {
-            // try to delete image from database
+            // Try to delete image from database
             $image->delete();
             
         } catch (\Exception $e) {

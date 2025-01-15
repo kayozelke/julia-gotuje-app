@@ -80,6 +80,8 @@ Route::get('/admin/images', [ImageController::class, 'panelList'])->middleware('
 Route::get('/admin/images/add', [ImageController::class, 'panelAdd'])->middleware('auth')->name('admin.images.add');
 Route::post('/admin/images/add_post', [ImageController::class, 'panelAddPost'])->middleware('auth')->name('admin.images.add.post');
 Route::get('/admin/images/show', [ImageController::class, 'panelShow'])->middleware('auth')->name('admin.images.show');
+Route::get('/admin/images/update', [ImageController::class, 'panelUpdate'])->middleware('auth')->name('admin.images.update');
+Route::post('/admin/images/update', [ImageController::class, 'panelUpdatePost'])->middleware('auth')->name('admin.images.update.post');
 Route::get('/admin/images/delete', [ImageController::class, 'panelDelete'])->middleware('auth')->name('admin.images.delete');
 Route::post('/admin/images/delete', [ImageController::class, 'panelDeletePost'])->middleware('auth')->name('admin.images.delete.post');
 
