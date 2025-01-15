@@ -6,6 +6,21 @@
 
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
+        <div class="card-body py-2">
+			<div class="row">
+				<div class="col">
+					<a type="button" class="btn btn-secondary me-auto" href="#">
+						Edytuj dane
+					</a>
+				</div>
+				<div class="col">
+					<a type="button" class="btn btn-danger me-auto" href="{{ route('admin.images.delete', ['id' => $image->id]) }}">
+						Usuń obraz
+					</a>
+				</div>
+			</div>
+        </div>
+        <hr>
         <div class="card-body col-md-10 py-2">
             <table class="table table-borderless">
 				<tbody>
