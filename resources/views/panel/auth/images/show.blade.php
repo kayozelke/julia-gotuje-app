@@ -49,9 +49,12 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="align-middle"><small class="text-light fw-semibold">Ścieżka</small></td>
+						<td class="align-middle"><small class="text-light fw-semibold">Adres URL</small></td>
 						<td class="py-3">
-							<p class="mb-0"><em>{{ $image->file_location }}</em></p>
+							{{-- <p class="mb-0"><em>{{ url() }}{{ $image->file_location }}</em></p> --}}
+							<p class="mb-0"><em><input type="text" value="{{ url() }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p>
+							
+							<button class="btn btn-secondary" onclick="copyUrlToClipboard()">Kopiuj do schowka</button>
 						</td>
 					</tr>
 				</tbody>
@@ -69,3 +72,21 @@
 </div>
 
 @include('panel.auth.footer')
+
+
+<script>
+	function copyUrlToClipboard() {
+	// Get the text field
+	var copyText = document.getElementById("urlToCopy");
+
+	// Select the text field
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); // For mobile devices
+
+	// Copy the text inside the text field
+	navigator.clipboard.writeText(copyText.value);
+
+	// Alert the copied text
+	alert("Copied the text: " + copyText.value);
+	}
+</script>
