@@ -52,7 +52,7 @@
 						<td class="align-middle"><small class="text-light fw-semibold">Adres URL</small></td>
 						<td class="py-3">
 							{{-- <p class="mb-0"><em>{{ url() }}{{ $image->file_location }}</em></p> --}}
-							<p class="mb-0"><em><input type="text" value="{{ (string) url() }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p>
+							<p class="mb-0"><em><input type="text" value="{{ rtrim(url('/'), '/') }}{{ $image->file_location }}" id="urlToCopy" disabled></em></p>
 							
 							<button class="btn btn-secondary" onclick="copyUrlToClipboard()">Kopiuj do schowka</button>
 						</td>
