@@ -857,7 +857,7 @@
             ['preview', 'print'],
             ['removeFormat']
         ],
-        imageFileInput: false
+        imageFileInput: false,
         minHeight: '450px',
     });
 
