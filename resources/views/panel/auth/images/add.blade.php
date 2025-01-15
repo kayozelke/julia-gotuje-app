@@ -45,8 +45,8 @@
     let filesList = []; // Keep files to send
 
     inputFile.addEventListener('change', (event) => {
-        metadataContainer.innerHTML = ''; // reset form
-        filesList = Array.from(event.target.files); // Keep files at local array
+        metadataContainer.innerHTML = ''; // Reset metadata container
+        filesList = Array.from(event.target.files); // Keep files in a local array
 
         filesList.forEach((file, index) => {
             const reader = new FileReader();
@@ -87,9 +87,61 @@
     metadataContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-file-btn')) {
             const fileIndex = parseInt(event.target.getAttribute('data-file-index'));
-            filesList = filesList.filter((_, index) => index !== fileIndex); // remove file from list
+            filesList = filesList.filter((_, index) => index !== fileIndex); // Remove file from list
             const blockToRemove = metadataContainer.querySelector(`[data-file-index="${fileIndex}"]`);
-            blockToRemove.remove(); // remove row from view
+            blockToRemove.remove(); // Remove row from view
+
+            // Replace the input field with a new one
+            const newInputFile = document.createElement('input');
+            newInputFile.type = 'file';
+            newInputFile.name = 'imageFilesMultiple[]';
+            newInputFile.id = 'imageFilesMultiple';
+            newInputFile.classList = inputFile.classList; // Copy classes
+            newInputFile.multiple = true;
+
+            // Replace the old input field
+            inputFile.replaceWith(newInputFile);
+            inputFile = newInputFile;
+
+            // Reattach the change event listener to the new input field
+            inputFile.addEventListener('change', (e) => {
+                metadataContainer.innerHTML = ''; // Reset metadata container
+                filesList = Array.from(e.target.files); // Keep files in a local array
+
+                filesList.forEach((file, index) => {
+                    const reader = new FileReader();
+
+                    // Show preview
+                    reader.onload = (e) => {
+                        const metadataBlock = document.createElement('div');
+                        metadataBlock.classList.add('mb-3', 'border', 'p-3', 'rounded', 'shadow-sm');
+                        metadataBlock.setAttribute('data-file-index', index);
+
+                        metadataBlock.innerHTML = `
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <img src="${e.target.result}" alt="Podgląd obrazu ${file.name}" class="img-thumbnail" style="min-width: 100px; max-width: 200px; height: auto;">
+                                </div>
+                                <div class="col-md-7">
+                                    <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
+                                    <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
+                                    <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
+                                    <textarea class="form-control" name="labels[]" id="label_${index}" rows="3"></textarea>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <button type="button" class="btn btn-danger btn-sm remove-file-btn" data-file-index="${index}">
+                                        Usuń
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        metadataContainer.appendChild(metadataBlock);
+                    };
+
+                    // Read file as data URL
+                    reader.readAsDataURL(file);
+                });
+            });
         }
     });
 </script>
