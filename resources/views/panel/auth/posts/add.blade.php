@@ -107,8 +107,8 @@
                                 {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
                                 {{-- <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea> --}}
 
-                                
-                                <textarea name="post_content" id="sunEditorTextArea" style="width:100%; height:300px;"></textarea>
+                                    <input type="hidden" name="post_content" id="postContent">
+                                    <textarea id="sunEditorTextArea" style="width:100%; height:300px;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -777,6 +777,7 @@
 
 @include('panel.auth.footer')
 
+{{-- script to handle hide before time fields --}}
 <script>
     const useHideBeforeTimeCheckbox = document.getElementById('use_hide_before_time');
     const hideBeforeTimeInput = document.getElementById('hide_before_time');
@@ -792,7 +793,7 @@
     });
 </script>
 
-
+{{-- script to handle custom url field --}}
 <script>
     const titleInput = document.getElementById('title');
     const customUrlInput = document.getElementById('custom_url');
@@ -830,6 +831,7 @@
     }
 </script>
 
+{{-- script for sun editor + form submit handler --}}
 <script>
     // /**
     // * ID : 'suneditor_sample'
@@ -856,4 +858,12 @@
             ['removeFormat']
         ]
     });
+
+
+    function handleFormSubmit(event) {
+        const content = editor.getContents();
+        
+        // Set value to hidden field
+        document.getElementById('postContent').value = content;
+    }
 </script>
