@@ -103,7 +103,7 @@
                     <div class="entry__content">
                         
                         <div>
-                            {{ $post->content }}
+                            {!! $post->content !!}
                         </div>
 
                         <hr>
