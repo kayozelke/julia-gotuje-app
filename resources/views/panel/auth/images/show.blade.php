@@ -6,7 +6,7 @@
 
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
-        <div class="card-body col-md-9">
+        <div class="card-body col-md-10">
             <table class="table table-borderless">
 				<tbody>
 					<tr>
@@ -19,6 +19,12 @@
 						<td class="align-middle"><small class="text-light fw-semibold">Zmodyfikowano</small></td>
 						<td class="py-3">
 							<p class="mb-0">{{ $image->updated_at }} przez {{ $image->updatedByUser->first_name ?? 'N/A' }} {{ $image->updatedByUser->last_name ?? '' }}</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="align-middle"><small class="text-light fw-semibold">Opis</small></td>
+						<td class="py-3">
+							<p class="mb-0">{{ $image->label }}</p>
 						</td>
 					</tr>
 				</tbody>
