@@ -143,7 +143,51 @@ class ImageController extends Controller
             ->with('toastSuccessDescription', 'Wszystkie obrazy zostały poprawnie zapisane.');
     }
     
-    public function panelShow(Request $request) {}
+    public function panelShow(Request $request) {
+        
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+
+        $image_id = $request->query('id');
+
+        $image = null;
+
+        if (isset($image_id)) {
+
+            if ( !(Image::where('id', $image_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Obraz o ID "' . $image_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny obraz.',
+                ]);
+            } else {
+                // TODO - add methods createdByUser updatedByUser
+                // $image = Image::with(['createdByUser', 'updatedByUser'])->find($image_id);
+                $image = Image::find($image_id);
+            }
+
+        } else {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Niepoprawne ID obrazu: "' . $image_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+            ]);
+        }
+
+        return view('panel.auth.images.show', [
+            'image' => $image,
+
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
+    }
     public function panelDelete(Request $request) {}
     public function panelDeletePost(Request $request) {}
 }
