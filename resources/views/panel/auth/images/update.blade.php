@@ -5,7 +5,7 @@
     @include('panel.components.alert_toasts')
 
     <div class="card mb-4">
-        <h4 class="card-header">Edycja danych obrazu {{ $image->title }}</h4>
+        <h4 class="card-header">Edycja danych obrazu '{{ $image->title }}'</h4>
         <div class="card-body col-md-10 py-2">
             <form action="{{ route('admin.images.update.post') }}" method="POST">
                 @csrf
