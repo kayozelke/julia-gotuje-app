@@ -6,7 +6,7 @@
 
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
-        <div class="card-body">
+        <div class="card-body col-md-9">
             <table class="table table-borderless">
 				<tbody>
 					<tr>
@@ -25,8 +25,8 @@
             </table>
         </div>
 
-        <div class="card-body">
-            <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="height: 100%; width: 100%; object-fit: contain;"></a>
+        <div class="card-body" style="text-align: center;">
+            <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 40%; max-height: 100%; max-width: 100%; object-fit: contain;"></a>
         </div>
 
 
