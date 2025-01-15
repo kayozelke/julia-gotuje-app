@@ -7,7 +7,7 @@
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
         <div class="card-body py-2">
-			<div class="row">
+			<div class="row text-center">
 				<div class="col">
 					<a type="button" class="btn btn-secondary me-auto" href="#">
 						Edytuj dane
@@ -46,7 +46,7 @@
             </table>
         </div>
 
-        <div class="card-body" style="text-align: center;">
+        <div class="card-body text-center">
             <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 40%; max-height: 100%; max-width: 100%; object-fit: contain;"></a>
         </div>
 
