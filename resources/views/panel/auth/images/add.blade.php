@@ -56,15 +56,13 @@
                 metadataBlock.innerHTML = `
                     <div class="row align-items-center">
                         <div class="col-md-3">
-                            <img src="${e.target.result}" alt="Podgląd obrazu" class="img-thumbnail" style="max-width: 100%; height: auto;">
+                            <img src="${e.target.result}" alt="Podgląd obrazu ${file.name}" class="img-thumbnail" style="max-width: 200px; height: auto;">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-9">
                             <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
                             <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
-                        </div>
-                        <div class="col-md-5">
                             <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
-                            <input type="text" class="form-control" id="label_${index}" name="labels[]" placeholder="Wprowadź opis">
+                            <textarea class="form-control" name="labels[]" id="label_${index}" rows="3"></textarea>
                         </div>
                     </div>
                 `;
