@@ -6,7 +6,7 @@
 
     <div class="card mb-4">
         <h5 class="card-header">{{ $image->title }}</h5>
-        <div class="card-body col-md-10">
+        <div class="card-body col-md-10 py-2">
             <table class="table table-borderless">
 				<tbody>
 					<tr>
