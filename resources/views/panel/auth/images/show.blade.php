@@ -5,7 +5,7 @@
     @include('panel.components.alert_toasts')
 
     <div class="card mb-4">
-        <h5 class="card-header">{{ $image->title }}</h5>
+        <h4 class="card-header">{{ $image->title }}</h4>
         <div class="card-body py-2">
 			<div class="row text-center">
 				<div class="col">
@@ -25,6 +25,12 @@
             <table class="table table-borderless">
 				<tbody>
 					<tr>
+						<td class="align-middle"><small class="text-light fw-semibold">Opis</small></td>
+						<td class="py-3">
+							<p class="mb-0">{{ $image->label }}</p>
+						</td>
+					</tr>
+					<tr>
 						<td class="align-middle"><small class="text-light fw-semibold">Dodano</small></td>
 						<td class="py-3">
 							<p class="mb-0">{{ $image->created_at }} przez {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</p>
@@ -36,10 +42,11 @@
 							<p class="mb-0">{{ $image->updated_at }} przez {{ $image->updatedByUser->first_name ?? 'N/A' }} {{ $image->updatedByUser->last_name ?? '' }}</p>
 						</td>
 					</tr>
+					</tr>
 					<tr>
-						<td class="align-middle"><small class="text-light fw-semibold">Opis</small></td>
+						<td class="align-middle"><small class="text-light fw-semibold">Ścieżka</small></td>
 						<td class="py-3">
-							<p class="mb-0">{{ $image->label }}</p>
+							<p class="mb-0"><em>{{ $image->file_location }}</em></p>
 						</td>
 					</tr>
 				</tbody>
