@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -230,7 +231,46 @@ class ImageController extends Controller
         ]);
     }
     public function panelDeletePost(Request $request) {
-        echo 'test';
-        return;
+
+        $image = Image::find($request->delete_id);
+        if (!$image) {
+            return redirect()->back()->with(['toastErrorTitle' => 'Obraz o ID "' . $request->delete_id . '" nie istnieje.']);
+        }
+
+        $image_path = $image->file_location;
+        // remove first slash from path
+        $image_path = substr($image_path, 1);
+        // get full path to image
+        $image_path = public_path($image_path);
+
+        try {
+            // try to delete image from database
+            $image->delete();
+            
+        } catch (\Exception $e) {
+            return redirect(route('admin.images'))->with([
+                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania obrazu!',
+                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorHideTime' => 10,
+            ]);
+        }
+
+        try {
+            // try to delete image from server
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+        } catch (\Exception $e) {
+            return redirect(route('admin.images'))->with([
+                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania obrazu!',
+                'toastErrorDescription' => "Dane w bazie zostały usunięte, ale plik na serwerze nie mógł zostać usunięty: " . $e->getMessage(),
+            ]);
+        }        
+        
+        return redirect(route('admin.posts'))->with([
+            'toastSuccessTitle' => 'Pomyślnie usunięto wpis',
+            'toastSuccessHideTime' => 5,
+        ]);
+
     }
 }
