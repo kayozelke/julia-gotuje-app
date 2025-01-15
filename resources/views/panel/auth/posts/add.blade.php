@@ -856,7 +856,8 @@
             ['fullScreen', 'showBlocks', 'codeView'],
             ['preview', 'print'],
             ['removeFormat']
-        ]
+        ],
+        imageFileInput: false
     });
 
     // 
