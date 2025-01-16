@@ -60,7 +60,7 @@
                                 <input type="text" class="form-control" id="custom_url" name="custom_url"
                                     {{-- placeholder="John Doe"  --}} pattern="[a-z0-9\-]+" aria-describedby="customUrlOfPost"
                                     required {{-- autocomplete="off" --}}
-                                    value="{{ $is_new_post == false ? $post_to_update->custom_url : '' }}">
+                                    value="{{ $is_new_post == false ? $post_to_update->url : '' }}">
                             </div>
                         </div>
                     </div>
