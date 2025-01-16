@@ -1,5 +1,7 @@
 @include('panel.auth.header')
 
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+
 <div class="container-xxl flex-grow-1 container-p-y">
     {{--  --}}
     @include('panel.components.alert_toasts')
