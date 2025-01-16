@@ -35,7 +35,7 @@
 
             <hr>
 
-            <div class="d-flex justify-content-between">
+            <div class="row text-center">
                 {{-- <button type="button" class="btn btn-primary me-auto mx-1" data-bs-toggle="modal" data-bs-target="#editChild">
                     Dodaj kategorię poniżej
                 </button> --}}
@@ -45,13 +45,17 @@
                     Edytuj wpis
                 </button> --}}
 
-                <a type="button" class="btn btn-secondary me-auto mx-1" href="{{ route('admin.posts.update', ['update_id' => $post->id]) }}">
-                    Edytuj wpis
-                </a>
+                <div class="col">
+                    <a type="button" class="btn btn-secondary me-auto mx-1" href="{{ route('admin.posts.update', ['update_id' => $post->id]) }}">
+                        Edytuj wpis
+                    </a>
+                </div>
+                <div class="col">
+                    <a type="button" class="btn btn-danger me-auto mx-1" href="{{ route('admin.posts.delete', ['id' => $post->id]) }}">
+                        Usuń wpis
+                    </a>
+                </div>
 
-                <a type="button" class="btn btn-danger me-auto mx-1" href="{{ route('admin.posts.delete', ['id' => $post->id]) }}">
-                    Usuń wpis
-                </a>
             </div>
 
 
