@@ -116,7 +116,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function panelAdd(Request $request){
+    public function panelUpdate(Request $request){
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
         $toastSuccessHideTime = session('toastSuccessHideTime', null);
@@ -126,11 +126,23 @@ class PostController extends Controller
 
         $p_category = null;
         $parent_category_id = $request->query('category_id');
+        $post_update_id = $request->query('update_id');
+        $post_to_update = null;
 
-        // $p_category = ['id' => '', 'name' => 'Wszystko'];
-        if(isset($parent_category_id)){
-            $p_category = Category::find($parent_category_id);
+        $is_new_post = true;
+
+        if(isset($post_update_id)){
+            if ( !(Post::where('id', $post_update_id)->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wpis o ID "' . $post_update_id . '" nie istnieje!',
+                    'toastErrorDescription' => 'Proszę wybrać poprawny post.',
+                ]);
+            } else {
+                $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($post_update_id);
+                $is_new_post = false;
+            }
         }
+
 
         $all_categories = Category::all();
         foreach($all_categories as $c){
@@ -158,8 +170,10 @@ class PostController extends Controller
 
 
         return view('panel.auth.posts.add', [
-            'p_category' => $p_category,
+            // 'p_category' => $p_category,
             'all_categories' => $all_categories,
+            'post_to_update' => $post_to_update,
+            'is_new_post' => $is_new_post,
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
@@ -169,30 +183,44 @@ class PostController extends Controller
         ]);
     }
 
-    public function panelAddPost(Request $request){
+    public function panelUpdatePost(Request $request){
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
             'post_content' => 'required|string',
-        ],
-        // [
-        //     'title.required' => 'Tytuł jest wymagany',
-        //     'custom_url.required' => 'Niestandardowy URL jest wymagany',
-        //     'template_type.required' => 'Typ szablonu jest wymagany',
-        //     'post_content.required' => 'Treść wpisu jest wymagana',
-        //     'title.string' => 'Tytuł musi być ciągiem znaków',
-        //     'custom_url.string' => 'Niestandardowy URL musi być ciągiem znaków',
-        //     'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
-        // ]
+            ],
+            [
+                'title.required' => 'Tytuł jest wymagany',
+                'custom_url.required' => 'Adres URL jest wymagany',
+                'template_type.required' => 'Typ wpisu jest wymagany',
+                'post_content.required' => 'Treść wpisu jest wymagana',
+                'title.string' => 'Tytuł musi być ciągiem znaków',
+                'custom_url.string' => 'Adres URL musi być ciągiem znaków',
+                'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
+            ]
         );
+
+        // check if to update or to add new post
+        if ($request->input('update_id') != null){
+            if ( !(Post::where('id', $request->input('update_id'))->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wystąpił błąd!',
+                    'toastErrorDescription' => 'Wpis o ID "' . $request->input('update_id') . '" nie istnieje!',
+                ]);
+            } else {
+                $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($request->input('update_id'));
+                echo 'Post update: ' . $post_to_update->title . '<br>';
+                return;
+            }
+        } else {
+            // add new post
+            echo 'Adding new post <br>';
+            return;
+        }
         
         $parent_category_id = $request->input('parent_category_id');
-
-        // print_r($parent_category_id);
-        // echo '<br>-------------<br>';
-        // return;
 
         // check if category exists
         if ($parent_category_id != 0){    

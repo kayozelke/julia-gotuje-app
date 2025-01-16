@@ -69,8 +69,10 @@ Route::post('/admin/categories/delete', [CategoryController::class, 'panelDelete
 
 // admin posts
 Route::get('/admin/posts', [PostController::class, 'panelList'])->middleware('auth')->name('admin.posts');
-Route::get('/admin/posts/add', [PostController::class, 'panelAdd'])->middleware('auth')->name('admin.posts.add');
-Route::post('/admin/posts/add_post', [PostController::class, 'panelAddPost'])->middleware('auth')->name('admin.posts.add.post');
+Route::get('/admin/posts/add', [PostController::class, 'panelUpdate'])->middleware('auth')->name('admin.posts.add');
+Route::post('/admin/posts/add_post', [PostController::class, 'panelUpdatePost'])->middleware('auth')->name('admin.posts.add.post');
+Route::get('/admin/posts/update', [PostController::class, 'panelUpdate'])->middleware('auth')->name('admin.posts.update');
+Route::post('/admin/posts/update_post', [PostController::class, 'panelUpdatePost'])->middleware('auth')->name('admin.posts.update.post');
 Route::get('/admin/posts/show', [PostController::class, 'panelShow'])->middleware('auth')->name('admin.posts.show');
 Route::get('/admin/posts/delete', [PostController::class, 'panelDelete'])->middleware('auth')->name('admin.posts.delete');
 Route::post('/admin/posts/delete', [PostController::class, 'panelDeletePost'])->middleware('auth')->name('admin.posts.delete.post');

@@ -40,12 +40,16 @@
                     Dodaj kategorię poniżej
                 </button> --}}
 
-                <button type="button" class="btn btn-secondary me-auto mx-1" data-bs-toggle="modal"
+                {{-- <button type="button" class="btn btn-secondary me-auto mx-1" data-bs-toggle="modal"
                     data-bs-target="#editSelf">
                     Edytuj wpis
-                </button>
-                {{-- {{ route('admin.categories.delete', ['id' => $current_category_id]) }} --}}
-                <a type="button" class="btn btn-danger mx-1" href="{{ route('admin.posts.delete', ['id' => $post->id]) }}">
+                </button> --}}
+
+                <a type="button" class="btn btn-secondary me-auto mx-1" href="{{ route('admin.posts.update', ['update_id' => $post->id]) }}">
+                    Edytuj wpis
+                </a>
+
+                <a type="button" class="btn btn-danger me-auto mx-1" href="{{ route('admin.posts.delete', ['id' => $post->id]) }}">
                     Usuń wpis
                 </a>
             </div>

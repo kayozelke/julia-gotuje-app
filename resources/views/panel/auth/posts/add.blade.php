@@ -17,156 +17,160 @@
         <form action="{{ route('admin.posts.add.post') }}" method="POST" class="card-body m-1" id="postForm">
             @csrf
             {{-- <div class="card-body m-1"> --}}
-                {{-- ########################## --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                {{-- ########################## --}}
-                <div class="row">
-                    {{-- title --}}
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <h5 class="card-header">Tytuł wpisu</h5>
-                            <div class="card-body">
-                                <div>
-                                    {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                    <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
-                                        name="title"
-                                        {{-- autocomplete="off"  --}}
-                                        aria-describedby="titleOfPost"
-                                        required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            {{-- ########################## --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            {{-- ########################## --}}
 
-                    {{-- custom url --}}
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <h5 class="card-header">Adres podstrony</h5>
-                            <div class="card-body">
-                                <div>
-                                    {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
-                                    <input 
-                                        type="text" class="form-control" id="custom_url"
-                                        name="custom_url"
-                                        {{-- placeholder="John Doe"  --}}
-                                        pattern="[a-z0-9\-]+"
-                                        {{-- autocomplete="off" --}}
-                                        aria-describedby="customUrlOfPost"
-                                        required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            @if ($is_new_post == false)
+                <input type="hidden" name="update_id" value="{{ $post_update->$id }}">
+            @endif
 
-                    {{-- typ --}}
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <h5 class="card-header">Rodzaj</h5>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="template_type" class="form-label">Typ wpisu</label>
-                                    <select class="form-select" id="template_type" aria-label="Template type" name="template_type">
-                                        {{-- <option selected="">Open this select menu</option> --}}
-                                        <option value="recipe">Przepis</option>
-                                        <option value="default">Zwykły wpis</option>
-                                        {{-- <option value="3">Three</option> --}}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    {{-- kategoria --}}
-                    <div class="col-md-6">
-                        <div class="card mb-4">
-                            <h5 class="card-header">Kategoria</h5>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="parent_category_id" class="form-label">Wybór kategorii nadrzędnej</label>
-                                    <select class="form-select" id="parent_category_id" aria-label="Category select" name="parent_category_id">
-                                        <option value="0">Brak (post niewidoczny w kategoriach)</option>
-                                        {{-- <option value="3">Three</option> --}}
-                                        @foreach ($all_categories as $c)
-                                            <option value="{{ $c['id'] }}">{{ $c['parent_categories_str'] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+            <div class="row">
+                {{-- title --}}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Tytuł wpisu</h5>
+                        <div class="card-body">
+                            <div>
+                                {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
+                                <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
+                                    name="title" aria-describedby="titleOfPost" required {{-- autocomplete="off"  --}}
+                                    value="{{ $is_new_post == false ? $post_update->title : '' }}">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {{-- Treść wpisu --}}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-4">
-                            <h5 class="card-header">Treść wpisu</h5>
-                            <div class="card-body">
-                                {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
-                                {{-- <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea> --}}
-
-                                    <input type="hidden" name="post_content" id="postContent">
-                                    <textarea id="sunEditorTextArea" style="width:100%;"></textarea>
+                {{-- custom url --}}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Adres podstrony</h5>
+                        <div class="card-body">
+                            <div>
+                                {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
+                                <input type="text" class="form-control" id="custom_url" name="custom_url"
+                                    {{-- placeholder="John Doe"  --}} pattern="[a-z0-9\-]+" aria-describedby="customUrlOfPost"
+                                    required {{-- autocomplete="off" --}}
+                                    value="{{ $is_new_post == false ? $post_update->custom_url : '' }}">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {{-- Czas publikacji --}}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-4">
-                            <h4 class="card-header">Czas publikacji</h4>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 d-flex align-items-center">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" name="use_hide_before_time" id="use_hide_before_time">
-                                            <label class="form-check-label" for="use_hide_before_time">Opublikuj
-                                                później</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
-                                        {{-- <div class="col-md-10"> --}}
-                                        <input class="form-control" type="datetime-local" value=""
-                                            id="hide_before_time" name="hide_before_time" disabled>
-                                        {{-- </div> --}}
+                {{-- typ --}}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Rodzaj</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="template_type" class="form-label">Typ wpisu</label>
+                                <select class="form-select" id="template_type" aria-label="Template type"
+                                    name="template_type">
+                                    {{-- <option selected="">Open this select menu</option> --}}
+                                    <option value="recipe" {{ ($is_new_post == false && $post_update->template_type == 'recipe') ? 'selected=""' : '' }}>Przepis</option>
+                                    <option value="default" {{ ($is_new_post == false && $post_update->template_type == 'default') ? 'selected=""' : '' }}>Zwykły wpis</option>
+                                    {{-- <option value="3">Three</option> --}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- kategoria --}}
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Kategoria</h5>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="parent_category_id" class="form-label">Wybór kategorii nadrzędnej</label>
+                                <select class="form-select" id="parent_category_id" aria-label="Category select"
+                                    name="parent_category_id">
+                                    <option value="0">Brak (post niewidoczny w kategoriach)</option>
+                                    {{-- <option value="3">Three</option> --}}
+                                    @foreach ($all_categories as $c)
+                                        <option value="{{ $c['id'] }}">{{ $c['parent_categories_str'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Treść wpisu --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h5 class="card-header">Treść wpisu</h5>
+                        <div class="card-body">
+                            {{-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> --}}
+                            {{-- <textarea class="form-control" name="post_content" id="post_content" rows="3" style="height: 282px;"></textarea> --}}
+
+                            <input type="hidden" name="post_content" id="postContent">
+                            <textarea id="sunEditorTextArea" style="width:100%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Czas publikacji --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h4 class="card-header">Czas publikacji</h4>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="use_hide_before_time"
+                                            id="use_hide_before_time">
+                                        <label class="form-check-label" for="use_hide_before_time">Opublikuj
+                                            później</label>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
+                                    {{-- <div class="col-md-10"> --}}
+                                    <input class="form-control" type="datetime-local" value=""
+                                        id="hide_before_time" name="hide_before_time" disabled>
+                                    {{-- </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {{-- inne --}}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-4">
-                            <h4 class="card-header">Inne</h4>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 d-flex align-items-center">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" name="is_hidden" id="is_hidden">
-                                            <label class="form-check-label" for="is_hidden">Ukryj post na stałe</label>
-                                        </div>
+            {{-- inne --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h4 class="card-header">Inne</h4>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" name="is_hidden"
+                                            id="is_hidden">
+                                        <label class="form-check-label" for="is_hidden">Ukryj post na stałe</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
             <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
 
         </form>
@@ -231,7 +235,7 @@
     // * ClassName : 'sun-eidtor'
     // */
     // // ID or DOM object
-    const editor = SUNEDITOR.create((document.getElementById('sunEditorTextArea') || 'sunEditorTextArea'),{
+    const editor = SUNEDITOR.create((document.getElementById('sunEditorTextArea') || 'sunEditorTextArea'), {
         // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
         // Insert options
         // Language global object (default: en)
@@ -266,5 +270,4 @@
         // set hidden field content
         document.getElementById('postContent').value = content;
     });
-
 </script>
