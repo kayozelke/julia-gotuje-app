@@ -15,7 +15,7 @@
         <hr>
         <div class="card-body m-1">
 
-            <form method="GET" action="{{ route('admin.images.index') }}" class="mb-3">
+            <form method="GET" action="{{ route('admin.images') }}" class="mb-3">
                 <label for="per_page">Liczba elementów na stronę:</label>
                 <select name="per_page" id="per_page" onchange="this.form.submit()">
                     <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
