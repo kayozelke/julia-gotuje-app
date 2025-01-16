@@ -139,6 +139,11 @@ class PostController extends Controller
                 ]);
             } else {
                 $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($post_update_id);
+
+                $post_to_update['post_content'] = str_replace('__se__float-left text-start', '__se__float-left', $post_to_update['post_content']);
+                $post_to_update['post_content'] = str_replace('__se__float-right text-end', '__se__float-right', $post_to_update['post_content']);
+                $post_to_update['post_content'] = str_replace('__se__float-center text-center', '__se__float-center', $post_to_update['post_content']);
+
                 $is_new_post = false;
             }
         }
