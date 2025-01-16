@@ -31,7 +31,7 @@ class ImageController extends Controller
         // $subcategories = null;
         
         // $images = Image::all();
-        $images = Image::all()->orderBy('created_at')->paginate($perPage);
+        $images = Image::orderBy('created_at')->paginate($perPage);
 
         return view('panel.auth.images.list', [
             'images' => $images,
