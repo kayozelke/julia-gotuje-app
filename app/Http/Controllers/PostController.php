@@ -257,8 +257,6 @@ class PostController extends Controller
                 ]);
             } else {
                 $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($request->input('update_id'));
-                echo 'Post update: ' . $post_to_update->title . '<br>';
-                return;
 
                 // update existing post
                 try {
