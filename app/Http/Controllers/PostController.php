@@ -190,36 +190,21 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
             'template_type' => 'required',
-            'post_content' => 'required|string',
+            // 'post_content' => 'required|string',
+            'post_content' => 'nullable|string',
             ],
             [
                 'title.required' => 'Tytuł jest wymagany',
                 'custom_url.required' => 'Adres URL jest wymagany',
                 'template_type.required' => 'Typ wpisu jest wymagany',
-                'post_content.required' => 'Treść wpisu jest wymagana',
+                // 'post_content.required' => 'Treść wpisu jest wymagana',
                 'title.string' => 'Tytuł musi być ciągiem znaków',
                 'custom_url.string' => 'Adres URL musi być ciągiem znaków',
                 'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
             ]
         );
 
-        // check if to update or to add new post
-        if ($request->input('update_id') != null){
-            if ( !(Post::where('id', $request->input('update_id'))->exists()) ) {
-                return redirect()->back()->with([
-                    'toastErrorTitle' => 'Wystąpił błąd!',
-                    'toastErrorDescription' => 'Wpis o ID "' . $request->input('update_id') . '" nie istnieje!',
-                ]);
-            } else {
-                $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($request->input('update_id'));
-                echo 'Post update: ' . $post_to_update->title . '<br>';
-                return;
-            }
-        } else {
-            // add new post
-            echo 'Adding new post <br>';
-            return;
-        }
+
         
         $parent_category_id = $request->input('parent_category_id');
 
@@ -262,42 +247,80 @@ class PostController extends Controller
             $is_hidden_param = 0;
         }
 
-        try {
-            Post::create([
-                'title' => $validated['title'],
-                'url' => $validated['custom_url'],
-                'template_type' => $validated['template_type'],
-                'content' => $validated['post_content'],
-                'parent_category_id' => $parent_category_id,
-                'is_hidden' => $is_hidden_param,
-                'hide_before_time' => $hide_before_time_param,
-                'created_at' => now(),
-                'created_by' => Auth::id(),
-                'updated_at' => now(),
-                'updated_by' => Auth::id(),
-            ]);
 
-            // return redirect()->back()->with([
-            return redirect()->route('admin.posts')->with([
-                'toastSuccessTitle' => 'Pomyślnie dodano wpis',
-                'toastSuccessHideTime' => 5,
-            ]);
-            // echo "OK<br>";
+        // check if to update or to add new post
+        if ($request->input('update_id') != null){
+            if ( !(Post::where('id', $request->input('update_id'))->exists()) ) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wystąpił błąd!',
+                    'toastErrorDescription' => 'Wpis o ID "' . $request->input('update_id') . '" nie istnieje!',
+                ]);
+            } else {
+                $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($request->input('update_id'));
+                echo 'Post update: ' . $post_to_update->title . '<br>';
+                return;
 
-        } catch (\Exception $e) {
-            // echo "NIE OK<br>";
-            // print_r($e->getMessage());
-
-            // return;
-
-            return redirect()->back()->with([
-            // return redirect()->route('admin.posts')->with([
-                'toastErrorTitle' => 'Wystąpił błąd!',
-                'toastErrorDescription' => $e->getMessage(),
-                // 'toastErrorHideTime' => 10,
-            ]);
+                // update existing post
+                try {
+                    $post_to_update->title = $validated['title'];
+                    $post_to_update->url = $validated['custom_url'];
+                    $post_to_update->template_type = $validated['template_type'];
+                    $post_to_update->content = $validated['post_content'];
+                    $post_to_update->parent_category_id = $parent_category_id;
+                    $post_to_update->is_hidden = $is_hidden_param;
+                    $post_to_update->hide_before_time = $hide_before_time_param;
+                    $post_to_update->updated_at = now();
+                    $post_to_update->updated_by = Auth::id();
+    
+                    $post_to_update->save();
+        
+                    return redirect()
+                        ->route('admin.posts.show', ['id' => $post_to_update->id])
+                        ->with([
+                        'toastSuccessTitle' => 'Pomyślnie zapisano wpis',
+                        'toastSuccessHideTime' => 5,
+                    ]);
+        
+                } catch (\Exception $e) {
+                    return redirect()->back()->with([
+                        'toastErrorTitle' => 'Wystąpił błąd!',
+                        'toastErrorDescription' => $e->getMessage(),
+                    ]);
+                }
+            }
+        } else {
+            // add new post
+            try {
+                Post::create([
+                    'title' => $validated['title'],
+                    'url' => $validated['custom_url'],
+                    'template_type' => $validated['template_type'],
+                    'content' => $validated['post_content'],
+                    'parent_category_id' => $parent_category_id,
+                    'is_hidden' => $is_hidden_param,
+                    'hide_before_time' => $hide_before_time_param,
+                    'created_at' => now(),
+                    'created_by' => Auth::id(),
+                    'updated_at' => now(),
+                    'updated_by' => Auth::id(),
+                ]);
+    
+                return redirect()->route('admin.posts')->with([
+                    'toastSuccessTitle' => 'Pomyślnie dodano wpis',
+                    'toastSuccessHideTime' => 5,
+                ]);
+    
+            } catch (\Exception $e) {
+                return redirect()->back()->with([
+                    'toastErrorTitle' => 'Wystąpił błąd!',
+                    'toastErrorDescription' => $e->getMessage(),
+                ]);
+            }
         }
-        // return;
+        
+
+
+        
     }
 
     public function panelShow(Request $request){

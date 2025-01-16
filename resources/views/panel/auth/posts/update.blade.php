@@ -183,7 +183,15 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success mx-2" role="button">Dodaj</button>
+            <div class="row text-center">
+                <div class="col">
+                    <button type="submit" class="btn btn-success mx-2" role="button">Zapisz</button>
+                </div>
+                <div class="col">
+                    <a href="{{ $backPage }}" class="btn btn-secondary mx-2">Anuluj</a>
+                </div>
+
+            </div>
 
         </form>
 
