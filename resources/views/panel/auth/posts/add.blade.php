@@ -274,9 +274,15 @@
         maxCharCount: 10000,
     });
 
-    // 
-    // 
-    // 
+
+    // post update setting
+    @if ($is_new_post == false)
+        let existingContent = "{!! $post_to_update->content !!}";
+        editor.setContents(existingContent);
+    @endif
+
+    
+    // form submit handling
 
     const form = document.getElementById('postForm');
 
