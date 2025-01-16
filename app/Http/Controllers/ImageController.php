@@ -20,7 +20,15 @@ class ImageController extends Controller
 
         if (!$request->has('per_page')) {
             // Redirect to the same page but with set 'per_page'
-            return redirect()->route('admin.images', ['per_page' => 5]);
+            return redirect()->route('admin.images', ['per_page' => 5])
+            ->with([
+                'toastSuccessTitle' => "$toastSuccessTitle",
+                'toastSuccessDescription' => "$toastSuccessDescription",
+                'toastSuccessHideTime' => $toastSuccessHideTime,
+                'toastErrorTitle' => $toastErrorTitle,
+                'toastErrorDescription' => $toastErrorDescription,
+                'toastErrorHideTime' => $toastErrorHideTime,
+            ]);
         }
 
         $perPage = $request->get('per_page'); // 5 elements by default
