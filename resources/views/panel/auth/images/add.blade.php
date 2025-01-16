@@ -45,6 +45,9 @@
     inputFile.addEventListener('change', (event) => {
         metadataContainer.innerHTML = ''; // Reset form
 
+        // sleep 0.5 s
+        setTimeout(() => {}, 500);
+
         Array.from(event.target.files).forEach((file, index) => {
             const reader = new FileReader();
 
