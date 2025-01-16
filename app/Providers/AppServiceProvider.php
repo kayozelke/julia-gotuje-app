@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
 use App\Models\GeneralSetting;
@@ -39,5 +40,8 @@ class AppServiceProvider extends ServiceProvider
             $generalSettings = GeneralSetting::all();
             $view->with('generalSettings', $generalSettings);
         });
+
+        
+        Paginator::useBootstrapFive();
     }
 }
