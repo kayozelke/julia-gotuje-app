@@ -15,8 +15,7 @@ class CategoryController extends Controller
 
     // ############################## PANEL ##############################
 
-    public function panelList(Request $request)
-    {
+    public function panelList(Request $request) {
         // // Pobierz wszystkie kategorie z bazy danych
         // $categories = Category::all();
 
@@ -74,8 +73,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function panelAddPost(Request $request)
-    {
+    public function panelAddPost(Request $request) {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
         ]);
@@ -129,8 +127,7 @@ class CategoryController extends Controller
         // $this->printParentCategories($request->parent_category_id);
     }
 
-    public function panelUpdate(Request $request)
-    {
+    public function panelUpdate(Request $request) {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
@@ -159,8 +156,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function panelDelete(Request $request)
-    {
+    public function panelDelete(Request $request) {
 
         $toastSuccessTitle = session('toastSuccessTitle', null);
         $toastSuccessDescription = session('toastSuccessDescription', null);
@@ -189,8 +185,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function panelDeletePost(Request $request)
-    {
+    public function panelDeletePost(Request $request) {
         $category = Category::find($request->delete_id);
         if (!$category) {
             return redirect()->back()->with(['toastErrorTitle' => 'Kategoria o ID "' . $request->delete_id . '" nie istnieje.']);
@@ -214,8 +209,7 @@ class CategoryController extends Controller
 
     // ############################## FRONT ##############################
 
-    public function frontListCategoriesWithParentParam(Request $request)
-    {
+    public function frontListCategoriesWithParentParam(Request $request) {
         $parent_category = null;
         $parent_category_id = null;
         $subcategories = null;
@@ -265,14 +259,7 @@ class CategoryController extends Controller
         }
     }
 
-    // public function testKayoz(Request $request){
-    //     $category_id = $request->query('id');
-    //     print_r($this->countItemsAtCategory($category_id));
-    //     print_r("<br>");
-    //     return;
-    // }
-
-    public function countItemsAtCategory(int $categoryId, bool $with_children = true){
+    public function countItemsAtCategory(int $categoryId, bool $with_children = true) {
         $count = Post::where('parent_category_id', $categoryId)->count();
         if (!$with_children){
             return $count;
