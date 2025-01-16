@@ -35,7 +35,8 @@
 
 
             <div class="row">
-                {{-- title --}}
+                    {{-- title --}}
+
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Tytuł wpisu</h5>
@@ -50,7 +51,8 @@
                     </div>
                 </div>
 
-                {{-- custom url --}}
+                    {{-- custom url --}}
+
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Adres podstrony</h5>
@@ -66,7 +68,8 @@
                     </div>
                 </div>
 
-                {{-- typ --}}
+                    {{-- typ --}}
+
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Rodzaj</h5>
@@ -76,8 +79,12 @@
                                 <select class="form-select" id="template_type" aria-label="Template type"
                                     name="template_type">
                                     {{-- <option selected="">Open this select menu</option> --}}
-                                    <option value="recipe" {{ ($is_new_post == false && $post_to_update->template_type == 'recipe') ? 'selected=""' : '' }}>Przepis</option>
-                                    <option value="default" {{ ($is_new_post == false && $post_to_update->template_type == 'default') ? 'selected=""' : '' }}>Zwykły wpis</option>
+                                    <option value="recipe"
+                                        {{ $is_new_post == false && $post_to_update->template_type == 'recipe' ? 'selected=""' : '' }}>
+                                        Przepis</option>
+                                    <option value="default"
+                                        {{ $is_new_post == false && $post_to_update->template_type == 'default' ? 'selected=""' : '' }}>
+                                        Zwykły wpis</option>
                                     {{-- <option value="3">Three</option> --}}
                                 </select>
                             </div>
@@ -85,7 +92,8 @@
                     </div>
                 </div>
 
-                {{-- kategoria --}}
+                    {{-- kategoria --}}
+
                 <div class="col-md-6">
                     <div class="card mb-4">
                         <h5 class="card-header">Kategoria</h5>
@@ -98,8 +106,8 @@
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
                                         <option value="{{ $c['id'] }}"
-                                            {{ ($is_new_post == false && $post_to_update->parent_category_id == $c['id']) ? 'selected=""' : '' }}
-                                            >{{ $c['parent_categories_str'] }}
+                                            {{ $is_new_post == false && $post_to_update->parent_category_id == $c['id'] ? 'selected=""' : '' }}>
+                                            {{ $c['parent_categories_str'] }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -109,7 +117,8 @@
                 </div>
             </div>
 
-            {{-- Treść wpisu --}}
+                {{-- Treść wpisu --}}
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -125,7 +134,8 @@
                 </div>
             </div>
 
-            {{-- Czas publikacji --}}
+                {{-- Czas publikacji --}}
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -134,18 +144,16 @@
                             <div class="row">
                                 <div class="col-md-6 d-flex align-items-center">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" name="use_hide_before_time"
-                                            id="use_hide_before_time" {{ $is_new_post == false && $post_to_update->hide_before_time != null ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="checkbox" name="use_hide_before_time" id="use_hide_before_time"
+                                            {{ $is_new_post == false && $post_to_update->hide_before_time != null ? 'checked' : '' }}>
                                         <label class="form-check-label" for="use_hide_before_time">Opublikuj
                                             później</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
-                                    {{-- <div class="col-md-10"> --}}
-                                    <input class="form-control" type="datetime-local" value="{{ $is_new_post == false ? $post_to_update->hide_before_time : '' }}"
-                                        id="hide_before_time" name="hide_before_time" {{ $is_new_post == true ? 'disabled' : ($post_to_update->hide_before_time != null ? '' : 'disabled') }}>
-                                    {{-- </div> --}}
+                                    <input class="form-control" type="datetime-local" id="hide_before_time" name="hide_before_time"
+                                        value="{{ $is_new_post == false ? $post_to_update->hide_before_time : '' }}"
+                                        {{ $is_new_post == true ? 'disabled' : ($post_to_update->hide_before_time != null ? '' : 'disabled') }}>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +197,7 @@
     const hideBeforeTimeInput = document.getElementById('hide_before_time');
 
     useHideBeforeTimeCheckbox.addEventListener('change', () => {
-        if(hideBeforeTimeInput){
+        if (hideBeforeTimeInput) {
             if (useHideBeforeTimeCheckbox.checked) {
                 hideBeforeTimeInput.value = new Date().toISOString().slice(0, 16);
                 hideBeforeTimeInput.disabled = false;
