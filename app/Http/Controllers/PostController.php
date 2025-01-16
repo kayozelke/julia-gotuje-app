@@ -169,11 +169,12 @@ class PostController extends Controller
 
 
 
-        return view('panel.auth.posts.add', [
+        return view('panel.auth.posts.update', [
             // 'p_category' => $p_category,
             'all_categories' => $all_categories,
             'post_to_update' => $post_to_update,
             'is_new_post' => $is_new_post,
+            'backPage' => url()->previous(),
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
             'toastSuccessHideTime' => $toastSuccessHideTime,
