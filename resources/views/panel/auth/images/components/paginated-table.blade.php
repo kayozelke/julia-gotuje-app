@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($items as $image)
+            @foreach ($images as $image)
                 <tr>
                     <td class="d-flex justify-content-center">
                         <a href="{{ route('admin.images.show', ['id' => $image->id]) }}">
