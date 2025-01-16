@@ -97,7 +97,9 @@
                                     <option value="0">Brak (post niewidoczny w kategoriach)</option>
                                     {{-- <option value="3">Three</option> --}}
                                     @foreach ($all_categories as $c)
-                                        <option value="{{ $c['id'] }}">{{ $c['parent_categories_str'] }}
+                                        <option value="{{ $c['id'] }}"
+                                            {{ ($is_new_post == false && $post_to_update->parent_category_id == $c['id']) ? 'selected=""' : '' }}
+                                            >{{ $c['parent_categories_str'] }}
                                         </option>
                                     @endforeach
                                 </select>
