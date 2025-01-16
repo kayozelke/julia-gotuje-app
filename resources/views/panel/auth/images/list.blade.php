@@ -14,7 +14,20 @@
         </div>
         <hr>
         <div class="card-body m-1">
-            <div class="table-responsive">
+
+            <form method="GET" action="{{ route('admin.images.index') }}" class="mb-3">
+                <label for="per_page">Liczba elementów na stronę:</label>
+                <select name="per_page" id="per_page" onchange="this.form.submit()">
+                    <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
+                    <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
+                    <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>20</option>
+                    <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50</option>
+                </select>
+            </form>
+
+            @include('panel.auth.images.components.paginated-table')
+
+            {{-- <div class="table-responsive">
                 <table class="table table-striped table-hover align-middle">
                     <thead>
                         <tr>
@@ -26,7 +39,6 @@
                     <tbody>
                         @foreach ($images as $image)
                             <tr>
-                                {{-- <td><a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" width="100"></a></td> --}}
                                 <td class="d-flex justify-content-center">
                                     <a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 100px; max-width: 150px; height: auto;"></a>
                                 </td>
@@ -40,7 +52,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
         </div>
     </div>

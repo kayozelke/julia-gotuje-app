@@ -18,11 +18,15 @@ class ImageController extends Controller
         $toastErrorDescription = session('toastErrorDescription', null);
         $toastErrorHideTime = session('toastErrorHideTime', null);
 
+        $perPage = $request->get('per_page', 10); // 10 elements by default
+        
 
         // $parent_category_id = $request->query('category_id');
         // $current_category = null;
         // $subcategories = null;
-        $images = Image::all();
+        
+        // $images = Image::all();
+        $images = Image::paginate($perPage);
 
         return view('panel.auth.images.list', [
             'images' => $images,
