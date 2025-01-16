@@ -30,7 +30,7 @@
             {{-- ########################## --}}
 
             @if ($is_new_post == false)
-                <input type="hidden" name="update_id" value="{{ $post_to_update->$id }}">
+                <input type="hidden" name="update_id" value="{{ $post_to_update->id }}">
             @endif
 
 
