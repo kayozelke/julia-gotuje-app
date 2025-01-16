@@ -13,9 +13,9 @@
             </a>
         </div>
         <hr>
-        <div class="card-body m-1">
+        <div class="card-body py-1">
 
-            <form method="GET" action="{{ route('admin.images') }}" class="mb-3">
+            <form method="GET" action="{{ route('admin.images') }}" class="mb-1">
                 <label for="per_page">Liczba elementów na stronę:</label>
                 <select name="per_page" id="per_page" onchange="this.form.submit()">
                     <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
@@ -25,10 +25,8 @@
                 </select>
             </form>
 
-            @include('panel.auth.images.components.paginated-table')
-
-            {{-- <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-1">
                     <thead>
                         <tr>
                             <th>Zdjęcie</th>
@@ -40,7 +38,9 @@
                         @foreach ($images as $image)
                             <tr>
                                 <td class="d-flex justify-content-center">
-                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 100px; max-width: 150px; height: auto;"></a>
+                                    <a href="{{ route('admin.images.show', ['id' => $image->id]) }}">
+                                        <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 100px; max-width: 150px; height: auto;">
+                                    </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.images.show', ['id' => $image->id]) }}">
@@ -52,7 +52,9 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div> --}}
+            
+                {{ $images->links() }}
+            </div>
 
         </div>
     </div>
