@@ -34,7 +34,7 @@ class ImageController extends Controller
         $images = Image::orderBy('created_at')->paginate($perPage);
 
         return view('panel.auth.images.list', [
-            'images' => $images,
+            'images' => $images->appends(['per_page' => $perPage]), // Add 'per_page' to pagination links
 
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
