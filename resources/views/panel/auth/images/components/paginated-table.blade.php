@@ -26,5 +26,5 @@
         </tbody>
     </table>
 
-    {{ $items->links() }}
+    {{ $images->links() }}
 </div>
