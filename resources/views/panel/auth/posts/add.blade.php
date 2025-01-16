@@ -135,7 +135,7 @@
                                 <div class="col-md-6 d-flex align-items-center">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" name="use_hide_before_time"
-                                            id="use_hide_before_time">
+                                            id="use_hide_before_time" {{ $is_new_post == false && $post_to_update->hide_before_time != null ? 'checked' : '' }}>
                                         <label class="form-check-label" for="use_hide_before_time">Opublikuj
                                             później</label>
                                     </div>
@@ -143,8 +143,8 @@
                                 <div class="col-md-6">
                                     {{-- <label for="hide_before_time" class="col-md-2 col-form-label">Data i godzina</label> --}}
                                     {{-- <div class="col-md-10"> --}}
-                                    <input class="form-control" type="datetime-local" value=""
-                                        id="hide_before_time" name="hide_before_time" disabled>
+                                    <input class="form-control" type="datetime-local" value="{{ $is_new_post == false ? $post_to_update->hide_before_time : '' }}"
+                                        id="hide_before_time" name="hide_before_time" {{ $is_new_post == true ? 'disabled' : ($post_to_update->hide_before_time != null ? '' : 'disabled') }}>
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -189,12 +189,16 @@
     const hideBeforeTimeInput = document.getElementById('hide_before_time');
 
     useHideBeforeTimeCheckbox.addEventListener('change', () => {
-        if (useHideBeforeTimeCheckbox.checked) {
-            hideBeforeTimeInput.value = new Date().toISOString().slice(0, 16);
-            hideBeforeTimeInput.disabled = false;
+        if(hideBeforeTimeInput){
+            if (useHideBeforeTimeCheckbox.checked) {
+                hideBeforeTimeInput.value = new Date().toISOString().slice(0, 16);
+                hideBeforeTimeInput.disabled = false;
+            } else {
+                hideBeforeTimeInput.value = null;
+                hideBeforeTimeInput.disabled = true;
+            }
         } else {
-            hideBeforeTimeInput.value = null;
-            hideBeforeTimeInput.disabled = true;
+            console.warn('hideBeforeTimeInput is null');
         }
     });
 </script>
