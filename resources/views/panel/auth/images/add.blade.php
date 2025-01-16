@@ -48,10 +48,14 @@
         // sleep 0.5 s
         setTimeout(() => {}, 500);
 
-        Array.from(event.target.files).forEach((file, index) => {
+        const files = Array.from(event.target.files);
+
+        files.forEach((file, index) => {
             const reader = new FileReader();
 
-            // Show preview
+            // Close context for each file
+            const fileIndex = index;
+            
             reader.onload = (e) => {
                 const metadataBlock = document.createElement('div');
                 metadataBlock.classList.add('mb-3', 'border', 'p-3', 'rounded', 'shadow-sm');
@@ -62,17 +66,17 @@
                             <img src="${e.target.result}" alt="Podgląd obrazu ${file.name}" class="img-thumbnail" style="min-width: 100px; max-width: 200px; height: auto;">
                         </div>
                         <div class="col-md-9">
-                            <label for="title_${index}" class="form-label">Tytuł dla "${file.name}"</label>
-                            <input type="text" class="form-control" id="title_${index}" name="titles[]" placeholder="Wprowadź tytuł" required>
-                            <label for="label_${index}" class="form-label mt-2">Opis dla "${file.name}"</label>
-                            <textarea class="form-control" name="labels[]" id="label_${index}" rows="3" placeholder="Wprowadź opis"></textarea>
+                            <label for="title_${fileIndex}" class="form-label">Tytuł dla "${file.name}"</label>
+                            <input type="text" class="form-control" id="title_${fileIndex}" name="titles[]" placeholder="Wprowadź tytuł" required>
+                            <label for="label_${fileIndex}" class="form-label mt-2">Opis dla "${file.name}"</label>
+                            <textarea class="form-control" name="labels[]" id="label_${fileIndex}" rows="3" placeholder="Wprowadź opis"></textarea>
                         </div>
                     </div>
                 `;
                 metadataContainer.appendChild(metadataBlock);
             };
 
-            // Read file as data URL
+            
             reader.readAsDataURL(file);
         });
     });
