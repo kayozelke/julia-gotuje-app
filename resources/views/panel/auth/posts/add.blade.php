@@ -30,7 +30,7 @@
             {{-- ########################## --}}
 
             @if ($is_new_post == false)
-                <input type="hidden" name="update_id" value="{{ $post_update->$id }}">
+                <input type="hidden" name="update_id" value="{{ $post_to_update->$id }}">
             @endif
 
 
@@ -44,7 +44,7 @@
                                 {{-- <label for="defaultFormControlInput" class="form-label">Adres podstrony dopisywany do adresu URL strony</label> --}}
                                 <input type="text" class="form-control" id="title" {{-- placeholder="John Doe"  --}}
                                     name="title" aria-describedby="titleOfPost" required {{-- autocomplete="off"  --}}
-                                    value="{{ $is_new_post == false ? $post_update->title : '' }}">
+                                    value="{{ $is_new_post == false ? $post_to_update->title : '' }}">
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 <input type="text" class="form-control" id="custom_url" name="custom_url"
                                     {{-- placeholder="John Doe"  --}} pattern="[a-z0-9\-]+" aria-describedby="customUrlOfPost"
                                     required {{-- autocomplete="off" --}}
-                                    value="{{ $is_new_post == false ? $post_update->custom_url : '' }}">
+                                    value="{{ $is_new_post == false ? $post_to_update->custom_url : '' }}">
                             </div>
                         </div>
                     </div>
@@ -76,8 +76,8 @@
                                 <select class="form-select" id="template_type" aria-label="Template type"
                                     name="template_type">
                                     {{-- <option selected="">Open this select menu</option> --}}
-                                    <option value="recipe" {{ ($is_new_post == false && $post_update->template_type == 'recipe') ? 'selected=""' : '' }}>Przepis</option>
-                                    <option value="default" {{ ($is_new_post == false && $post_update->template_type == 'default') ? 'selected=""' : '' }}>Zwykły wpis</option>
+                                    <option value="recipe" {{ ($is_new_post == false && $post_to_update->template_type == 'recipe') ? 'selected=""' : '' }}>Przepis</option>
+                                    <option value="default" {{ ($is_new_post == false && $post_to_update->template_type == 'default') ? 'selected=""' : '' }}>Zwykły wpis</option>
                                     {{-- <option value="3">Three</option> --}}
                                 </select>
                             </div>
