@@ -202,17 +202,10 @@
         generateUrl();
     })
 
-    // function handleFocusChange(event) {
-    //     generateUrl(); 
-    // }
-
-    // titleInput.addEventListener('focus', handleFocusChange);
-    // titleInput.addEventListener('blur', handleFocusChange);
-
     function generateUrl() {
         // console.log('generateUrl()');
         const title = titleInput.value;
-        // Budowanie URL z parametrami
+        // build url with param
         const url = `/api/generate_page_url?text=${encodeURIComponent(title)}`;
 
         fetch(url, {
