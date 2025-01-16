@@ -84,6 +84,18 @@
                     <td><small class="text-light fw-semibold">ID</small></td>
                     <td class="py-3"><h6 class="mb-0"><small>{{ $post->id }}</small></h6></td>
                 </tr>
+
+                <tr>
+                    <td><small class="text-light fw-semibold">Typ</small></td>
+                    <td class="py-3">
+                        <h6 class="mb-0">
+                            <small>
+                                {{ $post->template_type == 'recipe' ? 'Przepis' : '' }}
+                                {{ $post->template_type == 'default' ? 'Zwykły wpis' : '' }}
+                            </small>
+                        </h6>
+                    </td>
+                </tr>
                 
                 <tr>
                     <td><small class="text-light fw-semibold">Post ukryty na stałe</small></td>
