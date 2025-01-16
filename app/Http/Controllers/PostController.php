@@ -204,6 +204,15 @@ class PostController extends Controller
             ]
         );
 
+        // handle image justifying by sun editor
+        // replace strings at post_content: "__se__float-left" to "__se__float-left text-start"
+        // replace strings at post_content: "__se__float-right" to "__se__float-right text-end"
+        // replace strings at post_content: "__se__float-center" to "__se__float-center text-center"
+        $validated['post_content'] = str_replace('__se__float-left', '__se__float-left text-start', $validated['post_content']);
+        $validated['post_content'] = str_replace('__se__float-right', '__se__float-right text-end', $validated['post_content']);
+        $validated['post_content'] = str_replace('__se__float-center', '__se__float-center text-center', $validated['post_content']);
+
+
 
         
         $parent_category_id = $request->input('parent_category_id');
