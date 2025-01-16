@@ -6,7 +6,7 @@
 
     <div class="card mb-4">
         <h4 class="card-header">Edycja danych obrazu '{{ $image->title }}'</h4>
-        <div class="card-body col-md-10 py-2">
+        <div class="card-body py-2">
             <form action="{{ route('admin.images.update.post') }}" method="POST">
                 @csrf
                 
@@ -42,7 +42,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="row text-center">
+                <div class="row text-center p-2">
                     <div class="col">
                         <button type="submit" class="btn btn-success" role="button">Zapisz</button>
                     </div>
