@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
@@ -371,16 +372,17 @@ class PostController extends Controller
             ]);
         }
 
-        // print_r($post_id);
-        // echo '<br>';
-        // print_r($post);
-        // return;
+        $post_images = PostImage::where('post_id', $post_id)
+            ->with(['imageData', 'updatedByUser'])
+            ->orderBy('priority', 'desc')->get();
+
 
 
         return view('panel.auth.posts.show', [
             // 'p_category' => $current_category,
             // 'subcategories' => $subcategories,
             'post' => $post,
+            'post_images' => $post_images,
             // 'all_categories' => $all_categories,
             // 'recurrent_parent_categories
             'parent_categories' => (new Category())->findParentCategories($post->parent_category_id),

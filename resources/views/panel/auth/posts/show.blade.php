@@ -132,6 +132,12 @@
         
     </div>
 
+    <div class="card mb-4">
+        @php
+            print_r($post_images);
+        @endphp
+    </div>
+
 </div>
 
 @include('panel.auth.footer')
