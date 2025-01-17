@@ -196,7 +196,7 @@
                                 <select class="form-select" id="image-selector">
                                     <option value="" disabled selected>Wybierz obraz</option>
                                     @foreach($all_images as $image)
-                                        <option value="{{ $image->id }}" data-src="{{ $image->file_location }}">
+                                        <option value="{{ $image->id }}" data-src="{{ $image->file_location }}" data-label="{{ $image->label }}">
                                             {{ $image->title }}
                                         </option>
                                     @endforeach
@@ -210,7 +210,7 @@
                         <div class="card-body">
                             <div class="row">
 
-                                <div class="col-md">
+                                {{-- <div class="col-md">
                                     <div class="card mb-3">
                                         <div class="row g-0">
                                             <div class="col-md-4">
@@ -228,31 +228,48 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
+                                
+                                <ul id="selected-images-list" style="list-style-type: none;">
+                                    @if ($post_to_update != null)
+                                        @foreach($post_to_update->imagesByPriority as $image)
 
-                                <div class="col-md">
-                                    <div class="card mb-3">
-                                        <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img class="card-img card-img-left" src="/uploaded_images/1736964410_220526171611-11-classic-french-dishes-ratatouille.jpg" alt="Card image">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">
-                                                        This is a wider card with supporting text below as a natural lead-in to additional content.
-                                                        This content is a little bit longer.
-                                                    </p>
-                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                            <li data-id="{{ $image->id }}">
+                                                <div class="col-md">
+                                                    <div class="card mb-3">
+                                                        <div class="row g-0">
+                                                            <div class="col-md-4">
+                                                                <img class="card-img card-img-left" src="{{ $image->file_location }}" alt="{{ $image->title }}">
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">{{ $image->title }}</h5>
+                                                                    <p class="card-text">
+                                                                        <small>{{ $image->label }}</small>
+                                                                    </p>
+                                                                    {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                            
+                                                                    <!-- Priority selection -->
+                                                                    <label for="priority-{{ $image->id }}">Priorytet:</label>
+                                                                    <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
+                                                                        value="{{ $image->priority }}" min="1" max="100" step="1" />
+
+                                                
+                                                                    <button type="button" onclick="removeImage(this)">Usuń</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            </li>
+
+                                        @endforeach
+                                    @endif
+                                </ul>
 
                             </div>
                             
-                            <div>
+                            {{-- <div>
                                 <ul id="selected-images-list" style="list-style-type: none;">
                                     @if ($post_to_update != null)
                                         @foreach($post_to_update->imagesByPriority as $image)
@@ -271,7 +288,7 @@
                                         @endforeach
                                     @endif
                                 </ul>
-                            </div>
+                            </div> --}}
         
                             <!-- Hidden input to store selected images -->
                             <input type="hidden" name="selected_images" id="selected-images" 
@@ -421,6 +438,7 @@
             const selectedOption = imageSelector.options[imageSelector.selectedIndex];
             const imageId = selectedOption.value;
             const imageSrc = selectedOption.getAttribute('data-src');
+            const imageLabel = selectedOption.getAttribute('data-label');
             const imageTitle = selectedOption.text;
 
             // Check if the image is already in the list
