@@ -238,8 +238,8 @@
                                                 {{-- <div> --}}
                                                     <div class="card mb-3">
                                                         <div class="row g-0">
-                                                            <div class="col-md-4">
-                                                                <img class="card-img card-img-left" src="{{ $image->file_location }}" alt="{{ $image->title }}">
+                                                            <div class="col-md-4 custom-img-cover">
+                                                                <img src="{{ $image->file_location }}" alt="{{ $image->title }}">
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="card-body">

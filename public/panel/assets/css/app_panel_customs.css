@@ -2,3 +2,9 @@
 .dropdown-menu {
     margin: 0 !important;
 }
+
+.custom-img-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
