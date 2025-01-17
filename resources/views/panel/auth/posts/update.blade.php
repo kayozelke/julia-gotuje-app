@@ -183,6 +183,33 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <h4 class="card-header">Galeria</h4>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="images" class="form-label">Wybierz obrazy</label>
+                                <select class="form-select" id="images" name="images[]" multiple>
+                                    @foreach ($all_images as $image)
+                                        <option value="{{ $image->id }}"
+                                            @if ($is_new_post == false)
+                                                @foreach ($post_to_update->imagesByPriority as $postImage)
+                                                    @if ($postImage->image_id == $image->id)
+                                                        selected
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        >{{ $image->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row text-center">
                 <div class="col">
                     <button type="submit" class="btn btn-success mx-2" role="button">Zapisz</button>
@@ -299,5 +326,16 @@
         const content = editor.getContents();
         // set hidden field content
         document.getElementById('postContent').value = content;
+    });
+</script>
+
+{{-- script for gallery picker --}}
+<script>
+    // existing code...
+
+    // Add event listener for image selection changes
+    const imagesSelect = document.getElementById('images');
+    imagesSelect.addEventListener('change', () => {
+        // Handle image selection changes here if needed
     });
 </script>

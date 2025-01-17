@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostImage;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
@@ -69,7 +70,7 @@ class PostController extends Controller
             // $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
             $posts = Post::with(['createdByUser', 'updatedByUser', 'imagesByPriority'])->orderBy('updated_at')->get();        
         }
-        
+
         // get most prioritized image for every post (post thumbnail)
         foreach ($posts as $post) {
             $post->prioritized_image = $post->imagesByPriority->first();
@@ -144,7 +145,7 @@ class PostController extends Controller
                     'toastErrorDescription' => 'Proszę wybrać poprawny post.',
                 ]);
             } else {
-                $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($post_update_id);
+                $post_to_update = Post::with(['createdByUser', 'updatedByUser', 'imagesByPriority'])->find($post_update_id);
 
                 $post_to_update['post_content'] = str_replace('__se__float-left text-start', '__se__float-left', $post_to_update['post_content']);
                 $post_to_update['post_content'] = str_replace('__se__float-right text-end', '__se__float-right', $post_to_update['post_content']);
@@ -178,11 +179,14 @@ class PostController extends Controller
         // ]);
 
 
+        $all_images = Image::all();
+
 
 
         return view('panel.auth.posts.update', [
             // 'p_category' => $p_category,
             'all_categories' => $all_categories,
+            'all_images' => $all_images,
             'post_to_update' => $post_to_update,
             'is_new_post' => $is_new_post,
             'backPage' => url()->previous(),
