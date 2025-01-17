@@ -386,7 +386,7 @@
                 ${imageTitle}
 
                 <label for="priority-${imageId}">Priorytet:</label>
-                <input type="number" ame="priority[${imageId}]" id="priority-${imageId}" class="image-priority" 
+                <input type="number" name="priority[${imageId}]" id="priority-${imageId}" class="image-priority" 
                     value="1" min="1" max="100" step="1" />
 
                 <button type="button" onclick="removeImage(this)">Usuń</button>
