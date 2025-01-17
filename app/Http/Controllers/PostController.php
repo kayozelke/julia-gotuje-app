@@ -407,7 +407,7 @@ class PostController extends Controller
         }
 
         return redirect()
-            ->route('admin.posts.show', ['id' => $post_to_update->id])
+            ->route('admin.posts.show', ['id' => $post_to_update->id ?? $new_post->id])
             ->with([
             'toastSuccessTitle' => 'Zapisano pomyślnie!',
             'toastSuccessHideTime' => 5,
