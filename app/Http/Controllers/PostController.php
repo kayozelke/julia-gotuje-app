@@ -141,7 +141,7 @@ class PostController extends Controller
         if(isset($post_update_id)){
             if ( !(Post::where('id', $post_update_id)->exists()) ) {
                 return redirect()->back()->with([
-                    'toastErrorTitle' => 'Wpis o ID "' . $post_update_id . '" nie istnieje!',
+                    'toastErrorTitle' => 'Post o ID "' . $post_update_id . '" nie istnieje!',
                     'toastErrorDescription' => 'Proszę wybrać poprawny post.',
                 ]);
             } else {
@@ -219,11 +219,11 @@ class PostController extends Controller
             [
                 'title.required' => 'Tytuł jest wymagany',
                 'custom_url.required' => 'Adres URL jest wymagany',
-                'template_type.required' => 'Typ wpisu jest wymagany',
-                // 'post_content.required' => 'Treść wpisu jest wymagana',
+                'template_type.required' => 'Typ posta jest wymagany',
+                // 'post_content.required' => 'Treść posta jest wymagana',
                 'title.string' => 'Tytuł musi być ciągiem znaków',
                 'custom_url.string' => 'Adres URL musi być ciągiem znaków',
-                'post_content.string' => 'Treść wpisu musi być ciągiem znaków',
+                'post_content.string' => 'Treść posta musi być ciągiem znaków',
             ]
         );
 
@@ -293,7 +293,7 @@ class PostController extends Controller
             if ( !(Post::where('id', $request->input('update_id'))->exists()) ) {
                 return redirect()->back()->with([
                     'toastErrorTitle' => 'Wystąpił błąd!',
-                    'toastErrorDescription' => 'Wpis o ID "' . $request->input('update_id') . '" nie istnieje!',
+                    'toastErrorDescription' => 'Post o ID "' . $request->input('update_id') . '" nie istnieje!',
                 ]);
             } else {
                 $post_to_update = Post::with(['createdByUser', 'updatedByUser'])->find($request->input('update_id'));
@@ -364,7 +364,7 @@ class PostController extends Controller
                 ]);
     
                 // return redirect()->route('admin.posts')->with([
-                //     'toastSuccessTitle' => 'Pomyślnie dodano wpis',
+                //     'toastSuccessTitle' => 'Pomyślnie dodano post',
                 //     'toastSuccessHideTime' => 5,
                 // ]);
     
@@ -438,7 +438,7 @@ class PostController extends Controller
 
             if ( !(Post::where('id', $post_id)->exists()) ) {
                 return redirect()->back()->with([
-                    'toastErrorTitle' => 'Wpis o ID "' . $post_id . '" nie istnieje!',
+                    'toastErrorTitle' => 'Post o ID "' . $post_id . '" nie istnieje!',
                     'toastErrorDescription' => 'Proszę wybrać poprawny post.',
                 ]);
             } else {
@@ -447,8 +447,8 @@ class PostController extends Controller
 
         } else {
             return redirect()->back()->with([
-                'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
-                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+                'toastErrorTitle' => 'Niepoprawne ID posta: "' . $post_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny post.',
             ]);
         }
 
@@ -497,7 +497,7 @@ class PostController extends Controller
 
             if ( !(Post::where('id', $post_id)->exists()) ) {
                 return redirect()->back()->with([
-                    'toastErrorTitle' => 'Wpis o ID "' . $post_id . '" nie istnieje!',
+                    'toastErrorTitle' => 'Post o ID "' . $post_id . '" nie istnieje!',
                     'toastErrorDescription' => 'Proszę wybrać poprawny post.',
                 ]);
             } else {
@@ -506,8 +506,8 @@ class PostController extends Controller
 
         } else {
             return redirect()->back()->with([
-                'toastErrorTitle' => 'Niepoprawne ID wpisu: "' . $post_id . '"!',
-                // 'toastErrorDescription' => 'Proszę wybrać poprawny wpis.',
+                'toastErrorTitle' => 'Niepoprawne ID posta: "' . $post_id . '"!',
+                // 'toastErrorDescription' => 'Proszę wybrać poprawny post.',
             ]);
         }
 
@@ -531,18 +531,22 @@ class PostController extends Controller
 
         $post = Post::find($request->delete_id);
         if (!$post) {
-            return redirect()->back()->with(['toastErrorTitle' => 'Wpis o ID "' . $request->delete_id . '" nie istnieje.']);
+            return redirect()->back()->with(['toastErrorTitle' => 'Post o ID "' . $request->delete_id . '" nie istnieje.']);
         }
 
         try {
+            // firstly delete all elements from PostImage where post_id is equal to $post->id
+            PostImage::where('post_id', $post->id)->delete();
+
+            // then delete post
             $post->delete();
             return redirect(route('admin.posts'))->with([
-                'toastSuccessTitle' => 'Pomyślnie usunięto wpis',
+                'toastSuccessTitle' => 'Pomyślnie usunięto post',
                 'toastSuccessHideTime' => 5,
             ]);
         } catch (\Exception $e) {
             return redirect(route('admin.posts'))->with([
-                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania wpisu!',
+                'toastErrorTitle' => 'Wystąpił błąd podczas usuwania posta!',
                 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
             ]);
