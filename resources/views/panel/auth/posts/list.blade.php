@@ -103,7 +103,7 @@
                                 <td>{{ $post->created_at }} <br> przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}</td>
                                 <td>{{ $post->updated_at }} <br> przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}</td>
                                 <td>
-                                    <a href="{{ $post->url }}" class="btn btn-sm btn-primary">
+                                    <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
                                         <i class='bx bx-link-external'></i> 
                                     </a>
                                 </td>
@@ -145,13 +145,13 @@
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable({
-            "paging": false, // Włącz paginację
-            "ordering": true, // Włącz sortowanie
-            "searching": false, // Włącz wyszukiwanie
+            "paging": true, 
+            "ordering": true, 
+            "searching": true,
             "order": [
                 [0, "asc"]
-            ], // Domyślne sortowanie po ID
-            "info": false // Wyłącza informacje o paginacji
+            ], // default order by ID
+            "info": true // pagination info
         });
     });
 </script>
