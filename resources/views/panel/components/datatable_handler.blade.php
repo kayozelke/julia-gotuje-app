@@ -2,8 +2,6 @@
 
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.bootstrap5.css">
-{{-- this brokes Sneat's CSS (little funny) --}}
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
@@ -27,10 +25,6 @@
                     next: "→",         
                     last: "↷",   
                 }
-            },
-            drawCallback: function() {
-                // Reinitialize Bootstrap dropdowns
-                $('[data-bs-toggle="dropdown"]').dropdown();
             }
         });
     });
