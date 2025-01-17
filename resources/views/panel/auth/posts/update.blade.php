@@ -183,6 +183,8 @@
                 </div>
             </div>
 
+                {{-- galeria --}}
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
@@ -210,6 +212,13 @@
                                         <li data-id="{{ $image->id }}">
                                             <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
                                             {{ $image->title }}
+                        
+                                            <!-- Priority selection -->
+                                            <label for="priority-{{ $image->id }}">Priorytet:</label>
+                                            <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
+                                                value="{{ $image->priority }}" min="1" max="100" step="1" />
+
+                        
                                             <button type="button" onclick="removeImage(this)">Usuń</button>
                                         </li>
                                     @endforeach
@@ -368,6 +377,11 @@
             listItem.innerHTML = `
                 <img src="${imageSrc}" alt="${imageTitle}" style="width: 100px; height: auto; margin-right: 10px;">
                 ${imageTitle}
+
+                <label for="priority-${imageId}">Priorytet:</label>
+                <input type="number" ame="priority[${imageId}]" id="priority-${imageId}" class="image-priority" 
+                    value="{{ $image->priority }}" min="1" max="100" step="1" />
+
                 <button type="button" onclick="removeImage(this)">Usuń</button>
             `;
 
