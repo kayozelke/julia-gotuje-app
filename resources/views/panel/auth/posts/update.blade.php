@@ -205,7 +205,7 @@
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
-                                    @foreach($prioritizedImages as $image)
+                                    @foreach($image->imagesByPriority as $image)
                                         <li data-id="{{ $image->id }}">
                                             <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
                                             {{ $image->title }}
@@ -216,7 +216,7 @@
                             </div>
         
                             <!-- Hidden input to store selected images -->
-                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $prioritizedImages->pluck('id')->toArray()) }}">
+                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $image->imagesByPriority->pluck('id')->toArray()) }}">
                         </div>
                     </div>
                 </div>
