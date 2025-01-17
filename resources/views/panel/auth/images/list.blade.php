@@ -29,6 +29,7 @@
                 <table class="table table-striped table-hover align-middle mb-1">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Zdjęcie</th>
                             <th>Tytuł</th>
                             <th>Opis</th>
@@ -38,6 +39,7 @@
                     <tbody>
                         @foreach ($images as $image)
                             <tr>
+                                <td>{{ $image->id }}</td>
                                 <td class="d-flex justify-content-center">
                                     <a href="{{ route('admin.images.show', ['id' => $image->id]) }}">
                                         <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 100px; max-width: 150px; height: auto;">
