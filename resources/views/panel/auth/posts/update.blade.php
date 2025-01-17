@@ -205,18 +205,20 @@
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
-                                    @foreach($image->imagesByPriority as $image)
-                                        <li data-id="{{ $image->id }}">
-                                            <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
-                                            {{ $image->title }}
-                                            <button type="button" onclick="removeImage(this)">Usuń</button>
-                                        </li>
-                                    @endforeach
+                                    @if(!empty($image->imagesByPriority) && $image->imagesByPriority->isNotEmpty())
+                                        @foreach($image->imagesByPriority as $image)
+                                            <li data-id="{{ $image->id }}">
+                                                <img src="" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
+                                                {{ $image->title }}
+                                                <button type="button" onclick="removeImage(this)">Usuń</button>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
         
                             <!-- Hidden input to store selected images -->
-                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $image->imagesByPriority->pluck('id')->toArray()) }}">
+                            <input type="hidden" name="selected_images" id="selected-images" value="{{ !empty($image->imagesByPriority) ? implode(',', $image->imagesByPriority->pluck('id')->toArray()) : '' }}">
                         </div>
                     </div>
                 </div>
