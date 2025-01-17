@@ -20,13 +20,13 @@
             ], // default order by ID
             "info": true, // pagination info
             language: {
-                url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
-                paginate: {
-                    first: "«",    
-                    previous: "‹",
-                    next: "›",         
-                    last: "»",   
-                }
+                // url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
+                // paginate: {
+                //     first: "«",    
+                //     previous: "‹",
+                //     next: "›",         
+                //     last: "»",   
+                // }
             }
         });
     });
