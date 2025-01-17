@@ -154,14 +154,15 @@
         @endforeach
     </div>
 
-    <div class="card mb-4">
+    {{-- DEBUG for Gallery --}}
+    {{-- <div class="card mb-4">
         <h5 class="card-header">Galeria</h5>
         <div class="px-4 py-3">
         </div>
         @php
             print_r($post_images);
         @endphp
-    </div>
+    </div> --}}
 
 </div>
 
