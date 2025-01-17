@@ -243,14 +243,18 @@
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="card-body">
-
-                                                                    <div class="text-end">
-                                                                        <button type="button" class="btn btn-danger" onclick="removeImage(this)">
-                                                                            <i class='bx bx-x'></i>
-                                                                        </button>
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <h5 class="card-title">{{ $image->title }}</h5>
+                                                                        </div>
+                                                                        <div class="col-sm-2 text-end">
+                                                                            <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
+                                                                                <i class='bx bx-x'></i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
 
-                                                                    <h5 class="card-title">{{ $image->title }}</h5>
                                                                     <p class="card-text">
                                                                         <small>{{ $image->label }}</small>
                                                                     </p>
