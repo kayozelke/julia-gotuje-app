@@ -250,11 +250,16 @@
                                                                     {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                             
                                                                     <!-- Priority selection -->
-                                                                    <div class="mb-3 row">
+                                                                    {{-- <div class="mb-3 row">
                                                                         <label for="html5-number-input" class="col-md-2 col-form-label">Number</label>
                                                                         <div class="col-md-10">
                                                                             <input class="form-control" type="number" value="18" id="html5-number-input">
                                                                         </div>
+                                                                    </div> --}}
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text">Priorytet</span>
+                                                                        <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
+                                                                            value="{{ $image->priority }}" min="1" max="100" step="1" />
                                                                     </div>
 
                                                                     {{-- <div class="row">
