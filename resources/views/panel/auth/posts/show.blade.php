@@ -144,7 +144,9 @@
                             {{ $post_image->image->title }}
                         </p>
                         <p class="card-text">
-                            {{ $post_image->image->label }}
+                            <small>
+                                {{ $post_image->image->label }}
+                            </small>
                         </p>
                     </div>
                 </div>
