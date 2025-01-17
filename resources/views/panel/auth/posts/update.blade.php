@@ -250,9 +250,11 @@
                                                                     {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                             
                                                                     <!-- Priority selection -->
-                                                                    <label for="priority-{{ $image->id }}">Priorytet:</label>
-                                                                    <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
-                                                                        value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                    <div class="row">
+                                                                        <label class="col-form-label" for="priority-{{ $image->id }}">Priorytet:</label>
+                                                                        <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
+                                                                            value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                    </div>
 
                                                                     <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
                                                                         <i class='bx bx-x'></i>
