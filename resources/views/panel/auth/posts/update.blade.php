@@ -365,6 +365,11 @@
         const selectedImagesList = document.getElementById('selected-images-list');
         const selectedImagesInput = document.getElementById('selected-images');
 
+         // Function to reset the image selector to the default option
+        function resetImageSelector() {
+            imageSelector.selectedIndex = 0;  // Sets the selected option to the first (default) one
+        }
+
         // Function to add a new image to the list
         imageSelector.addEventListener('change', function () {
             const selectedOption = imageSelector.options[imageSelector.selectedIndex];
@@ -397,6 +402,9 @@
 
             // Update the hidden input value
             updateSelectedImages();
+
+            // Reset the image selector after adding an image
+            resetImageSelector();
         });
 
         // Function to remove an image from the list
@@ -411,5 +419,8 @@
             const selectedIds = Array.from(selectedImagesList.children).map(li => li.getAttribute('data-id'));
             selectedImagesInput.value = selectedIds.join(',');
         }
+            
+        // Reset the image selector when the page is loaded
+        resetImageSelector();
     });
 </script>
