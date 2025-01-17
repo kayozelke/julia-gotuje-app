@@ -205,9 +205,53 @@
         
                             <!-- Dynamic list of selected images -->
                             {{-- <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div> --}}
-                            <h6 class="card-header">Wybrane obrazy</h6>
                         </div>
+                        <h5 class="card-header pt-2">Wybrane obrazy</h5>
                         <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img class="card-img card-img-left" src="/uploaded_images/1736964410_220526171611-11-classic-french-dishes-ratatouille.jpg" alt="Card image">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">
+                                                        This is a wider card with supporting text below as a natural lead-in to additional content.
+                                                        This content is a little bit longer.
+                                                    </p>
+                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img class="card-img card-img-left" src="/uploaded_images/1736964410_220526171611-11-classic-french-dishes-ratatouille.jpg" alt="Card image">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">
+                                                        This is a wider card with supporting text below as a natural lead-in to additional content.
+                                                        This content is a little bit longer.
+                                                    </p>
+                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
                             <div>
                                 <ul id="selected-images-list" style="list-style-type: none;">
                                     @if ($post_to_update != null)
