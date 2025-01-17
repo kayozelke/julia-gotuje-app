@@ -244,60 +244,20 @@
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <div class="card-body">
-                                                                        
-                                                                        {{-- <div class="row">
-                                                                            <div class="col">
-                                                                                <h5 class="card-title my-0">{{ $image->title }}</h5>
-                                                                            </div>
-                                                                            <div class="col-sm-2 text-end">
-                                                                                <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
-                                                                                    <i class='bx bx-x'></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div> --}}
-    
                                                                         <h5 class="card-title my-0">{{ $image->title }}</h5>
-                                                                        
-    
                                                                         <p class="card-text">
                                                                             <small>{{ $image->label }}</small>
                                                                         </p>
-                                                                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
-                                
-                                                                        <!-- Priority selection -->
-                                                                        {{-- <div class="mb-3 row">
-                                                                            <label for="html5-number-input" class="col-md-2 col-form-label">Number</label>
-                                                                            <div class="col-md-10">
-                                                                                <input class="form-control" type="number" value="18" id="html5-number-input">
-                                                                            </div>
-                                                                        </div> --}}
                                                                         <div class="input-group">
                                                                             <span class="input-group-text">Priorytet</span>
                                                                             <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
                                                                                 value="{{ $image->priority }}" min="1" max="100" step="1" />
                                                                         </div>
-    
-                                                                        {{-- <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
-                                                                                <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
-                                                                                    value="{{ $image->priority }}" min="1" max="100" step="1" />
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-md-6">
-                                                                                <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
-                                                                                    <i class='bx bx-x'></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                    
-    
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
                                                     <div class="col-sm-1 d-flex align-items-center justify-content-center">
                                                         <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
                                                             <i class='bx bx-x'></i>
@@ -494,14 +454,35 @@
             const listItem = document.createElement('li');
             listItem.setAttribute('data-id', imageId);
             listItem.innerHTML = `
-                <img src="${imageSrc}" alt="${imageTitle}" style="width: 100px; height: auto; margin-right: 10px;">
-                ${imageTitle}
-
-                <label for="priority-${imageId}">Priorytet:</label>
-                <input type="number" name="priority[${imageId}]" id="priority-${imageId}" class="image-priority" 
-                    value="1" min="1" max="100" step="1" />
-
-                <button type="button" onclick="removeImage(this)">Usuń</button>
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-4 custom-img-cover">
+                                    <img src="${imageSrc}" alt="${imageTitle}">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title my-0">${imageTitle}</h5>
+                                        <p class="card-text">
+                                            <small>${imageLabel}</small>
+                                        </p>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Priorytet</span>
+                                            <input class="form-control" type="number" name="priority[${imageId}]" id="priority-${imageId}"
+                                                value="1" min="1" max="100" step="1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 d-flex align-items-center justify-content-center">
+                        <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
+                            <i class='bx bx-x'></i>
+                        </button>
+                    </div>
+                </div>
             `;
 
             // Add the list item to the list
