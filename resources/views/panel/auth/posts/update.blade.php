@@ -208,25 +208,32 @@
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
-                                    @foreach($post_to_update->imagesByPriority as $image)
-                                        <li data-id="{{ $image->id }}">
-                                            <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
-                                            {{ $image->title }}
-                        
-                                            <!-- Priority selection -->
-                                            <label for="priority-{{ $image->id }}">Priorytet:</label>
-                                            <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
-                                                value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                    @if ($post_to_update != null)
+                                        @foreach($post_to_update->imagesByPriority as $image)
+                                            <li data-id="{{ $image->id }}">
+                                                <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
+                                                {{ $image->title }}
+                            
+                                                <!-- Priority selection -->
+                                                <label for="priority-{{ $image->id }}">Priorytet:</label>
+                                                <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
+                                                    value="{{ $image->priority }}" min="1" max="100" step="1" />
 
-                        
-                                            <button type="button" onclick="removeImage(this)">Usuń</button>
-                                        </li>
-                                    @endforeach
+                            
+                                                <button type="button" onclick="removeImage(this)">Usuń</button>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
         
                             <!-- Hidden input to store selected images -->
-                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $post_to_update->imagesByPriority->pluck('id')->toArray()) }}">
+                            <input type="hidden" name="selected_images" id="selected-images" 
+                                @if ($post_to_update != null)
+                                    value="{{ implode(',', $post_to_update->imagesByPriority->pluck('id')->toArray()) }}"
+                                @else value=""
+                                @endif
+                                >
                         </div>
                     </div>
                 </div>
