@@ -373,7 +373,7 @@ class PostController extends Controller
         }
 
         $post_images = PostImage::where('post_id', $post_id)
-            ->with(['imageData', 'updatedByUser'])
+            ->with(['image', 'updatedByUser'])
             ->orderBy('priority', 'desc')->get();
 
 
