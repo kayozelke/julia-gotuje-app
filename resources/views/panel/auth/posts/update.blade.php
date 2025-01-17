@@ -260,7 +260,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="button" onclick="removeImage(this)">Usuń</button>
+                                                <button type="button" class="col-md-3" onclick="removeImage(this)">Usuń</button>
                                             </li>
 
                                         @endforeach
