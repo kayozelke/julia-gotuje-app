@@ -27,6 +27,10 @@
                     next: "→",         
                     last: "↷",   
                 }
+            },
+            drawCallback: function() {
+                // Reinitialize Bootstrap dropdowns
+                $('[data-bs-toggle="dropdown"]').dropdown();
             }
         });
     });
