@@ -256,7 +256,7 @@
                                                                             <input class="form-control" type="number" value="18" id="html5-number-input">
                                                                         </div>
                                                                     </div> --}}
-                                                                    <div class="input-group">
+                                                                    <div class="input-group mb-3">
                                                                         <span class="input-group-text">Priorytet</span>
                                                                         <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
                                                                             value="{{ $image->priority }}" min="1" max="100" step="1" />
@@ -276,9 +276,11 @@
                                                                         </div>
                                                                     </div> --}}
 
-                                                                    <button type="button" class="mb-3 row btn btn-danger" onclick="removeImage(this)">
-                                                                        <i class='bx bx-x'></i>
-                                                                    </button>
+                                                                    <div class="mb-3 text-center">
+                                                                        <button type="button" class="btn btn-danger" onclick="removeImage(this)">
+                                                                            <i class='bx bx-x'></i>
+                                                                        </button>
+                                                                    </div>
                                                                 
 
                                                                 </div>
