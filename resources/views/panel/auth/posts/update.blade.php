@@ -235,7 +235,7 @@
                                         @foreach($post_to_update->imagesByPriority as $image)
 
                                             <li data-id="{{ $image->id }}">
-                                                <div class="col-md">
+                                                <div class="col-md-6">
                                                     <div class="card mb-3">
                                                         <div class="row g-0">
                                                             <div class="col-md-4">
