@@ -189,9 +189,9 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <h4 class="card-header">Galeria</h4>
-                        <div class="card-body">
+                        <div class="card-body py-0">
                             <!-- Dropdown to select new images -->
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-8 mb-4">
                                 <label class="form-label" for="image-selector">Dodaj obraz</label>
                                 <select class="form-select" id="image-selector">
                                     <option value="" disabled selected>Wybierz obraz</option>
@@ -206,8 +206,8 @@
                             <!-- Dynamic list of selected images -->
                             {{-- <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div> --}}
                         </div>
-                        <h5 class="card-header pt-2">Wybrane obrazy</h5>
-                        <div class="card-body">
+                        {{-- <h5 class="card-header pt-2">Wybrane obrazy</h5> --}}
+                        <div class="card-body py-0">
                             <div class="row">
 
                                 {{-- <div class="col-md">
