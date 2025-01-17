@@ -50,11 +50,17 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'parent_category_id');
     }
 
+    // public function imagesByPriority()
+    // {
+    //     return $this->hasManyThrough(Image::class, PostImage::class, 'post_id', 'id', 'id', 'image_id')
+    //         ->orderBy('post_images.priority', 'desc');
+    // }
+
     public function imagesByPriority()
     {
         return $this->hasManyThrough(Image::class, PostImage::class, 'post_id', 'id', 'id', 'image_id')
-            ->orderBy('post_images.priority', 'desc')
-            ->with(['post_images']);
+            ->select('images.*', 'post_images.id as post_image_id', 'post_images.priority', 'post_images.created_at as post_image_created_at', 'post_images.updated_at as post_image_updated_at')
+            ->orderBy('post_images.priority', 'desc');
     }
 
     public function getPrioritizedImageAttribute()
