@@ -283,42 +283,10 @@ class PostController extends Controller
         if($request->input('selected_images') != null){
             // split string by comma
             $selectedImageIds = explode(',', $request->input('selected_images'));
-
-            // // delete all post images that are not in selectedImageIds array
-            // PostImage::where('post_id', $request->input('update_id'))
-            //     ->whereNotIn('image_id', $selectedImageIds)
-            //     ->delete();
-
-            // // update priority of existing post images
-            // foreach ($selectedImageIds as $imageId) {
-            //     $priority = $request->input('priority')[$imageId] ?? 1; // Get priority, default to 1 if not set
-            //     PostImage::where('post_id', $request->input('update_id'))
-            //         ->where('image_id', $imageId)
-            //         ->update(['priority' => $priority]);
-            // }
-
-            // // add new post images from selectedImageIds array
-            // foreach ($selectedImageIds as $imageId) {
-            //     // check if image exists
-            //     if (Image::where('id', $imageId)->exists()) {
-            //         // check if post image already exists
-            //         if (!PostImage::where('post_id', $request->input('update_id'))->where('image_id', $imageId)->exists()) {
-            //             // add new post image
-            //             PostImage::create([
-            //                 'post_id' => $request->input('update_id'),
-            //                 'image_id' => $imageId,
-            //                 'priority' => $request->input('priority')[$imageId] ?? 1, // Set default priority to 1 if not provided
-            //                 'created_at' => now(),
-            //                 'updated_at' => now(),
-            //                 'updated_by' => Auth::id(),
-            //             ]);
-            //         }
-            //     }
-            // }
-
         }
         
-
+        // variable used for putting new post images 
+        $new_post = null;
 
         // check if to update or to add new post
         if ($request->input('update_id') != null){
@@ -381,7 +349,7 @@ class PostController extends Controller
         } else {
             // add new post
             try {
-                Post::create([
+                $new_post = Post::create([
                     'title' => $validated['title'],
                     'url' => $validated['custom_url'],
                     'template_type' => $validated['template_type'],
@@ -416,7 +384,7 @@ class PostController extends Controller
                     // add new post image
                     // no need to check if to update, because update was already realized and selectedImageIds contains only elements to add as new at this point
                     PostImage::create([
-                        'post_id' => $request->input('update_id'),
+                        'post_id' => $request->input('update_id') ?? $new_post->id, // if update_id is null, use new_post->id
                         'image_id' => $imageId,
                         'priority' => $request->input('priority')[$imageId] ?? 1, // Set default priority to 1 if not provided
                         'created_at' => now(),
