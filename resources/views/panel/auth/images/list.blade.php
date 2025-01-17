@@ -49,7 +49,7 @@
                                     </a>
                                 </td>
                                 <td>{{ $image->label }}</td>
-                                <td>{{ $image->created_at }} {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</td>
+                                <td>{{ $image->created_at }} <br>przez {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</td>
                             </tr>
                         @endforeach
                     </tbody>
