@@ -191,7 +191,7 @@
                         <h4 class="card-header">Galeria</h4>
                         <div class="card-body">
                             <!-- Dropdown to select new images -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <label class="form-label" for="image-selector">Dodaj obraz</label>
                                 <select class="form-select" id="image-selector">
                                     <option value="" disabled selected>Wybierz obraz</option>
@@ -206,8 +206,8 @@
                             <!-- Dynamic list of selected images -->
                             {{-- <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div> --}}
                             <div>
-                                <h5>Wybrane obrazy:</h5>
-                                <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
+                                <h6 class="card-header">Wybrane obrazy</h6>
+                                <ul id="selected-images-list" style="list-style-type: none;">
                                     @if ($post_to_update != null)
                                         @foreach($post_to_update->imagesByPriority as $image)
                                             <li data-id="{{ $image->id }}">
