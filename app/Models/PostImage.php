@@ -31,7 +31,7 @@ class PostImage extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
-    public function imageData(){
+    public function image(){
         return $this->belongsTo(Image::class, 'image_id');
     }
 }
