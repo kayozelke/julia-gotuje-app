@@ -14,9 +14,9 @@
             "paging": true, 
             "ordering": true, 
             "searching": true,
-            // "order": [
-            //     [0, "asc"]
-            // ], // default order by first column disabled
+            "order": [
+                // [0, "asc"]
+            ], // default order by first column disabled
             "info": true, // pagination info
             language: {
                 url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
