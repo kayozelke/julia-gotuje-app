@@ -252,8 +252,10 @@
                                                                     <!-- Priority selection -->
                                                                     <div class="row">
                                                                         <label class="col-form-label" for="priority-{{ $image->id }}">Priorytet:</label>
-                                                                        <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
-                                                                            value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                        <div class="col-md-3">
+                                                                            <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
+                                                                                value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                        </div>
                                                                     </div>
 
                                                                     <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
