@@ -191,9 +191,9 @@
                         <h4 class="card-header">Galeria</h4>
                         <div class="card-body">
                             <!-- Dropdown to select new images -->
-                            <div>
-                                <label for="image-selector">Dodaj obraz:</label>
-                                <select id="image-selector">
+                            <div class="col-md-6">
+                                <label class="form-label" for="image-selector">Dodaj obraz</label>
+                                <select class="form-select" id="image-selector">
                                     <option value="" disabled selected>Wybierz obraz</option>
                                     @foreach($all_images as $image)
                                         <option value="{{ $image->id }}" data-src="{{ $image->file_location }}">
