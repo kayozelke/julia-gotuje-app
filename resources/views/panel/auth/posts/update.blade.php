@@ -188,22 +188,35 @@
                     <div class="card mb-4">
                         <h4 class="card-header">Galeria</h4>
                         <div class="card-body">
-                            <div class="row" id="gallery">
-                                @foreach($all_images as $image)
-                                    <div class="col-md-3 mb-3">
-                                        <div class="image-container" style="position: relative;">
-                                            <img src="{{ asset('storage/' . $image->path) }}" alt="Image" 
-                                                class="img-fluid selectable-image" 
-                                                data-id="{{ $image->id }}">
-                                            <input type="checkbox" 
-                                                name="selected_images[]" 
-                                                value="{{ $image->id }}" 
-                                                style="position: absolute; top: 10px; left: 10px;" 
-                                                class="image-checkbox d-none">
-                                        </div>
-                                    </div>
-                                @endforeach
+                            <!-- Dropdown to select new images -->
+                            <div>
+                                <label for="image-selector">Dodaj obraz:</label>
+                                <select id="image-selector">
+                                    <option value="" disabled selected>Wybierz obraz</option>
+                                    @foreach($all_images as $image)
+                                        <option value="{{ $image->id }}" data-src="{{ asset('storage/' . $image->path) }}">
+                                            {{ $image->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+        
+                            <!-- Dynamic list of selected images -->
+                            <div>
+                                <h5>Wybrane obrazy:</h5>
+                                <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
+                                    @foreach($prioritizedImages as $image)
+                                        <li data-id="{{ $image->id }}">
+                                            <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
+                                            {{ $image->title }}
+                                            <button type="button" onclick="removeImage(this)">Usuń</button>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+        
+                            <!-- Hidden input to store selected images -->
+                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $prioritizedImages->pluck('id')->toArray()) }}">
                         </div>
                     </div>
                 </div>
@@ -331,32 +344,50 @@
 {{-- script for gallery picker --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const gallery = document.getElementById('gallery');
+        const imageSelector = document.getElementById('image-selector');
+        const selectedImagesList = document.getElementById('selected-images-list');
+        const selectedImagesInput = document.getElementById('selected-images');
 
-        gallery.addEventListener('click', function (e) {
-            if (e.target && e.target.classList.contains('selectable-image')) {
-                const image = e.target;
-                const checkbox = image.nextElementSibling;
+        // Function to add a new image to the list
+        imageSelector.addEventListener('change', function () {
+            const selectedOption = imageSelector.options[imageSelector.selectedIndex];
+            const imageId = selectedOption.value;
+            const imageSrc = selectedOption.getAttribute('data-src');
+            const imageTitle = selectedOption.text;
 
-                // Toggle selection
-                if (checkbox.checked) {
-                    checkbox.checked = false;
-                    image.style.border = 'none';
-                } else {
-                    checkbox.checked = true;
-                    image.style.border = '3px solid #007BFF'; // Highlight selected image
-                }
+            // Check if the image is already in the list
+            if (Array.from(selectedImagesList.children).some(li => li.getAttribute('data-id') === imageId)) {
+                alert('Ten obraz już znajduje się na liście.');
+                return;
             }
+
+            // Create a new list item
+            const listItem = document.createElement('li');
+            listItem.setAttribute('data-id', imageId);
+            listItem.innerHTML = `
+                <img src="${imageSrc}" alt="${imageTitle}" style="width: 100px; height: auto; margin-right: 10px;">
+                ${imageTitle}
+                <button type="button" onclick="removeImage(this)">Usuń</button>
+            `;
+
+            // Add the list item to the list
+            selectedImagesList.appendChild(listItem);
+
+            // Update the hidden input value
+            updateSelectedImages();
         });
+
+        // Function to remove an image from the list
+        window.removeImage = function (button) {
+            const listItem = button.parentElement;
+            listItem.remove();
+            updateSelectedImages();
+        };
+
+        // Function to update the hidden input value
+        function updateSelectedImages() {
+            const selectedIds = Array.from(selectedImagesList.children).map(li => li.getAttribute('data-id'));
+            selectedImagesInput.value = selectedIds.join(',');
+        }
     });
 </script>
-
-<style>
-    .image-container {
-        cursor: pointer;
-    }
-
-    .selectable-image {
-        transition: border 0.3s;
-    }
-</style>
