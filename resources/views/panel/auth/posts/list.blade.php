@@ -70,13 +70,13 @@
             <div class="table-responsive text-nowrap mx-3 my-2" style="min-height: 200px;">
                 <table class="table table-borderless table-hover" id="dataTableElement">
                     <thead>
-                        <tr class="text-center">
-                            <th>ID</th>
-                            <th>Nazwa</th>
-                            <th>Typ</th>
-                            <th>Dodano</th>
-                            <th>Zmodyfikowano</th>
-                            <th>Podgląd</th>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Nazwa</th>
+                            <th class="text-center">Typ</th>
+                            <th class="text-center">Dodano</th>
+                            <th class="text-center">Zmodyfikowano</th>
+                            <th class="text-center">Podgląd</th>
                             {{-- <th>Akcje</th> --}}
                         </tr>
                     </thead>
