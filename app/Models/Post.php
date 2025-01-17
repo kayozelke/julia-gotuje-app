@@ -53,7 +53,8 @@ class Post extends Model
     public function imagesByPriority()
     {
         return $this->hasManyThrough(Image::class, PostImage::class, 'post_id', 'id', 'id', 'image_id')
-            ->orderBy('post_images.priority', 'desc');
+            ->orderBy('post_images.priority', 'desc')
+            ->with(['post_images']);
     }
 
     public function getPrioritizedImageAttribute()
