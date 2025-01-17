@@ -22,10 +22,10 @@
             language: {
                 url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
                 paginate: {
-                    first: "⇤",    
+                    first: "↶",    
                     previous: "←",
                     next: "→",         
-                    last: "⇥",   
+                    last: "↷",   
                 }
             }
         });
