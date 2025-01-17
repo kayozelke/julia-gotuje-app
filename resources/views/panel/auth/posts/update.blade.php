@@ -188,23 +188,22 @@
                     <div class="card mb-4">
                         <h4 class="card-header">Galeria</h4>
                         <div class="card-body">
-                            <div class="mb-3">
-                                <label for="images" class="form-label">Wybierz obrazy</label>
-                                <select class="form-select" id="images" name="images[]" multiple>
-                                    @foreach ($all_images as $image)
-                                        <option value="{{ $image->id }}"
-                                            @if ($is_new_post == false)
-                                                @foreach ($post_to_update->imagesByPriority as $postImage)
-                                                    @if ($postImage->image_id == $image->id)
-                                                        selected
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        >{{ $image->title }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="row" id="gallery">
+                                @foreach($all_images as $image)
+                                    <div class="col-md-3 mb-3">
+                                        <div class="image-container" style="position: relative;">
+                                            <img src="{{ asset('storage/' . $image->path) }}" alt="Image" 
+                                                class="img-fluid selectable-image" 
+                                                data-id="{{ $image->id }}">
+                                            <input type="checkbox" 
+                                                name="selected_images[]" 
+                                                value="{{ $image->id }}" 
+                                                style="position: absolute; top: 10px; left: 10px;" 
+                                                class="image-checkbox d-none">
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -331,11 +330,33 @@
 
 {{-- script for gallery picker --}}
 <script>
-    // existing code...
+    document.addEventListener('DOMContentLoaded', function () {
+        const gallery = document.getElementById('gallery');
 
-    // Add event listener for image selection changes
-    const imagesSelect = document.getElementById('images');
-    imagesSelect.addEventListener('change', () => {
-        // Handle image selection changes here if needed
+        gallery.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('selectable-image')) {
+                const image = e.target;
+                const checkbox = image.nextElementSibling;
+
+                // Toggle selection
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                    image.style.border = 'none';
+                } else {
+                    checkbox.checked = true;
+                    image.style.border = '3px solid #007BFF'; // Highlight selected image
+                }
+            }
+        });
     });
 </script>
+
+<style>
+    .image-container {
+        cursor: pointer;
+    }
+
+    .selectable-image {
+        transition: border 0.3s;
+    }
+</style>
