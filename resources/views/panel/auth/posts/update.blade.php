@@ -234,7 +234,7 @@
                                     @if ($post_to_update != null)
                                         @foreach($post_to_update->imagesByPriority as $image)
 
-                                            <li data-id="{{ $image->id }}">
+                                            <li class="row" data-id="{{ $image->id }}">
                                                 <div class="col-md-6">
                                                     <div class="card mb-3">
                                                         <div class="row g-0">
