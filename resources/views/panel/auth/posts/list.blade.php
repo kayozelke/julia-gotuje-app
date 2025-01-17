@@ -102,12 +102,16 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    {{ $post->created_at }} <br>
-                                    przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}
+                                    <small>
+                                        {{ $post->created_at }} <br>
+                                        przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}
+                                    </small>
                                 </td>
                                 <td class="text-center">
-                                    {{ $post->updated_at }} <br>
-                                    przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}
+                                    <small>
+                                        {{ $post->updated_at }} <br>
+                                        przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}
+                                    </small>
                                 </td>
                                 <td class="text-center">
                                     <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
