@@ -67,7 +67,7 @@
             </div>
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
-            <div class="table-responsive text-nowrap" style="min-height: 200px;">
+            <div class="table-responsive text-nowrap mx-3 my-2" style="min-height: 200px;">
                 <table class="table table-borderless table-hover" id="dataTableElement">
                     <thead>
                         <tr>
