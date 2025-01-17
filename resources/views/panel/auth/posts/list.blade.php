@@ -114,17 +114,21 @@
                                     </small>
                                 </td>
                                 <td class="text-center">
-                                    <div class="p-1">
-                                        {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
-                                        <img class="" src="/uploaded_images/1736933856_vampir.webp"
-                                            style="max-width: 100px; max-height: 100px; object-fit: scale-down;"
-                                            >
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="p-1">
+                                                {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
+                                                <img class="" src="/uploaded_images/1736933856_vampir.webp"
+                                                    style="max-width: 100px; max-height: 100px; object-fit: scale-down;"
+                                                    >
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
+                                                <i class='bx bx-link-external'></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p>
-                                        <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
-                                            <i class='bx bx-link-external'></i>
-                                        </a>
-                                    </p>
                                 </td>
                                 {{-- <td>
                                     <div class="dropdown position-static">
