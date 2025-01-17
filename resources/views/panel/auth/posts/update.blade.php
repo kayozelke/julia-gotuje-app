@@ -235,9 +235,9 @@
                                         @foreach($post_to_update->imagesByPriority as $image)
 
                                             <li class="col-md-6" data-id="{{ $image->id }}">
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <div class="col">
-                                                        <div class="card mb-3">
+                                                        <div class="card">
                                                             <div class="row g-0">
                                                                 <div class="col-md-4 custom-img-cover">
                                                                     <img src="{{ $image->file_location }}" alt="{{ $image->title }}">
@@ -298,7 +298,7 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="col-sm-2 align-middle text-center">
+                                                    <div class="col-sm-1 d-flex align-items-center justify-content-center">
                                                         <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
                                                             <i class='bx bx-x'></i>
                                                         </button>
