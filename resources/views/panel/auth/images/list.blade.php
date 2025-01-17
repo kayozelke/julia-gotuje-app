@@ -32,6 +32,7 @@
                             <th>Zdjęcie</th>
                             <th>Tytuł</th>
                             <th>Opis</th>
+                            <th>Dodano</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,7 @@
                                     </a>
                                 </td>
                                 <td>{{ $image->label }}</td>
+                                <td>{{ $image->created_at }} {{ $image->createdByUser->first_name ?? 'N/A' }} {{ $image->createdByUser->last_name ?? '' }}</td>
                             </tr>
                         @endforeach
                     </tbody>
