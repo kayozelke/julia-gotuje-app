@@ -250,15 +250,20 @@
                                                                     {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                             
                                                                     <!-- Priority selection -->
-                                                                    <div class="mb-1">
-                                                                        <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
-                                                                        <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
-                                                                            value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
+                                                                            <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
+                                                                                value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                        </div>
+                                                                        
+                                                                        <div class="col-md-6">
+                                                                            <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
+                                                                                <i class='bx bx-x'></i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-
-                                                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
-                                                                        <i class='bx bx-x'></i>
-                                                                    </button>
+                                                                
 
                                                                 </div>
                                                             </div>
