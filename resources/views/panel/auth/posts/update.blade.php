@@ -230,12 +230,12 @@
                                     </div>
                                 </div> --}}
                                 
-                                <ul id="selected-images-list" style="list-style-type: none;">
+                                <ul class="row" id="selected-images-list" style="list-style-type: none;">
                                     @if ($post_to_update != null)
                                         @foreach($post_to_update->imagesByPriority as $image)
 
-                                            <li class="row" data-id="{{ $image->id }}">
-                                                <div class="col-md-6">
+                                            <li class="col-md-6" data-id="{{ $image->id }}">
+                                                {{-- <div> --}}
                                                     <div class="card mb-3">
                                                         <div class="row g-0">
                                                             <div class="col-md-4">
@@ -260,7 +260,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                {{-- </div> --}}
                                             </li>
 
                                         @endforeach
