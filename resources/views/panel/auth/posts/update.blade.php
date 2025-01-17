@@ -473,8 +473,12 @@
 
         // Function to remove an image from the list
         window.removeImage = function (button) {
-            const listItem = button.parentElement;
-            listItem.remove();
+            // Find the list item by traversing up the DOM tree
+            let listItem = button;
+            while (listItem && listItem.tagName !== 'LI') {
+                listItem = listItem.parentElement;
+            }
+            listItem.remove()
             updateSelectedImages();
         };
 
