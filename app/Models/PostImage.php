@@ -9,7 +9,7 @@ class PostImage extends Model
 {
     use HasFactory;
 
-    protected $table = 'images'; // Table name in the database
+    protected $table = 'post_images'; // Table name in the database
 
     // Mass assignable fields
     protected $fillable = [
