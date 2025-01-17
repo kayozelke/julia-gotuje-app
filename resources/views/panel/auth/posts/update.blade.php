@@ -255,12 +255,12 @@
                                                                         value="{{ $image->priority }}" min="1" max="100" step="1" />
 
                                                 
-                                                                    <button type="button" onclick="removeImage(this)">Usuń</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <button type="button" onclick="removeImage(this)">Usuń</button>
                                             </li>
 
                                         @endforeach
