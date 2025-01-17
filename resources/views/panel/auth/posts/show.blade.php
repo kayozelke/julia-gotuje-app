@@ -132,7 +132,7 @@
         
     </div>
 
-    @if ($post_images)
+    @if (count($post_images) > 0)
 
         <h5 class="pb-1 mt-1 mb-3">Galeria</h5>
         <div class="row mb-4">
