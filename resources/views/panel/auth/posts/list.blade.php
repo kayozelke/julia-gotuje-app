@@ -118,7 +118,7 @@
                                     <div class="p-1">
                                         {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
                                         @if ( $post->prioritized_image != null)
-                                            <img class="" src="{{ $post->prioritized_image->file_location }}"
+                                            <img class="rounded" src="{{ $post->prioritized_image->file_location }}"
                                                 style="max-width: 100px; max-height: 100px;"
                                                 >
                                         @else
