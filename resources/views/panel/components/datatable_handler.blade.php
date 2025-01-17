@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.bootstrap5.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+{{-- this brokes Sneat's CSS (little funny) --}}
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
@@ -19,7 +20,13 @@
             ], // default order by ID
             "info": true, // pagination info
             language: {
-                url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json'
+                url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
+                paginate: {
+                    first: "«",    
+                    previous: "‹",
+                    next: "›",         
+                    last: "»",   
+                }
             }
         });
     });
