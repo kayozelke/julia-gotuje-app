@@ -1,5 +1,5 @@
 {{-- DATATABLES - TEST ONLY --}}
-<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" /> --}}
 
 @include('panel.auth.header')
 
@@ -139,8 +139,8 @@
             </div>
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
-            <div class="table-responsive text-nowrap" style="min-height: 200px;">
-                <table class="table table-borderless table-hover" id="myTable">
+            <div class="table-responsive text-nowrap mx-3 my-2" style="min-height: 200px;">
+                <table class="table table-borderless table-hover" id="dataTableElement">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -197,8 +197,10 @@
 @include('panel.auth.footer')
 
 
+@include('panel.components.datatable_handler')
+
 {{-- DATATABLES TEST --}}
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+{{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable({
@@ -211,4 +213,4 @@
             "info": false // Wyłącza informacje o paginacji
         });
     });
-</script>
+</script> --}}
