@@ -64,10 +64,15 @@ class PostController extends Controller
                     'toastErrorDescription' => 'Kategoria o ID "'.$parent_category_id.'" nie istnieje.',
                 ]);
             }
-            $posts = Post::with(['createdByUser', 'updatedByUser', 'prioritized_image'])->where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
+            $posts = Post::with(['createdByUser', 'updatedByUser', 'imagesByPriority'])->where('parent_category_id', $parent_category_id)->orderBy('updated_at')->get();
         } else {
             // $posts = Post::where('parent_category_id', null)->orderBy('updated_at')->get();
-            $posts = Post::with(['createdByUser', 'updatedByUser', 'prioritized_image'])->orderBy('updated_at')->get();        
+            $posts = Post::with(['createdByUser', 'updatedByUser', 'imagesByPriority'])->orderBy('updated_at')->get();        
+        }
+        
+        // get most prioritized image for every post (post thumbnail)
+        foreach ($posts as $post) {
+            $post->prioritized_image = $post->imagesByPriority->first();
         }
 
         $all_categories = Category::all();
