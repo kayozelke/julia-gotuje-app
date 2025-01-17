@@ -204,7 +204,7 @@
                             </div>
         
                             <!-- Dynamic list of selected images -->
-                            <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div>
+                            {{-- <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div> --}}
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
@@ -380,7 +380,7 @@
 
                 <label for="priority-${imageId}">Priorytet:</label>
                 <input type="number" ame="priority[${imageId}]" id="priority-${imageId}" class="image-priority" 
-                    value="{{ $image->priority }}" min="1" max="100" step="1" />
+                    value="1" min="1" max="100" step="1" />
 
                 <button type="button" onclick="removeImage(this)">Usuń</button>
             `;

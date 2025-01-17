@@ -201,6 +201,14 @@ class PostController extends Controller
 
     public function panelUpdatePost(Request $request){
 
+        // debug only
+        echo "selected_images: <br>";
+        print_r($request->input('selected_images'));
+        echo "<hr>";
+        echo "priority: <br>";
+        print_r($request->input('priority'));
+        return;
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'custom_url' => 'required|string|max:255',
@@ -226,8 +234,6 @@ class PostController extends Controller
         $validated['post_content'] = str_replace('__se__float-left', '__se__float-left text-start', $validated['post_content']);
         $validated['post_content'] = str_replace('__se__float-right', '__se__float-right text-end', $validated['post_content']);
         $validated['post_content'] = str_replace('__se__float-center', '__se__float-center text-center', $validated['post_content']);
-
-
 
         
         $parent_category_id = $request->input('parent_category_id');
