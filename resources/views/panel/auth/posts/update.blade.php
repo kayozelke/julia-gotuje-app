@@ -254,7 +254,9 @@
                                                                     <input type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}" class="image-priority" 
                                                                         value="{{ $image->priority }}" min="1" max="100" step="1" />
 
-                                                                    <button type="button" class="btn btn-danger" onclick="removeImage(this)">Usuń</button>
+                                                                    <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
+                                                                        <i class='bx bx-x'></i>
+                                                                    </button>
 
                                                                 </div>
                                                             </div>
