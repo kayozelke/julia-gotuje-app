@@ -206,7 +206,7 @@ class PostController extends Controller
         print_r($request->input('selected_images'));
         echo "<hr>";
         echo "all: <br>";
-        print_r($request->input('all'));
+        print_r($request->all());
         return;
 
         $validated = $request->validate([
