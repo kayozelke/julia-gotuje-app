@@ -50,6 +50,17 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'parent_category_id');
     }
 
+    public function prioritized_image()
+    {
+        // return this but with joined image that is connected through post image
+        // join only one image - the one with the highest priority
+        // use models PostImage and Image
+        return $this->hasManyThrough(Image::class, PostImage::class, 'post_id', 'id', 'id', 'image_id')
+            ->orderBy('post_images.priority', 'desc')
+            ->first();
+    
+    }
+
     // public function findParentCategoriesForPost($postId, array &$parents = []): array {
     //     /**
     //      * Recursively finds all parent categories for a given post ID.

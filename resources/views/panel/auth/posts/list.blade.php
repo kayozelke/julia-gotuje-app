@@ -117,9 +117,10 @@
                                 <td class="text-center">
                                     <div class="p-1">
                                         {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
-                                        <img class="" src="/uploaded_images/1736933856_vampir.webp"
+                                        {{-- <img class="" src="/uploaded_images/1736933856_vampir.webp"
                                             style="max-width: 100px; max-height: 100px; object-fit: scale-down;"
-                                            >
+                                            > --}}
+                                            {{ $post->prioritized_image }}
                                     </div>
                                 </td>
                                 <td class="text-center">
