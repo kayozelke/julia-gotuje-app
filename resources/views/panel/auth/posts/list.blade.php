@@ -74,9 +74,9 @@
                             <th class="text-center">ID</th>
                             <th class="text-center">Nazwa</th>
                             <th class="text-center">Typ</th>
+                            <th class="text-center">Miniatura</th>
                             <th class="text-center">Dodano</th>
                             <th class="text-center">Zmodyfikowano</th>
-                            <th class="text-center">Miniatura</th>
                             <th class="text-center">Podgląd</th>
                             {{-- <th>Akcje</th> --}}
                         </tr>
@@ -103,18 +103,6 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    <small>
-                                        {{ $post->created_at }} <br>
-                                        przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small>
-                                        {{ $post->updated_at }} <br>
-                                        przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
                                     <div class="p-1">
                                         {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
                                         @if ( $post->prioritized_image != null)
@@ -125,6 +113,18 @@
                                             <small>Brak obrazów</small>
                                         @endif
                                     </div>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                        {{ $post->created_at }} <br>
+                                        przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small>
+                                        {{ $post->updated_at }} <br>
+                                        przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}
+                                    </small>
                                 </td>
                                 <td class="text-center">
                                     <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
