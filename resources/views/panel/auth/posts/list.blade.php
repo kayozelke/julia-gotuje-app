@@ -70,7 +70,7 @@
             <div class="table-responsive text-nowrap mx-3 my-2" style="min-height: 200px;">
                 <table class="table table-borderless table-hover" id="dataTableElement">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>ID</th>
                             <th>Nazwa</th>
                             <th>Typ</th>
