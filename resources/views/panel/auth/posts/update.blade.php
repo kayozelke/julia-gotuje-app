@@ -202,24 +202,22 @@
                             </div>
         
                             <!-- Dynamic list of selected images -->
-                            <div class="p-5">DEBUG: {{ $image->imagesByPriority }}</div>
+                            <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div>
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
-                                    @if(!empty($image->imagesByPriority) && $image->imagesByPriority->isNotEmpty())
-                                        @foreach($image->imagesByPriority as $image)
-                                            <li data-id="{{ $image->id }}">
-                                                <img src="" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
-                                                {{ $image->title }}
-                                                <button type="button" onclick="removeImage(this)">Usuń</button>
-                                            </li>
-                                        @endforeach
-                                    @endif
+                                    @foreach($post_to_update->imagesByPriority as $image)
+                                        <li data-id="{{ $image->id }}">
+                                            <img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="width: 100px; height: auto; margin-right: 10px;">
+                                            {{ $image->title }}
+                                            <button type="button" onclick="removeImage(this)">Usuń</button>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
         
                             <!-- Hidden input to store selected images -->
-                            <input type="hidden" name="selected_images" id="selected-images" value="{{ !empty($image->imagesByPriority) ? implode(',', $image->imagesByPriority->pluck('id')->toArray()) : '' }}">
+                            <input type="hidden" name="selected_images" id="selected-images" value="{{ implode(',', $post_to_update->imagesByPriority->pluck('id')->toArray()) }}">
                         </div>
                     </div>
                 </div>
