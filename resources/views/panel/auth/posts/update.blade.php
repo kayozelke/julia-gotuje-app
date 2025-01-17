@@ -205,8 +205,10 @@
         
                             <!-- Dynamic list of selected images -->
                             {{-- <div class="p-5">DEBUG: {{ $post_to_update->imagesByPriority }}</div> --}}
+                            <h6 class="card-header">Wybrane obrazy</h6>
+                        </div>
+                        <div class="card-body">
                             <div>
-                                <h6 class="card-header">Wybrane obrazy</h6>
                                 <ul id="selected-images-list" style="list-style-type: none;">
                                     @if ($post_to_update != null)
                                         @foreach($post_to_update->imagesByPriority as $image)
