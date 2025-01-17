@@ -235,64 +235,75 @@
                                         @foreach($post_to_update->imagesByPriority as $image)
 
                                             <li class="col-md-6" data-id="{{ $image->id }}">
-                                                {{-- <div> --}}
-                                                    <div class="card mb-3">
-                                                        <div class="row g-0">
-                                                            <div class="col-md-4 custom-img-cover">
-                                                                <img src="{{ $image->file_location }}" alt="{{ $image->title }}">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <div class="card-body">
-                                                                    
-                                                                    <div class="row">
-                                                                        <div class="col">
-                                                                            <h5 class="card-title my-0">{{ $image->title }}</h5>
-                                                                        </div>
-                                                                        <div class="col-sm-2 text-end">
-                                                                            <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
-                                                                                <i class='bx bx-x'></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <p class="card-text">
-                                                                        <small>{{ $image->label }}</small>
-                                                                    </p>
-                                                                    {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
-                            
-                                                                    <!-- Priority selection -->
-                                                                    {{-- <div class="mb-3 row">
-                                                                        <label for="html5-number-input" class="col-md-2 col-form-label">Number</label>
-                                                                        <div class="col-md-10">
-                                                                            <input class="form-control" type="number" value="18" id="html5-number-input">
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    <div class="input-group">
-                                                                        <span class="input-group-text">Priorytet</span>
-                                                                        <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
-                                                                            value="{{ $image->priority }}" min="1" max="100" step="1" />
-                                                                    </div>
-
-                                                                    {{-- <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="card mb-3">
+                                                            <div class="row g-0">
+                                                                <div class="col-md-4 custom-img-cover">
+                                                                    <img src="{{ $image->file_location }}" alt="{{ $image->title }}">
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="card-body">
+                                                                        
+                                                                        {{-- <div class="row">
+                                                                            <div class="col">
+                                                                                <h5 class="card-title my-0">{{ $image->title }}</h5>
+                                                                            </div>
+                                                                            <div class="col-sm-2 text-end">
+                                                                                <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
+                                                                                    <i class='bx bx-x'></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div> --}}
+    
+                                                                        <h5 class="card-title my-0">{{ $image->title }}</h5>
+                                                                        
+    
+                                                                        <p class="card-text">
+                                                                            <small>{{ $image->label }}</small>
+                                                                        </p>
+                                                                        {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                                
+                                                                        <!-- Priority selection -->
+                                                                        {{-- <div class="mb-3 row">
+                                                                            <label for="html5-number-input" class="col-md-2 col-form-label">Number</label>
+                                                                            <div class="col-md-10">
+                                                                                <input class="form-control" type="number" value="18" id="html5-number-input">
+                                                                            </div>
+                                                                        </div> --}}
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-text">Priorytet</span>
                                                                             <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
                                                                                 value="{{ $image->priority }}" min="1" max="100" step="1" />
                                                                         </div>
-                                                                        
-                                                                        <div class="col-md-6">
-                                                                            <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
-                                                                                <i class='bx bx-x'></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                
-
+    
+                                                                        {{-- <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
+                                                                                <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
+                                                                                    value="{{ $image->priority }}" min="1" max="100" step="1" />
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-6">
+                                                                                <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
+                                                                                    <i class='bx bx-x'></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div> --}}
+                                                                    
+    
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                {{-- </div> --}}
+                                                    
+                                                    <div class="col-sm-2 align-middle text-center">
+                                                        <button type="button" class="btn rounded-pill btn-icon btn-sm btn-danger" onclick="removeImage(this)">
+                                                            <i class='bx bx-x'></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </li>
 
                                         @endforeach
