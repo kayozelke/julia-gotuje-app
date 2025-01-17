@@ -194,7 +194,7 @@
                                 <select id="image-selector">
                                     <option value="" disabled selected>Wybierz obraz</option>
                                     @foreach($all_images as $image)
-                                        <option value="{{ $image->id }}" data-src="{{ asset('storage/' . $image->path) }}">
+                                        <option value="{{ $image->id }}" data-src="{{ $image->file_location }}">
                                             {{ $image->title }}
                                         </option>
                                     @endforeach
