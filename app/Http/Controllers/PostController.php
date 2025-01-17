@@ -202,12 +202,12 @@ class PostController extends Controller
     public function panelUpdatePost(Request $request){
 
         // debug only
-        echo "selected_images: <br>";
-        print_r($request->input('selected_images'));
-        echo "<hr>";
-        echo "all: <br>";
-        print_r($request->all());
-        return;
+        // echo "selected_images: <br>";
+        // print_r($request->input('selected_images'));
+        // echo "<hr>";
+        // echo "all: <br>";
+        // print_r($request->all());
+        // return;
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -277,6 +277,48 @@ class PostController extends Controller
             $is_hidden_param = 0;
         }
 
+        // handle post images
+        $selectedImageIds = [];
+
+        if($request->input('selected_images') != null){
+            // split string by comma
+            $selectedImageIds = explode(',', $request->input('selected_images'));
+
+            // // delete all post images that are not in selectedImageIds array
+            // PostImage::where('post_id', $request->input('update_id'))
+            //     ->whereNotIn('image_id', $selectedImageIds)
+            //     ->delete();
+
+            // // update priority of existing post images
+            // foreach ($selectedImageIds as $imageId) {
+            //     $priority = $request->input('priority')[$imageId] ?? 1; // Get priority, default to 1 if not set
+            //     PostImage::where('post_id', $request->input('update_id'))
+            //         ->where('image_id', $imageId)
+            //         ->update(['priority' => $priority]);
+            // }
+
+            // // add new post images from selectedImageIds array
+            // foreach ($selectedImageIds as $imageId) {
+            //     // check if image exists
+            //     if (Image::where('id', $imageId)->exists()) {
+            //         // check if post image already exists
+            //         if (!PostImage::where('post_id', $request->input('update_id'))->where('image_id', $imageId)->exists()) {
+            //             // add new post image
+            //             PostImage::create([
+            //                 'post_id' => $request->input('update_id'),
+            //                 'image_id' => $imageId,
+            //                 'priority' => $request->input('priority')[$imageId] ?? 1, // Set default priority to 1 if not provided
+            //                 'created_at' => now(),
+            //                 'updated_at' => now(),
+            //                 'updated_by' => Auth::id(),
+            //             ]);
+            //         }
+            //     }
+            // }
+
+        }
+        
+
 
         // check if to update or to add new post
         if ($request->input('update_id') != null){
@@ -302,19 +344,39 @@ class PostController extends Controller
     
                     $post_to_update->save();
         
-                    return redirect()
-                        ->route('admin.posts.show', ['id' => $post_to_update->id])
-                        ->with([
-                        'toastSuccessTitle' => 'Pomyślnie zapisano wpis',
-                        'toastSuccessHideTime' => 5,
-                    ]);
-        
+                    
                 } catch (\Exception $e) {
                     return redirect()->back()->with([
                         'toastErrorTitle' => 'Wystąpił błąd!',
                         'toastErrorDescription' => $e->getMessage(),
                     ]);
                 }
+                // handle post images
+                try {
+                    // delete all post images that are not in selectedImageIds array
+                    PostImage::where('post_id', $request->input('update_id'))
+                    ->whereNotIn('image_id', $selectedImageIds)
+                    ->delete();
+
+                    // update priority of existing post images
+                    foreach ($selectedImageIds as $imageId) {
+                        $priority = $request->input('priority')[$imageId] ?? 1; // Get priority, if not set then 1
+                        $updated = PostImage::where('post_id', $request->input('update_id'))
+                            ->where('image_id', $imageId)
+                            ->update(['priority' => $priority]);
+                    
+                        if ($updated) { // if update succeeded
+                            $selectedImageIds = array_diff($selectedImageIds, [$imageId]); // Delete $imageId from array $selectedImageIds
+                        }
+                    }
+
+                } catch (\Exception $e){
+                    return redirect()->back()->with([
+                        'toastErrorTitle' => 'Wystąpił błąd!',
+                        'toastErrorDescription' => $e->getMessage(),
+                    ]);
+                }
+
             }
         } else {
             // add new post
@@ -333,10 +395,10 @@ class PostController extends Controller
                     'updated_by' => Auth::id(),
                 ]);
     
-                return redirect()->route('admin.posts')->with([
-                    'toastSuccessTitle' => 'Pomyślnie dodano wpis',
-                    'toastSuccessHideTime' => 5,
-                ]);
+                // return redirect()->route('admin.posts')->with([
+                //     'toastSuccessTitle' => 'Pomyślnie dodano wpis',
+                //     'toastSuccessHideTime' => 5,
+                // ]);
     
             } catch (\Exception $e) {
                 return redirect()->back()->with([
@@ -345,10 +407,45 @@ class PostController extends Controller
                 ]);
             }
         }
-        
 
+        try {
+            // add new post images from selectedImageIds array
+            foreach ($selectedImageIds as $imageId) {
+                // check if image exists
+                if (Image::where('id', $imageId)->exists()) {
+                    // add new post image
+                    // no need to check if to update, because update was already realized and selectedImageIds contains only elements to add as new at this point
+                    PostImage::create([
+                        'post_id' => $request->input('update_id'),
+                        'image_id' => $imageId,
+                        'priority' => $request->input('priority')[$imageId] ?? 1, // Set default priority to 1 if not provided
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                        'updated_by' => Auth::id(),
+                    ]);
+                } else {
+                    return redirect()->back()->with([
+                        'toastErrorTitle' => 'Wystąpił błąd!',
+                        'toastErrorDescription' => "Obraz o ID '" . $imageId . "' nie istnieje.",
+                    ]);
+                }
+            }
 
-        
+        } catch (\Exception $e) {
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Wystąpił błąd!',
+                'toastErrorDescription' => $e->getMessage(),
+            ]);
+        }
+
+        return redirect()
+            ->route('admin.posts.show', ['id' => $post_to_update->id])
+            ->with([
+            'toastSuccessTitle' => 'Zapisano pomyślnie!',
+            'toastSuccessHideTime' => 5,
+        ]);
+
+    
     }
 
     public function panelShow(Request $request){
