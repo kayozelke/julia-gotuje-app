@@ -132,7 +132,32 @@
         
     </div>
 
+    <h5 class="pb-1 mb-4">Galeria</h5>
+    <div class="row mb-5">
+        
+        <div class="col-md-6 col-lg-4">
+            {{-- <h6 class="mt-2 text-muted">Images</h6> --}}
+            <div class="card mb-4">
+                <img class="card-img-top" src="../assets/img/elements/5.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                    </p>
+                    <p class="card-text">
+                    Cookie topping caramels jujubes gingerbread. Lollipop apple pie cupcake candy canes cookie ice
+                    cream. Wafer chocolate bar carrot cake jelly-o.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="card mb-4">
+        <h5 class="card-header">Galeria</h5>
+        <div class="px-4 py-3">
+            {{-- for each image in post image, add  --}}
+        </div>
         @php
             print_r($post_images);
         @endphp
