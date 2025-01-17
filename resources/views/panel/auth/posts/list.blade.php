@@ -76,10 +76,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Nazwa</th>
-                            <th>Utworzono</th>
-                            <th>Utworzono przez</th>
+                            <th>Typ</th>
+                            <th>Dodano</th>
                             <th>Zmodyfikowano</th>
-                            <th>Zmodyfikowano przez</th>
+                            <th>Podgląd</th>
                             {{-- <th>Akcje</th> --}}
                         </tr>
                     </thead>
@@ -87,17 +87,26 @@
                         @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-
                                 <td>
                                     {{-- <a href="#" class="href"> --}}
                                     <a href="{{ route('admin.posts.show', ['id' => $post->id]) }}">
                                         <strong>{{ $post->title }}</strong>
                                     </a>
                                 </td>
-                                <td>{{ $post->created_at }}</td>
-                                <td>{{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}</td>
-                                <td>{{ $post->updated_at }}</td>
-                                <td>{{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}</td>
+                                <td>
+                                    @if ($post->template_type == 'recipe')
+                                        Przepis
+                                    @elseif ($post->template_type == 'default')
+                                        Zwykły wpis
+                                    @else N/A @endif
+                                </td>
+                                <td>{{ $post->created_at }} <br> przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}</td>
+                                <td>{{ $post->updated_at }} <br> przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}</td>
+                                <td>
+                                    <a href="{{ $post->url }}" class="btn btn-sm btn-primary">
+                                        <i class='bx bx-link-external'></i> 
+                                    </a>
+                                </td>
                                 {{-- <td>
                                     <div class="dropdown position-static">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
