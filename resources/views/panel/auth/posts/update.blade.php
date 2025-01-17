@@ -257,11 +257,14 @@
                                                                                 value="{{ $image->priority }}" min="1" max="100" step="1" />
                                                                         </div>
                                                                         
-                                                                        <div class="col-md-6">
+                                                                        {{-- <div class="col-md-6">
                                                                             <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
                                                                                 <i class='bx bx-x'></i>
                                                                             </button>
-                                                                        </div>
+                                                                        </div> --}}
+                                                                        <button type="button" class="col-md-6 btn btn-danger" onclick="removeImage(this)">
+                                                                            <i class='bx bx-x'></i>
+                                                                        </button>
                                                                     </div>
                                                                 
 
