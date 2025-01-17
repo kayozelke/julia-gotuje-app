@@ -202,6 +202,7 @@
                             </div>
         
                             <!-- Dynamic list of selected images -->
+                            <div class="p-5">DEBUG: {{ $image->imagesByPriority }}</div>
                             <div>
                                 <h5>Wybrane obrazy:</h5>
                                 <ul id="selected-images-list" style="list-style-type: none; padding: 0;">
