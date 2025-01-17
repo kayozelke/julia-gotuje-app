@@ -250,22 +250,30 @@
                                                                     {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                             
                                                                     <!-- Priority selection -->
-                                                                    <div class="row">
+                                                                    <div class="mb-3 row">
+                                                                        <label for="html5-number-input" class="col-md-2 col-form-label">Number</label>
+                                                                        <div class="col-md-10">
+                                                                            <input class="form-control" type="number" value="18" id="html5-number-input">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {{-- <div class="row">
                                                                         <div class="col-md-6">
                                                                             <label class="form-label" for="priority-{{ $image->id }}">Priorytet:</label>
                                                                             <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
                                                                                 value="{{ $image->priority }}" min="1" max="100" step="1" />
                                                                         </div>
                                                                         
-                                                                        {{-- <div class="col-md-6">
+                                                                        <div class="col-md-6">
                                                                             <button type="button" class="btn btn-sm btn-danger" onclick="removeImage(this)">
                                                                                 <i class='bx bx-x'></i>
                                                                             </button>
-                                                                        </div> --}}
-                                                                        <button type="button" class="col-md-6 btn btn-danger" onclick="removeImage(this)">
-                                                                            <i class='bx bx-x'></i>
-                                                                        </button>
-                                                                    </div>
+                                                                        </div>
+                                                                    </div> --}}
+
+                                                                    <button type="button" class="mb-3 row btn btn-danger" onclick="removeImage(this)">
+                                                                        <i class='bx bx-x'></i>
+                                                                    </button>
                                                                 
 
                                                                 </div>
