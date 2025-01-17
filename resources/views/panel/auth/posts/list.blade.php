@@ -97,13 +97,21 @@
                                         Przepis
                                     @elseif ($post->template_type == 'default')
                                         Zwykły wpis
-                                    @else N/A @endif
+                                    @else
+                                        N/A
+                                    @endif
                                 </td>
-                                <td>{{ $post->created_at }} <br> przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}</td>
-                                <td>{{ $post->updated_at }} <br> przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}</td>
+                                <td class="text-center">
+                                    {{ $post->created_at }} <br>
+                                    przez {{ $post->createdByUser->first_name ?? 'N/A' }} {{ $post->createdByUser->last_name ?? '' }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $post->updated_at }} <br>
+                                    przez {{ $post->updatedByUser->first_name ?? 'N/A' }} {{ $post->updatedByUser->last_name ?? '' }}
+                                </td>
                                 <td class="text-center">
                                     <a href="/{{ $post->url }}" class="btn btn-sm btn-primary">
-                                        <i class='bx bx-link-external'></i> 
+                                        <i class='bx bx-link-external'></i>
                                     </a>
                                 </td>
                                 {{-- <td>
