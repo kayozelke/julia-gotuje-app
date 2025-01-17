@@ -55,8 +55,9 @@
     <link rel="stylesheet" href="{{ asset('panel/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('panel/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-
+    
     <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ asset('panel/assets/css/app_panel_customs.css') }}" />
 
     <!-- Helpers -->
     <script src="{{ asset('panel/assets/vendor/js/helpers.js') }}"></script>
