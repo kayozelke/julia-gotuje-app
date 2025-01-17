@@ -453,6 +453,7 @@
             // Create a new list item
             const listItem = document.createElement('li');
             listItem.setAttribute('data-id', imageId);
+            listItem.setAttribute('class', 'col-md-6');
             listItem.innerHTML = `
                 <div class="row mb-3">
                     <div class="col">
