@@ -197,7 +197,7 @@
 @include('panel.auth.footer')
 
 
-{{-- @include('panel.components.datatable_handler') --}}
+@include('panel.components.datatable_handler')
 
 {{-- DATATABLES TEST --}}
 {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
