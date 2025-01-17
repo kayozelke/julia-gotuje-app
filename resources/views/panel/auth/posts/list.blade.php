@@ -119,10 +119,10 @@
                                         {{-- <img class="card-img-top" src="{{ $post_image->image->file_location }}"> --}}
                                         @if ( $post->prioritized_image != null)
                                             <img class="" src="{{ $post->prioritized_image->file_location }}"
-                                                style="max-width: 100px; max-height: 100px; object-fit: scale-down;"
+                                                style="max-width: 100px; max-height: 100px;"
                                                 >
                                         @else
-                                            Brak obrazów
+                                            <small>Brak obrazów</small>
                                         @endif
                                     </div>
                                 </td>
