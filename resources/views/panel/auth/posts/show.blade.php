@@ -132,27 +132,31 @@
         
     </div>
 
-    <h5 class="pb-1 mt-1 mb-3">Galeria</h5>
-    <div class="row mb-4">
-        
-        @foreach ($post_images as $post_image)
-            <div class="col-md-6 col-lg-4">
-                <div class="card mb-4">
-                    <img class="card-img-top" src="{{ $post_image->image->file_location }}">
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ $post_image->image->title }}
-                        </p>
-                        <p class="card-text">
-                            <small>
-                                {{ $post_image->image->label }}
-                            </small>
-                        </p>
+    @if ($post_images)
+
+        <h5 class="pb-1 mt-1 mb-3">Galeria</h5>
+        <div class="row mb-4">
+            
+            @foreach ($post_images as $post_image)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="{{ $post_image->image->file_location }}">
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ $post_image->image->title }}
+                            </p>
+                            <p class="card-text">
+                                <small>
+                                    {{ $post_image->image->label }}
+                                </small>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
+        
+    @endif
 
     {{-- DEBUG for Gallery --}}
     {{-- <div class="card mb-4">
