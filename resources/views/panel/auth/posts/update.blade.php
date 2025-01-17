@@ -243,6 +243,13 @@
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="card-body">
+
+                                                                    <div class="text-end">
+                                                                        <button type="button" class="btn btn-danger" onclick="removeImage(this)">
+                                                                            <i class='bx bx-x'></i>
+                                                                        </button>
+                                                                    </div>
+
                                                                     <h5 class="card-title">{{ $image->title }}</h5>
                                                                     <p class="card-text">
                                                                         <small>{{ $image->label }}</small>
@@ -256,7 +263,7 @@
                                                                             <input class="form-control" type="number" value="18" id="html5-number-input">
                                                                         </div>
                                                                     </div> --}}
-                                                                    <div class="input-group mb-3">
+                                                                    <div class="input-group">
                                                                         <span class="input-group-text">Priorytet</span>
                                                                         <input class="form-control" type="number" name="priority[{{ $image->id }}]" id="priority-{{ $image->id }}"
                                                                             value="{{ $image->priority }}" min="1" max="100" step="1" />
@@ -275,12 +282,6 @@
                                                                             </button>
                                                                         </div>
                                                                     </div> --}}
-
-                                                                    <div class="mb-3 text-center">
-                                                                        <button type="button" class="btn btn-danger" onclick="removeImage(this)">
-                                                                            <i class='bx bx-x'></i>
-                                                                        </button>
-                                                                    </div>
                                                                 
 
                                                                 </div>
