@@ -134,6 +134,6 @@
 
 </div>
 
-@include('panel.compoments.datatable_handler')
+@include('panel.components.datatable_handler')
 
 @include('panel.auth.footer')
