@@ -59,9 +59,6 @@
 
     </div>
 
-
-
-
     <!-- Borderless Table -->
     <div class="card mb-4">
         @if (count($posts) == 0)
@@ -71,7 +68,7 @@
         @else
             {{-- <h5 class="card-header">Kategorie</h5> --}}
             <div class="table-responsive text-nowrap" style="min-height: 200px;">
-                <table class="table table-borderless table-hover" id="myTable">
+                <table class="table table-borderless table-hover" id="dataTableElement">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -137,21 +134,6 @@
 
 </div>
 
+@include('panel.compoments.datatable_handler')
+
 @include('panel.auth.footer')
-
-
-{{-- DATATABLES TEST --}}
-<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable({
-            "paging": true, 
-            "ordering": true, 
-            "searching": true,
-            "order": [
-                [0, "asc"]
-            ], // default order by ID
-            "info": true // pagination info
-        });
-    });
-</script>
