@@ -1,5 +1,15 @@
 @include('front.header')
 
+<style>
+    .gallery-item img {
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.05);
+    }
+</style>
+
 <!-- # site-content
         ================================================== -->
 <div id="content" class="s-content s-content--blog">
@@ -104,7 +114,7 @@
                 <div class="content-primary">
 
                     <div class="entry__content">
-                        
+
                         <div>
                             {!! $post->content !!}
                         </div>
@@ -200,9 +210,9 @@
 
                 </div> <!-- end content-primary -->
 
-                <div class="container mt-4">
+                    {{-- Galeria obrazków --}}
+                {{-- <div class="container mt-4">
                     <div class="row">
-                        {{-- Galeria obrazków --}}
                         @foreach ($post->imagesByPriority as $image)
                             <div class="col-md-4 col-sm-6 mb-4">
                                 <div class="card h-100">
@@ -215,8 +225,115 @@
                             </div>
                         @endforeach
                     </div>
+                </div> --}}
+
+                <div class="container my-4">
+                    <h1 class="text-center my-4 text-white">
+                        Responsive Image Gallery
+                    </h1>
+
+                    <div class="row row-cols-1 row-cols-md-2
+                                row-cols-lg-3 g-3">
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240322101847/Default_An_illustration_depictin-(2)-660.jpg"
+                                    alt="Image 1" class="w-100">
+                                <div
+                                    class="position-absolute top-50 start-50 
+                                            translate-middle text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70 
+                                                text-white px-4 py-2">
+                                        Coding
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240308154939/html-(1).jpg"
+                                    alt="Image 2" class="w-100">
+                                <div
+                                    class="position-absolute top-50
+                                            start-50 translate-middle
+                                            text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70
+                                                text-white px-4 py-2">
+                                        HTML
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240308154940/js-(1).jpg"
+                                    alt="Image 3" class="w-100 ">
+                                <div
+                                    class="position-absolute top-50 
+                                            start-50 translate-middle 
+                                            text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70
+                                                text-white px-4 py-2">
+                                        JavaScript
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240308154942/web-(1).jpg"
+                                    alt="Image 4" class="w-100">
+                                <div
+                                    class="position-absolute top-50 
+                                            start-50 translate-middle 
+                                            text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70
+                                                text-white px-4 py-2">
+                                        HTML
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240308154945/web2-(1).jpg"
+                                    alt="Image 5" class="w-100">
+                                <div
+                                    class="position-absolute top-50 
+                                            start-50 translate-middle 
+                                            text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70
+                                                text-white px-4 py-2">
+                                        JavaScript
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="position-relative gallery-item" style="cursor: pointer;">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240322101847/Default_An_illustration_depictin-(2)-660.jpg"
+                                    alt="Image 6" class="w-100">
+                                <div
+                                    class="position-absolute top-50 
+                                            start-50 translate-middle 
+                                            text-center d-none">
+                                    <div
+                                        class="bg-success bg-opacity-70
+                                                text-white px-4 py-2">
+                                        HTML
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+
 
             </article> <!-- end entry -->
 
