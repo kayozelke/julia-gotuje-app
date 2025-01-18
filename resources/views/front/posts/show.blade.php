@@ -344,3 +344,22 @@
 </div> <!-- end s-content -->
 
 @include('front.footer')
+
+{{-- script from https://www.geeksforgeeks.org/how-to-create-a-responsive-image-gallery-in-bootstrap/ --}}
+<script>
+        
+    // Show caption on hover 
+        let position_relative = 
+            document.querySelectorAll('.position-relative');
+
+        position_relative.forEach(item => {
+            item.addEventListener('mouseover', event => {
+                const caption = item.querySelector('.position-absolute');
+                caption.classList.remove('d-none');
+            });
+            item.addEventListener('mouseleave', event => {
+                const caption = item.querySelector('.position-absolute');
+                caption.classList.add('d-none');
+            });
+        });
+</script>
