@@ -200,6 +200,24 @@
 
                 </div> <!-- end content-primary -->
 
+                <div class="container mt-4">
+                    <div class="row">
+                        {{-- Galeria obrazków --}}
+                        @foreach ($post->imagesByPriority as $image)
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <img src="{{ asset($image->file_location) }}" class="card-img-top img-fluid" alt="{{ $image->title }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $image->title }}</h5>
+                                        <p class="card-text">{{ $image->label }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                
+
             </article> <!-- end entry -->
 
 
