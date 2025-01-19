@@ -210,7 +210,7 @@
                     placeholder="Search..."
                     aria-label="Search..."
                   />
-                  <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch" role="button" aria-expanded="false" aria-controls="collapseSearch">
                     Test
                   </a>
                 </div>
@@ -299,11 +299,11 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
 
-            <div class="collapse" id="collapseExample" style="">
-              <div class="container-xxl flex-grow-1 container-p-y">
-                <div class="card mb-4">
-                  <div class="d-grid d-sm-flex p-3 border">
-                    {{-- <img src="../assets/img/elements/1.jpg" alt="collapse-image" height="125" class="me-4 mb-sm-0 mb-2"> --}}
+            <div class="collapse" id="collapseSearch" style="">
+              {{-- class got thrown out: container-p-y --}}
+              <div class="container-xxl flex-grow-1">
+                <div class="card my-1">
+                  {{-- <div class="d-grid d-sm-flex p-3 border">
                     <span>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                       been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -315,6 +315,11 @@
                       the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
                       that it has a more-or-less normal distribution of letters.
                     </span>
+                  </div> --}}
+                  <div class="d-flex align-content-center justify-content-center">
+                    <div class="spinner-border text-secondary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
                   </div>
                 </div>
               </div>
