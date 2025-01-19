@@ -201,12 +201,12 @@
 
             <div class="navbar-nav-right d-flex align-items-center justify-content-between" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center col-sm-11">
-                <div class="nav-item d-flex align-items-center col-sm-12">
+              <div class="navbar-nav align-items-center col-11">
+                <div class="nav-item d-flex align-items-center col-12">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     type="text"
-                    class="form-control border-0 shadow-none bg-transparent"
+                    class="form-control border-0 shadow-none bg-transparent mx-2 px-1"
                     placeholder="Search..."
                     aria-label="Search..."
                   />
