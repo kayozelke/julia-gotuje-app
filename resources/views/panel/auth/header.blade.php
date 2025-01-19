@@ -205,13 +205,14 @@
                 <div class="nav-item d-flex align-items-center col-12">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
-                    type="search"
+                    {{-- type="search" --}}
+                    type="input"
                     class="form-control border-0 shadow-none bg-transparent mx-2 px-1"
                     placeholder="Search..."
                     aria-label="Search..."
                   />
                   <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch" role="button" aria-expanded="false" aria-controls="collapseSearch">
-                    Test
+                    <i class="bx bx-x fs-4 lh-0"></i>
                   </a>
                 </div>
               </div>
