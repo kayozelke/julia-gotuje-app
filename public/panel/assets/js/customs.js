@@ -56,15 +56,14 @@ document.getElementById('searchInput').addEventListener('input', function () {
     clearTimeout(searchInputDebounceTimer);
 
     if (inputValue) {
+        // search activated
         searchActivateLayout();
+        searchStartLayout();
     }
 
-    // Ustaw nowy timeout na 700 ms
+    // Ustaw nowy timeout na 300 ms
     searchInputDebounceTimer = setTimeout(function () {
         if (inputValue) {
-            // search activated
-            searchActivateLayout();
-
             // Wywołanie funkcji wyszukiwania
             panelSearch(inputValue);
         } else {
@@ -113,7 +112,7 @@ function searchFinishLayout(isFound) {
 
 
 function panelSearch(searchText) {
-    searchStartLayout();
+    // searchStartLayout();
     
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
     let isFound = false;
