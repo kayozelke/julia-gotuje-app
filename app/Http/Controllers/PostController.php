@@ -598,16 +598,15 @@ class PostController extends Controller
             ->where('hide_before_time', '<', now())
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
-            ->with(['getPrioritizedImageAttribute'])
+            ->get() // Zbieramy posty jako kolekcję
             ->map(function ($post) {
-                // Zmapowanie danych na format oczekiwany przez widok
-                $image = $post->topImage ? $post->topImage->image : null;
-                $imageLocation = $image ? $image->file_location : 'default-image.jpg'; // Domyślny obrazek, jeśli brak powiązania
+                // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
+                $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
+                $imageLocation = $image ? $image->file_location : 'default-image.jpg'; // Jeśli nie ma obrazu, użyj domyślnego
 
                 // Generowanie pełnego URL
-                $fullUrl = url('/') . '/' . $post->url; // Usuwamy wszystko po domenie i dodajemy URL
+                $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
 
-    
                 return [
                     'src' => $imageLocation, // Ścieżka do pliku obrazu
                     'srcset' => $image ? $image->srcset : null, // Jeśli masz srcset w tabeli images
