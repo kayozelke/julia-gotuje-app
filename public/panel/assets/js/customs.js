@@ -47,27 +47,27 @@
 // #########################################
 // search field handling
 
-// show / hide clear input button
-
-// when input with id = "searchInput" has any text put by user then remove attribute "hidden" from element with id searchInputClear
-// when input with id = "searchInput" has no text (its value empty) then add attribute "hidden" to element with id searchInputClear
+let searchInputDebounceTimer; // Zmienna do przechowywania identyfikatora timeoutu
 
 document.getElementById('searchInput').addEventListener('input', function () {
-    // process after 0.7s, if interrupted by another input event then abort
-    let timeoutId;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-        if (this.value) {
+    const inputValue = this.value;
+
+    // Jeśli istnieje wcześniej ustawiony timeout, usuń go
+    clearTimeout(searchInputDebounceTimer);
+
+    // Ustaw nowy timeout na 700 ms
+    searchInputDebounceTimer = setTimeout(function () {
+        if (inputValue) {
             // search activated
-            searchActivateLayout()
+            searchActivateLayout();
 
-            panelSearch(this.value) // call function to search
-
+            // Wywołanie funkcji wyszukiwania
+            panelSearch(inputValue);
         } else {
             // search deactivated
-            searchDeactivateLayout()
+            searchDeactivateLayout();
         }
-    }, 700);
+    }, 700); // Opóźnienie w milisekundach
 });
 
 // clear input field when clear button is clicked
