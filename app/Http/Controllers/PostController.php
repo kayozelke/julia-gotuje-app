@@ -599,7 +599,6 @@ class PostController extends Controller
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
             ->with(['getPrioritizedImageAttribute'])
-            ->get()
             ->map(function ($post) {
                 // Zmapowanie danych na format oczekiwany przez widok
                 $image = $post->topImage ? $post->topImage->image : null;
