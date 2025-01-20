@@ -76,15 +76,13 @@ document.getElementById('searchInputClear').addEventListener('click', function (
 function searchActivateLayout() {
     document.getElementById('searchInputClear').removeAttribute('hidden');
     document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
-    // document.getElementById('navUserElement').setAttribute('hidden', '');
-    collapseNavbarElement(document.getElementById('navUserElement'));
+    document.getElementById('navUserElement').setAttribute('hidden', '');
 }
 
 function searchDeactivateLayout() {
     document.getElementById('searchInputClear').setAttribute('hidden', '');
     document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
-    // document.getElementById('navUserElement').removeAttribute('hidden');
-    expandNavbarElement(document.getElementById('navUserElement'));
+    document.getElementById('navUserElement').removeAttribute('hidden');
 }
 
 
@@ -97,43 +95,3 @@ function panelSearch(searchText) {
 
 
 
-// CUSTOM navbar-collapsing
-
-function collapseNavbarElement(element) {
-    element.style.height = `${element.scrollHeight}px`; // Ustaw aktualną wysokość
-    element.classList.add('navbar-collapsing'); // Dodaj klasę do animacji
-    element.classList.remove('navbar-collapse', 'show'); // Usuń klasy stanu początkowego
-
-    // Po krótkim czasie ustaw wysokość na 0, aby rozpocząć animację
-    setTimeout(() => {
-        element.style.height = '0';
-    }, 100);
-
-    // Po zakończeniu animacji (dopasowanej do czasu w CSS)
-    element.addEventListener('transitionend', function onTransitionEnd() {
-        element.classList.remove('navbar-collapsing'); // Usuń klasę animacji
-        element.classList.add('navbar-collapse'); // Dodaj klasę końcową
-        element.setAttribute('hidden', ''); // Ukryj element w DOM
-        element.removeEventListener('transitionend', onTransitionEnd);
-    });
-}
-
-function expandNavbarElement(element) {
-    element.removeAttribute('hidden'); // Upewnij się, że element nie jest ukryty
-    element.classList.add('navbar-collapsing'); // Dodaj klasę do animacji
-    element.classList.remove('navbar-collapse'); // Usuń ukrywanie
-    element.style.height = '0'; // Rozpocznij animację od 0 wysokości
-
-    // Następnie ustaw pełną wysokość
-    setTimeout(() => {
-        element.style.height = `${element.scrollHeight}px`;
-    }, 100);
-
-    // Po zakończeniu animacji
-    element.addEventListener('transitionend', function onTransitionEnd() {
-        element.classList.remove('navbar-collapsing'); // Usuń klasę animacji
-        element.classList.add('navbar-collapse', 'show'); // Ustaw klasy stanu otwartego
-        element.style.height = ''; // Usuń inline style
-        element.removeEventListener('transitionend', onTransitionEnd);
-    });
-}

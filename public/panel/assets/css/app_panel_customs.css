@@ -23,23 +23,3 @@
     color: #fff;
 } */
 
-
-/* Ukrycie elementu */
-.navbar-collapse {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.8s ease;
-}
-
-/* Podczas animacji */
-.navbar-collapsing {
-    height: auto;
-    /* Pozwól na dynamiczną wysokość podczas animacji */
-    transition: height 0.8s ease;
-}
-
-/* Widoczny element */
-.navbar-collapse.show {
-    height: auto;
-    /* Utrzymanie pełnej wysokości po zakończeniu animacji */
-}
