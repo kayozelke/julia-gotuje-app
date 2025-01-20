@@ -304,7 +304,7 @@ class ImageController extends Controller
         // if image in PostImage table - abort
 
         $postImageMatches = PostImage::where('image_id', $image->id)
-            ->pluck('post_id')
+            ->select('post_id')
             ->get();
         if (count($postImageMatches) > 0) {
             
