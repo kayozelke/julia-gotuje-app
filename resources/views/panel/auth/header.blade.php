@@ -261,8 +261,8 @@
             </div>
           </nav> --}}
 
-          <div class="content-wrapper">
-          <nav class="container-xxl bg-navbar-theme">
+          
+          <nav class="container-xxl container-p-y bg-navbar-theme">
             <div class="row d-flex justify-content-center">
               <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                 <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
@@ -357,7 +357,6 @@
             </div>
 
           </nav>
-          </div>
 
           <!-- / Navbar -->
 
