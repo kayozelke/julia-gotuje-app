@@ -4,7 +4,6 @@
 
 'use strict';
 
-let menu, animate;
 
 (function () { // Initialize menu togglers and bind click on each
     let menuToggler = document.querySelectorAll('.navbar-menu-toggle');
