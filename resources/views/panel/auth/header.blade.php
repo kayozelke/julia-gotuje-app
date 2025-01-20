@@ -261,6 +261,7 @@
             </div>
           </nav> --}}
 
+          <div class="content-wrapper">
           <nav class="container-xxl bg-navbar-theme">
             <div class="row d-flex justify-content-center">
               <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -356,6 +357,7 @@
             </div>
 
           </nav>
+          </div>
 
           <!-- / Navbar -->
 
