@@ -605,7 +605,7 @@ class PostController extends Controller
             ->map(function ($post) {
                 // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
                 $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
-                $imageLocation = $image ? $image->file_location : '/front/images/thumbs/'; // Jeśli nie ma obrazu, użyj domyślnego
+                $imageLocation = $image ? $image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
 
                 // // Debugowanie wartości ścieżki obrazu
                 // dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
