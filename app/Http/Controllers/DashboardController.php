@@ -40,11 +40,15 @@ class DashboardController extends Controller {
         } catch (\Exception $e) {
             $images_count = 'N/A';
         }
+
+        // get disk space
+        $disk_usage = $this->getDiskUsage();
         
         
         return view('panel.auth.dashboard', [
             'publicated_posts_count' => $publicated_posts_count,
             'images_count' => $images_count,
+            'disk_space' => $disk_usage,
 
             'toastSuccessTitle' => "$toastSuccessTitle",
             'toastSuccessDescription' => "$toastSuccessDescription",
@@ -53,6 +57,43 @@ class DashboardController extends Controller {
             'toastErrorDescription' => $toastErrorDescription,
             'toastErrorHideTime' => $toastErrorHideTime,
         ]);
+    }
+
+
+    private function getDiskUsage()
+    {
+        // Ścieżka do głównego dysku serwera
+        $path = '/'; // Zmień na inną ścieżkę, jeśli używasz innego dysku, np. '/home', '/var/www'
+
+        // Całkowita pamięć
+        $totalSpace = disk_total_space($path);
+
+        // Wolna pamięć
+        $freeSpace = disk_free_space($path);
+
+        // Używana pamięć
+        $usedSpace = $totalSpace - $freeSpace;
+
+        // Wartości w MB/GB
+        return [
+            'total_space' => $this->formatBytes($totalSpace),
+            'free_space' => $this->formatBytes($freeSpace),
+            'used_space' => $this->formatBytes($usedSpace),
+            'percentage' => round($usedSpace / $totalSpace * 100, 0),
+        ];
+    }
+
+    private function formatBytes($bytes, $precision = 2)
+    {
+        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+
+        $bytes /= (1 << (10 * $pow));
+
+        return round($bytes, $precision) . ' ' . $units[$pow];
     }
     
 

@@ -29,10 +29,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 order-1">
+        <div class="col-lg-4 col-md-12 order-1">
             <div class="row h-100">
                 {{-- posts --}}
-                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="col-lg-6 col-md-6 col-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -40,8 +40,9 @@
                                     {{-- <img src="{{ asset('panel/assets/img/icons/unicons/chart-success.png') }}"
                                         alt="chart success" class="rounded" /> --}}
                                     {{-- <i class='bx bx-detail'></i> --}}
-                                    <div class="rounded">
-                                        <i class='bx bx-detail'></i>
+                                    <div
+                                        class="rounded h-100 w-100 d-flex justify-content-center align-items-center bg-primary">
+                                        <i class='bx bx-detail text-white'></i>
                                     </div>
                                 </div>
                             </div>
@@ -52,17 +53,38 @@
                     </div>
                 </div>
                 {{-- images --}}
-                <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="col-lg-6 col-md-6 col-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
-                                    <img src="{{ asset('panel/assets/img/icons/unicons/chart-success.png') }}"
-                                        alt="chart success" class="rounded" />
+                                    <div class="rounded h-100 w-100 d-flex justify-content-center align-items-center bg-primary">
+                                        <i class='bx bx-image text-white'></i>
+                                    </div>
                                 </div>
                             </div>
                             <span class="fw-semibold d-block mb-1">Obrazy w systemie</span>
                             <h3 class="card-title mb-2">{{ $images_count }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <h6 class="card-header">Miejsce na dysku</h6>
+                <div class="card-body">
+                    <div class="text-light small fw-semibold">{{ $disk_space['used_space'] }} /
+                        {{ $disk_space['total_space'] }}</div>
+                    <div class="demo-vertical-spacing">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ $disk_space['percentage'] }}%" aria-valuenow="{{ $disk_space['percentage'] }}"
+                                aria-valuemin="0" aria-valuemax="100">
+                                {{ $disk_space['percentage'] }}%
+                            </div>
                         </div>
                     </div>
                 </div>

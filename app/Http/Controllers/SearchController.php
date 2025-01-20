@@ -152,4 +152,17 @@ class SearchController extends Controller
         ]);
 
     }
+
+    public function frontSearch(Request $request){
+        $search_query = $request->query('query');
+
+        // if query not set return page back
+        if (!isset($search_query) || $search_query == '') {
+            return redirect()->back();
+        }
+
+        return view('front.search', [
+            'results' => 'test_val'
+        ]);
+    }
 }
