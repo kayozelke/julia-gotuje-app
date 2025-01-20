@@ -612,7 +612,7 @@ class PostController extends Controller
             ->where('hide_before_time', '<', now())
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
-            ->with(['topImageOfPost'])
+            ->with(['topImage'])
             ->get()
             ->map(function ($post) {
                 // Zmapowanie danych na format oczekiwany przez widok
