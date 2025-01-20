@@ -20,19 +20,28 @@ class SearchController extends Controller
             ->select('id', 'title')
             ->get();
 
-        $result = [];
-        foreach ($posts as $post) {
-            // $result[$post->id] = $post->title;
-            $result[$post->title] = route('admin.posts.show', ['id' => $post->id]);
+        $results = [];
+        foreach ($posts as $post) {            
+            // $results[$post->title] = route('admin.posts.show', ['id' => $post->id]);
+            array_push($results, [
+                'type' => 'post',
+                'title' => $post->title,
+                'url' => route('admin.posts.show', ['id' => $post->id]),
+            ]);
         }
         $images = Image::where('title', 'like', '%'.$searchText.'%')
             ->orWhere('label', 'like', '%'.$searchText.'%')
             ->select('id', 'title')
             ->get();
         foreach ($images as $image) {
-            $result[$image->title] = route('admin.images.show', ['id' => $image->id]);
+            // $results[$image->title] = route('admin.images.show', ['id' => $image->id]);
+            array_push($results, [
+                'type' => 'image',
+                'title' => $image->title,
+                'url' => route('admin.images.show', ['id' => $image->id]),
+            ]);
         }
-        return $result;
+        return $results;
 
         // return ['id1' => 'test1', 'id2' => 'test2'];
     }
