@@ -54,25 +54,35 @@
 
 document.getElementById('searchInput').addEventListener('input', function () {
     if (this.value) {
-        document.getElementById('searchInputClear').removeAttribute('hidden');
-        document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
+        // search activated
+        searchActivateLayout()
 
         panelSearch(this.value) // call function to search
 
     } else {
-        document.getElementById('searchInputClear').setAttribute('hidden', '');
-        document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
+        // search deactivated
+        searchDeactivateLayout()
     }
 });
 
 // clear input field when clear button is clicked
-
 document.getElementById('searchInputClear').addEventListener('click', function () {
+    // clear val
     document.getElementById('searchInput').value = '';
-    this.setAttribute('hidden', '');
-    
-    document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
+    // search deactivated
+    searchDeactivateLayout()
 });
+
+function searchActivateLayout(){
+    document.getElementById('searchInputClear').removeAttribute('hidden');
+    document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
+}
+
+function searchDeactivateLayout(){
+    document.getElementById('searchInputClear').setAttribute('hidden', '');
+    document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
+}
+
 
 
 function panelSearch(searchText)  {
