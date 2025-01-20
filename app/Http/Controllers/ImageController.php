@@ -306,11 +306,13 @@ class ImageController extends Controller
         $postImageMatches = PostImage::where('image_id', $image->id)
             ->select('post_id')
             ->get()->toArray();
+
         if (count($postImageMatches) > 0) {
-            
+            $used_post_ids_str = implode(', ', array_column($postImageMatches, 'post_id'));
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Nie można usunąć obrazu!',
-                'toastErrorDescription' => "Zasób jest wykorzystywany w postach: " . implode(', ', $postImageMatches) ,
+                // 'toastErrorDescription' => "Ten obraz jest używany w następujących postach: " . $used_post_ids_str,
+                'toastErrorDescription' => "Zasób jest wykorzystywany w postach: " . $used_post_ids_str ,
             ]);
         }
 
