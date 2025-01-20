@@ -110,7 +110,7 @@
     <!--  masonry -->
     @php
         // Wywołanie metody kontrolera
-        $posts = app(\App\Http\Controllers\PostController::class)->getHomePagePostsWithTopImage();
+        $posts = app(\App\Http\Controllers\PostController::class)->getCategoryPostsWithTopImage(NULL);
     @endphp
 
     @include('front.components.posts_bricks_section', ['posts' => $posts])

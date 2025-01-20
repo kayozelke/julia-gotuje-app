@@ -99,7 +99,8 @@
     {{-- </div> <!-- end entry-wrap --> --}}
 
     {{-- category posts --}}
-    @include('front.components.posts_bricks_section')
+    $categoryPosts = $this->getCategoryPostsWithTopImage($category->id);
+    @include('front.components.posts_bricks_section', ['posts' => $categoryPosts])
 
 </div> <!-- end s-content -->
 
