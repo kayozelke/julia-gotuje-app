@@ -10,7 +10,7 @@ use \App\Models\Image;
 
 class SearchController extends Controller
 {
-    
+
     public function searchPanel(string $searchText)
     {
         // 
@@ -22,21 +22,19 @@ class SearchController extends Controller
 
         $result = [];
         foreach ($posts as $post) {
+            $result[$post->id] = $post->title;
             $result[$post->title] = route('admin.posts.show', ['id' => $post->id]);
         }
-
         $images = Image::where('title', 'like', '%'.$searchText.'%')
             ->orWhere('label', 'like', '%'.$searchText.'%')
             ->select('id', 'title')
             ->get();
-
         foreach ($images as $image) {
             $result[$image->title] = route('admin.images.show', ['id' => $image->id]);
         }
-
-
         return $result;
 
+        // return ['id1' => 'test1', 'id2' => 'test2'];
     }
 
     public function apiSearchPanel(Request $request){
@@ -51,4 +49,3 @@ class SearchController extends Controller
         ];
     }
 }
-
