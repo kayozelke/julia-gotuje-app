@@ -53,16 +53,21 @@
 // when input with id = "searchInput" has no text (its value empty) then add attribute "hidden" to element with id searchInputClear
 
 document.getElementById('searchInput').addEventListener('input', function () {
-    if (this.value) {
-        // search activated
-        searchActivateLayout()
+    // process after 0.7s, if interrupted by another input event then abort
+    let timeoutId;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+        if (this.value) {
+            // search activated
+            searchActivateLayout()
 
-        panelSearch(this.value) // call function to search
+            panelSearch(this.value) // call function to search
 
-    } else {
-        // search deactivated
-        searchDeactivateLayout()
-    }
+        } else {
+            // search deactivated
+            searchDeactivateLayout()
+        }
+    }, 700);
 });
 
 // clear input field when clear button is clicked
