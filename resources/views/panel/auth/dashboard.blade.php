@@ -40,9 +40,9 @@
                                         alt="chart success" class="rounded" />
                                 </div>
                             </div>
-                            <span class="fw-semibold d-block mb-1">Profit</span>
-                            <h3 class="card-title mb-2">$12,628</h3>
-                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
+                            <span class="fw-semibold d-block mb-1">Opublikowane posty</span>
+                            <h3 class="card-title mb-2">{{ $publicated_posts }}</h3>
+                            {{-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
                         </div>
                     </div>
                 </div>
