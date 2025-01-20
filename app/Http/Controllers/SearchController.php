@@ -37,7 +37,6 @@ class SearchController extends Controller
 
         return $result;
 
-        // return ['id1' => 'test1', 'id2' => 'test2'];
     }
 
     public function apiSearchPanel(Request $request){
