@@ -55,6 +55,10 @@ document.getElementById('searchInput').addEventListener('input', function () {
     // Jeśli istnieje wcześniej ustawiony timeout, usuń go
     clearTimeout(searchInputDebounceTimer);
 
+    if (inputValue) {
+        searchActivateLayout();
+    }
+
     // Ustaw nowy timeout na 700 ms
     searchInputDebounceTimer = setTimeout(function () {
         if (inputValue) {
@@ -67,7 +71,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
             // search deactivated
             searchDeactivateLayout();
         }
-    }, 700); // Opóźnienie w milisekundach
+    }, 300); // Opóźnienie w milisekundach
 });
 
 // clear input field when clear button is clicked
