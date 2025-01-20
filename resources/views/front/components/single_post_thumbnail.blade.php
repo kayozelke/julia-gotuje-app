@@ -2,7 +2,7 @@
 
     <div class="entry__thumb">
         <a href="{{ $url }}" class="thumb-link">
-            <img src="{{ asset($src) }}" srcset="{{ asset($srcset) }}" alt="{{ $title }}">
+            <img src="{{ asset($src) }}" srcset="{{ asset($src) }}" alt="{{ $title }}">
         </a>
     </div> <!-- end entry__thumb -->
 

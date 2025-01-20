@@ -595,7 +595,10 @@ class PostController extends Controller
     {
         // Pobierz posty spełniające kryteria
         return Post::where('is_hidden', false)
-            ->where('hide_before_time', '<', now())
+            ->where(function ($query) {
+                $query->where('hide_before_time', '<', now())
+                    ->orWhereNull('hide_before_time');
+            })
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
             ->get() // Zbieramy posty jako kolekcję
@@ -604,9 +607,8 @@ class PostController extends Controller
                 $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
                 $imageLocation = $image ? $image->file_location : 'default-image.jpg'; // Jeśli nie ma obrazu, użyj domyślnego
 
-                // Debugowanie wartości ścieżki obrazu
-                dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
-
+                // // Debugowanie wartości ścieżki obrazu
+                // dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
 
                 // Generowanie pełnego URL
                 $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
