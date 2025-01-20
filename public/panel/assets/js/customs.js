@@ -88,21 +88,68 @@ function searchDeactivateLayout() {
 function searchStartLayout(){
     document.getElementById('searchSpinner').removeAttribute('hidden');
     document.getElementById('searchResults').setAttribute('hidden', '');
+    document.getElementById('searchNoResults').setAttribute('hidden', '');
 }
 
-function searchFinishLayout() {
+function searchFinishLayout(isFound) {
     document.getElementById('searchSpinner').setAttribute('hidden', '');
-    document.getElementById('searchResults').removeAttribute('hidden');
+    if (isFound){
+        document.getElementById('searchResults').removeAttribute('hidden');
+    } else {
+        document.getElementById('searchNoResults').removeAttribute('hidden');
+    }
 }
 
 
 function panelSearch(searchText) {
     searchStartLayout();
     // sleep 3 s
-    setTimeout(searchFinishLayout, 3000);
+    const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
+    isFound = false;
+    fetch(url, {
+            method: 'GET',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // console.log(data);
+        })
+        .catch(error => console.error('Error:', error));
+    
+    searchFinishLayout(isFound);
 }
 
 
 
+// const titleInput = document.getElementById('title');
+// const customUrlInput = document.getElementById('custom_url');
 
+// titleInput.addEventListener('input', () => {
+//     generateUrl();
+// })
+
+// function generateUrl() {
+//     // console.log('generateUrl()');
+//     const title = titleInput.value;
+//     // build url with param
+//     const url = `/api/generate_page_url?text=${encodeURIComponent(title)}`;
+
+//     fetch(url, {
+//             method: 'GET',
+//         })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             customUrlInput.value = data.page_url;
+//         })
+//         .catch(error => console.error('Error:', error));
+// }
 

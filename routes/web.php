@@ -97,7 +97,7 @@ Route::put('/admin/settings/update', [SettingsController::class, 'panelUpdate'])
 // api calls
 Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
 // Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl']);
-Route::get('/api/search_panel', [SearchController::class, 'apiSearchPanel']);
+Route::get('/api/search_panel', [SearchController::class, 'apiSearchPanel'])->middleware('auth');
 
 
 
