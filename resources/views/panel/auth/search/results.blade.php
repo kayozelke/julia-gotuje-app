@@ -24,7 +24,7 @@
                             <td class="long-text-cell">
                                 <a href="{{ $result->url }}">{{ $result->title }}</a>
                             </td>  --}}
-                            <td>{{ $result }}</td>
+                            <td>@php print_r($result); }} @endphp</td>
                             <td></td>
                         </tr>
                     @endforeach
