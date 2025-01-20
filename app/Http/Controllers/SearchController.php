@@ -14,6 +14,8 @@ class SearchController extends Controller
     private function searchGlobal(string $searchText, bool $groupByType = false)
     {
         $searchText = strtolower($searchText);
+        
+        $results = [];
 
         // get list of elements in which $searchText in was found at post title or at post content        
         $posts = Post::whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
@@ -21,7 +23,6 @@ class SearchController extends Controller
             ->select('id', 'title')
             ->get();
 
-        $results = [];
         foreach ($posts as $post) {            
             $item = [
                 'type' => 'post',
@@ -42,6 +43,33 @@ class SearchController extends Controller
                 array_push($results, $item);
             }
         }
+
+        $categories = Category::whereRaw('LOWER(name) LIKE ?', ['%' . $searchText . '%'])
+            ->select('id', 'name')
+            ->get();
+
+        foreach ($categories as $category) {            
+            $item = [
+                'type' => 'category',
+                'title' => $category->name,
+                'url' => route('admin.categories', ['id' => $category->id]),
+            ];
+
+            if ($groupByType){
+                // if not 'posts' in results, create results
+                if (!isset($results['categories'])) {
+                    $results['categories'] = [];
+                }
+                
+                // add item to results -> posts -> here
+                array_push($results['categories'], $item);
+            }
+            else {
+                array_push($results, $item);
+            }
+        }
+
+
         $images = Image::whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
             ->orWhereRaw('LOWER(label) LIKE ?', ['%' . $searchText . '%'])
             ->select('id', 'title')
