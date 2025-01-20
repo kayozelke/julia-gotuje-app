@@ -8,7 +8,7 @@
         <div class="row">
             <div class="column lg-12 text-center">
                 <h6 class="my-3 fw-lighter">
-                    Wyniki wyszukiwania dla '{{ $query }}':
+                    Wyniki wyszukiwania dla '{{ $query }}'
                 </h6>
             </div>
             @foreach ($results as $result)
@@ -20,13 +20,12 @@
             @endforeach
 
             {{-- if results array is empty --}}
-            @if (!($results) || $results == null) {
+            @if (!($results) || $results == null)
                 <div class="column lg-12 text-center">
-                    <h4 class="my-3">
+                    <h4 class="my-5">
                         Brak wyników
                     </h4>
                 </div>
-            }
             @endif
             
         </div>
