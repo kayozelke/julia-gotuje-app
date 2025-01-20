@@ -38,6 +38,7 @@
                     'src' => $post['src'],
                     'srcset' => $post['srcset'],
                     'title' => $post['title'],
+                    'url' => $post['url'],
                 ])
             @endforeach
 

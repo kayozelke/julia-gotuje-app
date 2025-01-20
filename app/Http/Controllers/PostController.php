@@ -591,15 +591,49 @@ class PostController extends Controller
         ]);
     }
 
-        public function getHomePagePosts()
+    public function topImage(){
+        return $this->hasOne(PostImage::class, 'post_id')->orderBy('priority', 'desc');
+    }
+
+    public function image(){
+        return $this->belongsTo(Image::class, 'image_id');
+    }
+
+    public function postImages(){
+        return $this->hasMany(PostImage::class, 'image_id');
+    }
+
+
+
+    public function getHomePagePostsWithTopImage()
     {
         // Pobierz posty spełniające kryteria
         return Post::where('is_hidden', false)
             ->where('hide_before_time', '<', now())
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->with(['topImage'])
+            ->get()
+            ->map(function ($post) {
+                // Zmapowanie danych na format oczekiwany przez widok
+                $image = $post->topImage ? $post->topImage->image : null;
+                $imageLocation = $image ? $image->file_location : 'default-image.jpg'; // Domyślny obrazek, jeśli brak powiązania
+
+                // Generowanie pełnego URL
+                $fullUrl = url('/') . '/' . $post->url; // Usuwamy wszystko po domenie i dodajemy URL
+
+    
+                return [
+                    'src' => $imageLocation, // Ścieżka do pliku obrazu
+                    'srcset' => $image ? $image->srcset : null, // Jeśli masz srcset w tabeli images
+                    'title' => $post->title,
+                    'url' => $fullUrl, // Zbudowanie pełnego URL
+                ];
+            });
     }
+
+
+
 
 }
 
