@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="collapse row" id="collapseSearch">
-            <hr class="my-2">
+            {{-- <hr class="my-2"> --}}
             <div class="d-flex align-content-center justify-content-center">
                 <div class="spinner-border text-secondary my-3" role="status" id="searchSpinner">
                     <span class="visually-hidden">Loading...</span>

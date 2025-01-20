@@ -125,11 +125,17 @@ function panelSearch(searchText) {
             data.results.forEach(result => {
                 isFound = true;
                 console.log(result);
+                
+                const metadataBlock = document.createElement('div');
+
+                metadataBlock.innerHTML = `
+                    <a href="${result.url}">${result.title}"></a>
+                `;
+
+                resultsContainer.appendChild(metadataBlock)
+
             })
-            // for(const result of data.results){
-            //     isFound = true;
-            //     console.log(result);
-            // }
+            
             if(data.more_items > 0) {
                 resultsContainer.appendChild(document.createElement('hr'));
 
