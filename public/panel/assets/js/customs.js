@@ -133,7 +133,7 @@ function panelSearch(searchText) {
             if(data.more_items > 0) {
 
                 const metadataBlock = document.createElement('div');
-                // metadataBlock.classList.add('mb-3', 'border', 'p-3', 'rounded', 'shadow-sm');
+                metadataBlock.classList.add('mb-2', 'border', 'rounded');
 
                 metadataBlock.innerHTML = `
                     <a href="#">... oraz ${data.more_items} więcej wyników</a>
