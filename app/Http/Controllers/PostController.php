@@ -671,8 +671,11 @@ class PostController extends Controller
         $return_data = [];
         foreach($posts as $post) {
             $prioritized_image = $post->imagesByPriority->first();
+
+            $imageLocation = $prioritized_image ? $prioritized_image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
+
             $item = [
-                'src' => $prioritized_image? $prioritized_image->file_location : null,
+                'src' => $imageLocation,
                 'srcset' => $prioritized_image ? $prioritized_image->srcset : null,
                 'title' => $post->title,
                 'url' => url('/') . '/' . $post->url,
