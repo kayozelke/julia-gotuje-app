@@ -100,7 +100,7 @@
 
     {{-- category posts --}}
     @php
-        $categoryPosts = app(\App\Http\Controllers\PostController::class)->getCategoryPostsWithTopImage($category->id);
+        $categoryPosts = app(\App\Http\Controllers\PostController::class)->getCategoryPostsWithTopImage($parent_category->id);
     @endphp
 
     @include('front.components.posts_bricks_section', ['posts' => $categoryPosts])
