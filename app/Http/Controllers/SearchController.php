@@ -11,7 +11,7 @@ use \App\Models\Category;
 
 class SearchController extends Controller
 {
-
+    // searches - private
     private function searchGlobal(string $searchText, bool $groupByType = false)
     {
         $searchText = strtolower($searchText);
@@ -96,6 +96,47 @@ class SearchController extends Controller
 
     }
 
+    private function searchPublic(string $searchText){
+        $searchText = strtolower($searchText);
+        
+        $results = [];
+
+        // get list of elements in which $searchText in was found at post title or at post content       
+        // limit the results to only elements where:
+        // parent_category_id is not null
+        // and
+        // is_hidden is 0
+        // and 
+        // hide_before time is null or value is less than now()
+        $posts = Post::where(function ($query) use ($searchText) {
+                $query->whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
+                    ->orWhereRaw('LOWER(content) LIKE ?', ['%' . $searchText . '%']);
+            })
+            ->whereNotNull('parent_category_id') // parent_category_id is not null
+            ->where('is_hidden', 0) // is_hidden is 0
+            ->where(function ($query) {
+                $query->whereNull('hide_before_time') // hide_before is null
+                    ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
+            })
+            ->select('id', 'url', 'title')
+            ->get();
+
+        foreach($posts as $post){
+            $item = [
+                'type' => 'post',
+                'id' => $post->id,
+                'title' => $post->title,
+                'url' => url('/') . '/' . $post->url,
+            ];
+
+            array_push($results, $item);
+        }
+
+        return $results;
+    }
+
+    // ######### api
+
     public function apiSearchPanel(Request $request){
         $text = (string)$request->query('search_text');
 
@@ -161,8 +202,11 @@ class SearchController extends Controller
             return redirect()->back();
         }
 
+        $search_results = $this->searchPublic($search_query);
+
         return view('front.search', [
-            'results' => 'test_val'
+            'results' => $search_results,
+            'query' => $search_query,
         ]);
     }
 }
