@@ -79,6 +79,7 @@ class DashboardController extends Controller {
             'total_space' => $this->formatBytes($totalSpace),
             'free_space' => $this->formatBytes($freeSpace),
             'used_space' => $this->formatBytes($usedSpace),
+            'percentage' => round($usedSpace / $totalSpace * 100, 2),
         ];
     }
 
