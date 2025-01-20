@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use \App\Models\Post;
+use \App\Models\Image;
 
 
 class SearchController extends Controller
@@ -21,8 +22,19 @@ class SearchController extends Controller
 
         $result = [];
         foreach ($posts as $post) {
-            $result[$post->id] = $post->title;
+            $result[$post->title] = route('admin.posts.show', ['id' => $post->id]);
         }
+
+        $images = Image::where('title', 'like', '%'.$searchText.'%')
+            ->orWhere('label', 'like', '%'.$searchText.'%')
+            ->select('id', 'title')
+            ->get();
+
+        foreach ($images as $image) {
+            $result[$image->title] = route('admin.images.show', ['id' => $image->id]);
+        }
+
+
         return $result;
 
         // return ['id1' => 'test1', 'id2' => 'test2'];
