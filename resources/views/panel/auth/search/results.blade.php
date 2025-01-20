@@ -20,12 +20,10 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($search_results as $result)
                         <tr>
-                            {{-- <td><strong>{{ $result->type }}</strong></td>
+                            <td><strong>{{ $result['type'] }}</strong></td>
                             <td class="long-text-cell">
-                                <a href="{{ $result->url }}">{{ $result->title }}</a>
-                            </td>  --}}
-                            <td>@php print_r($result); @endphp</td>
-                            <td></td>
+                                <a href="{{ $result['url'] }}">{{ $result['title'] }}</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
