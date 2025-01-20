@@ -671,7 +671,7 @@ class PostController extends Controller
         else {
             $posts = Post::where(function ($query) use ($category) {
                         // Posty w danej kategorii
-                        $query->where('category_id', $category->id)
+                        $query->where('parent_category_id', $category->id)
                             // Posty w subkategoriach
                             ->orWhereIn('category_id', $category->subcategories->pluck('id'));
                     })
