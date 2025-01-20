@@ -20,7 +20,18 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($search_results as $result)
                         <tr>
-                            <td><strong>{{ $result['type'] }}</strong></td>
+                            <td>
+                                <i class="bx
+                                    @if ($result['type'] == 'image')
+                                        bx-image
+                                    @elseif ($result['type'] == 'post')
+                                        bx-detail
+                                    @else
+                                        bx-link-external
+                                    @endif
+                                    text-light"></i>
+                            </td>
+                            <!-- <td><strong>{{ $result['type'] }}</strong></td> -->
                             <td class="long-text-cell">
                                 <a href="{{ $result['url'] }}">{{ $result['title'] }}</a>
                             </td>
