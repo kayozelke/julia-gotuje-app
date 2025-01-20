@@ -14,7 +14,7 @@
                                 Aby rozpocząć pracę z systemem, wybierz interesującą Cię funkcję z menu po lewej. Możesz też dodać nowy wpis poniżej. Miłego dnia! 
                             </p>
 
-                            <a href="#" class="btn btn-sm btn-outline-primary">Nowy wpis</a>
+                            <a href="{{ route('admin.posts.add') }}" class="btn btn-sm btn-outline-primary">Nowy wpis</a>
                         </div>
                     </div>
                     <div class="col-sm-5 text-center text-sm-left">
