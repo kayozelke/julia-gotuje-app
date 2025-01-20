@@ -93,7 +93,7 @@ function searchDeactivateLayout() {
 function panelSearch(searchText) {
     // sleep 3 s
     setTimeout(function(){}, 3000);
-    document.getElementById('searchSpinner').addAttribute('hidden');
+    document.getElementById('searchSpinner').setAttribute('hidden', '');
     document.getElementById('searchResults').removeAttribute('hidden');
     
 
