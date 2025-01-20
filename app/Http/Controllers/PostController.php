@@ -595,7 +595,10 @@ class PostController extends Controller
     {
         // Pobierz posty spełniające kryteria
         return Post::where('is_hidden', false)
-            ->where('hide_before_time', '<', now())
+            ->where(function ($query) {
+                $query->where('hide_before_time', '<', now())
+                    ->orWhereNull('hide_before_time');
+            })
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
             ->get() // Zbieramy posty jako kolekcję
