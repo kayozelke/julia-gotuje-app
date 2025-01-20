@@ -77,13 +77,14 @@ function searchActivateLayout() {
     document.getElementById('searchInputClear').removeAttribute('hidden');
     document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
     // document.getElementById('navUserElement').setAttribute('hidden', '');
-    collapseNavbarElement(document.getElementById('navUserElement'))
+    collapseNavbarElement(document.getElementById('navUserElement'));
 }
 
 function searchDeactivateLayout() {
     document.getElementById('searchInputClear').setAttribute('hidden', '');
     document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
-    document.getElementById('navUserElement').removeAttribute('hidden');
+    // document.getElementById('navUserElement').removeAttribute('hidden');
+    expandNavbarElement(document.getElementById('navUserElement'));
 }
 
 
