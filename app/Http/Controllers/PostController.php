@@ -657,16 +657,33 @@ class PostController extends Controller
         //         ];
         //     });
 
-
-        $posts = Post::whereNotNull('parent_category_id') // parent_category_id is not null
-            ->where('is_hidden', 0) // is_hidden is 0
-            ->where(function ($query) {
-                $query->whereNull('hide_before_time') // hide_before is null
-                    ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
-            })
-            ->with(['createdByUser', 'updatedByUser', 'imagesByPriority'])
-            ->orderBy('created_at', 'desc')
-            ->get();
+        if(isset($categoryId) || $categoryId == ""){
+            $posts = Post::whereNotNull('parent_category_id') // parent_category_id is not null
+                ->where('is_hidden', 0) // is_hidden is 0
+                ->where(function ($query) {
+                    $query->whereNull('hide_before_time') // hide_before is null
+                        ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
+                })
+                ->with(['createdByUser', 'updatedByUser', 'imagesByPriority'])
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
+        else {
+            $posts = Post::where(function ($query) use ($category) {
+                        // Posty w danej kategorii
+                        $query->where('category_id', $category->id)
+                            // Posty w subkategoriach
+                            ->orWhereIn('category_id', $category->subcategories->pluck('id'));
+                    })
+                ->where('is_hidden', 0) // is_hidden is 0
+                ->where(function ($query) {
+                    $query->whereNull('hide_before_time') // hide_before is null
+                        ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
+                })
+                ->with(['createdByUser', 'updatedByUser', 'imagesByPriority'])
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
 
         $return_data = [];
         foreach($posts as $post) {
