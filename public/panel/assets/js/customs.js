@@ -73,6 +73,19 @@ document.getElementById('searchInput').addEventListener('input', function () {
     }, 300); // Opóźnienie w milisekundach
 });
 
+
+// make searchInput input element triggering console log when user clicks 'Enter' on its keyboard
+document.getElementById('searchInput').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        event.preventDefault(); // Zapobiega domyślnemu działaniu przycisku Enter
+        // redirect to another url
+        const url = `/admin/search?query=${this.value}`;
+        window.location.href = `${url}`
+    }
+});
+
+
+
 // clear input field when clear button is clicked
 document.getElementById('searchInputClear').addEventListener('click', function () {
     // clear val
