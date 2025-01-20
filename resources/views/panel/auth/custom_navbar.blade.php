@@ -71,15 +71,19 @@
             </div>
         </div>
         <div class="collapse row" id="collapseSearch">
-            <div class="d-flex align-content-center justify-content-center py-3" id="searchSpinner">
-                <div class="spinner-border text-secondary" role="status">
+            <hr class="my-2">
+            <div class="d-flex align-content-center justify-content-center">
+                <div class="spinner-border text-secondary" role="status" id="searchSpinner">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
             <div class="py-1" id="searchResults">
-                <p>Result 1</p>
-                <p>Result 2</p>
-                <p>Result 3</p>
+                <div>
+                    Result 1
+                </div>
+                <div>
+                    Result 2
+                </div>
             </div>
         </div>
     </div>
