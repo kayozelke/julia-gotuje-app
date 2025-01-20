@@ -266,7 +266,7 @@
             <div class="bg-navbar-theme shadow-sm rounded px-4 py-1">
               <div class="row d-flex justify-content-center">
                 {{-- navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none --}}
-                <div class="navbar-menu-toggle ">
+                <div class="navbar-menu-toggle d-xl-none">
                   <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                     <i class="bx bx-menu bx-sm"></i>
                   </a>
