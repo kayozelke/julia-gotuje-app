@@ -77,17 +77,9 @@
                 </div>
             </div>
             <div class="py-1" id="searchResults">
-                <ul>
-                    <li>
-                        <p>Result 1</p>
-                    </li>
-                    <li>
-                        <p>Result 2</p>
-                    </li>
-                    <li>
-                        <p>Result 3</p>
-                    </li>
-                </ul>
+                <p>Result 1</p>
+                <p>Result 2</p>
+                <p>Result 3</p>
             </div>
         </div>
     </div>
