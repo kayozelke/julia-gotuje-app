@@ -4,7 +4,7 @@
         ================================================== -->
 <section id="content" class="s-content">
 
-    <!-- hero -->
+    {{-- <!-- hero -->
     <div class="hero">
 
         <div class="hero__slider swiper-container">
@@ -104,7 +104,7 @@
             <span>Scroll</span>
         </a>
 
-    </div> <!-- end hero -->
+    </div> <!-- end hero --> --}}
 
 
     <!--  masonry -->
