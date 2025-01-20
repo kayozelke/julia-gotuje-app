@@ -83,11 +83,20 @@ function searchDeactivateLayout() {
     document.getElementById('searchInputClear').setAttribute('hidden', '');
     document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
     document.getElementById('navUserElement').removeAttribute('hidden');
+    
+    document.getElementById('searchSpinner').removeAttribute('hidden');
+    document.getElementById('searchResults').setAttribute('hidden', '');
 }
 
 
 
 function panelSearch(searchText) {
+    // sleep 3 s
+    setTimeout(function(){}, 3000);
+    document.getElementById('searchSpinner').addAttribute('hidden');
+    document.getElementById('searchResults').removeAttribute('hidden');
+    
+
 
 }
 

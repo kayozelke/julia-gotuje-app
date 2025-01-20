@@ -77,7 +77,7 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <div class="py-1" id="searchResults">
+            <div class="py-1" id="searchResults" hidden>
                 <div>
                     Result 1
                 </div>
