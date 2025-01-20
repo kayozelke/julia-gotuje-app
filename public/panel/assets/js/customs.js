@@ -108,6 +108,7 @@ function panelSearch(searchText) {
     
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
     let isFound = false;
+    let resultsContainer = document.getElementById('searchResults');
     
     fetch(url, {
             method: 'GET',
@@ -129,6 +130,17 @@ function panelSearch(searchText) {
             //     isFound = true;
             //     console.log(result);
             // }
+            if(data.more_items > 0) {
+
+                const metadataBlock = document.createElement('div');
+                // metadataBlock.classList.add('mb-3', 'border', 'p-3', 'rounded', 'shadow-sm');
+
+                metadataBlock.innerHTML = `
+                    <a href="#">... oraz ${data.more_items} więcej wyników</a>
+                `;
+
+                resultsContainer.appendChild(metadataBlock)
+            }
         })
         .catch(error => console.error('Error:', error))
         .finally(() => {
