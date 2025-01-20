@@ -131,9 +131,10 @@ function panelSearch(searchText) {
             //     console.log(result);
             // }
             if(data.more_items > 0) {
+                resultsContainer.appendChild(document.createElement('hr'));
 
                 const metadataBlock = document.createElement('div');
-                metadataBlock.classList.add('mb-2', 'border', 'rounded');
+                // metadataBlock.classList.add('mb-2', 'border', 'rounded');
 
                 metadataBlock.innerHTML = `
                     <a href="#">... oraz ${data.more_items} więcej wyników</a>
