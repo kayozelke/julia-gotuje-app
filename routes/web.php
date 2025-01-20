@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SearchController;
 
 // ########### FRONT ######################
 
@@ -94,8 +95,9 @@ Route::put('/admin/settings/update', [SettingsController::class, 'panelUpdate'])
 
 
 // api calls
-// Route::post('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
-Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl']);
+Route::post('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
+// Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl']);
+Route::get('/api/search_panel', [SearchController::class, 'apiSearchPanel']);
 
 
 
