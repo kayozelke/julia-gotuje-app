@@ -99,7 +99,7 @@
     {{-- </div> <!-- end entry-wrap --> --}}
 
     {{-- category posts --}}
-    $categoryPosts = $this->getCategoryPostsWithTopImage($category->id);
+    $categoryPosts = app(\App\Http\Controllers\PostController::class)->getCategoryPostsWithTopImage($category->id);
     @include('front.components.posts_bricks_section', ['posts' => $categoryPosts])
 
 </div> <!-- end s-content -->
