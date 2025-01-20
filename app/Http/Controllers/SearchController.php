@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use \App\Models\Post;
 use \App\Models\Image;
+use \App\Models\Category;
 
 
 class SearchController extends Controller
