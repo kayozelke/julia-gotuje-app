@@ -7,13 +7,19 @@
     <article class="entry">
         <div class="row">
             <div class="column lg-12">
-                Wynik nr 1
+                <h5 class="my-3">
+                    <a href="#">Wynik nr 1</a>
+                </h5>
             </div>
-            <hr>
-            <div class="column lg-12">
-                Wynik nr 2
-            </div>
+            @foreach ($search_results as $result)
+                <div class="column lg-12">
+                    <h5 class="my-3">
+                        <a href="{{ $result['url'] }}">{{ $result['title'] }}</a>
+                    </h5>
+                </div>
+            @endforeach
         </div>
     </article>
 </section> <!-- end s-content -->
+
 @include('front.footer')
