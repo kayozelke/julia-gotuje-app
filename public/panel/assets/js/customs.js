@@ -153,7 +153,7 @@ function panelSearch(searchText) {
                 // metadataBlock.classList.add('mb-2', 'border', 'rounded');
 
                 metadataBlock.innerHTML = `
-                    <a href="#">... oraz ${data.more_items} więcej wyników</a>
+                    <a href="/admin/search?query=${searchText}">... oraz ${data.more_items} więcej wyników</a>
                 `;
 
                 resultsContainer.appendChild(metadataBlock)
