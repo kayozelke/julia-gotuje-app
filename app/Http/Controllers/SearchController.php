@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use \App\Models\Post;
 use \App\Models\Image;
+use DB;
 
 
 class SearchController extends Controller
@@ -15,29 +16,45 @@ class SearchController extends Controller
     {
         // 
         // get list of elements in which $searchText in was found at post title or at post content        
-        $posts = Post::where('title', 'like', '%'.$searchText.'%')
-            ->orWhere('content', 'like', '%'.$searchText.'%')
-            ->select('id', 'title')
-            ->get();
+        $results = [];
 
-        $result = [];
+        // Wyszukiwanie postów z dopasowaniem
+        $posts = Post::select('id', 'title', DB::raw("MATCH(title, content) AGAINST(? IN BOOLEAN MODE) AS relevance"))
+            ->whereRaw("MATCH(title, content) AGAINST(? IN BOOLEAN MODE)", [$searchText, $searchText])
+            ->orderByDesc('relevance')
+            ->get();
+    
         foreach ($posts as $post) {
-            $result[$post->title] = route('admin.posts.show', ['id' => $post->id]);
+            $results[] = [
+                'type' => 'post',
+                'title' => $post->title,
+                'url' => route('admin.posts.show', ['id' => $post->id]),
+                'relevance' => $post->relevance,
+            ];
         }
-
-        $images = Image::where('title', 'like', '%'.$searchText.'%')
-            ->orWhere('label', 'like', '%'.$searchText.'%')
-            ->select('id', 'title')
+    
+        // Wyszukiwanie obrazów z dopasowaniem
+        $images = Image::select('id', 'title', DB::raw("MATCH(title, label) AGAINST(? IN BOOLEAN MODE) AS relevance"))
+            ->whereRaw("MATCH(title, label) AGAINST(? IN BOOLEAN MODE)", [$searchText, $searchText])
+            ->orderByDesc('relevance')
             ->get();
-
+    
         foreach ($images as $image) {
-            $result[$image->title] = route('admin.images.show', ['id' => $image->id]);
+            $results[] = [
+                'type' => 'image',
+                'title' => $image->title,
+                'url' => route('admin.images.show', ['id' => $image->id]),
+                'relevance' => $image->relevance,
+            ];
         }
+    
+        // Sortowanie wyników (opcjonalne, jeśli wyniki różnych typów muszą być wspólnie uporządkowane)
+        usort($results, function ($a, $b) {
+            return $b['relevance'] <=> $a['relevance'];
+        });
+    
+        return $results;
 
-
-        return $result;
-
-        // return ['id1' => 'test1', 'id2' => 'test2'];
     }
 
     public function apiSearchPanel(Request $request){
