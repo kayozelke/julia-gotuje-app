@@ -15,17 +15,17 @@
                 </header>
 
                 {{-- table with highlited categories --}}
-                <div class="row u-add-bottom">
+                {{-- <div class="row u-add-bottom">
                     <div class="column lg-12">
                         <h3>Wyróżnione kategorie</h3>
-                        {{-- <p>Polecane, ulubione przez Was kategorie przepisów</p> --}}
+                        <p>Polecane, ulubione przez Was kategorie przepisów</p>
                         <div class="table-responsive">
                             <table>
-                                {{-- <thead>
+                                <thead>
                                     <tr>
                                         <th>Nazwa</th>
                                     </tr>
-                                </thead> --}}
+                                </thead>
                                 <tbody>
                                     <tr>
                                         <td>Desery zimowe</td>
@@ -43,7 +43,7 @@
                             </table>
                         </div>
                     </div>
-                </div> <!-- end row -->
+                </div> <!-- end row --> --}}
 
                 {{-- table with standard categories --}}
                 <div class="row u-add-bottom">

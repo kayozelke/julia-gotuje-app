@@ -26,7 +26,7 @@
 
 
 <!-- masonry -->
-<div id="bricks" class="bricks">
+<div id="bricks" class="bricks p-4">
 
     <div class="masonry">
 

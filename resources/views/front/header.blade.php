@@ -72,7 +72,7 @@
 
                     <ul class="s-header__nav">
                     {{-- <ul class="s-header__nav burger_mod"> --}}
-                        <li class="current-menu-item"><a href="{{ route('home') }}" title="">Home</a></li>
+                        <li class="current-menu-item"><a href="{{ route('home') }}" title="">Strona główna</a></li>
                         <li class="has-children">
                             <a href="{{ route('main_categories') }}" title="" class="">Kategorie</a>
                             <ul class="sub-menu">
