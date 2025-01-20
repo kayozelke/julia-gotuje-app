@@ -148,7 +148,7 @@
             e.stopPropagation();
         })
 
-        searchField.setAttribute('placeholder', 'Search for...');
+        searchField.setAttribute('placeholder', 'Wyszukaj...');
         searchField.setAttribute('autocomplete', 'off');
 
     }; // end ssSearch
