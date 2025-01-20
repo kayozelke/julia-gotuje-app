@@ -55,8 +55,13 @@
 document.getElementById('searchInput').addEventListener('input', function () {
     if (this.value) {
         document.getElementById('searchInputClear').removeAttribute('hidden');
+        document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
+
+        panelSearch(this.value) // call function to search
+
     } else {
         document.getElementById('searchInputClear').setAttribute('hidden', '');
+        document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
     }
 });
 
@@ -66,3 +71,8 @@ document.getElementById('searchInputClear').addEventListener('click', function (
     document.getElementById('searchInput').value = '';
     this.setAttribute('hidden', '');
 });
+
+
+function panelSearch(searchText)  {
+
+}
