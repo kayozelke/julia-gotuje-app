@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\PostImage;
 
 class ImageController extends Controller
 {
@@ -300,11 +301,25 @@ class ImageController extends Controller
             return redirect()->back()->with(['toastErrorTitle' => 'Obraz o ID "' . $request->delete_id . '" nie istnieje.']);
         }
 
+        // if image in PostImage table - abort
+
+        $postImageMatches = PostImage::where('image_id', $image->id)
+            ->pluck('post_id')
+            ->get();
+        if (count($postImageMatches) > 0) {
+            
+            return redirect()->back()->with([
+                'toastErrorTitle' => 'Nie można usunąć obrazu!',
+                'toastErrorDescription' => "Zasób jest wykorzystywany w postach: " . implode(', ', $postImageMatches) ,
+            ]);
+        }
+
         $image_path = $image->file_location;
         // Remove first slash from path
         $image_path = substr($image_path, 1);
         // Get full path to image
         $image_path = public_path($image_path);
+        
 
         try {
             // Try to delete image from database
@@ -313,7 +328,7 @@ class ImageController extends Controller
         } catch (\Exception $e) {
             return redirect(route('admin.images'))->with([
                 'toastErrorTitle' => 'Wystąpił błąd podczas usuwania obrazu!',
-                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
             ]);
         }
@@ -326,7 +341,7 @@ class ImageController extends Controller
         } catch (\Exception $e) {
             return redirect(route('admin.images'))->with([
                 'toastErrorTitle' => 'Wystąpił błąd podczas usuwania obrazu!',
-                'toastErrorDescription' => "Dane w bazie zostały usunięte, ale plik na serwerze nie mógł zostać usunięty: " . $e->getMessage(),
+                // 'toastErrorDescription' => "Dane w bazie zostały usunięte, ale plik na serwerze nie mógł zostać usunięty: " . $e->getMessage(),
             ]);
         }        
         
