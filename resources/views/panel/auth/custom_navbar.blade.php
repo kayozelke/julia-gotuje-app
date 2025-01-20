@@ -27,7 +27,7 @@
                 </div>
                 <!-- /Search -->
 
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <ul class="navbar-nav flex-row align-items-center ms-auto" id="navUserElement">
 
                     <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">

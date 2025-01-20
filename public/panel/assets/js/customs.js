@@ -76,11 +76,13 @@ document.getElementById('searchInputClear').addEventListener('click', function (
 function searchActivateLayout(){
     document.getElementById('searchInputClear').removeAttribute('hidden');
     document.getElementById('collapseSearch').classList.add("show"); // add class 'show'
+    document.getElementById('navUserElement').setAttribute('hidden', '');
 }
 
 function searchDeactivateLayout(){
     document.getElementById('searchInputClear').setAttribute('hidden', '');
     document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
+    document.getElementById('navUserElement').removeAttribute('hidden');
 }
 
 
