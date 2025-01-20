@@ -185,6 +185,8 @@ function getHtmlIconCode(name){
         return `<i class="bx bx-detail text-light"></i>`;
     } else if (name == 'image'){
         return `<i class="bx bx-image text-light"></i>`;
+    } else if (name == 'category'){
+        return `<i class="bx bx-collection text-light"></i>`;
     }
 
     return '';
