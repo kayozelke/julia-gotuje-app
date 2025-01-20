@@ -121,9 +121,11 @@ function panelSearch(searchText) {
         .then(data => {
             console.log(data);
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error:', error))
+        .finally(() => {
+            searchFinishLayout(isFound);
+        });
     
-    searchFinishLayout(isFound);
 }
 
 
