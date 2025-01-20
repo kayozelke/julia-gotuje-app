@@ -591,24 +591,60 @@ class PostController extends Controller
         ]);
     }
 
-    public function getHomePagePostsWithTopImage()
-    {
-        // Pobierz posty spełniające kryteria
-        return Post::where('is_hidden', false)
+    // public function getHomePagePostsWithTopImage()
+    // {
+    //     // Pobierz posty spełniające kryteria
+    //     return Post::where('is_hidden', false)
+    //         ->where(function ($query) {
+    //             $query->where('hide_before_time', '<', now())
+    //                 ->orWhereNull('hide_before_time');
+    //         })
+    //         ->where('template_type', 'recipe')
+    //         ->orderBy('created_at', 'desc')
+    //         ->get() // Zbieramy posty jako kolekcję
+    //         ->map(function ($post) {
+    //             // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
+    //             $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
+    //             $imageLocation = $image ? $image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
+
+    //             // // Debugowanie wartości ścieżki obrazu
+    //             // dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
+
+    //             // Generowanie pełnego URL
+    //             $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
+
+    //             return [
+    //                 'src' => $imageLocation, // Ścieżka do pliku obrazu
+    //                 'srcset' => $image ? $image->srcset : null, // Jeśli masz srcset w tabeli images
+    //                 'title' => $post->title,
+    //                 'url' => $fullUrl, // Zbudowanie pełnego URL
+    //             ];
+    //         });
+    // }
+
+    public function getCategoryPostsWithTopImage($categoryId){
+        // Pobierz kategorię wraz z subkategoriami
+        $category = Category::with('subcategories')->find($categoryId);
+
+        // Pobierz posty, które należą do danej kategorii lub jej subkategorii
+        $posts = Post::where('is_hidden', false)
             ->where(function ($query) {
                 $query->where('hide_before_time', '<', now())
                     ->orWhereNull('hide_before_time');
             })
             ->where('template_type', 'recipe')
+            ->where(function ($query) use ($category) {
+                // Posty w danej kategorii
+                $query->where('category_id', $category->id)
+                    // Posty w subkategoriach
+                    ->orWhereIn('category_id', $category->subcategories->pluck('id'));
+            })
             ->orderBy('created_at', 'desc')
-            ->get() // Zbieramy posty jako kolekcję
+            ->get()
             ->map(function ($post) {
                 // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
                 $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
                 $imageLocation = $image ? $image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
-
-                // // Debugowanie wartości ścieżki obrazu
-                // dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
 
                 // Generowanie pełnego URL
                 $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
@@ -620,6 +656,8 @@ class PostController extends Controller
                     'url' => $fullUrl, // Zbudowanie pełnego URL
                 ];
             });
+
+        return $posts;
     }
 
 

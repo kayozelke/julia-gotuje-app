@@ -73,4 +73,11 @@ class Category extends Model
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
+    // Relation to the subcategories
+    public function subcategories()
+    {
+        return $this->hasMany(Category::class, 'parent_category_id');
+    }
+
 }
