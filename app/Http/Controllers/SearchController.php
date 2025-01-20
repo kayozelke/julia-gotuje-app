@@ -13,10 +13,11 @@ class SearchController extends Controller
 
     private function searchGlobal(string $searchText, bool $groupByType = false)
     {
-        // 
+        $searchText = strtolower($searchText);
+
         // get list of elements in which $searchText in was found at post title or at post content        
-        $posts = Post::where('title', 'like', '%'.$searchText.'%')
-            ->orWhere('content', 'like', '%'.$searchText.'%')
+        $posts = Post::whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
+            ->orWhereRaw('LOWER(content) LIKE ?', ['%' . $searchText . '%'])
             ->select('id', 'title')
             ->get();
 
@@ -41,8 +42,8 @@ class SearchController extends Controller
                 array_push($results, $item);
             }
         }
-        $images = Image::where('title', 'like', '%'.$searchText.'%')
-            ->orWhere('label', 'like', '%'.$searchText.'%')
+        $images = Image::whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
+            ->orWhereRaw('LOWER(label) LIKE ?', ['%' . $searchText . '%'])
             ->select('id', 'title')
             ->get();
         foreach ($images as $image) {
