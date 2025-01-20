@@ -20,6 +20,9 @@ use App\Http\Controllers\DashboardController;
     Route::get('/main_categories', [CategoryController::class, 'frontListCategoriesWithParentParam'])->name('main_categories');
     Route::get('/categories', [CategoryController::class, 'frontListCategoriesWithParentParam'])->name('categories');
 
+    // front search
+    Route::get('/search', [SearchController::class, 'frontSearch'])->name('search');
+
     
     // front single view
     Route::get('/single_post_test', function () {
