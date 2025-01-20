@@ -27,6 +27,8 @@
                     </h4>
                 </div>
             }
+            @endif
+            
         </div>
     </article>
 </section> <!-- end s-content -->
