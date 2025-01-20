@@ -168,9 +168,9 @@ function panelSearch(searchText) {
 
 function getHtmlIconCode(name){
     console.log("getHtmlIconCode() : start");
-    if(name == 'post') {
+    if(name === 'post') {
         return `<i class="bx bx-detail"></i>`;
-    } else if (name == 'image'){
+    } else if (name === 'image'){
         return `<i class="bx bx-image"></i>`;
     }
 
