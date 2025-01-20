@@ -86,12 +86,14 @@ function searchDeactivateLayout() {
 }
 
 function searchStartLayout(){
+    console.log("searchStartLayout() : start")
     document.getElementById('searchSpinner').removeAttribute('hidden');
     document.getElementById('searchResults').setAttribute('hidden', '');
     document.getElementById('searchNoResults').setAttribute('hidden', '');
 }
 
 function searchFinishLayout(isFound) {
+    console.log("searchFinishLayout() : start")
     document.getElementById('searchSpinner').setAttribute('hidden', '');
     if (isFound){
         document.getElementById('searchResults').removeAttribute('hidden');
@@ -103,7 +105,7 @@ function searchFinishLayout(isFound) {
 
 function panelSearch(searchText) {
     searchStartLayout();
-    // sleep 3 s
+    
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
     let isFound = false;
     
