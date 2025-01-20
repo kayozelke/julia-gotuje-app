@@ -673,7 +673,7 @@ class PostController extends Controller
                         // Posty w danej kategorii
                         $query->where('parent_category_id', $category->id)
                             // Posty w subkategoriach
-                            ->orWhereIn('category_id', $category->subcategories->pluck('id'));
+                            ->orWhereIn('parent_category_id', $category->subcategories->pluck('id'));
                     })
                 ->where('is_hidden', 0) // is_hidden is 0
                 ->where(function ($query) {
