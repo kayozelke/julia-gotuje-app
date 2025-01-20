@@ -203,11 +203,11 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center w-100">
                 <div class="nav-item d-flex align-items-center w-100">
-                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <i class="bx bx-search fs-4 lh-0 me-1"></i>
                   <input
                     {{-- type="search" --}}
                     type="input"
-                    class="form-control border-1 shadow-none bg-transparent mx-2 px-1 w-100" 
+                    class="form-control border-0 shadow-none bg-transparent me-1 px-2 w-100" 
                     placeholder="Szukaj..."
                     aria-label="Search..."
                   />
