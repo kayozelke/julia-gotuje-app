@@ -267,7 +267,7 @@
               <div class="row d-flex justify-content-center">
                 <div class="navbar-nav-right d-flex align-items-center justify-content-between" id="navbar-collapse">
                   {{-- toggle for less wide screens --}}
-                  <div class="navbar-menu-toggle d-xl-none me-2">
+                  <div class="navbar-menu-toggle d-xl-none me-3">
                     <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                       <i class="bx bx-menu bx-sm"></i>
                     </a>
@@ -357,6 +357,13 @@
                   </ul>
                 </div>
               </div>
+              <div class="collapse row" id="collapseSearch">
+                <div class="d-flex align-content-center justify-content-center py-3">
+                  <div class="spinner-border text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </nav>
 
@@ -365,11 +372,10 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
 
-            <div class="collapse" id="collapseSearch" style="">
-              {{-- class got thrown out: container-p-y --}}
+            {{-- <div class="collapse" id="collapseSearch" style="">
               <div class="container-xxl flex-grow-1">
                 <div class="card my-1">
-                  {{-- <div class="d-grid d-sm-flex p-3 border">
+                  <div class="d-grid d-sm-flex p-3 border">
                     <span>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                       been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -381,7 +387,7 @@
                       the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
                       that it has a more-or-less normal distribution of letters.
                     </span>
-                  </div> --}}
+                  </div>
                   <div class="d-flex align-content-center justify-content-center py-3">
                     <div class="spinner-border text-secondary" role="status">
                       <span class="visually-hidden">Loading...</span>
@@ -389,6 +395,6 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
 
             <!-- Content -->
