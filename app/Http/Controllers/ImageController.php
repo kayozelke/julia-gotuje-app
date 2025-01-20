@@ -305,7 +305,7 @@ class ImageController extends Controller
 
         $postImageMatches = PostImage::where('image_id', $image->id)
             ->select('post_id')
-            ->get();
+            ->get()->toArray();
         if (count($postImageMatches) > 0) {
             
             return redirect()->back()->with([
