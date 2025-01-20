@@ -40,8 +40,8 @@
                                     {{-- <img src="{{ asset('panel/assets/img/icons/unicons/chart-success.png') }}"
                                         alt="chart success" class="rounded" /> --}}
                                     {{-- <i class='bx bx-detail'></i> --}}
-                                    <div class="rounded">
-                                        <i class='bx bx-detail'></i>
+                                    <div class="rounded h-100 w-100 d-flex justify-content-center align-items-center bg-primary">
+                                        <i class='bx bx-detail text-white'></i>
                                     </div>
                                 </div>
                             </div>
@@ -57,8 +57,9 @@
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
-                                    <img src="{{ asset('panel/assets/img/icons/unicons/chart-success.png') }}"
-                                        alt="chart success" class="rounded" />
+                                    <div class="rounded h-100 w-100 d-flex justify-content-center align-items-center bg-primary">
+                                        <i class='bx bx-image text-white'></i>
+                                    </div>
                                 </div>
                             </div>
                             <span class="fw-semibold d-block mb-1">Obrazy w systemie</span>
