@@ -11,47 +11,21 @@
             <table class="table table-hover" id="dataTableElement">
                 <thead>
                     <tr>
-                        {{-- Key --}}
-                        <th>Ustawienie</th>
+                        <th>Typ</th>
                         {{-- Value --}}
-                        <th>Wartość</th>
+                        <th>Tytuł</th>
                         {{-- Description --}}
-                        <th>Opis</th>
-                        {{-- Update at --}}
-                        <th>Ostatnio zmodyfikowany</th>
-                        {{-- Updated by --}}
-                        <th>Zmodyfikowany przez</th>
-                        {{-- Akcje --}}
-                        <th>Akcje</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    {{-- @foreach ($settings as $setting)
+                    @foreach ($search_results as $result)
                         <tr>
-                            <td><strong>{{ $setting->key }}</strong></td>
-                            <td class="long-text-cell">{{ $setting->value }}</td>
-                            <td class="long-text-cell">{{ $setting->description }}</td>
-                            <td>{{ $setting->updated_at ? $setting->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
-                            <td>
-                                {{ $setting->updatedByUser->first_name ?? 'N/A' }}
-                                {{ $setting->updatedByUser->last_name ?? '' }}
-                            </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.settings.update.form', ['id' => $setting->id]) }}">
-                                            <i class="bx bx-edit-alt me-1"></i> Edytuj
-                                        </a>
-                                    </div>
-                                </div>
+                            <td><strong>{{ $result->type }}</strong></td>
+                            <td class="long-text-cell">
+                                <a href="{{ $result->url }}">{{ $result->title }}</a>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
