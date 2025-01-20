@@ -5,9 +5,9 @@
 
             <form role="search" method="get" class="s-header__search-form" action="#">
                 <label>
-                    {{-- <span class="u-screen-reader-text">Search for:</span> --}}
+                    {{-- <span class="u-screen-reader-text">TEST:</span> --}}
                     <input type="search" class="s-header__search-field" placeholder="Wyszukaj" value=""
-                        name="s" title="Search for:" autocomplete="off">
+                        name="s" title="TEST:" autocomplete="off">
                 </label>
                 <input type="submit" class="s-header__search-submit" value="Search">
             </form>
