@@ -70,6 +70,8 @@ document.getElementById('searchInput').addEventListener('input', function () {
 document.getElementById('searchInputClear').addEventListener('click', function () {
     document.getElementById('searchInput').value = '';
     this.setAttribute('hidden', '');
+    
+    document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
 });
 
 
