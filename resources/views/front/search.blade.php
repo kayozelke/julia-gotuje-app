@@ -11,7 +11,7 @@
                     <a href="#">Wynik nr 1</a>
                 </h5>
             </div>
-            @foreach ($search_results as $result)
+            @foreach ($results as $result)
                 <div class="column lg-12">
                     <h5 class="my-3">
                         <a href="{{ $result['url'] }}">{{ $result['title'] }}</a>
