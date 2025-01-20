@@ -77,13 +77,13 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <div class="py-1" id="searchResults" hidden>
-                <div>
+            <div class="py-2" id="searchResults" hidden>
+                {{-- <div>
                     Result 1
                 </div>
                 <div>
                     Result 2
-                </div>
+                </div> --}}
             </div>
             <div class="py-1 text-center" id="searchNoResults" hidden>
                 <div>

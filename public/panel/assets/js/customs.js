@@ -136,7 +136,7 @@ function panelSearch(searchText) {
                 console.log(result);
                 
                 const metadataBlock = document.createElement('div');
-                metadataBlock.classList.add('mb-1');
+                metadataBlock.classList.add('mb-2');
 
                 metadataBlock.innerHTML = `
                     <a href="${result.url}">${result.title}</a>
