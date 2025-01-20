@@ -2,7 +2,8 @@
     use Illuminate\Support\Facades\DB;
 
     // Total posts
-    $totalPosts = $posts->count(); // Użyj metody count() dla kolekcji Eloquent
+    // $totalPosts = $posts->count(); // Użyj metody count() dla kolekcji Eloquent
+    $totalPosts = count($posts); // Użyj metody count() dla kolekcji Eloquent
 
     // Fetch posts_per_page from the database
     $postsPerPage = DB::table('general_settings')->where('key', 'posts_per_page')->value('value'); // Get the value column directly
@@ -19,7 +20,8 @@
 
     // Calculate the slice for the current page
     $startIndex = ($currentPage - 1) * $postsPerPage;
-    $paginatedPosts = $posts->slice($startIndex, $postsPerPage); // Użyj slice dla kolekcji
+    // $paginatedPosts = $posts->slice($startIndex, $postsPerPage); // Użyj slice dla kolekcji
+    $paginatedPosts = array_slice($posts, $startIndex, $postsPerPage);
 @endphp
 
 
