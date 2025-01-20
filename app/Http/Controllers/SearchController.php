@@ -69,7 +69,7 @@ class SearchController extends Controller
                 array_push($results, $item);
             }
         }
-
+        
 
         $images = Image::whereRaw('LOWER(title) LIKE ?', ['%' . $searchText . '%'])
             ->orWhereRaw('LOWER(label) LIKE ?', ['%' . $searchText . '%'])
@@ -94,7 +94,6 @@ class SearchController extends Controller
         }
         return $results;
 
-        // return ['id1' => 'test1', 'id2' => 'test2'];
     }
 
     public function apiSearchPanel(Request $request){
