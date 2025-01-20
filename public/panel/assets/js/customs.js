@@ -83,7 +83,9 @@ function searchDeactivateLayout() {
     document.getElementById('searchInputClear').setAttribute('hidden', '');
     document.getElementById('collapseSearch').classList.remove("show"); // remove class 'show'
     document.getElementById('navUserElement').removeAttribute('hidden');
-    
+}
+
+function searchStartLayout(){
     document.getElementById('searchSpinner').removeAttribute('hidden');
     document.getElementById('searchResults').setAttribute('hidden', '');
 }
@@ -95,6 +97,7 @@ function searchFinishLayout() {
 
 
 function panelSearch(searchText) {
+    searchStartLayout();
     // sleep 3 s
     setTimeout(searchFinishLayout, 3000);
 }
