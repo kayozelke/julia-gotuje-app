@@ -282,8 +282,10 @@
                         class="form-control border-0 shadow-none bg-transparent me-1 px-2 w-100" 
                         placeholder="Szukaj..."
                         aria-label="Search..."
+                        name="searchInput"
+                        id="searchInput"
                       />
-                      <button class="btn btn-sm me-1" type="button" id="searchInputClear">
+                      <button class="btn btn-sm me-1" type="button" id="searchInputClear" hidden>
                         <i class="bx bx-x fs-4 lh-0"></i>
                       </button>
                       <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch" role="button" aria-expanded="false" aria-controls="collapseSearch">

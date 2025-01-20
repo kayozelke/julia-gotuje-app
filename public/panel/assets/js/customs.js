@@ -4,6 +4,8 @@
 
 'use strict';
 
+// #############################
+// sneat js code rewrited for new navbar layout
 
 (function () { // Initialize menu togglers and bind click on each
     let menuToggler = document.querySelectorAll('.navbar-menu-toggle');
@@ -41,3 +43,26 @@
         });
     }
 })();
+
+// #########################################
+// search field handling
+
+// show / hide clear input button
+
+// when input with id = "searchInput" has any text put by user then remove attribute "hidden" from element with id searchInputClear
+// when input with id = "searchInput" has no text (its value empty) then add attribute "hidden" to element with id searchInputClear
+
+document.getElementById('searchInput').addEventListener('input', function () {
+    if (this.value) {
+        document.getElementById('searchInputClear').removeAttribute('hidden');
+    } else {
+        document.getElementById('searchInputClear').setAttribute('hidden', '');
+    }
+});
+
+// clear input field when clear button is clicked
+
+document.getElementById('searchInputClear').addEventListener('click', function () {
+    document.getElementById('searchInput').value = '';
+    this.setAttribute('hidden', '');
+});
