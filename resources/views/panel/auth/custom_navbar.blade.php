@@ -85,6 +85,11 @@
                     Result 2
                 </div>
             </div>
+            <div class="py-1 d-flex justify-content-center align-items-center" id="searchNoResults" hidden>
+                <div>
+                    Brak wyników
+                </div>
+            </div>
         </div>
     </div>
 </nav>
