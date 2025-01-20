@@ -72,6 +72,8 @@
 
     <!-- Main JS -->
     <script src="{{ asset('panel/assets/js/main.js') }}"></script>
+    {{-- Custom JS --}}
+    <script src="{{ asset('panel/assets/js/customs.js') }}"></script>
 
     <!-- Page JS -->
     <script src="{{ asset('panel/assets/js/dashboards-analytics.js') }}"></script>

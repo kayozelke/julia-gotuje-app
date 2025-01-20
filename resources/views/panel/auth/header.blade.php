@@ -135,7 +135,7 @@
               <span class="app-brand-text demo menu-text fw-bolder ms-2">JuliaGotuje</span>
             </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <a href="javascript:void(0);" class="navbar-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
             </a>
           </div>
@@ -266,7 +266,7 @@
             <div class="bg-navbar-theme shadow-sm rounded px-4 py-1">
               <div class="row d-flex justify-content-center">
                 {{-- navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none --}}
-                <div class="layout-menu-toggle ">
+                <div class="navbar-menu-toggle ">
                   <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                     <i class="bx bx-menu bx-sm"></i>
                   </a>
