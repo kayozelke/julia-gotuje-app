@@ -3,7 +3,7 @@
 
 <!-- # site-footer
 ================================================== -->
-<footer id="colophon" class="s-footer">
+<footer id="colophon" class="s-footer footer mt-auto">
 
     <div class="row s-footer__main">
 
