@@ -126,7 +126,7 @@ class SearchController extends Controller
                 'type' => 'post',
                 'id' => $post->id,
                 'title' => $post->title,
-                'url' => url('/') . ['id' => $post->url],
+                'url' => url('/') . $post->url,
             ];
 
             array_push($results, $item);
