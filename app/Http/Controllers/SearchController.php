@@ -11,7 +11,7 @@ use \App\Models\Image;
 class SearchController extends Controller
 {
 
-    public function searchPanel(string $searchText)
+    private function searchGlobal(string $searchText, bool $groupByType = false)
     {
         // 
         // get list of elements in which $searchText in was found at post title or at post content        
@@ -22,24 +22,45 @@ class SearchController extends Controller
 
         $results = [];
         foreach ($posts as $post) {            
-            // $results[$post->title] = route('admin.posts.show', ['id' => $post->id]);
-            array_push($results, [
+            $item = [
                 'type' => 'post',
                 'title' => $post->title,
                 'url' => route('admin.posts.show', ['id' => $post->id]),
-            ]);
+            ];
+
+            if ($groupByType){
+                // if not 'posts' in results, create results
+                if (!isset($results['posts'])) {
+                    $results['posts'] = [];
+                }
+                
+                // add item to results -> posts -> here
+                array_push($results['posts'], $item);
+            }
+            else {
+                array_push($results, $item);
+            }
         }
         $images = Image::where('title', 'like', '%'.$searchText.'%')
             ->orWhere('label', 'like', '%'.$searchText.'%')
             ->select('id', 'title')
             ->get();
         foreach ($images as $image) {
-            // $results[$image->title] = route('admin.images.show', ['id' => $image->id]);
-            array_push($results, [
+            $item = [
                 'type' => 'image',
                 'title' => $image->title,
                 'url' => route('admin.images.show', ['id' => $image->id]),
-            ]);
+            ];
+
+            if ($groupByType){
+                if (!isset($results['images'])) {
+                    $results['images'] = [];
+                }
+                array_push($results['images'], $item);
+            }
+            else {
+                array_push($results, $item);
+            }
         }
         return $results;
 
@@ -52,7 +73,7 @@ class SearchController extends Controller
         // sleep(1);
         $more_items = 0;
 
-        $search_results = $this->searchPanel($text);
+        $search_results = $this->searchGlobal($text);
 
         // if search results is more than 5 elements, get first 5 elements and add count of next elements to $more_items
         if (count($search_results) > 5) {
@@ -60,10 +81,15 @@ class SearchController extends Controller
             $search_results = array_slice($search_results, 0, 5);
         }
 
-
         return [
             'results' => $search_results,
             'more_items' => $more_items
         ];
+    }
+
+    // ######### views
+
+    public function panelSearch(Request $request){
+
     }
 }
