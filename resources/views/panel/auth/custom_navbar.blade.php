@@ -19,9 +19,9 @@
                         <button class="btn btn-sm me-1" type="button" id="searchInputClear" hidden>
                             <i class="bx bx-x fs-4 lh-0"></i>
                         </button>
-                        <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch"
+                        {{-- <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch"
                             role="button" aria-expanded="false" aria-controls="collapseSearch">
-                            <i class="bx bx-search fs-4 lh-0"></i>
+                            <i class="bx bx-search fs-4 lh-0"></i> --}}
                         </a>
                     </div>
                 </div>

@@ -153,7 +153,7 @@ function panelSearch(searchText) {
                 // metadataBlock.classList.add('mb-2', 'border', 'rounded');
 
                 metadataBlock.innerHTML = `
-                    <a href="#">... oraz ${data.more_items} więcej wyników</a>
+                    ${getHtmlIconCode(data.type)}<a href="#" class="ms-1">... oraz ${data.more_items} więcej wyników</a>
                 `;
 
                 resultsContainer.appendChild(metadataBlock)
@@ -163,6 +163,17 @@ function panelSearch(searchText) {
         .finally(() => {
             searchFinishLayout(isFound);
         });
+    
+}
+
+function getHtmlIconCode(name){
+    if(name == 'post') {
+        return `<i class="bx bx-detail"></i>`;
+    } else if (name == 'image'){
+        return `<i class="bx bx-image"></i>`;
+    }
+
+    return '';
     
 }
 
