@@ -139,7 +139,7 @@ function panelSearch(searchText) {
                 metadataBlock.classList.add('my-1');
 
                 metadataBlock.innerHTML = `
-                    <a href="${result.url}">${result.title}</a>
+                    ${getHtmlIconCode(result.type)}<a class="ms-1" href="${result.url}">${result.title}</a>
                 `;
 
                 resultsContainer.appendChild(metadataBlock)
@@ -153,7 +153,7 @@ function panelSearch(searchText) {
                 // metadataBlock.classList.add('mb-2', 'border', 'rounded');
 
                 metadataBlock.innerHTML = `
-                    ${getHtmlIconCode(data.type)}<a href="#" class="ms-1">... oraz ${data.more_items} więcej wyników</a>
+                    <a href="#">... oraz ${data.more_items} więcej wyników</a>
                 `;
 
                 resultsContainer.appendChild(metadataBlock)
@@ -168,9 +168,9 @@ function panelSearch(searchText) {
 
 function getHtmlIconCode(name){
     console.log("getHtmlIconCode() : start");
-    if(name === 'post') {
+    if(name == 'post') {
         return `<i class="bx bx-detail"></i>`;
-    } else if (name === 'image'){
+    } else if (name == 'image'){
         return `<i class="bx bx-image"></i>`;
     }
 
