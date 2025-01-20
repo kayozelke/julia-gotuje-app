@@ -108,7 +108,13 @@
 
 
     <!--  masonry -->
-    @include('front.components.posts_bricks_section')
+    @php
+        // Wywołanie metody kontrolera
+        $posts = app(\App\Http\Controllers\PostController::class)->getHomePagePosts();
+    @endphp
+
+    @include('front.components.posts_bricks_section', ['posts' => $posts])
+
 
 </section> <!-- end s-content -->
 @include('front.footer')
