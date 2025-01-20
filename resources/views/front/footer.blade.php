@@ -36,9 +36,9 @@
                     <ul class="link-list">
                         <li><a href="{{ route('home') }}">Strona główna</a></li>
                         <li><a href="{{ route('main_categories') }}">Kategorie</a></li>
-                        <li><a href="#">O mnie</a></li>
-                        <li><a href="#">Kontakt</a></li>
-                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="{{ url('/o-mnie') }}">O mnie</a></li>
+                        <li><a href="{{ url('/kontakt') }}">Kontakt</a></li>
+                        <li><a href="{{ url('/regulamin') }}">Regulamin</a></li>
                     </ul>
                 </div>
             </div>

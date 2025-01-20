@@ -25,9 +25,9 @@ use App\Http\Controllers\DashboardController;
 
     
     // front single view
-    Route::get('/single_post_test', function () {
-        return view('front/posts/single_post');;
-    })->name('single_post');
+    // Route::get('/single_post_test', function () {
+    //     return view('front/posts/single_post');;
+    // })->name('single_post');
 
 // ################ PANEL ###################
 
