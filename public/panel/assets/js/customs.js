@@ -105,7 +105,7 @@ function panelSearch(searchText) {
     searchStartLayout();
     // sleep 3 s
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
-    isFound = false;
+    let isFound = false;
     fetch(url, {
             method: 'GET',
         })
