@@ -109,6 +109,7 @@ function panelSearch(searchText) {
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
     let isFound = false;
     let resultsContainer = document.getElementById('searchResults');
+    resultsContainer.innerHTML = '';
     
     fetch(url, {
             method: 'GET',
@@ -127,9 +128,10 @@ function panelSearch(searchText) {
                 console.log(result);
                 
                 const metadataBlock = document.createElement('div');
+                metadataBlock.classList.add('mb-1');
 
                 metadataBlock.innerHTML = `
-                    <a href="${result.url}">${result.title}"></a>
+                    <a href="${result.url}">${result.title}</a>
                 `;
 
                 resultsContainer.appendChild(metadataBlock)
