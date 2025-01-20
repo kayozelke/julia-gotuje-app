@@ -4,7 +4,7 @@
         <a href="{{ $url }}" class="thumb-link">
             {{-- <img src="{{ asset($src) }}" srcset="{{ asset($src) }}" alt="{{ $title }}"> --}}
             @if ($src) <!-- Sprawdzamy, czy ścieżka obrazu nie jest pusta -->
-                <img src="{{ asset($src) }}" srcset="{{ asset($srcset) }}" alt="{{ $title }}">
+                <img src="{{ asset($src) }}" srcset="{{ asset($src) }}" alt="{{ $title }}">
             @endif
         </a>
     </div> <!-- end entry__thumb -->
