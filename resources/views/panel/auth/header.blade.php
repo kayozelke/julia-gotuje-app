@@ -201,18 +201,21 @@
 
             <div class="navbar-nav-right d-flex align-items-center justify-content-between" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center col-11">
-                <div class="nav-item d-flex align-items-center col-12">
+              <div class="navbar-nav align-items-center w-100">
+                <div class="nav-item d-flex align-items-center w-100">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     {{-- type="search" --}}
                     type="input"
-                    class="form-control border-0 shadow-none bg-transparent mx-2 px-1"
-                    placeholder="Search..."
+                    class="form-control border-1 shadow-none bg-transparent mx-2 px-1 w-100" 
+                    placeholder="Szukaj..."
                     aria-label="Search..."
                   />
-                  <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch" role="button" aria-expanded="false" aria-controls="collapseSearch">
+                  <button class="btn btn-sm me-1" type="button" id="searchInputClear">
                     <i class="bx bx-x fs-4 lh-0"></i>
+                  </button>
+                  <a class="btn btn-primary me-1 collapsed" data-bs-toggle="collapse" href="#collapseSearch" role="button" aria-expanded="false" aria-controls="collapseSearch">
+                    <i class="bx bx-search fs-4 lh-0"></i>
                   </a>
                 </div>
               </div>
