@@ -54,6 +54,7 @@ class SearchController extends Controller
 
         return [
             'results' => $search_results,
+            'more_items' => $more_items
         ];
     }
 }
