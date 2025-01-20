@@ -657,7 +657,7 @@ class PostController extends Controller
         //         ];
         //     });
 
-        if(isset($categoryId) || $categoryId == ""){
+        if(!(isset($categoryId)) || $categoryId == ""){
             $posts = Post::whereNotNull('parent_category_id') // parent_category_id is not null
                 ->where('is_hidden', 0) // is_hidden is 0
                 ->where(function ($query) {
