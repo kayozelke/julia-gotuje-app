@@ -153,7 +153,7 @@ class SearchController extends Controller
 
     }
 
-    public function fronSearch(Request $request){
+    public function frontSearch(Request $request){
         $search_query = $request->query('query');
 
         // if query not set return page back
