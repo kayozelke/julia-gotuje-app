@@ -594,7 +594,7 @@ class PostController extends Controller
         public function getHomePagePosts()
     {
         // Pobierz posty spełniające kryteria
-        return Post::where('is_hidden', true)
+        return Post::where('is_hidden', false)
             ->where('hide_before_time', '<', now())
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
