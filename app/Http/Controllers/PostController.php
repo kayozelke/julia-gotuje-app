@@ -591,20 +591,6 @@ class PostController extends Controller
         ]);
     }
 
-    public function topImage(){
-        return $this->hasOne(PostImage::class, 'post_id')->orderBy('priority', 'desc');
-    }
-
-    public function image(){
-        return $this->belongsTo(Image::class, 'image_id');
-    }
-
-    public function postImages(){
-        return $this->hasMany(PostImage::class, 'image_id');
-    }
-
-
-
     public function getHomePagePostsWithTopImage()
     {
         // Pobierz posty spełniające kryteria
@@ -612,7 +598,7 @@ class PostController extends Controller
             ->where('hide_before_time', '<', now())
             ->where('template_type', 'recipe')
             ->orderBy('created_at', 'desc')
-            ->with(['topImage'])
+            ->with(['getPrioritizedImageAttribute'])
             ->get()
             ->map(function ($post) {
                 // Zmapowanie danych na format oczekiwany przez widok
