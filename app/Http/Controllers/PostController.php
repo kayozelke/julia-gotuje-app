@@ -266,7 +266,7 @@ class PostController extends Controller
         } catch (\Exception $e){
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Wystąpił błąd!',
-                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorDescription' => $e->getMessage(),
             ]);
         }
 
@@ -316,7 +316,7 @@ class PostController extends Controller
                 } catch (\Exception $e) {
                     return redirect()->back()->with([
                         'toastErrorTitle' => 'Wystąpił błąd!',
-                        'toastErrorDescription' => $e->getMessage(),
+                        // 'toastErrorDescription' => $e->getMessage(),
                     ]);
                 }
                 // handle post images
@@ -341,7 +341,7 @@ class PostController extends Controller
                 } catch (\Exception $e){
                     return redirect()->back()->with([
                         'toastErrorTitle' => 'Wystąpił błąd!',
-                        'toastErrorDescription' => $e->getMessage(),
+                        // 'toastErrorDescription' => $e->getMessage(),
                     ]);
                 }
 
@@ -371,7 +371,7 @@ class PostController extends Controller
             } catch (\Exception $e) {
                 return redirect()->back()->with([
                     'toastErrorTitle' => 'Wystąpił błąd!',
-                    'toastErrorDescription' => $e->getMessage(),
+                    // 'toastErrorDescription' => $e->getMessage(),
                 ]);
             }
         }
@@ -402,7 +402,7 @@ class PostController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Wystąpił błąd!',
-                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorDescription' => $e->getMessage(),
             ]);
         }
 
@@ -547,7 +547,7 @@ class PostController extends Controller
         } catch (\Exception $e) {
             return redirect(route('admin.posts'))->with([
                 'toastErrorTitle' => 'Wystąpił błąd podczas usuwania posta!',
-                'toastErrorDescription' => $e->getMessage(),
+                // 'toastErrorDescription' => $e->getMessage(),
                 // 'toastErrorHideTime' => 10,
             ]);
         }
