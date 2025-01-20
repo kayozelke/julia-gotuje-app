@@ -40,11 +40,13 @@
                                     {{-- <img src="{{ asset('panel/assets/img/icons/unicons/chart-success.png') }}"
                                         alt="chart success" class="rounded" /> --}}
                                     {{-- <i class='bx bx-detail'></i> --}}
-                                    <box-icon name='detail' class="rounded"></box-icon>
+                                    <div class="rounded">
+                                        <i class='bx bx-detail'></i>
+                                    </div>
                                 </div>
                             </div>
                             <span class="fw-semibold d-block mb-1">Opublikowane posty</span>
-                            <h3 class="card-title mb-2">{{ $publicated_posts }}</h3>
+                            <h3 class="card-title mb-2">{{ $publicated_posts_count }}</h3>
                             {{-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
                         </div>
                     </div>
@@ -59,8 +61,8 @@
                                         alt="chart success" class="rounded" />
                                 </div>
                             </div>
-                            <span class="fw-semibold d-block mb-1">Opublikowane posty</span>
-                            <h3 class="card-title mb-2">{{ $publicated_posts }}</h3>
+                            <span class="fw-semibold d-block mb-1">Obrazy w systemie</span>
+                            <h3 class="card-title mb-2">{{ $images_count }}</h3>
                         </div>
                     </div>
                 </div>
