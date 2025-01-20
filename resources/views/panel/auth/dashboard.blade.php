@@ -73,16 +73,18 @@
     </div>
 
     <div class="row">
-        <div class="card mb-4">
-            <h5 class="card-header">Miejsce na dysku</h5>
-            <div class="card-body">
-                <div class="text-light small fw-semibold">{{ $disk_space['used_space'] }} /
-                    {{ $disk_space['total_space'] }}</div>
-                <div class="demo-vertical-spacing">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: {{ $disk_space['percentage'] }}%" aria-valuenow="{{ $disk_space['percentage'] }}"
-                            aria-valuemin="0" aria-valuemax="100">
-                            {{ $disk_space['percentage'] }}%
+        <div class="col-12">
+            <div class="card mb-4">
+                <h6 class="card-header">Miejsce na dysku</h6>
+                <div class="card-body">
+                    <div class="text-light small fw-semibold">{{ $disk_space['used_space'] }} /
+                        {{ $disk_space['total_space'] }}</div>
+                    <div class="demo-vertical-spacing">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ $disk_space['percentage'] }}%" aria-valuenow="{{ $disk_space['percentage'] }}"
+                                aria-valuemin="0" aria-valuemax="100">
+                                {{ $disk_space['percentage'] }}%
+                            </div>
                         </div>
                     </div>
                 </div>
