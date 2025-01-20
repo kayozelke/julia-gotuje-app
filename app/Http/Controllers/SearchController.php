@@ -115,8 +115,8 @@ class SearchController extends Controller
             ->whereNotNull('parent_category_id') // parent_category_id is not null
             ->where('is_hidden', 0) // is_hidden is 0
             ->where(function ($query) {
-                $query->whereNull('hide_before') // hide_before is null
-                    ->orWhere('hide_before', '<', now()); // or hide_before < now()
+                $query->whereNull('hide_before_time') // hide_before is null
+                    ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
             })
             ->select('id', 'url', 'title')
             ->get();
