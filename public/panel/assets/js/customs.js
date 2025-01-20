@@ -121,10 +121,13 @@ function panelSearch(searchText) {
         .then(data => {
             console.log(data);
             // for each in data -> results
-            data.results.forEach(result => {
+            // data.results.forEach(result => {
+            //     isFound = true;
+            // })
+            for(const result of data.results){
                 isFound = true;
-                
-            })
+                console.log(result);
+            }
         })
         .catch(error => console.error('Error:', error))
         .finally(() => {
