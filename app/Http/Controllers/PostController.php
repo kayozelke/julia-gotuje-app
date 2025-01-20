@@ -604,6 +604,10 @@ class PostController extends Controller
                 $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
                 $imageLocation = $image ? $image->file_location : 'default-image.jpg'; // Jeśli nie ma obrazu, użyj domyślnego
 
+                // Debugowanie wartości ścieżki obrazu
+                dd($imageLocation);  // Wyświetli ścieżkę obrazu w przeglądarce
+
+
                 // Generowanie pełnego URL
                 $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
 
