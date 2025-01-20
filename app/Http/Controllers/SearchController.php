@@ -110,7 +110,17 @@ class SearchController extends Controller
 
         print_r($search_results);
 
-        return ;
+        return view('panel.auth.search.results', [
+            'search_query' => $search_query,
+            'search_results' => $search_results,
+
+            'toastSuccessTitle' => "$toastSuccessTitle",
+            'toastSuccessDescription' => "$toastSuccessDescription",
+            'toastSuccessHideTime' => $toastSuccessHideTime,
+            'toastErrorTitle' => $toastErrorTitle,
+            'toastErrorDescription' => $toastErrorDescription,
+            'toastErrorHideTime' => $toastErrorHideTime,
+        ]);
 
     }
 }
