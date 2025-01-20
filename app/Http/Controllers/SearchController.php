@@ -108,7 +108,7 @@ class SearchController extends Controller
 
         $search_results = $this->searchGlobal($search_query, false);
 
-        // print_r($search_results);
+        print_r($search_results);
 
         return view('panel.auth.search.results', [
             'search_query' => $search_query,
