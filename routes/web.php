@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DashboardController;
 
 // ########### FRONT ######################
 
@@ -41,9 +42,12 @@ Route::get('/admin', function () {
     return redirect()->route('admin.home');
 })->name("admin");
 
-Route::get('/admin/home', function () {
-    return view('panel.auth.home_page');
-})->middleware('auth')->name('admin.home');
+Route::get('/admin/home', 
+    // function () {
+    //     return view('panel.auth.home_page');
+    // }
+    [DashboardController::class, 'dashboardPanel']
+)->middleware('auth')->name('admin.home');
 
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
