@@ -267,7 +267,7 @@
               <div class="row d-flex justify-content-center">
                 <div class="navbar-nav-right d-flex align-items-center justify-content-between" id="navbar-collapse">
                   {{-- toggle for less wide screens --}}
-                  <div class="navbar-menu-toggle d-xl-none">
+                  <div class="navbar-menu-toggle d-xl-none me-2">
                     <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                       <i class="bx bx-menu bx-sm"></i>
                     </a>
