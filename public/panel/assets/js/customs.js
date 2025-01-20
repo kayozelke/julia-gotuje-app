@@ -88,16 +88,15 @@ function searchDeactivateLayout() {
     document.getElementById('searchResults').setAttribute('hidden', '');
 }
 
+function searchFinishLayout() {
+    document.getElementById('searchSpinner').setAttribute('hidden', '');
+    document.getElementById('searchResults').removeAttribute('hidden');
+}
 
 
 function panelSearch(searchText) {
     // sleep 3 s
-    setTimeout(function(){}, 3000);
-    document.getElementById('searchSpinner').setAttribute('hidden', '');
-    document.getElementById('searchResults').removeAttribute('hidden');
-    
-
-
+    setTimeout(searchFinishLayout, 3000);
 }
 
 
