@@ -106,6 +106,7 @@ function panelSearch(searchText) {
     // sleep 3 s
     const url = `/api/search_panel?search_text=${encodeURIComponent(searchText)}`;
     let isFound = false;
+    
     fetch(url, {
             method: 'GET',
         })
@@ -116,7 +117,7 @@ function panelSearch(searchText) {
             return response.json();
         })
         .then(data => {
-            // console.log(data);
+            console.log(data);
         })
         .catch(error => console.error('Error:', error));
     
