@@ -107,7 +107,7 @@ function collapseNavbarElement(element) {
     // Po krótkim czasie ustaw wysokość na 0, aby rozpocząć animację
     setTimeout(() => {
         element.style.height = '0';
-    }, 10);
+    }, 100);
 
     // Po zakończeniu animacji (dopasowanej do czasu w CSS)
     element.addEventListener('transitionend', function onTransitionEnd() {
@@ -127,7 +127,7 @@ function expandNavbarElement(element) {
     // Następnie ustaw pełną wysokość
     setTimeout(() => {
         element.style.height = `${element.scrollHeight}px`;
-    }, 10);
+    }, 100);
 
     // Po zakończeniu animacji
     element.addEventListener('transitionend', function onTransitionEnd() {
