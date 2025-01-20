@@ -70,6 +70,10 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        {{ $disk_space['used_space'] }} / {{ $disk_space['total_space'] }}
+    </div>
 </div>
 
 @include('panel.auth.footer')
