@@ -20,16 +20,17 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($search_results as $result)
                         <tr>
-                            <td>
-                                <i class="bx
+                            <td class="text-center">
+                                
                                     @if ($result['type'] == 'image')
-                                        bx-image
+                                        <i class="bx bx-image text-light"></i> Obraz
                                     @elseif ($result['type'] == 'post')
-                                        bx-detail
+                                        <i class="bx bx-detail text-light"></i> Post
+                                        
                                     @else
-                                        bx-link-external
+                                        <i class="bx bx-link-external text-light"></i> Inne
+                                        
                                     @endif
-                                    text-light"></i>
                             </td>
                             <!-- <td><strong>{{ $result['type'] }}</strong></td> -->
                             <td class="long-text-cell">
