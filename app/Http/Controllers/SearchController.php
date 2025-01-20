@@ -90,6 +90,27 @@ class SearchController extends Controller
     // ######### views
 
     public function panelSearch(Request $request){
+        
+        $toastSuccessTitle = session('toastSuccessTitle', null);
+        $toastSuccessDescription = session('toastSuccessDescription', null);
+        $toastSuccessHideTime = session('toastSuccessHideTime', null);
+        $toastErrorTitle = session('toastErrorTitle', null);
+        $toastErrorDescription = session('toastErrorDescription', null);
+        $toastErrorHideTime = session('toastErrorHideTime', null);
+
+        
+        $search_query = $request->query('query');
+
+        // if query not set return page back
+        if (!isset($search_query) || $search_query == '') {
+            return redirect()->back();
+        }
+
+        $search_results = $this->searchGlobal($search_query, true);
+
+        print_r($search_results);
+
+        return ;
 
     }
 }

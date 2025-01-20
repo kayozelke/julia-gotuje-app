@@ -93,6 +93,8 @@ Route::get('/admin/settings', [SettingsController::class, 'panelList'])->middlew
 Route::get('/admin/settings/update/{id}', [SettingsController::class, 'edit'])->middleware('auth')->name('admin.settings.update.form');
 Route::put('/admin/settings/update', [SettingsController::class, 'panelUpdate'])->middleware('auth')->name('admin.settings.update');
 
+// admin search
+Route::get('/admin/search', [SearchController::class, 'panelSearch'])->middleware('auth')->name('admin.search');
 
 // api calls
 Route::get('/api/generate_page_url', [PostController::class, 'apiGeneratePageUrl'])->middleware('auth');
