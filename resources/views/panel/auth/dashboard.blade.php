@@ -30,9 +30,9 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4 order-1">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
+            {{-- <div class="row h-100">
+                <div class="col-lg-6 col-md-12 col-6 mb-4"> --}}
+                    <div class="card h-100">
                         <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                                 <div class="avatar flex-shrink-0">
@@ -45,8 +45,8 @@
                             {{-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
                         </div>
                     </div>
-                </div>
-            </div>
+                {{-- </div>
+            </div> --}}
         </div>
     </div>
 </div>
