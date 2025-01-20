@@ -228,9 +228,9 @@
                 </div> --}}
 
                 <div class="container my-4">
-                    <h1 class="text-center my-4">
+                    {{-- <h1 class="text-center my-4">
                         Responsive Image Gallery
-                    </h1>
+                    </h1> --}}
 
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                         @foreach ($post->imagesByPriority as $image)
