@@ -312,7 +312,7 @@ class ImageController extends Controller
             return redirect()->back()->with([
                 'toastErrorTitle' => 'Nie można usunąć obrazu!',
                 // 'toastErrorDescription' => "Ten obraz jest używany w następujących postach: " . $used_post_ids_str,
-                'toastErrorDescription' => "Zasób jest wykorzystywany w postach: " . $used_post_ids_str ,
+                'toastErrorDescription' => "Zasób jest wykorzystywany w postach o ID: " . $used_post_ids_str ,
             ]);
         }
 
