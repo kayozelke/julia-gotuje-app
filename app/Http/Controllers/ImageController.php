@@ -80,7 +80,7 @@ class ImageController extends Controller
         // Validate files and data
         $request->validate([
             'imageFilesMultiple' => 'required|array', 
-            'imageFilesMultiple.*' => 'file|image|max:2048', // max size 2 MB per image
+            'imageFilesMultiple.*' => 'file|image|max:8192', // max size 8 MB per image
             'titles' => 'array',
             'titles.*' => 'string|max:255',
             'labels' => 'array',
