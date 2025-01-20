@@ -556,7 +556,7 @@ class PostController extends Controller
     }
 
 
-// ############################## FRONT ##############################
+    // ############################## FRONT ##############################
 
 
     public function show(Request $request){
@@ -626,38 +626,63 @@ class PostController extends Controller
         // Pobierz kategorię wraz z subkategoriami
         $category = Category::with('subcategories')->find($categoryId);
 
-        // Pobierz posty, które należą do danej kategorii lub jej subkategorii
-        $posts = Post::where('is_hidden', false)
+        // // Pobierz posty, które należą do danej kategorii lub jej subkategorii
+        // $posts = Post::where('is_hidden', false)
+        //     ->where(function ($query) {
+        //         $query->where('hide_before_time', '<', now())
+        //             ->orWhereNull('hide_before_time');
+        //     })
+        //     ->where('template_type', 'recipe')
+        //     ->where(function ($query) use ($category) {
+        //         // Posty w danej kategorii
+        //         $query->where('category_id', $category->id)
+        //             // Posty w subkategoriach
+        //             ->orWhereIn('category_id', $category->subcategories->pluck('id'));
+        //     })
+        //     ->orderBy('created_at', 'desc')
+        //     ->get()
+        //     ->map(function ($post) {
+        //         // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
+        //         $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
+        //         $imageLocation = $image ? $image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
+
+        //         // Generowanie pełnego URL
+        //         $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
+
+        //         return [
+        //             'src' => $imageLocation, // Ścieżka do pliku obrazu
+        //             'srcset' => $image ? $image->srcset : null, // Jeśli masz srcset w tabeli images
+        //             'title' => $post->title,
+        //             'url' => $fullUrl, // Zbudowanie pełnego URL
+        //         ];
+        //     });
+
+
+        $posts = Post::whereNotNull('parent_category_id') // parent_category_id is not null
+            ->where('is_hidden', 0) // is_hidden is 0
             ->where(function ($query) {
-                $query->where('hide_before_time', '<', now())
-                    ->orWhereNull('hide_before_time');
+                $query->whereNull('hide_before_time') // hide_before is null
+                    ->orWhere('hide_before_time', '<', now()); // or hide_before < now()
             })
-            ->where('template_type', 'recipe')
-            ->where(function ($query) use ($category) {
-                // Posty w danej kategorii
-                $query->where('category_id', $category->id)
-                    // Posty w subkategoriach
-                    ->orWhereIn('category_id', $category->subcategories->pluck('id'));
-            })
+            ->with(['createdByUser', 'updatedByUser', 'imagesByPriority'])
             ->orderBy('created_at', 'desc')
-            ->get()
-            ->map(function ($post) {
-                // Użycie getPrioritizedImageAttribute, aby uzyskać obraz o najwyższym priorytecie
-                $image = $post->prioritizedImage;  // Zwróci obraz o najwyższym priorytecie
-                $imageLocation = $image ? $image->file_location : '/front/images/post_thumb_default.png'; // Jeśli nie ma obrazu, użyj domyślnego
+            ->get();
 
-                // Generowanie pełnego URL
-                $fullUrl = url('/') . '/' . $post->url; // Łączenie domeny z post->url
+        $return_data = [];
+        foreach($posts as $post) {
+            $prioritized_image = $post->imagesByPriority->first();
+            $item = [
+                'src' => $prioritized_image? $prioritized_image->file_location : null,
+                'srcset' => $prioritized_image ? $prioritized_image->srcset : null,
+                'title' => $post->title,
+                'url' => url('/') . '/' . $post->url,
+            ];
 
-                return [
-                    'src' => $imageLocation, // Ścieżka do pliku obrazu
-                    'srcset' => $image ? $image->srcset : null, // Jeśli masz srcset w tabeli images
-                    'title' => $post->title,
-                    'url' => $fullUrl, // Zbudowanie pełnego URL
-                ];
-            });
+            array_push($return_data, $item);
+            
+        }
 
-        return $posts;
+        return $return_data;
     }
 
 
