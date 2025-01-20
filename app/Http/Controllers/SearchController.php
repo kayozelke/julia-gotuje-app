@@ -17,6 +17,8 @@ class SearchController extends Controller
     public function apiSearchPanel(Request $request){
         $text = (string)$request->query('search_text');
 
+        sleep(1);
+
         return [
             'results' => $this->searchPanel($text),
         ];
