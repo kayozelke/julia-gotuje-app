@@ -141,7 +141,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card mb-4">
                         <a href="{{ route('admin.images.show', ['id' => $post_image->image->id]) }}">
-                            <img class="card-img-top" src="{{ $post_image->image->file_location }}" style="max-height: 270px; object-fit: cover; ">
+                            <img class="card-img-top" src="{{ $post_image->image->file_location }}" style="height: 270px; object-fit: cover; ">
                         </a>
                             
                         <div class="card-body">
