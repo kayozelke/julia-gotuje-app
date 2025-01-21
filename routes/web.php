@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+// use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
@@ -30,16 +30,6 @@ use App\Http\Controllers\DashboardController;
     // })->name('single_post');
 
 // ################ PANEL ###################
-
-// Route::get('/admin_test', function () {
-
-//     // echo view('panel/auth/header');
-//     // // echo view('panel/auth/home_page');
-//     // echo view('panel/auth/account_settings');
-//     // echo view('panel/auth/footer');
-//     return view('panel/auth/account_settings');
-//     // return view('panel/auth/form_horizontal');
-// });
 
 Route::get('/admin', function () {
     return redirect()->route('admin.home');
