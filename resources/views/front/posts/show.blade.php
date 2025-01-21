@@ -12,7 +12,8 @@
 
 <!-- # site-content
         ================================================== -->
-<div id="content" class="s-content s-content--blog">
+        {{-- removed class s-content--blog --}}
+<div id="content" class="s-content">
 
     <div class="row entry-wrap">
         <div class="column lg-12">
