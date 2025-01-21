@@ -13,7 +13,7 @@
  -->
 <!-- beautify ignore:start -->
 <html
-  lang="en"
+  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
