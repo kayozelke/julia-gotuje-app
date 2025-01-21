@@ -19,8 +19,8 @@
         <div class="column lg-12">
             {{-- show breadcrumb if any category is set --}}
             @if (count($recurrent_parent_categories) != 0)
-                <article class="entry format-standard">
-                <h5>
+            <div class="content-primary">
+                <h5 class="my-5">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb" style="list-style: none; padding: 0; margin: 0; display: inline;">
                             {{-- @if (count($recurrent_parent_categories) == 0) --}}
@@ -49,7 +49,7 @@
                     </nav>
                 </h5>
                 @endif
-            </article>
+            </div>
 
             <article class="entry format-standard">
 
