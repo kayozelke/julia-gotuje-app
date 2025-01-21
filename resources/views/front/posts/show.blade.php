@@ -238,12 +238,12 @@
                                 {{-- <div class="position-relative gallery-item" style="cursor: pointer;"> --}}
                                 <div class="position-relative gallery-item">
                                     <a href="{{ $image->file_location }}">
-                                        <img src="{{ $image->file_location }}" alt="Image 1" class="w-100">
-                                        <div class="position-absolute top-50 start-50 translate-middle text-center d-none">
+                                        <img src="{{ $image->file_location }}" alt="{{ $image->title }}" class="w-100" style="height: 280px; object-fit: cover">
+                                        {{-- <div class="position-absolute top-50 start-50 translate-middle text-center d-none">
                                             <div class="bg-success bg-opacity-70 text-white px-4 py-2">
                                                 {{ $image->title }}
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </a>
                                 </div>
                             </div>
