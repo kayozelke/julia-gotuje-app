@@ -68,7 +68,7 @@
         </div>
 
         <div class="card-body text-center">
-            <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 40%; max-height: 100%; max-width: 100%; object-fit: contain;"></a>
+            <a href="{{ $image->file_location }}"><img src="{{ $image->file_location }}" alt="{{ $image->title }}" style="min-width: 40%; max-height: 768px; max-width: 100%; object-fit: contain;"></a>
         </div>
 
 
