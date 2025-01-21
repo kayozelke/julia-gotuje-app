@@ -104,7 +104,7 @@ Route::get('/api/search_panel', [SearchController::class, 'apiSearchPanel'])->mi
 
 // Route::get('/user/{id}', [UserController::class, 'show']);
 // Route::get('/test_kayoz', [CategoryController::class, 'testKayoz']);
-// Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/debug', [CategoryController::class, 'wrongClassTest']);
 
 
 
