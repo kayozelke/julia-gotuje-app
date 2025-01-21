@@ -235,13 +235,16 @@
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                         @foreach ($post->imagesByPriority as $image)
                             <div class="col">
-                                <div class="position-relative gallery-item" style="cursor: pointer;">
-                                    <img src="{{ $image->file_location }}" alt="Image 1" class="w-100">
-                                    <div class="position-absolute top-50 start-50 translate-middle text-center d-none">
-                                        <div class="bg-success bg-opacity-70 text-white px-4 py-2">
-                                            {{ $image->title }}
+                                {{-- <div class="position-relative gallery-item" style="cursor: pointer;"> --}}
+                                <div class="position-relative gallery-item">
+                                    <a href="{{ $image->file_location }}">
+                                        <img src="{{ $image->file_location }}" alt="Image 1" class="w-100">
+                                        <div class="position-absolute top-50 start-50 translate-middle text-center d-none">
+                                            <div class="bg-success bg-opacity-70 text-white px-4 py-2">
+                                                {{ $image->title }}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
