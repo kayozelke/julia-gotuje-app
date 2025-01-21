@@ -140,7 +140,10 @@
             @foreach ($post_images as $post_image)
                 <div class="col-md-6 col-lg-4">
                     <div class="card mb-4">
-                        <img class="card-img-top" src="{{ $post_image->image->file_location }}">
+                        <a href="{{ route('admin.images.show', ['id' => $post_image->image->id]) }}">
+                            <img class="card-img-top" src="{{ $post_image->image->file_location }}" style="max-height: 270px; object-fit: cover; ">
+                        </a>
+                            
                         <div class="card-body">
                             <p class="card-text">
                                 {{ $post_image->image->title }}
