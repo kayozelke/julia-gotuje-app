@@ -59,9 +59,13 @@ JuliaGotuje.pl is a web-based application designed for managing and publishing c
 - **Other:** [DataTables](https://datatables.net/)
 
 ## Installation
-- Install PHP 8.4
-- Install MysQL/MariaDB client and add database
-- Copy file `.env.example` to `.env` and configure to your needs (URL, database host, credentials)
+- Install PHP 8.3/8.4
+- Install MysQL/MariaDB client
+- Clone repository
+- Run .sql file via SQL client, ex. `mysql -u root < juliagotuje.sql`
+- Copy file `.env.example` to `.env` and configure `.env` to your needs (URL, database host, credentials); set your APP_DEBUG to false
+- Install composer, run `composer install` inside app directory
+- Install and configure web server (Apache/Nginx), root directory should be `public/` and the index file `index.php`
 
 ## Authors
 [kayozelke](https://github.com/kayozelke) & [javieranka](https://github.com/javieranka), 2025
