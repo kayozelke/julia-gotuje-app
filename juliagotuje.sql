@@ -372,7 +372,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `email_verified_at`, `password`, `remember_token`, `first_name`, `last_name`, `last_login_at`, `last_login_ip`, `is_active`, `created_at`, `updated_at`) VALUES
-(3, 'system@example.com', NULL, '$2y$12$DzSUsrjb2g3.6vCEDZCddOZ4EOu1r44TwYEgdpe8ppkn.QCGQqTfK', NULL, 'Admin', 'Master', NULL, NULL, 1, '2024-12-08 14:43:22', '2024-12-08 14:43:22'),;
+(3, 'system@example.com', NULL, '$2y$12$DzSUsrjb2g3.6vCEDZCddOZ4EOu1r44TwYEgdpe8ppkn.QCGQqTfK', NULL, 'Admin', 'Master', NULL, NULL, 1, '2024-12-08 14:43:22', '2024-12-08 14:43:22');
 
 --
 -- Indexes for dumped tables
