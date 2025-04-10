@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 10, 2025 at 03:53 PM
+-- Generation Time: Apr 10, 2025 at 04:01 PM
 -- Server version: 10.11.11-MariaDB-0+deb12u1
 -- PHP Version: 8.3.14
 
@@ -97,6 +97,17 @@ CREATE TABLE `general_settings` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `updated_by` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `general_settings`
+--
+
+INSERT INTO `general_settings` (`id`, `key`, `value`, `description`, `updated_at`, `updated_by`) VALUES
+(500, 'X', 'https://x.com/?lang=pl', 'Link do X wstaw tu adminie złoty. Jeśli zostanie puste - ikona X nie pokaże się na stronie.', '2025-01-15 09:19:24', 3),
+(600, 'Facebook', 'https://www.facebook.com/groups/feed/', 'Link do Facebooka wklej tu adminie złoty. Jeśli zostanie puste - ikona Facebooka nie pokaże się na stronie.', '2025-01-14 20:48:56', 3),
+(700, 'Instagram', 'https://www.instagram.com/explore/', 'Link do Instagrama wklej tu adminie złoty. Jeśli zostanie puste - ikona Instagrama nie pokaże się na stronie.', '2025-01-14 20:49:42', 3),
+(800, 'posts_per_page', '8', 'Liczba postów na stronie (od tego ustawienia zależy też liczba dynamicznie utworzonych stron).', '2025-01-21 18:02:22', 3),
+(900, 'Pinterest', 'https://pl.pinterest.com/ideas/%C5%BCywno%C5%9B%C4%87-i-napoje/953744076610/', 'Link do Pinteresta wklej tu adminie złoty. Jeśli zostanie puste - ikona Pinteresta nie pokaże się na stronie.', '2025-01-14 20:50:16', 3);
 
 -- --------------------------------------------------------
 
@@ -357,6 +368,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `email_verified_at`, `password`, `remember_token`, `first_name`, `last_name`, `last_login_at`, `last_login_ip`, `is_active`, `created_at`, `updated_at`) VALUES
+(3, 'system@example.com', NULL, '$2y$12$DzSUsrjb2g3.6vCEDZCddOZ4EOu1r44TwYEgdpe8ppkn.QCGQqTfK', NULL, 'Admin', 'Master', NULL, NULL, 1, '2024-12-08 14:43:22', '2024-12-08 14:43:22'),;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -600,7 +618,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
