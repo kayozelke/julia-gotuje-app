@@ -10,7 +10,11 @@
 
     // Calculate total pages
     $postsPerPage = (int) $postsPerPage;
-    $totalPages = ceil($totalPosts / $postsPerPage);
+    $totalPages = 1; // Default to 1 page
+    if ($postsPerPage > 0) {
+        $totalPages = ceil($totalPosts / $postsPerPage);
+    }
+
 
     // Get the current page from the query string, default to 1
     $currentPage = request('page', 1);
