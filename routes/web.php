@@ -106,7 +106,7 @@ Route::get('/api/search_panel', [SearchController::class, 'apiSearchPanel'])->mi
 // Route::get('/test_kayoz', [CategoryController::class, 'testKayoz']);
 Route::get('/debug', [CategoryController::class, 'wrongClassTest']);
 
-
+Route::view('/emarketing', 'front.emarketing_page');
 
 // ############################################
 
